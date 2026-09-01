@@ -14,7 +14,7 @@ The project currently includes:
 - locale-aware routes under `#/ru/...` and `#/en/...`;
 - seven working SVG models covering data, motion, waves, fields, spacetime, quantum interference, and orbital motion;
 - editorial briefs for the remaining planned interactive experiments;
-- 39 formulas with physical interpretations and applicability notes;
+- 43 formulas with physical interpretations and applicability notes;
 - 18 physical constants checked against CODATA 2022 / NIST;
 - full-text search across titles, summaries, and experiment briefs;
 - bookmarks, reading progress, and light/dark themes stored locally in the browser;

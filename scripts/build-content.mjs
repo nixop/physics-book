@@ -122,6 +122,16 @@ if (privateSourcePath) {
   chapters = loadCommittedBook();
 }
 
+const topicFactCorrections = JSON.parse(readFileSync(join(rootDir, 'content', 'topic-fact-corrections.json'), 'utf8'));
+for (const chapter of chapters) {
+  for (const topic of chapter.topics) {
+    const correction = topicFactCorrections.ru[topic.id];
+    if (!correction) continue;
+    Object.assign(topic, correction);
+    topic.summary = topic.concepts[0];
+  }
+}
+
 const topicCount = chapters.reduce((sum, chapter) => sum + chapter.topics.length, 0);
 if (chapters.length !== 17 || topicCount !== 108) {
   throw new Error(`Нарушена структура источника: ожидалось 17 глав и 108 карточек, получено ${chapters.length} и ${topicCount}`);
@@ -168,6 +178,11 @@ const englishTranslations = englishParts.reduce((merged, part) => ({
   formulas: { ...merged.formulas, ...part.formulas },
   constants: { ...merged.constants, ...(part.constants ?? {}) },
 }), { chapters: {}, topics: {}, formulas: {}, constants: {} });
+
+for (const [topicId, correction] of Object.entries(topicFactCorrections.en)) {
+  if (!englishTranslations.topics[topicId]) throw new Error(`Нет английской карточки для фактологической поправки ${topicId}`);
+  Object.assign(englishTranslations.topics[topicId], correction);
+}
 
 if (Object.keys(englishTranslations.chapters).length !== chapters.length) throw new Error('Английский перевод должен покрывать 17 глав');
 if (Object.keys(englishTranslations.topics).length !== topicCount) throw new Error('Английский перевод должен покрывать 108 карточек');

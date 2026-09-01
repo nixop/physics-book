@@ -18,13 +18,13 @@ tags:
 ## Cards
 
 - [[8.1 · The Molecular Picture and Temperature|8.1. The Molecular Picture and Temperature]] — Atoms, molecules, and thermal motion.
-- [[8.2 · Kinetic Theory of an Ideal Gas|8.2. Kinetic Theory of an Ideal Gas]] — Pressure as the result of particle collisions.
+- [[8.2 · Kinetic Theory of an Ideal Gas|8.2. Kinetic Theory of an Ideal Gas]] — Pressure as a result of particle collisions.
 - [[8.3 · Distributions, Fluctuations, and Diffusion|8.3. Distributions, Fluctuations, and Diffusion]] — Why molecules do not all have the same speed.
-- [[8.4 · Internal Energy and the First Law|8.4. Internal Energy and the First Law]] — Internal energy.
+- [[8.4 · Internal Energy and the First Law|8.4. Internal Energy and the First Law]] — Internal energy is a state function.
 - [[8.5 · Heating, Phase Transitions, and Heat Transfer|8.5. Heating, Phase Transitions, and Heat Transfer]] — Specific heat capacity.
 - [[8.6 · Thermodynamic Processes|8.6. Thermodynamic Processes]] — Isochoric, isobaric, isothermal, and adiabatic processes.
 - [[8.7 · Entropy and the Second Law|8.7. Entropy and the Second Law]] — Microstates and macrostates.
-- [[8.8 · Heat Engines, Refrigerators, and Free Energy|8.8. Heat Engines, Refrigerators, and Free Energy]] — Heat engines and refrigerators.
+- [[8.8 · Heat Engines, Refrigerators, and Free Energy|8.8. Heat Engines, Refrigerators, and Free Energy]] — Heat engines, refrigerators, and heat pumps.
 
 ## Navigation
 

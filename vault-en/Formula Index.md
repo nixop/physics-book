@@ -26,7 +26,7 @@ $$\sigma_f^2\approx\sum_i\left(\frac{\partial f}{\partial x_i}\right)^2\sigma_{x
 - **Meaning:** Estimates the standard uncertainty of a calculated quantity from the uncertainties of the input data.
 - **Conditions:** Linearization is valid for small uncertainties; the input quantities are uncorrelated, otherwise covariance terms must be added.
 - **Units:** σ_f: the SI unit of f; each term in the sum: the square of the unit of f
-- **Related cards:** [[01 · Measurement and the Mathematical Language/1.2 · Measurement Uncertainty|1.2]], [[01 · Measurement and the Mathematical Language/1.3 · Data, Statistics, and Model Fitting|1.3]]
+- **Related cards:** [[01 · Measurement and the Mathematical Language/1.2 · Measurement Error and Uncertainty|1.2]], [[01 · Measurement and the Mathematical Language/1.3 · Data, Statistics, and Model Fitting|1.3]]
 
 ## Dot Product of Vectors
 
@@ -60,7 +60,7 @@ $$\mathbf v(t)=\mathbf v_0+\mathbf a t,\qquad\mathbf r(t)=\mathbf r_0+\mathbf v_
 $$\sum\mathbf F=\frac{d\mathbf p}{dt};\qquad\sum\mathbf F=m\mathbf a\quad(m=\mathrm{const})$$
 
 - **Meaning:** The net external force determines the change in a body's momentum.
-- **Conditions:** This form applies in an inertial frame of reference; the ma form requires constant mass and nonrelativistic motion.
+- **Conditions:** An inertial frame and a material system of fixed composition; the ma form additionally requires constant mass and nonrelativistic motion. For an open system such as a rocket, momentum flux must be included separately.
 - **Units:** F: N; p: kg·m/s; m: kg; a: m/s²
 - **Related cards:** [[03 · Dynamics and Newton's Laws/3.2 · Inertia and Newton's First Law|3.2]], [[03 · Dynamics and Newton's Laws/3.3 · Newton's Second Law|3.3]]
 
@@ -93,10 +93,10 @@ $$\frac{d\mathbf P}{dt}=\mathbf F_{\mathrm{ext}};\qquad\mathbf F_{\mathrm{ext}}=
 
 ## Angular Momentum Balance
 
-$$\mathbf L=\mathbf r\times\mathbf p,\qquad\frac{d\mathbf L}{dt}=\boldsymbol\tau_{\mathrm{ext}}$$
+$$\mathbf L_{\mathrm{point}}=\mathbf r\times\mathbf p,\qquad\mathbf L_{\mathrm{system}}=\sum_i\mathbf r_i\times\mathbf p_i,\qquad\frac{d\mathbf L}{dt}=\boldsymbol\tau_{\mathrm{ext}}$$
 
-- **Meaning:** External torque gives the rate of change of angular momentum about the chosen origin.
-- **Conditions:** The origin is stationary in an inertial frame; when the external torque is zero, L is conserved.
+- **Meaning:** A system's angular momentum is the sum of its particles' contributions, and external torque gives the rate of change of that sum.
+- **Conditions:** All r_i and torques are measured about the same origin, fixed in an inertial frame; when the external torque is zero, the system's total L is conserved.
 - **Units:** L: kg·m²/s; τ: N·m; r: m; p: kg·m/s
 - **Related cards:** [[04 · Energy, Momentum, and Rotation/4.7 · Rotational Kinematics and Dynamics|4.7]], [[04 · Energy, Momentum, and Rotation/4.8 · Torque and Angular Momentum|4.8]]
 
@@ -113,8 +113,8 @@ $$\mathbf F_{1\leftarrow2}=G\frac{m_1m_2}{|\mathbf r_2-\mathbf r_1|^3}(\mathbf r
 
 $$T^2=\frac{4\pi^2a^3}{G(M+m)}$$
 
-- **Meaning:** Relates the period of an elliptical orbit to its semimajor axis and the sum of the bodies' masses.
-- **Conditions:** An isolated Newtonian two-body system of pointlike or spherically symmetric bodies; perturbations and relativistic corrections are small.
+- **Meaning:** Relates the period of an elliptical relative orbit to its semimajor axis and the sum of the bodies' masses.
+- **Conditions:** An isolated Newtonian two-body system of pointlike or spherically symmetric bodies; a is the semimajor axis of one body's orbit relative to the other; perturbations and relativistic corrections are small.
 - **Units:** T: s; a: m; M and m: kg; G: m³/(kg·s²)
 - **Related cards:** [[05 · Gravitation and Celestial Mechanics/5.2 · Kepler's Laws and Orbits|5.2]], [[05 · Gravitation and Celestial Mechanics/5.3 · Orbital Energy and Cosmic Velocities|5.3]]
 
@@ -145,6 +145,15 @@ $$m\ddot x+kx=0,\qquad\omega_0=\sqrt{\frac{k}{m}},\qquad x=A\cos(\omega_0t+\varp
 - **Units:** m: kg; k: N/m; x and A: m; ω₀: rad/s; φ: dimensionless
 - **Related cards:** [[07 · Oscillations, Waves, and Sound/7.1 · The Harmonic Oscillator|7.1]], [[07 · Oscillations, Waves, and Sound/7.2 · Energy and Phase Space|7.2]]
 
+## Wave Speed, Frequency, and Wavelength
+
+$$v_{\mathrm{ph}}=f\lambda$$
+
+- **Meaning:** During one period, the profile of a harmonic wave advances by one wavelength.
+- **Conditions:** A monochromatic traveling wave, with f and λ measured in the same reference frame. In a dispersive medium this is the phase velocity at that frequency, not necessarily the energy-transport velocity.
+- **Units:** v_phase: m/s; f: Hz; λ: m
+- **Related cards:** [[07 · Oscillations, Waves, and Sound/7.4 · How Waves Propagate|7.4]]
+
 ## Natural Frequencies of a Stretched String
 
 $$f_n=\frac{n}{2L}\sqrt{\frac{T}{\mu}},\qquad n=1,2,3,\ldots$$
@@ -152,7 +161,7 @@ $$f_n=\frac{n}{2L}\sqrt{\frac{T}{\mu}},\qquad n=1,2,3,\ldots$$
 - **Meaning:** The boundary conditions select a discrete set of standing-wave frequencies on the string.
 - **Conditions:** A uniform, flexible string with fixed ends, constant tension, and small transverse oscillations.
 - **Units:** f: Hz; L: m; T: N; μ: kg/m
-- **Related cards:** [[07 · Oscillations, Waves, and Sound/7.4 · How Waves Propagate|7.4]], [[07 · Oscillations, Waves, and Sound/7.5 · Superposition and Standing Waves|7.5]], [[07 · Oscillations, Waves, and Sound/7.7 · Sound and Acoustics|7.7]]
+- **Related cards:** [[07 · Oscillations, Waves, and Sound/7.5 · Superposition and Standing Waves|7.5]], [[07 · Oscillations, Waves, and Sound/7.7 · Sound and Acoustics|7.7]]
 
 ## Ideal-Gas Equation of State
 
@@ -165,12 +174,21 @@ $$pV=nRT=Nk_{\mathrm B}T$$
 
 ## First Law of Thermodynamics
 
-$$\Delta U=Q-W,\qquad W=\int_{V_1}^{V_2}p_{\mathrm{ext}}\,dV$$
+$$\Delta U=Q-W_{\mathrm{total}},\qquad W_{pV}=\int_{V_1}^{V_2}p_{\mathrm{ext}}\,dV$$
 
-- **Meaning:** The change in internal energy equals the heat supplied to the system minus the work done by the system.
-- **Conditions:** A closed system; the convention W > 0 is used for work done by the system on its surroundings; the integral describes volume work in terms of the external pressure.
-- **Units:** U, Q, and W: J; p: Pa; V: m³
+- **Meaning:** The change in internal energy equals the heat supplied to the system minus the total work done by the system.
+- **Conditions:** A closed system, with Q > 0 into the system and W > 0 for work done by the system. The integral gives boundary pV work only; it equals total work only when electrical, chemical, and other work channels are absent.
+- **Units:** U, Q, W_total, and W_pV: J; p: Pa; V: m³
 - **Related cards:** [[08 · Molecular and Statistical Physics, Thermodynamics/8.4 · Internal Energy and the First Law|8.4]], [[08 · Molecular and Statistical Physics, Thermodynamics/8.6 · Thermodynamic Processes|8.6]]
+
+## Statistical Definition of Entropy
+
+$$S=k_{\mathrm B}\ln\Omega;\qquad S_{\mathrm G}=-k_{\mathrm B}\sum_i p_i\ln p_i$$
+
+- **Meaning:** Entropy depends logarithmically on the number of equiprobable microstates; the Gibbs entropy of a discrete classical ensemble accounts for the probability of each state.
+- **Conditions:** The first form requires Ω accessible equiprobable microstates. In the second form the discrete probabilities p_i are normalized and a term with p_i = 0 is zero by continuity; continuous and quantum states require modified definitions.
+- **Units:** S and k_B: J/K; Ω and p_i: dimensionless
+- **Related cards:** [[08 · Molecular and Statistical Physics, Thermodynamics/8.7 · Entropy and the Second Law|8.7]]
 
 ## Entropy Change and the Second Law
 
@@ -271,6 +289,15 @@ $$\gamma=\frac{1}{\sqrt{1-v^2/c^2}},\qquad\Delta t=\gamma\,\Delta\tau$$
 - **Units:** γ: dimensionless; v and c: m/s; Δt and Δτ: s
 - **Related cards:** [[12 · Spacetime and Relativity/12.2 · Simultaneity and Light Clocks|12.2]], [[12 · Spacetime and Relativity/12.3 · Length Contraction and Lorentz Transformations|12.3]]
 
+## Lorentz Transformation and Spacetime Interval
+
+$$\beta=\frac{v}{c},\quad\gamma=\frac{1}{\sqrt{1-\beta^2}};\qquad ct'=\gamma(ct-\beta x),\quad x'=\gamma(x-\beta ct);\qquad\Delta s^2=c^2\Delta t^2-\lvert\Delta\mathbf r\rvert^2$$
+
+- **Meaning:** The transformation mixes position and time while preserving the spacetime interval and the causal type of a pair of events.
+- **Conditions:** Inertial frames with parallel axes and relative velocity v along x; β = v/c, the origins coincide at t = t′ = 0, and the (+,−,−,−) metric convention is used.
+- **Units:** ct, x, and |Δr|: m; Δs²: m²; β and γ: dimensionless; t: s
+- **Related cards:** [[12 · Spacetime and Relativity/12.3 · Length Contraction and Lorentz Transformations|12.3]], [[12 · Spacetime and Relativity/12.4 · Spacetime Diagrams and Causality|12.4]]
+
 ## Relativistic Energy–Momentum Relation
 
 $$E^2=p^2c^2+m^2c^4$$
@@ -278,7 +305,7 @@ $$E^2=p^2c^2+m^2c^4$$
 - **Meaning:** The total energy of a free particle is related to its momentum and invariant mass.
 - **Conditions:** A free particle in special relativity; E includes the rest energy mc².
 - **Units:** E and mc²: J; p: kg·m/s; m: kg; c: m/s
-- **Related cards:** [[12 · Spacetime and Relativity/12.4 · Spacetime Diagrams and Causality|12.4]], [[12 · Spacetime and Relativity/12.5 · Relativistic Energy and Momentum|12.5]]
+- **Related cards:** [[12 · Spacetime and Relativity/12.5 · Relativistic Energy and Momentum|12.5]]
 
 ## Planck and de Broglie Relations
 
@@ -288,6 +315,15 @@ $$E_\gamma=h\nu,\qquad p=\frac{h}{\lambda}$$
 - **Conditions:** E = hν applies to a photon; λ = h/p is the de Broglie wavelength of a quasi-monochromatic free state.
 - **Units:** E: J; h: J·s; ν: Hz; p: kg·m/s; λ: m
 - **Related cards:** [[13 · Quantum Physics, Atomic Physics, and Materials Physics/13.1 · The Crisis of Classical Physics and the Photon|13.1]], [[13 · Quantum Physics, Atomic Physics, and Materials Physics/13.2 · Matter Waves and the Double-Slit Experiment|13.2]]
+
+## Relative Detection Density behind Two Narrow Slits
+
+$$\rho(\theta)\propto\cos^2\!\left(\frac{\pi d\sin\theta}{\lambda}\right)$$
+
+- **Meaning:** The squared sum of the amplitudes for two indistinguishable paths produces maxima and minima in the relative density of individual detection events.
+- **Conditions:** Two identical coherent narrow slits in the far field; normalization of the density depends on the chosen angular or screen coordinate. Finite slit width adds a single-slit diffraction envelope, while available which-path information removes the interference term.
+- **Units:** ρ: relative density in the chosen coordinate; d and λ: m; θ: rad
+- **Related cards:** [[13 · Quantum Physics, Atomic Physics, and Materials Physics/13.2 · Matter Waves and the Double-Slit Experiment|13.2]]
 
 ## Heisenberg Uncertainty Relation
 

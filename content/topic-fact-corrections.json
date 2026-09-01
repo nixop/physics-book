@@ -1,0 +1,270 @@
+{
+  "ru": {
+    "1.2": {
+      "title": "Погрешность и неопределённость измерения",
+      "concepts": [
+        "Разрешение прибора и цена деления ограничивают доступную информацию.",
+        "Погрешность — разность измеренного и опорного значений; точное значение обычно неизвестно.",
+        "Неопределённость количественно описывает разброс значений, обоснованно приписываемых измеряемой величине.",
+        "Случайные эффекты оценивают статистически, а систематические требуют модели и калибровки.",
+        "Абсолютная неопределённость имеет единицу измеряемой величины, а относительная безразмерна; для расширенной неопределённости указывают коэффициент и вероятность охвата, отличая её от стандартной.",
+        "Неопределённости входных величин распространяют с учётом их корреляций."
+      ]
+    },
+    "2.5": {
+      "concepts": [
+        "Ускорение свободного падения.",
+        "В однородном поле без сопротивления горизонтальное и вертикальное движения связаны только общим временем.",
+        "Бросок горизонтально и под углом.",
+        "Дальность, высота и время полёта.",
+        "Сопротивление воздуха связывает компоненты движения и меняет траекторию."
+      ]
+    },
+    "3.3": {
+      "concepts": [
+        "Равнодействующая внешних сил.",
+        "Для материальной системы фиксированного состава сумма внешних сил равна производной её импульса по времени.",
+        "При постоянной массе второй закон принимает вид `ΣF = ma`.",
+        "Векторная запись и уравнения по осям.",
+        "Начальные условия и численное предсказание движения."
+      ]
+    },
+    "4.3": {
+      "concepts": [
+        "Консервативные взаимодействия.",
+        "Гравитационная и упругая потенциальная энергия.",
+        "Выбор нулевого уровня потенциальной энергии не меняет силу.",
+        "Потенциальный рельеф и устойчивость равновесия.",
+        "Сила направлена против роста потенциальной энергии: `F = −∇U`."
+      ]
+    },
+    "4.6": {
+      "concepts": [
+        "Упругие и неупругие столкновения.",
+        "В замкнутой системе сохраняется импульс; кинетическая энергия сохраняется только в упругом столкновении.",
+        "Центр масс и движение системы как целого.",
+        "Ракета — открытая система: баланс импульса включает поток массы с выхлопом.",
+        "Нельзя без дополнительного потокового члена применять к ракете формулу `F = d(mv)/dt` как к системе фиксированного состава.",
+        "Простейшее уравнение Циолковского."
+      ]
+    },
+    "4.8": {
+      "concepts": [
+        "Плечо и момент силы.",
+        "Статическое равновесие.",
+        "Для материальной точки `L = r × p`; для системы `L = Σᵢ rᵢ × pᵢ` относительно выбранного начала.",
+        "В отсутствие внешнего момента полный угловой момент системы сохраняется.",
+        "Гироскопическая устойчивость и прецессия.",
+        "Симметрии как источник законов сохранения — обзорно."
+      ]
+    },
+    "5.2": {
+      "concepts": [
+        "В задаче двух тел относительная орбита является коническим сечением; связанная орбита — эллипс.",
+        "Площадной закон следует из сохранения углового момента.",
+        "В третьем законе Кеплера `a` — большая полуось относительной орбиты одного тела относительно другого.",
+        "Орбита как непрерывное свободное падение."
+      ]
+    },
+    "7.1": {
+      "concepts": [
+        "Положение устойчивого равновесия.",
+        "Амплитуда, период, частота и фаза.",
+        "Пружинный осциллятор гармоничен при выполнении закона Гука.",
+        "Математический маятник становится гармоническим только в малоугловом приближении `sin θ ≈ θ`, где `θ` выражен в радианах.",
+        "Гармоническое движение как проекция равномерного движения по окружности."
+      ]
+    },
+    "8.2": {
+      "concepts": [
+        "Давление как результат столкновений частиц.",
+        "Для классического идеального газа средняя поступательная кинетическая энергия частицы равна `⟨K_пост⟩ = 3k_B T/2`.",
+        "Внутренние вращательные и колебательные степени свободы многоатомной молекулы учитываются отдельно.",
+        "Уравнение состояния идеального газа.",
+        "Границы модели идеального газа."
+      ]
+    },
+    "8.4": {
+      "concepts": [
+        "Внутренняя энергия — функция состояния.",
+        "Теплота и работа — способы передачи энергии через границу системы, а не запасённые в ней величины.",
+        "При соглашении `Q > 0` в систему и `W > 0` от системы первый закон имеет вид `ΔU = Q − W`.",
+        "В этой записи `W` — полная работа системы; `∫p_ext dV` описывает только граничную pV-работу.",
+        "При отсутствии электрической, химической и других видов работы площадь под `p_ext(V)` даёт всю работу.",
+        "Теплоёмкости газа зависят от условий процесса."
+      ]
+    },
+    "8.7": {
+      "concepts": [
+        "Микросостояние и макросостояние.",
+        "Вероятностная природа равновесия.",
+        "Для `Ω` равновероятных микросостояний энтропия равна `S = k_B ln Ω`; для дискретного классического ансамбля энтропия Гиббса равна `S_G = −k_B Σᵢ pᵢ ln pᵢ`.",
+        "Второй закон относится к полной энтропии изолированной системы.",
+        "Необратимость и статистическая стрела времени.",
+        "Локальное уменьшение энтропии возможно в открытой системе за счёт обмена с окружением."
+      ]
+    },
+    "8.8": {
+      "concepts": [
+        "Тепловой двигатель, холодильник и тепловой насос.",
+        "КПД двигателя и холодильный коэффициент.",
+        "Цикл Карно задаёт предельную эффективность между двумя резервуарами.",
+        "В замкнутой системе при постоянных `T, V` и отсутствии необъёмной работы свободная энергия Гельмгольца в самопроизвольном процессе не возрастает: `ΔF ≤ 0`.",
+        "В замкнутой системе при постоянных `T, p` и отсутствии необъёмной работы свободная энергия Гиббса в самопроизвольном процессе не возрастает: `ΔG ≤ 0`."
+      ]
+    },
+    "11.1": {
+      "concepts": [
+        "Прямолинейное распространение света в однородной среде в лучевом приближении.",
+        "Тень и полутень.",
+        "Закон отражения.",
+        "Плоское зеркало.",
+        "Принцип Ферма требует стационарности оптического времени, а не обязательного минимума."
+      ],
+      "interactive": "поиск траектории со стационарным оптическим временем"
+    },
+    "12.5": {
+      "concepts": [
+        "Релятивистский импульс при больших скоростях.",
+        "Энергия покоя задаётся формулой `E₀ = mc²`.",
+        "Полная энергия свободной частицы удовлетворяет `E² = p²c² + m²c⁴`.",
+        "В процессах превращений сохраняется полная энергия; энергия покоя может переходить в кинетическую энергию и обратно.",
+        "Четырёхимпульс как необязательное углубление."
+      ]
+    }
+  },
+  "en": {
+    "1.2": {
+      "title": "Measurement Error and Uncertainty",
+      "concepts": [
+        "Instrument resolution and scale divisions limit the available information.",
+        "Measurement error is the difference between a measured value and a reference value; the exact value is usually unknown.",
+        "Measurement uncertainty quantifies the dispersion of values that can reasonably be attributed to the measurand.",
+        "Random effects are evaluated statistically, while systematic effects require a model and calibration.",
+        "Absolute uncertainty has the unit of the measurand, whereas relative uncertainty is dimensionless; expanded uncertainty is distinguished from standard uncertainty by reporting its coverage factor and coverage probability.",
+        "Input uncertainties must be propagated with their correlations taken into account."
+      ]
+    },
+    "2.5": {
+      "concepts": [
+        "Acceleration due to gravity.",
+        "In a uniform field without drag, horizontal and vertical motion share only the same time coordinate.",
+        "Horizontal and angled projectile motion.",
+        "Range, maximum height, and time of flight.",
+        "Air drag couples the components of motion and changes the trajectory."
+      ]
+    },
+    "3.3": {
+      "concepts": [
+        "The net external force.",
+        "For a material system of fixed composition, the net external force equals the time derivative of its momentum.",
+        "At constant mass, Newton's second law becomes `ΣF = ma`.",
+        "Vector notation and component equations.",
+        "Initial conditions and numerical prediction of motion."
+      ]
+    },
+    "4.3": {
+      "concepts": [
+        "Conservative interactions.",
+        "Gravitational and elastic potential energy.",
+        "Changing the zero of potential energy does not change the force.",
+        "Potential-energy landscapes and stability of equilibrium.",
+        "Force points opposite the increase of potential energy: `F = −∇U`."
+      ]
+    },
+    "4.6": {
+      "concepts": [
+        "Elastic and inelastic collisions.",
+        "Momentum is conserved in an isolated system; kinetic energy is conserved only in an elastic collision.",
+        "The center of mass and motion of the system as a whole.",
+        "A rocket is an open system: its momentum balance includes the flux of expelled mass.",
+        "The fixed-composition formula `F = d(mv)/dt` cannot be applied to a rocket without an additional momentum-flux term.",
+        "The simplest Tsiolkovsky rocket equation."
+      ]
+    },
+    "4.8": {
+      "concepts": [
+        "Lever arm and torque.",
+        "Static equilibrium.",
+        "For a point particle, `L = r × p`; for a system, `L = Σᵢ rᵢ × pᵢ` about the chosen origin.",
+        "The total angular momentum of a system is conserved when the external torque vanishes.",
+        "Gyroscopic stability and precession.",
+        "Symmetries as the origin of conservation laws—an overview."
+      ]
+    },
+    "5.2": {
+      "concepts": [
+        "In the two-body problem the relative orbit is a conic; a bound orbit is an ellipse.",
+        "The equal-areas law follows from conservation of angular momentum.",
+        "In Kepler's third law, `a` is the semimajor axis of the relative orbit of one body with respect to the other.",
+        "An orbit as continuous free fall."
+      ]
+    },
+    "7.1": {
+      "concepts": [
+        "Stable equilibrium.",
+        "Amplitude, period, frequency, and phase.",
+        "A spring oscillator is harmonic while Hooke's law applies.",
+        "A simple pendulum becomes harmonic only in the small-angle approximation `sin θ ≈ θ`, with `θ` expressed in radians.",
+        "Harmonic motion as the projection of uniform circular motion."
+      ]
+    },
+    "8.2": {
+      "concepts": [
+        "Pressure as a result of particle collisions.",
+        "For a classical ideal gas, the mean translational kinetic energy per particle is `⟨K_trans⟩ = 3k_B T/2`.",
+        "The internal rotational and vibrational degrees of freedom of a polyatomic molecule are counted separately.",
+        "The ideal-gas equation of state.",
+        "The limits of the ideal-gas model."
+      ]
+    },
+    "8.4": {
+      "concepts": [
+        "Internal energy is a state function.",
+        "Heat and work transfer energy across a system boundary; they are not quantities stored in the system.",
+        "With `Q > 0` into the system and `W > 0` done by the system, the first law is `ΔU = Q − W`.",
+        "Here `W` is the total work done by the system; `∫p_ext dV` describes only boundary pV work.",
+        "When electrical, chemical, and other work channels are absent, the area under `p_ext(V)` gives the total work.",
+        "Gas heat capacities depend on the constraints of the process."
+      ]
+    },
+    "8.7": {
+      "concepts": [
+        "Microstates and macrostates.",
+        "The probabilistic nature of equilibrium.",
+        "For `Ω` equiprobable microstates, entropy is `S = k_B ln Ω`; for a discrete classical ensemble, Gibbs entropy is `S_G = −k_B Σᵢ pᵢ ln pᵢ`.",
+        "The second law applies to the total entropy of an isolated system.",
+        "Irreversibility and the statistical arrow of time.",
+        "Entropy can decrease locally in an open system through exchange with its surroundings."
+      ]
+    },
+    "8.8": {
+      "concepts": [
+        "Heat engines, refrigerators, and heat pumps.",
+        "Engine efficiency and coefficient of performance.",
+        "The Carnot cycle sets the limiting efficiency between two reservoirs.",
+        "In a closed system at constant `T, V` with no non-pV work, Helmholtz free energy does not increase during a spontaneous process: `ΔF ≤ 0`.",
+        "In a closed system at constant `T, p` with no non-pV work, Gibbs free energy does not increase during a spontaneous process: `ΔG ≤ 0`."
+      ]
+    },
+    "11.1": {
+      "concepts": [
+        "Straight-line propagation of light in a homogeneous medium within the ray approximation.",
+        "Umbra and penumbra.",
+        "The law of reflection.",
+        "The plane mirror.",
+        "Fermat's principle requires stationary optical time, not necessarily a minimum."
+      ],
+      "interactive": "finding a path with stationary optical travel time"
+    },
+    "12.5": {
+      "concepts": [
+        "Relativistic momentum at high speeds.",
+        "Rest energy is given by `E₀ = mc²`.",
+        "The total energy of a free particle obeys `E² = p²c² + m²c⁴`.",
+        "Total energy is conserved in transformations; rest energy can become kinetic energy and vice versa.",
+        "Four-momentum as an optional extension."
+      ]
+    }
+  }
+}

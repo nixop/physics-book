@@ -17,7 +17,7 @@ tags:
 
 ## Cards
 
-- [[11.1 · The Ray Model, Reflection, and Fermat's Principle|11.1. The Ray Model, Reflection, and Fermat's Principle]] — The rectilinear propagation of light.
+- [[11.1 · The Ray Model, Reflection, and Fermat's Principle|11.1. The Ray Model, Reflection, and Fermat's Principle]] — Straight-line propagation of light in a homogeneous medium within the ray approximation.
 - [[11.2 · Refraction, Dispersion, and Total Internal Reflection|11.2. Refraction, Dispersion, and Total Internal Reflection]] — The speed of light in matter.
 - [[11.3 · Mirrors and Lenses|11.3. Mirrors and Lenses]] — Spherical mirrors.
 - [[11.4 · The Eye, Camera, Microscope, and Telescope|11.4. The Eye, Camera, Microscope, and Telescope]] — Image formation on the retina and an image sensor.

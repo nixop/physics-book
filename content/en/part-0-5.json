@@ -443,7 +443,7 @@
       "title": "Newton's Second Law",
       "plain": "ΣF = dp/dt; for constant mass, ΣF = ma",
       "meaning": "The net external force determines the change in a body's momentum.",
-      "conditions": "This form applies in an inertial frame of reference; the ma form requires constant mass and nonrelativistic motion.",
+      "conditions": "An inertial frame and a material system of fixed composition; the ma form additionally requires constant mass and nonrelativistic motion. For an open system such as a rocket, momentum flux must be included separately.",
       "units": "F: N; p: kg·m/s; m: kg; a: m/s²"
     },
     "dry-friction": {
@@ -469,9 +469,9 @@
     },
     "angular-momentum-balance": {
       "title": "Angular Momentum Balance",
-      "plain": "L = r × p; dL/dt = τ_ext",
-      "meaning": "External torque gives the rate of change of angular momentum about the chosen origin.",
-      "conditions": "The origin is stationary in an inertial frame; when the external torque is zero, L is conserved.",
+      "plain": "L_point = r × p; L_system = Σ_i r_i × p_i; dL/dt = τ_ext",
+      "meaning": "A system's angular momentum is the sum of its particles' contributions, and external torque gives the rate of change of that sum.",
+      "conditions": "All r_i and torques are measured about the same origin, fixed in an inertial frame; when the external torque is zero, the system's total L is conserved.",
       "units": "L: kg·m²/s; τ: N·m; r: m; p: kg·m/s"
     },
     "newton-gravitation": {
@@ -484,8 +484,8 @@
     "kepler-third-law": {
       "title": "Kepler's Third Law for the Two-Body Problem",
       "plain": "T² = 4π²a³ / [G(M + m)]",
-      "meaning": "Relates the period of an elliptical orbit to its semimajor axis and the sum of the bodies' masses.",
-      "conditions": "An isolated Newtonian two-body system of pointlike or spherically symmetric bodies; perturbations and relativistic corrections are small.",
+      "meaning": "Relates the period of an elliptical relative orbit to its semimajor axis and the sum of the bodies' masses.",
+      "conditions": "An isolated Newtonian two-body system of pointlike or spherically symmetric bodies; a is the semimajor axis of one body's orbit relative to the other; perturbations and relativistic corrections are small.",
       "units": "T: s; a: m; M and m: kg; G: m³/(kg·s²)"
     }
   }

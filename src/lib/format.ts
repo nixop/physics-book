@@ -6,3 +6,7 @@ export function pluralRu(value: number, forms: [string, string, string]) {
   if (last >= 2 && last <= 4) return forms[1];
   return forms[2];
 }
+
+export function pluralEn(value: number, singular: string, plural = `${singular}s`) {
+  return Math.abs(value) === 1 ? singular : plural;
+}

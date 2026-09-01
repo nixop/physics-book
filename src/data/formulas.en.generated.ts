@@ -79,7 +79,7 @@ export const formulas: FormulaEntry[] = [
     "latex": "\\sum\\mathbf F=\\frac{d\\mathbf p}{dt};\\qquad\\sum\\mathbf F=m\\mathbf a\\quad(m=\\mathrm{const})",
     "plain": "ΣF = dp/dt; for constant mass, ΣF = ma",
     "meaning": "The net external force determines the change in a body's momentum.",
-    "conditions": "This form applies in an inertial frame of reference; the ma form requires constant mass and nonrelativistic motion.",
+    "conditions": "An inertial frame and a material system of fixed composition; the ma form additionally requires constant mass and nonrelativistic motion. For an open system such as a rocket, momentum flux must be included separately.",
     "units": "F: N; p: kg·m/s; m: kg; a: m/s²",
     "relatedTopics": [
       "3.2",
@@ -131,10 +131,10 @@ export const formulas: FormulaEntry[] = [
     "id": "angular-momentum-balance",
     "chapter": 4,
     "title": "Angular Momentum Balance",
-    "latex": "\\mathbf L=\\mathbf r\\times\\mathbf p,\\qquad\\frac{d\\mathbf L}{dt}=\\boldsymbol\\tau_{\\mathrm{ext}}",
-    "plain": "L = r × p; dL/dt = τ_ext",
-    "meaning": "External torque gives the rate of change of angular momentum about the chosen origin.",
-    "conditions": "The origin is stationary in an inertial frame; when the external torque is zero, L is conserved.",
+    "latex": "\\mathbf L_{\\mathrm{point}}=\\mathbf r\\times\\mathbf p,\\qquad\\mathbf L_{\\mathrm{system}}=\\sum_i\\mathbf r_i\\times\\mathbf p_i,\\qquad\\frac{d\\mathbf L}{dt}=\\boldsymbol\\tau_{\\mathrm{ext}}",
+    "plain": "L_point = r × p; L_system = Σ_i r_i × p_i; dL/dt = τ_ext",
+    "meaning": "A system's angular momentum is the sum of its particles' contributions, and external torque gives the rate of change of that sum.",
+    "conditions": "All r_i and torques are measured about the same origin, fixed in an inertial frame; when the external torque is zero, the system's total L is conserved.",
     "units": "L: kg·m²/s; τ: N·m; r: m; p: kg·m/s",
     "relatedTopics": [
       "4.7",
@@ -160,8 +160,8 @@ export const formulas: FormulaEntry[] = [
     "title": "Kepler's Third Law for the Two-Body Problem",
     "latex": "T^2=\\frac{4\\pi^2a^3}{G(M+m)}",
     "plain": "T² = 4π²a³ / [G(M + m)]",
-    "meaning": "Relates the period of an elliptical orbit to its semimajor axis and the sum of the bodies' masses.",
-    "conditions": "An isolated Newtonian two-body system of pointlike or spherically symmetric bodies; perturbations and relativistic corrections are small.",
+    "meaning": "Relates the period of an elliptical relative orbit to its semimajor axis and the sum of the bodies' masses.",
+    "conditions": "An isolated Newtonian two-body system of pointlike or spherically symmetric bodies; a is the semimajor axis of one body's orbit relative to the other; perturbations and relativistic corrections are small.",
     "units": "T: s; a: m; M and m: kg; G: m³/(kg·s²)",
     "relatedTopics": [
       "5.2",
@@ -210,6 +210,19 @@ export const formulas: FormulaEntry[] = [
     ]
   },
   {
+    "id": "wave-speed",
+    "chapter": 7,
+    "title": "Wave Speed, Frequency, and Wavelength",
+    "latex": "v_{\\mathrm{ph}}=f\\lambda",
+    "plain": "v_phase = fλ",
+    "meaning": "During one period, the profile of a harmonic wave advances by one wavelength.",
+    "conditions": "A monochromatic traveling wave, with f and λ measured in the same reference frame. In a dispersive medium this is the phase velocity at that frequency, not necessarily the energy-transport velocity.",
+    "units": "v_phase: m/s; f: Hz; λ: m",
+    "relatedTopics": [
+      "7.4"
+    ]
+  },
+  {
     "id": "standing-wave-string",
     "chapter": 7,
     "title": "Natural Frequencies of a Stretched String",
@@ -219,7 +232,6 @@ export const formulas: FormulaEntry[] = [
     "conditions": "A uniform, flexible string with fixed ends, constant tension, and small transverse oscillations.",
     "units": "f: Hz; L: m; T: N; μ: kg/m",
     "relatedTopics": [
-      "7.4",
       "7.5",
       "7.7"
     ]
@@ -242,14 +254,27 @@ export const formulas: FormulaEntry[] = [
     "id": "first-law-thermodynamics",
     "chapter": 8,
     "title": "First Law of Thermodynamics",
-    "latex": "\\Delta U=Q-W,\\qquad W=\\int_{V_1}^{V_2}p_{\\mathrm{ext}}\\,dV",
-    "plain": "ΔU = Q − W; W = ∫ p_ext dV",
-    "meaning": "The change in internal energy equals the heat supplied to the system minus the work done by the system.",
-    "conditions": "A closed system; the convention W > 0 is used for work done by the system on its surroundings; the integral describes volume work in terms of the external pressure.",
-    "units": "U, Q, and W: J; p: Pa; V: m³",
+    "latex": "\\Delta U=Q-W_{\\mathrm{total}},\\qquad W_{pV}=\\int_{V_1}^{V_2}p_{\\mathrm{ext}}\\,dV",
+    "plain": "ΔU = Q − W_total; W_pV = ∫ p_ext dV",
+    "meaning": "The change in internal energy equals the heat supplied to the system minus the total work done by the system.",
+    "conditions": "A closed system, with Q > 0 into the system and W > 0 for work done by the system. The integral gives boundary pV work only; it equals total work only when electrical, chemical, and other work channels are absent.",
+    "units": "U, Q, W_total, and W_pV: J; p: Pa; V: m³",
     "relatedTopics": [
       "8.4",
       "8.6"
+    ]
+  },
+  {
+    "id": "boltzmann-entropy",
+    "chapter": 8,
+    "title": "Statistical Definition of Entropy",
+    "latex": "S=k_{\\mathrm B}\\ln\\Omega;\\qquad S_{\\mathrm G}=-k_{\\mathrm B}\\sum_i p_i\\ln p_i",
+    "plain": "S = k_B ln Ω; for a discrete classical ensemble S_G = −k_B Σ_i p_i ln p_i",
+    "meaning": "Entropy depends logarithmically on the number of equiprobable microstates; the Gibbs entropy of a discrete classical ensemble accounts for the probability of each state.",
+    "conditions": "The first form requires Ω accessible equiprobable microstates. In the second form the discrete probabilities p_i are normalized and a term with p_i = 0 is zero by continuity; continuous and quantum states require modified definitions.",
+    "units": "S and k_B: J/K; Ω and p_i: dimensionless",
+    "relatedTopics": [
+      "8.7"
     ]
   },
   {
@@ -406,6 +431,20 @@ export const formulas: FormulaEntry[] = [
     ]
   },
   {
+    "id": "lorentz-transform-interval",
+    "chapter": 12,
+    "title": "Lorentz Transformation and Spacetime Interval",
+    "latex": "\\beta=\\frac{v}{c},\\quad\\gamma=\\frac{1}{\\sqrt{1-\\beta^2}};\\qquad ct'=\\gamma(ct-\\beta x),\\quad x'=\\gamma(x-\\beta ct);\\qquad\\Delta s^2=c^2\\Delta t^2-\\lvert\\Delta\\mathbf r\\rvert^2",
+    "plain": "β = v/c; γ = 1/√(1 − β²); ct′ = γ(ct − βx); x′ = γ(x − βct); Δs² = c²Δt² − |Δr|²",
+    "meaning": "The transformation mixes position and time while preserving the spacetime interval and the causal type of a pair of events.",
+    "conditions": "Inertial frames with parallel axes and relative velocity v along x; β = v/c, the origins coincide at t = t′ = 0, and the (+,−,−,−) metric convention is used.",
+    "units": "ct, x, and |Δr|: m; Δs²: m²; β and γ: dimensionless; t: s",
+    "relatedTopics": [
+      "12.3",
+      "12.4"
+    ]
+  },
+  {
     "id": "relativistic-energy-momentum",
     "chapter": 12,
     "title": "Relativistic Energy–Momentum Relation",
@@ -415,7 +454,6 @@ export const formulas: FormulaEntry[] = [
     "conditions": "A free particle in special relativity; E includes the rest energy mc².",
     "units": "E and mc²: J; p: kg·m/s; m: kg; c: m/s",
     "relatedTopics": [
-      "12.4",
       "12.5"
     ]
   },
@@ -430,6 +468,19 @@ export const formulas: FormulaEntry[] = [
     "units": "E: J; h: J·s; ν: Hz; p: kg·m/s; λ: m",
     "relatedTopics": [
       "13.1",
+      "13.2"
+    ]
+  },
+  {
+    "id": "double-slit-probability",
+    "chapter": 13,
+    "title": "Relative Detection Density behind Two Narrow Slits",
+    "latex": "\\rho(\\theta)\\propto\\cos^2\\!\\left(\\frac{\\pi d\\sin\\theta}{\\lambda}\\right)",
+    "plain": "ρ(θ) ∝ cos²(πd sin θ / λ)",
+    "meaning": "The squared sum of the amplitudes for two indistinguishable paths produces maxima and minima in the relative density of individual detection events.",
+    "conditions": "Two identical coherent narrow slits in the far field; normalization of the density depends on the chosen angular or screen coordinate. Finite slit width adds a single-slit diffraction envelope, while available which-path information removes the interference term.",
+    "units": "ρ: relative density in the chosen coordinate; d and λ: m; θ: rad",
+    "relatedTopics": [
       "13.2"
     ]
   },

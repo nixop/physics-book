@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Bookmark, Check, ChevronDown, Clock3, Filter, Search, Sparkles } from 'lucide-react';
 import { bookMeta } from '../data';
 import { routes } from '../routing';
-import { pluralRu } from '../lib/format';
+import { pluralEn, pluralRu } from '../lib/format';
 import { useLocale } from '../i18n/LocaleContext';
 
 interface CatalogPageProps {
@@ -50,7 +50,7 @@ export function CatalogPage({ completed, bookmarks }: CatalogPageProps) {
           <label className="catalog-search"><Search size={18} aria-hidden="true" /><input aria-label={t('catalog.search')} value={query} onChange={(event) => setQuery(event.target.value)} placeholder={t('catalog.search')} /><kbd aria-hidden="true">/</kbd></label>
           <label className="catalog-select"><Filter size={17} aria-hidden="true" /><select aria-label={t('catalog.groupLabel')} value={group} onChange={(event) => setGroup(event.target.value)}><option value="all">{t('catalog.all')}</option>{groups.map((item) => <option value={item} key={item}>{groupLabel(item)}</option>)}</select><ChevronDown size={16} aria-hidden="true" /></label>
           <button type="button" aria-pressed={bookmarkedOnly} className={bookmarkedOnly ? 'filter-button is-active' : 'filter-button'} onClick={() => setBookmarkedOnly((value) => !value)}><Bookmark size={17} fill={bookmarkedOnly ? 'currentColor' : 'none'} /> {t('catalog.bookmarks')}</button>
-          <span className="catalog-result-count">{locale === 'ru' ? `${visibleCount} ${pluralRu(visibleCount, ['карточка', 'карточки', 'карточек'])}` : t('catalog.cardsCount', { count: visibleCount })}</span>
+          <span className="catalog-result-count">{locale === 'ru' ? `${visibleCount} ${pluralRu(visibleCount, ['карточка', 'карточки', 'карточек'])}` : `${visibleCount} ${pluralEn(visibleCount, 'card')}`}</span>
         </div>
       </div>
 
@@ -63,7 +63,7 @@ export function CatalogPage({ completed, bookmarks }: CatalogPageProps) {
               <summary>
                 <span className="catalog-chapter__number">{String(chapter.number).padStart(2, '0')}</span>
                 <span className="catalog-chapter__title"><small>{groupLabel(chapter.group)}</small><strong>{chapter.title}</strong></span>
-                <span className="catalog-chapter__meta"><span>{locale === 'ru' ? `${chapter.topics.length} ${pluralRu(chapter.topics.length, ['тема', 'темы', 'тем'])}` : t('catalog.topicsCount', { count: chapter.topics.length })}</span><span>{t('catalog.pagesShort', { count: chapter.pages })}</span><span>{done}/{chapter.topics.length}</span></span>
+                <span className="catalog-chapter__meta"><span>{locale === 'ru' ? `${chapter.topics.length} ${pluralRu(chapter.topics.length, ['тема', 'темы', 'тем'])}` : `${chapter.topics.length} ${pluralEn(chapter.topics.length, 'topic')}`}</span><span>{t('catalog.pagesShort', { count: chapter.pages })}</span><span>{done}/{chapter.topics.length}</span></span>
                 <span className="catalog-chapter__chevron"><ChevronDown size={20} /></span>
               </summary>
               <div className="catalog-topic-grid">

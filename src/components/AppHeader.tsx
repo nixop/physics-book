@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Atom, BookOpen, FlaskConical, Menu, Moon, Search, Sigma, Sun, X } from 'lucide-react';
 import type { Route } from '../routing';
 import { routeToHash, routes } from '../routing';
@@ -16,11 +17,24 @@ interface AppHeaderProps {
 
 export function AppHeader({ route, completedCount, theme, mobileOpen, onOpenSearch, onToggleTheme, onToggleMobile }: AppHeaderProps) {
   const { locale, t } = useLocale();
+  const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
   const isBook = route.page === 'catalog' || route.page === 'chapter' || route.page === 'topic';
   const switchLocale = (nextLocale: 'ru' | 'en') => {
     if (nextLocale !== locale) window.location.hash = routeToHash(route, nextLocale).slice(1);
   };
   const vault = locale === 'en' ? './pole-physics-vault-en.zip' : './pole-physics-vault.zip';
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      event.preventDefault();
+      onToggleMobile();
+      window.setTimeout(() => mobileMenuButtonRef.current?.focus(), 0);
+    };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [mobileOpen, onToggleMobile]);
+
   return (
     <header className="app-header">
       <div className="header-inner">
@@ -53,7 +67,7 @@ export function AppHeader({ route, completedCount, theme, mobileOpen, onOpenSear
           <button type="button" className="header-icon" onClick={onToggleTheme} aria-label={theme === 'light' ? t('header.dark') : t('header.light')}>
             {theme === 'light' ? <Moon size={19} /> : <Sun size={19} />}
           </button>
-          <button type="button" className="header-icon mobile-menu-button" onClick={onToggleMobile} aria-expanded={mobileOpen} aria-controls="mobile-menu" aria-label={mobileOpen ? t('header.closeMenu') : t('header.openMenu')}>
+          <button ref={mobileMenuButtonRef} type="button" className="header-icon mobile-menu-button" onClick={onToggleMobile} aria-expanded={mobileOpen} aria-controls="mobile-menu" aria-label={mobileOpen ? t('header.closeMenu') : t('header.openMenu')}>
             {mobileOpen ? <X size={21} /> : <Menu size={21} />}
           </button>
         </div>

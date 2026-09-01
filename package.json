@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Поле — интерактивный онлайн-справочник по физике и Obsidian-база знаний.",
+  "description": "A bilingual interactive physics reference with synchronized Obsidian knowledge bases.",
   "scripts": {
     "content": "node scripts/build-content.mjs",
     "vault": "node scripts/build-content.mjs --vault-only --force-vault",

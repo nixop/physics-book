@@ -4,6 +4,8 @@ import { allTopics, book, bookMeta, constants, formulas } from '../src/data';
 import { book as bookEn } from '../src/data/book.en.generated';
 import { formulas as formulasEn } from '../src/data/formulas.en.generated';
 import { constants as constantsEn } from '../src/data/constants.en.generated';
+import { implementedLabForTopic, topicBoundary } from '../src/lib/content';
+import { pluralEn } from '../src/lib/format';
 
 describe('редакционная модель книги', () => {
   it('сохраняет структуру исходного документа', () => {
@@ -50,5 +52,48 @@ describe('редакционная модель книги', () => {
     expect(JSON.stringify(bookEn)).not.toMatch(/[А-Яа-яЁё]/u);
     expect(formulasEn.every((formula) => !/[А-Яа-яЁё]/u.test(`${formula.title} ${formula.meaning} ${formula.conditions} ${formula.units}`))).toBe(true);
     expect(constantsEn.every((constant) => !/[А-Яа-яЁё]/u.test(`${constant.name} ${constant.unit} ${constant.note}`))).toBe(true);
+  });
+
+  it('сохраняет проверенные фактологические поправки в обеих локалях', () => {
+    const topicsEn = bookEn.flatMap((chapter) => chapter.topics);
+    const topic = (id: string) => allTopics.find((item) => item.id === id)!;
+    const topicEn = (id: string) => topicsEn.find((item) => item.id === id)!;
+
+    expect(topic('4.3').concepts.join(' ')).toContain('F = −∇U');
+    expect(topic('8.7').concepts.join(' ')).toContain('S = k_B ln Ω');
+    expect(topic('8.4').concepts.join(' ')).toMatch(/полная работа.+только граничную pV-работу/u);
+    expect(topic('7.1').concepts.join(' ')).toContain('sin θ ≈ θ');
+    expect(topic('8.2').concepts.join(' ')).toContain('3k_B T/2');
+    expect(topic('8.8').concepts.join(' ')).toMatch(/постоянных `T, V`.+постоянных `T, p`/u);
+    expect(topic('11.1').concepts.join(' ')).toMatch(/стационарности.+не обязательного минимума/u);
+
+    expect(topicEn('4.3').concepts.join(' ')).toContain('F = −∇U');
+    expect(topicEn('8.7').concepts.join(' ')).toContain('S = k_B ln Ω');
+    expect(topicEn('8.4').concepts.join(' ')).toMatch(/total work.+boundary pV work/u);
+    expect(topicEn('7.1').concepts.join(' ')).toContain('sin θ ≈ θ');
+    expect(topicEn('8.2').concepts.join(' ')).toContain('3k_B T/2');
+    expect(topicEn('8.8').concepts.join(' ')).toMatch(/constant `T, V`.+constant `T, p`/u);
+    expect(topicEn('11.1').concepts.join(' ')).toMatch(/stationary.+not necessarily a minimum/u);
+  });
+
+  it('привязывает опорные формулы к трём ранее непокрытым карточкам', () => {
+    const formulaFor = (id: string) => formulas.find((formula) => formula.id === id);
+    expect(formulaFor('wave-speed')?.relatedTopics).toContain('7.4');
+    expect(formulaFor('lorentz-transform-interval')?.relatedTopics).toContain('12.4');
+    expect(formulaFor('double-slit-probability')?.relatedTopics).toContain('13.2');
+  });
+
+  it('даёт каждой карточке собственную границу модели и отмечает только семь готовых лабораторий', () => {
+    const ruBoundaries = allTopics.map((topic) => topicBoundary(topic, 'ru'));
+    const enBoundaries = bookEn.flatMap((chapter) => chapter.topics).map((topic) => topicBoundary(topic, 'en'));
+    expect(new Set(ruBoundaries).size).toBe(allTopics.length);
+    expect(new Set(enBoundaries).size).toBe(allTopics.length);
+    expect(allTopics.filter((topic) => implementedLabForTopic(topic.id))).toHaveLength(7);
+  });
+
+  it('склоняет английские счётчики в единственном числе', () => {
+    expect(pluralEn(1, 'card')).toBe('card');
+    expect(pluralEn(0, 'card')).toBe('cards');
+    expect(pluralEn(2, 'topic')).toBe('topics');
   });
 });

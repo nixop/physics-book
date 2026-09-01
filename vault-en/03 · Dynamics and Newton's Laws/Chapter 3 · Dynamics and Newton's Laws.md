@@ -19,7 +19,7 @@ tags:
 
 - [[3.1 · Interactions and Force Diagrams|3.1. Interactions and Force Diagrams]] — Force as a description of an interaction.
 - [[3.2 · Inertia and Newton's First Law|3.2. Inertia and Newton's First Law]] — Why motion does not require a continuous force.
-- [[3.3 · Newton's Second Law|3.3. Newton's Second Law]] — The net force.
+- [[3.3 · Newton's Second Law|3.3. Newton's Second Law]] — The net external force.
 - [[3.4 · Newton's Third Law|3.4. Newton's Third Law]] — Interactions occurring in pairs.
 - [[3.5 · Normal Force, Tension, and Elasticity|3.5. Normal Force, Tension, and Elasticity]] — The force of gravity and apparent weight.
 - [[3.6 · Friction and Drag|3.6. Friction and Drag]] — Static and kinetic friction.

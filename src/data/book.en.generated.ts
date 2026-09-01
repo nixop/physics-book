@@ -107,18 +107,19 @@ export const book: Chapter[] = [
         "slug": "1-2",
         "chapter": 1,
         "order": 2,
-        "title": "Measurement Uncertainty",
+        "title": "Measurement Error and Uncertainty",
         "pages": 4,
         "minutes": 28,
         "level": "foundation",
         "concepts": [
-          "Instrument scale divisions and resolution.",
-          "Random and systematic errors.",
-          "Absolute and relative uncertainty.",
-          "Significant figures and sensible rounding.",
-          "Propagation of uncertainty in simple examples."
+          "Instrument resolution and scale divisions limit the available information.",
+          "Measurement error is the difference between a measured value and a reference value; the exact value is usually unknown.",
+          "Measurement uncertainty quantifies the dispersion of values that can reasonably be attributed to the measurand.",
+          "Random effects are evaluated statistically, while systematic effects require a model and calibration.",
+          "Absolute uncertainty has the unit of the measurand, whereas relative uncertainty is dimensionless; expanded uncertainty is distinguished from standard uncertainty by reporting its coverage factor and coverage probability.",
+          "Input uncertainties must be propagated with their correlations taken into account."
         ],
-        "summary": "Instrument scale divisions and resolution.",
+        "summary": "Instrument resolution and scale divisions limit the available information.",
         "labKind": "interactive",
         "interactive": "measuring the same object with instruments of different precision"
       },
@@ -331,10 +332,10 @@ export const book: Chapter[] = [
         "level": "foundation",
         "concepts": [
           "Acceleration due to gravity.",
-          "The independence of horizontal and vertical motion.",
-          "Horizontal and angled projectile launches.",
-          "Range, height, and time of flight.",
-          "The effect of air resistance."
+          "In a uniform field without drag, horizontal and vertical motion share only the same time coordinate.",
+          "Horizontal and angled projectile motion.",
+          "Range, maximum height, and time of flight.",
+          "Air drag couples the components of motion and changes the trajectory."
         ],
         "summary": "Acceleration due to gravity.",
         "labKind": "interactive",
@@ -423,13 +424,13 @@ export const book: Chapter[] = [
         "minutes": 35,
         "level": "foundation",
         "concepts": [
-          "The net force.",
-          "The relationship among force, mass, and acceleration.",
-          "Vector notation and equations along coordinate axes.",
-          "Initial conditions and the prediction of motion.",
-          "Numerical modeling of a force that depends on position or velocity."
+          "The net external force.",
+          "For a material system of fixed composition, the net external force equals the time derivative of its momentum.",
+          "At constant mass, Newton's second law becomes `ΣF = ma`.",
+          "Vector notation and component equations.",
+          "Initial conditions and numerical prediction of motion."
         ],
-        "summary": "The net force.",
+        "summary": "The net external force.",
         "labKind": "interactive",
         "interactive": "carts of different masses acted on by adjustable forces"
       },
@@ -580,9 +581,9 @@ export const book: Chapter[] = [
         "concepts": [
           "Conservative interactions.",
           "Gravitational and elastic potential energy.",
-          "Choosing the zero level.",
-          "The potential-energy landscape and equilibrium.",
-          "Force as the negative gradient of potential energy (minus the slope in one dimension)."
+          "Changing the zero of potential energy does not change the force.",
+          "Potential-energy landscapes and stability of equilibrium.",
+          "Force points opposite the increase of potential energy: `F = −∇U`."
         ],
         "summary": "Conservative interactions.",
         "labKind": "interactive",
@@ -641,10 +642,11 @@ export const book: Chapter[] = [
         "level": "foundation",
         "concepts": [
           "Elastic and inelastic collisions.",
-          "Momentum conservation and, for elastic collisions, conservation of kinetic energy.",
-          "The center of mass and the motion of a system as a whole.",
-          "A variable-mass system.",
-          "The simplest rocket equation."
+          "Momentum is conserved in an isolated system; kinetic energy is conserved only in an elastic collision.",
+          "The center of mass and motion of the system as a whole.",
+          "A rocket is an open system: its momentum balance includes the flux of expelled mass.",
+          "The fixed-composition formula `F = d(mv)/dt` cannot be applied to a rocket without an additional momentum-flux term.",
+          "The simplest Tsiolkovsky rocket equation."
         ],
         "summary": "Elastic and inelastic collisions.",
         "labKind": "interactive",
@@ -681,13 +683,14 @@ export const book: Chapter[] = [
         "minutes": 28,
         "level": "foundation",
         "concepts": [
-          "The lever arm and torque.",
+          "Lever arm and torque.",
           "Static equilibrium.",
-          "Angular momentum and its conservation.",
+          "For a point particle, `L = r × p`; for a system, `L = Σᵢ rᵢ × pᵢ` about the chosen origin.",
+          "The total angular momentum of a system is conserved when the external torque vanishes.",
           "Gyroscopic stability and precession.",
-          "Symmetries as the source of conservation laws—an overview."
+          "Symmetries as the origin of conservation laws—an overview."
         ],
-        "summary": "The lever arm and torque.",
+        "summary": "Lever arm and torque.",
         "labKind": "interactive",
         "interactive": "a virtual gyroscope and a rotating chair"
       }
@@ -732,12 +735,12 @@ export const book: Chapter[] = [
         "minutes": 28,
         "level": "in-depth",
         "concepts": [
-          "An elliptical orbit.",
-          "The equal-areas law.",
-          "The relationship between orbital period and orbit size.",
+          "In the two-body problem the relative orbit is a conic; a bound orbit is an ellipse.",
+          "The equal-areas law follows from conservation of angular momentum.",
+          "In Kepler's third law, `a` is the semimajor axis of the relative orbit of one body with respect to the other.",
           "An orbit as continuous free fall."
         ],
-        "summary": "An elliptical orbit.",
+        "summary": "In the two-body problem the relative orbit is a conic; a bound orbit is an ellipse.",
         "labKind": "interactive",
         "interactive": "reconstructing Kepler's laws from the motion of a planet"
       },
@@ -936,12 +939,13 @@ export const book: Chapter[] = [
         "minutes": 28,
         "level": "in-depth",
         "concepts": [
-          "Equilibrium position.",
+          "Stable equilibrium.",
           "Amplitude, period, frequency, and phase.",
-          "The spring oscillator and the simple pendulum.",
+          "A spring oscillator is harmonic while Hooke's law applies.",
+          "A simple pendulum becomes harmonic only in the small-angle approximation `sin θ ≈ θ`, with `θ` expressed in radians.",
           "Harmonic motion as the projection of uniform circular motion."
         ],
-        "summary": "Equilibrium position.",
+        "summary": "Stable equilibrium.",
         "labKind": "interactive",
         "interactive": "a synchronized view of an oscillator, circular motion, and a graph"
       },
@@ -1109,12 +1113,13 @@ export const book: Chapter[] = [
         "minutes": 28,
         "level": "in-depth",
         "concepts": [
-          "Pressure as the result of particle collisions.",
-          "The relationship between temperature and average kinetic energy.",
+          "Pressure as a result of particle collisions.",
+          "For a classical ideal gas, the mean translational kinetic energy per particle is `⟨K_trans⟩ = 3k_B T/2`.",
+          "The internal rotational and vibrational degrees of freedom of a polyatomic molecule are counted separately.",
           "The ideal-gas equation of state.",
           "The limits of the ideal-gas model."
         ],
-        "summary": "Pressure as the result of particle collisions.",
+        "summary": "Pressure as a result of particle collisions.",
         "labKind": "interactive",
         "interactive": "a particle gas with live pressure, volume, and temperature readings"
       },
@@ -1149,13 +1154,14 @@ export const book: Chapter[] = [
         "minutes": 35,
         "level": "in-depth",
         "concepts": [
-          "Internal energy.",
-          "Heat and work as modes of energy transfer.",
-          "The first law of thermodynamics.",
-          "The work done by a gas as an area on a pV diagram.",
-          "The heat capacities of a gas."
+          "Internal energy is a state function.",
+          "Heat and work transfer energy across a system boundary; they are not quantities stored in the system.",
+          "With `Q > 0` into the system and `W > 0` done by the system, the first law is `ΔU = Q − W`.",
+          "Here `W` is the total work done by the system; `∫p_ext dV` describes only boundary pV work.",
+          "When electrical, chemical, and other work channels are absent, the area under `p_ext(V)` gives the total work.",
+          "Gas heat capacities depend on the constraints of the process."
         ],
-        "summary": "Internal energy.",
+        "summary": "Internal energy is a state function.",
         "labKind": "interactive",
         "interactive": "freehand construction of a process on a pV diagram"
       },
@@ -1213,9 +1219,10 @@ export const book: Chapter[] = [
         "concepts": [
           "Microstates and macrostates.",
           "The probabilistic nature of equilibrium.",
-          "Entropy in terms of the number of accessible microstates.",
-          "Irreversibility and the arrow of time.",
-          "A local decrease in entropy within an open system."
+          "For `Ω` equiprobable microstates, entropy is `S = k_B ln Ω`; for a discrete classical ensemble, Gibbs entropy is `S_G = −k_B Σᵢ pᵢ ln pᵢ`.",
+          "The second law applies to the total entropy of an isolated system.",
+          "Irreversibility and the statistical arrow of time.",
+          "Entropy can decrease locally in an open system through exchange with its surroundings."
         ],
         "summary": "Microstates and macrostates.",
         "labKind": "interactive",
@@ -1232,13 +1239,13 @@ export const book: Chapter[] = [
         "minutes": 28,
         "level": "in-depth",
         "concepts": [
-          "Heat engines and refrigerators.",
-          "Efficiency and the coefficient of performance.",
-          "The Carnot cycle and the maximum possible efficiency.",
-          "The heat pump.",
-          "Gibbs or Helmholtz free-energy change as a spontaneity criterion under specified constraints—an overview."
+          "Heat engines, refrigerators, and heat pumps.",
+          "Engine efficiency and coefficient of performance.",
+          "The Carnot cycle sets the limiting efficiency between two reservoirs.",
+          "In a closed system at constant `T, V` with no non-pV work, Helmholtz free energy does not increase during a spontaneous process: `ΔF ≤ 0`.",
+          "In a closed system at constant `T, p` with no non-pV work, Gibbs free energy does not increase during a spontaneous process: `ΔG ≤ 0`."
         ],
-        "summary": "Heat engines and refrigerators.",
+        "summary": "Heat engines, refrigerators, and heat pumps.",
         "labKind": "interactive",
         "interactive": "configuring an engine operating between two thermal reservoirs"
       }
@@ -1614,15 +1621,15 @@ export const book: Chapter[] = [
         "minutes": 28,
         "level": "in-depth",
         "concepts": [
-          "The rectilinear propagation of light.",
-          "Shadows and penumbrae.",
+          "Straight-line propagation of light in a homogeneous medium within the ray approximation.",
+          "Umbra and penumbra.",
           "The law of reflection.",
           "The plane mirror.",
-          "Stationary optical paths and Fermat's principle."
+          "Fermat's principle requires stationary optical time, not necessarily a minimum."
         ],
-        "summary": "The rectilinear propagation of light.",
+        "summary": "Straight-line propagation of light in a homogeneous medium within the ray approximation.",
         "labKind": "interactive",
-        "interactive": "finding a stationary-time optical path, including minimum-time cases"
+        "interactive": "finding a path with stationary optical travel time"
       },
       {
         "id": "11.2",
@@ -1832,13 +1839,13 @@ export const book: Chapter[] = [
         "minutes": 28,
         "level": "advanced",
         "concepts": [
-          "Momentum at relativistic speeds.",
-          "Rest energy.",
-          "The energy–momentum relation.",
-          "E = mc² and the conversion of mass into other forms of energy.",
-          "Four-momentum as an optional advanced topic."
+          "Relativistic momentum at high speeds.",
+          "Rest energy is given by `E₀ = mc²`.",
+          "The total energy of a free particle obeys `E² = p²c² + m²c⁴`.",
+          "Total energy is conserved in transformations; rest energy can become kinetic energy and vice versa.",
+          "Four-momentum as an optional extension."
         ],
-        "summary": "Momentum at relativistic speeds.",
+        "summary": "Relativistic momentum at high speeds.",
         "labKind": "interactive",
         "interactive": "particle collisions in different frames of reference"
       },

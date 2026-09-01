@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Check, ChevronDown, ChevronRight, Search, X } from 'lucide-react';
 import { bookMeta } from '../data';
 import { routes } from '../routing';
@@ -29,15 +29,25 @@ export function BookSidebar({ currentChapter, currentTopic, completed, open, onC
     if (mobile && open) window.setTimeout(() => closeButtonRef.current?.focus(), 20);
   }, [mobile, open]);
 
-  const closeMobile = () => {
+  const closeMobile = useCallback(() => {
     if (!mobile) return;
     onClose();
     window.setTimeout(() => document.querySelector<HTMLButtonElement>('.mobile-sidebar-trigger')?.focus(), 20);
-  };
+  }, [mobile, onClose]);
+
+  useEffect(() => {
+    if (!mobile || !open) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      event.preventDefault();
+      closeMobile();
+    };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [closeMobile, mobile, open]);
 
   const trapKeys = (event: React.KeyboardEvent<HTMLElement>) => {
     if (!mobile || !open) return;
-    if (event.key === 'Escape') { event.preventDefault(); closeMobile(); return; }
     if (event.key !== 'Tab') return;
     const focusable = [...event.currentTarget.querySelectorAll<HTMLElement>('button:not([disabled]), a[href], input:not([disabled]), select:not([disabled])')];
     const first = focusable[0];
@@ -54,7 +64,13 @@ export function BookSidebar({ currentChapter, currentTopic, completed, open, onC
           <strong>{t('sidebar.contents')}</strong>
           <button ref={closeButtonRef} type="button" className="icon-button" onClick={closeMobile} aria-label={t('sidebar.close')}><X size={19} /></button>
         </div>
-        <button type="button" className="sidebar-search" onClick={() => { if (mobile) onClose(); onOpenSearch(); }}><Search size={17} /> {t('sidebar.search')} <kbd>/</kbd></button>
+        <button type="button" className="sidebar-search" onClick={() => {
+          if (mobile) {
+            onClose();
+            document.querySelector<HTMLButtonElement>('.mobile-sidebar-trigger')?.focus();
+          }
+          onOpenSearch();
+        }}><Search size={17} /> {t('sidebar.search')} <kbd>/</kbd></button>
         <div className="sidebar-progress">
           <div><span>{t('sidebar.progress')}</span><strong>{completed.size}/{bookMeta.topicCount}</strong></div>
           <span className="progress-track"><span style={{ width: `${(completed.size / bookMeta.topicCount) * 100}%` }} /></span>

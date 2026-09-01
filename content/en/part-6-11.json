@@ -490,6 +490,13 @@
       "conditions": "There is no damping or external driving; the force is linear in displacement, and the parameters m and k are constant.",
       "units": "m: kg; k: N/m; x and A: m; ω₀: rad/s; φ: dimensionless"
     },
+    "wave-speed": {
+      "title": "Wave Speed, Frequency, and Wavelength",
+      "plain": "v_phase = fλ",
+      "meaning": "During one period, the profile of a harmonic wave advances by one wavelength.",
+      "conditions": "A monochromatic traveling wave, with f and λ measured in the same reference frame. In a dispersive medium this is the phase velocity at that frequency, not necessarily the energy-transport velocity.",
+      "units": "v_phase: m/s; f: Hz; λ: m"
+    },
     "standing-wave-string": {
       "title": "Natural Frequencies of a Stretched String",
       "plain": "f_n = n/(2L) · sqrt(T/μ), n = 1, 2, 3, …",
@@ -506,10 +513,17 @@
     },
     "first-law-thermodynamics": {
       "title": "First Law of Thermodynamics",
-      "plain": "ΔU = Q − W; W = ∫ p_ext dV",
-      "meaning": "The change in internal energy equals the heat supplied to the system minus the work done by the system.",
-      "conditions": "A closed system; the convention W > 0 is used for work done by the system on its surroundings; the integral describes volume work in terms of the external pressure.",
-      "units": "U, Q, and W: J; p: Pa; V: m³"
+      "plain": "ΔU = Q − W_total; W_pV = ∫ p_ext dV",
+      "meaning": "The change in internal energy equals the heat supplied to the system minus the total work done by the system.",
+      "conditions": "A closed system, with Q > 0 into the system and W > 0 for work done by the system. The integral gives boundary pV work only; it equals total work only when electrical, chemical, and other work channels are absent.",
+      "units": "U, Q, W_total, and W_pV: J; p: Pa; V: m³"
+    },
+    "boltzmann-entropy": {
+      "title": "Statistical Definition of Entropy",
+      "plain": "S = k_B ln Ω; for a discrete classical ensemble S_G = −k_B Σ_i p_i ln p_i",
+      "meaning": "Entropy depends logarithmically on the number of equiprobable microstates; the Gibbs entropy of a discrete classical ensemble accounts for the probability of each state.",
+      "conditions": "The first form requires Ω accessible equiprobable microstates. In the second form the discrete probabilities p_i are normalized and a term with p_i = 0 is zero by continuity; continuous and quantum states require modified definitions.",
+      "units": "S and k_B: J/K; Ω and p_i: dimensionless"
     },
     "entropy-balance": {
       "title": "Entropy Change and the Second Law",

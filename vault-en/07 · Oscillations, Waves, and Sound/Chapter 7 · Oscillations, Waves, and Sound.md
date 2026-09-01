@@ -17,7 +17,7 @@ tags:
 
 ## Cards
 
-- [[7.1 · The Harmonic Oscillator|7.1. The Harmonic Oscillator]] — Equilibrium position.
+- [[7.1 · The Harmonic Oscillator|7.1. The Harmonic Oscillator]] — Stable equilibrium.
 - [[7.2 · Energy and Phase Space|7.2. Energy and Phase Space]] — The exchange between kinetic and potential energy.
 - [[7.3 · Damping, Driving, and Resonance|7.3. Damping, Driving, and Resonance]] — Energy dissipation.
 - [[7.4 · How Waves Propagate|7.4. How Waves Propagate]] — The transfer of a disturbance without the net transport of matter.

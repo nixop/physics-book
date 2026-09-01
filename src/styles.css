@@ -159,36 +159,38 @@ kbd { padding: 2px 6px; border: 1px solid var(--line); border-radius: 5px; backg
 .lab-line { fill: none; stroke: var(--lab-accent); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
 .lab-line--muted { stroke-width: 2; opacity: .55; }
 .lab-point { fill: var(--surface-solid); stroke: var(--lab-accent); stroke-width: 2.5; }
+.lab-residual { stroke: color-mix(in srgb, var(--lab-accent) 48%, var(--muted)); stroke-width: 1.2; stroke-dasharray: 2 3; }
 .lab-label { fill: var(--muted); font: 600 12px var(--sans); letter-spacing: .03em; }
+.lab-tick { fill: var(--muted); font: 650 10px var(--sans); letter-spacing: .02em; }
 .lab-orb { fill: var(--amber); stroke: var(--surface-solid); stroke-width: 4; filter: drop-shadow(0 4px 6px rgba(221,145,52,.35)); }
 .lab-vector { stroke: var(--coral); stroke-width: 3; stroke-linecap: round; }
-.lab-projectile { offset-distance: 0%; }
-.lab-projectile.is-running { animation: projectile 4.8s ease-in-out infinite; }
-@keyframes projectile { 0%, 8% { offset-distance: 0%; } 78%, 100% { offset-distance: 100%; } }
-.lab-wave { stroke-dasharray: 8 3; }
-.lab-wave.is-running { animation: wave-dash 3s linear infinite; }
-@keyframes wave-dash { to { stroke-dashoffset: -66; } }
+.lab-trajectory { stroke-width: 2.8; }
+.lab-wavelength-guide { stroke: color-mix(in srgb, var(--lab-accent) 68%, var(--muted)); stroke-width: 1.2; }
 .lab-source { fill: var(--violet); opacity: .85; }
-.lab-field-arrow { stroke: color-mix(in srgb, var(--lab-accent) 78%, var(--ink)); stroke-width: 1.5; opacity: .8; }
+.lab-field-arrow { stroke: color-mix(in srgb, var(--lab-accent) 78%, var(--ink)); stroke-linecap: round; }
 .lab-arrow-head { fill: var(--lab-accent); }
 .lab-charge { stroke: var(--surface-solid); stroke-width: 4; filter: drop-shadow(0 5px 8px rgba(0,0,0,.13)); }
 .lab-charge--plus { fill: var(--coral); }
 .lab-charge--minus { fill: var(--blue); }
-.lab-charge--neutral { fill: var(--muted); opacity: .55; }
+.lab-charge--neutral { fill: color-mix(in srgb, var(--surface-solid) 82%, transparent); stroke: var(--muted); stroke-width: 2; filter: none; }
 .lab-charge-label { fill: white; font: 800 22px var(--sans); }
+.lab-charge-label--neutral { fill: var(--muted); font-size: 12px; }
+.lab-field-legend { pointer-events: none; }
 .lab-light-line { stroke: var(--amber); stroke-width: 2.2; stroke-dasharray: 5 5; }
 .lab-world-line { stroke: var(--blue); stroke-width: 4; }
 .lab-simultaneous { stroke: var(--teal); stroke-width: 1.3; opacity: .6; }
+.lab-relativity-event { fill: var(--teal); stroke: var(--surface-solid); stroke-width: 1.5; }
 .lab-screen { fill: var(--ink-soft); opacity: .7; }
 .lab-slit { fill: var(--surface-solid); }
 .lab-quantum { stroke: var(--violet); }
-.lab-quantum.is-running { filter: drop-shadow(0 0 7px color-mix(in srgb, var(--violet) 45%, transparent)); }
-.lab-particle-line { stroke: var(--amber); stroke-width: 3; stroke-dasharray: 4 5; }
+.lab-particle-line { stroke: var(--amber); stroke-width: 1.6; stroke-dasharray: 4 5; opacity: .7; }
+.lab-detector-screen { stroke: var(--ink-soft); stroke-width: 3; opacity: .75; }
+.lab-detection-event { fill: var(--violet); opacity: .78; }
 .lab-orbit { fill: none; stroke: var(--teal); stroke-width: 2.3; }
 .lab-star { fill: var(--amber); filter: drop-shadow(0 0 13px rgba(221,145,52,.5)); }
 .lab-planet { fill: var(--blue); stroke: var(--surface-solid); stroke-width: 3; }
-.lab-stage.is-running .lab-particle-line { animation: wave-dash 1s linear infinite; }
 .lab-radius { stroke: var(--line-strong); stroke-width: 1.2; stroke-dasharray: 4 5; }
+.lab-area-sweep { fill: color-mix(in srgb, var(--teal) 18%, transparent); stroke: color-mix(in srgb, var(--teal) 62%, transparent); stroke-width: 1; }
 .lab-readout { position: absolute; right: 14px; bottom: 13px; min-width: 180px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; background: color-mix(in srgb, var(--surface-solid) 91%, transparent); backdrop-filter: blur(10px); }
 .lab-readout span, .lab-readout strong { display: block; }
 .lab-readout span { color: var(--muted); font-size: .61rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }

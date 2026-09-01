@@ -41,13 +41,134 @@ export const topicLead = (topic: Topic, locale: Locale = 'ru') => {
 };
 
 export const topicQuestion = (topic: Topic, locale: Locale = 'ru') => {
-  const title = topic.title.toLocaleLowerCase('ru-RU');
   return locale === 'en'
-    ? `How can ${title} be recognized experimentally, and which prediction distinguishes the chosen model from an alternative?`
-    : `Как экспериментально распознать ${title} и какое предсказание отличит выбранную модель от альтернативы?`;
+    ? `Which observations, quantities, and assumptions distinguish the model used for “${topic.title}”?`
+    : `Какие наблюдения, величины и допущения определяют модель для темы «${topic.title}»?`;
 };
 
-export const topicBoundary = (topic: Topic, locale: Locale = 'ru') => (locale === 'en' ? englishGuides : guides)[topic.chapter].boundary;
+const boundaryOverrides: Record<string, Record<Locale, string>> = {
+  '1.2': {
+    ru: 'Погрешность и неопределённость — разные понятия: первую определяют относительно опорного значения, вторую оценивают по данным, калибровке и модели измерения.',
+    en: 'Error and uncertainty are different concepts: error is defined relative to a reference value, while uncertainty is evaluated from data, calibration, and the measurement model.',
+  },
+  '2.5': {
+    ru: 'Параболическая траектория и независимость компонент справедливы в однородном поле без сопротивления воздуха и при пренебрежимо малой кривизне Земли.',
+    en: 'A parabolic trajectory and independent components require a uniform field, negligible air resistance, and negligible curvature of Earth over the flight.',
+  },
+  '3.3': {
+    ru: 'Форма ΣF = dp/dt относится к материальной системе фиксированного состава; для открытой системы нужен отдельный учёт потока импульса.',
+    en: 'The form ΣF = dp/dt applies to a material system of fixed composition; an open system requires a separate momentum-flux term.',
+  },
+  '3.6': {
+    ru: 'Коэффициентное сухое трение — эмпирическая модель: оно зависит от материалов, состояния поверхности, скорости и режима контакта.',
+    en: 'Coefficient-based dry friction is an empirical model; it depends on materials, surface condition, speed, and contact regime.',
+  },
+  '4.3': {
+    ru: 'Связь F = −∇U существует только для консервативной части взаимодействия; диссипативные силы одной потенциальной энергией не описываются.',
+    en: 'The relation F = −∇U applies only to the conservative part of an interaction; dissipative forces cannot be described by one potential energy.',
+  },
+  '4.6': {
+    ru: 'Полный импульс системы сохраняется, когда внешний импульс равен нулю; для ракеты граница сохраняющейся системы должна включать и ракету, и её выхлоп.',
+    en: 'A system’s total momentum is conserved when the external impulse is zero; for a rocket, the conserved system boundary must include both the rocket and its exhaust.',
+  },
+  '4.8': {
+    ru: 'Угловой момент и момент силы зависят от выбранного начала; формула L = r × p описывает одну точку, а для системы вклады суммируются.',
+    en: 'Angular momentum and torque depend on the chosen origin; L = r × p describes one point particle, while a system requires a sum over its constituents.',
+  },
+  '5.2': {
+    ru: 'Законы Кеплера в этой форме предполагают изолированную ньютоновскую задачу двух тел; a в третьем законе — полуось относительной орбиты.',
+    en: 'Kepler’s laws in this form assume an isolated Newtonian two-body problem; a in the third law is the semimajor axis of the relative orbit.',
+  },
+  '7.1': {
+    ru: 'Гармоничность требует линейной возвращающей силы; для математического маятника это малоугловое приближение sin θ ≈ θ при θ в радианах.',
+    en: 'Harmonic motion requires a linear restoring force; for a simple pendulum this is the small-angle approximation sin θ ≈ θ with θ in radians.',
+  },
+  '7.4': {
+    ru: 'Соотношение v = fλ относится к монохроматической бегущей волне; в диспергирующей среде фазовая и групповая скорости различаются.',
+    en: 'The relation v = fλ describes a monochromatic traveling wave; phase and group velocities differ in a dispersive medium.',
+  },
+  '8.2': {
+    ru: 'Связь ⟨K_пост⟩ = 3k_B T/2 относится к классическому идеальному газу; внутренние степени свободы многоатомных молекул учитываются отдельно.',
+    en: 'The relation ⟨K_trans⟩ = 3k_B T/2 applies to a classical ideal gas; internal degrees of freedom of polyatomic molecules are counted separately.',
+  },
+  '8.4': {
+    ru: 'Знак работы зависит от соглашения; интеграл ∫p_ext dV описывает только граничную pV-работу и не включает другие каналы передачи энергии.',
+    en: 'The sign of work depends on convention; ∫p_ext dV describes boundary pV work only and excludes other energy-transfer channels.',
+  },
+  '8.7': {
+    ru: 'Формула S = k_B ln Ω требует равновероятных микросостояний; сумма −k_B Σp_i ln p_i здесь относится к дискретному классическому ансамблю, а второй закон — к полной энтропии изолированной системы.',
+    en: 'The formula S = k_B ln Ω requires equiprobable microstates; −k_B Σp_i ln p_i here describes a discrete classical ensemble, while the second law concerns the total entropy of an isolated system.',
+  },
+  '8.8': {
+    ru: 'Для замкнутой системы без необъёмной работы критерий F применяют при фиксированных T,V, а критерий G — при фиксированных T,p; соответствующая свободная энергия не возрастает.',
+    en: 'For a closed system with no non-pV work, the F criterion applies at fixed T,V and the G criterion at fixed T,p; the corresponding free energy does not increase.',
+  },
+  '9.1': {
+    ru: 'Сохранение заряда относится к замкнутой системе; макроскопическая плотность заряда усредняет дискретную микроскопическую структуру вещества.',
+    en: 'Charge conservation applies to a closed system; macroscopic charge density averages over matter’s discrete microscopic structure.',
+  },
+  '9.2': {
+    ru: 'Закон Кулона в указанной форме описывает неподвижные точечные заряды в вакууме; для протяжённых распределений поле интегрируют, а в среде учитывают поляризацию.',
+    en: 'Coulomb’s law in this form describes stationary point charges in vacuum; extended distributions require integration, and matter introduces polarization.',
+  },
+  '9.3': {
+    ru: 'Закон Гаусса точен всегда, но позволяет легко найти поле только при достаточной симметрии распределения заряда.',
+    en: 'Gauss’s law is exact, but it determines the field easily only when the charge distribution has sufficient symmetry.',
+  },
+  '9.4': {
+    ru: 'Скалярный электростатический потенциал применим к безвихревому электрическому полю; при меняющемся магнитном потоке одного потенциала φ недостаточно.',
+    en: 'A scalar electrostatic potential applies to a curl-free electric field; when magnetic flux changes, φ alone is insufficient.',
+  },
+  '9.5': {
+    ru: 'Идеальный проводник предполагает электростатическое равновесие, а формулы простого конденсатора пренебрегают краевыми полями, потерями и нелинейностью диэлектрика.',
+    en: 'An ideal conductor assumes electrostatic equilibrium, while elementary capacitor formulas neglect fringing, losses, and dielectric nonlinearity.',
+  },
+  '9.6': {
+    ru: 'Закон Ома V = IR — линейная модель при почти постоянной температуре; многие материалы и устройства не являются омическими.',
+    en: 'Ohm’s law V = IR is a linear model at nearly constant temperature; many materials and devices are non-ohmic.',
+  },
+  '9.7': {
+    ru: 'Модель идеального источника пренебрегает внутренним сопротивлением, пределами мощности, нагревом и динамикой преобразования энергии.',
+    en: 'An ideal-source model neglects internal resistance, power limits, heating, and the dynamics of energy conversion.',
+  },
+  '9.8': {
+    ru: 'Законы сосредоточенной цепи предполагают квазистационарный режим; приборы меняют цепь своим конечным входным сопротивлением и полосой пропускания.',
+    en: 'Lumped-circuit laws assume a quasistatic regime; real meters load the circuit through finite input impedance and bandwidth.',
+  },
+  '9.9': {
+    ru: 'Простая RC-модель требует линейных сосредоточенных R и C; паразитные параметры и задержка распространения важны на высоких частотах.',
+    en: 'The elementary RC model requires linear lumped R and C; parasitic elements and propagation delay matter at high frequencies.',
+  },
+  '11.1': {
+    ru: 'Лучевая модель требует масштаба объектов намного больше длины волны; принцип Ферма задаёт стационарное, не обязательно минимальное оптическое время.',
+    en: 'The ray model requires object scales much larger than the wavelength; Fermat’s principle gives stationary, not necessarily minimal, optical travel time.',
+  },
+  '11.5': {
+    ru: 'Интерференция требует когерентности, а геометрическая оптика теряет точность, когда размеры апертуры сравнимы с длиной волны.',
+    en: 'Interference requires coherence, and geometric optics loses accuracy when an aperture is comparable to the wavelength.',
+  },
+  '12.4': {
+    ru: 'Диаграмма Минковского здесь описывает плоское пространство-время и инерциальные участки движения; ускорение и гравитация требуют дополнительного анализа.',
+    en: 'The Minkowski diagram here describes flat spacetime and inertial segments of motion; acceleration and gravity require additional analysis.',
+  },
+  '12.5': {
+    ru: 'Формула E₀ = mc² задаёт энергию покоя; полная энергия движущейся свободной частицы дополнительно зависит от импульса.',
+    en: 'The equation E₀ = mc² gives rest energy; the total energy of a moving free particle also depends on momentum.',
+  },
+  '13.2': {
+    ru: 'Формула двух щелей предполагает когерентные неразличимые пути и дальнюю зону; конечная ширина щели задаёт дополнительную дифракционную оболочку.',
+    en: 'The double-slit formula assumes coherent indistinguishable paths and the far field; finite slit width adds a diffraction envelope.',
+  },
+};
+
+export const topicBoundary = (topic: Topic, locale: Locale = 'ru') => {
+  const override = boundaryOverrides[topic.id]?.[locale];
+  if (override) return override;
+  const chapterBoundary = (locale === 'en' ? englishGuides : guides)[topic.chapter].boundary;
+  return locale === 'en'
+    ? `For “${topic.title},” state the model and its scale explicitly. ${chapterBoundary}`
+    : `Для темы «${topic.title}» явно укажите модель и её масштаб. ${chapterBoundary}`;
+};
 
 const implementedLabs: Record<string, { mode: LabMode; title: string }> = {
   '1.3': { mode: 'measure', title: 'Данные и шум' },

@@ -18,7 +18,7 @@ tags:
 ## Cards
 
 - [[1.1 · Physical Quantities, Units, and Scales|1.1. Physical Quantities, Units, and Scales]] — A numerical value and a unit of measurement.
-- [[1.2 · Measurement Uncertainty|1.2. Measurement Uncertainty]] — Instrument scale divisions and resolution.
+- [[1.2 · Measurement Error and Uncertainty|1.2. Measurement Error and Uncertainty]] — Instrument resolution and scale divisions limit the available information.
 - [[1.3 · Data, Statistics, and Model Fitting|1.3. Data, Statistics, and Model Fitting]] — A series of measurements, the mean value, and the spread.
 - [[1.4 · Functions and Graphs|1.4. Functions and Graphs]] — Independent and dependent variables.
 - [[1.5 · Scalars and Vectors|1.5. Scalars and Vectors]] — Quantities that have only a value and quantities that also have a direction.

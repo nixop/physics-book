@@ -350,6 +350,13 @@
       "conditions": "Inertial frames with a constant relative speed |v| < c; Δτ is the time between events in the frame where they occur at the same location.",
       "units": "γ: dimensionless; v and c: m/s; Δt and Δτ: s"
     },
+    "lorentz-transform-interval": {
+      "title": "Lorentz Transformation and Spacetime Interval",
+      "plain": "β = v/c; γ = 1/√(1 − β²); ct′ = γ(ct − βx); x′ = γ(x − βct); Δs² = c²Δt² − |Δr|²",
+      "meaning": "The transformation mixes position and time while preserving the spacetime interval and the causal type of a pair of events.",
+      "conditions": "Inertial frames with parallel axes and relative velocity v along x; β = v/c, the origins coincide at t = t′ = 0, and the (+,−,−,−) metric convention is used.",
+      "units": "ct, x, and |Δr|: m; Δs²: m²; β and γ: dimensionless; t: s"
+    },
     "relativistic-energy-momentum": {
       "title": "Relativistic Energy–Momentum Relation",
       "plain": "E² = p²c² + m²c⁴",
@@ -363,6 +370,13 @@
       "meaning": "Frequency determines a photon's energy, while wavelength determines the momentum of a quantum or a free particle.",
       "conditions": "E = hν applies to a photon; λ = h/p is the de Broglie wavelength of a quasi-monochromatic free state.",
       "units": "E: J; h: J·s; ν: Hz; p: kg·m/s; λ: m"
+    },
+    "double-slit-probability": {
+      "title": "Relative Detection Density behind Two Narrow Slits",
+      "plain": "ρ(θ) ∝ cos²(πd sin θ / λ)",
+      "meaning": "The squared sum of the amplitudes for two indistinguishable paths produces maxima and minima in the relative density of individual detection events.",
+      "conditions": "Two identical coherent narrow slits in the far field; normalization of the density depends on the chosen angular or screen coordinate. Finite slit width adds a single-slit diffraction envelope, while available which-path information removes the interference term.",
+      "units": "ρ: relative density in the chosen coordinate; d and λ: m; θ: rad"
     },
     "heisenberg-uncertainty": {
       "title": "Heisenberg Uncertainty Relation",

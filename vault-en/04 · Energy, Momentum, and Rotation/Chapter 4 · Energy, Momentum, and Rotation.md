@@ -24,7 +24,7 @@ tags:
 - [[4.5 · Momentum and Impulse|4.5. Momentum and Impulse]] — The momentum of a body.
 - [[4.6 · Collisions, the Center of Mass, and Rockets|4.6. Collisions, the Center of Mass, and Rockets]] — Elastic and inelastic collisions.
 - [[4.7 · Rotational Kinematics and Dynamics|4.7. Rotational Kinematics and Dynamics]] — Angle, angular velocity, and angular acceleration.
-- [[4.8 · Torque and Angular Momentum|4.8. Torque and Angular Momentum]] — The lever arm and torque.
+- [[4.8 · Torque and Angular Momentum|4.8. Torque and Angular Momentum]] — Lever arm and torque.
 
 ## Navigation
 

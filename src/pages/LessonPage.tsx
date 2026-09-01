@@ -8,7 +8,6 @@ import { implementedLabForTopic, topicBoundary, topicLead, topicQuestion } from 
 import { routes } from '../routing';
 import { pluralRu } from '../lib/format';
 import { useLocale } from '../i18n/LocaleContext';
-import type { Locale } from '../i18n/types';
 
 interface LessonPageProps {
   topicId: string;
@@ -42,6 +41,17 @@ export function LessonPage({ topicId, completed, bookmarks, sidebarOpen, onToggl
   const implementedLab = implementedLabForTopic(topic.id, locale);
   const isDone = completed.has(topic.id);
   const isBookmarked = bookmarks.has(topic.id);
+  const predictionOptions = [t('lesson.decrease'), t('lesson.same'), t('lesson.increase')];
+  const quickCheckId = `quick-check-answer-${topic.slug}`;
+
+  const movePrediction = (event: React.KeyboardEvent<HTMLButtonElement>, index: number) => {
+    const direction = event.key === 'ArrowRight' || event.key === 'ArrowDown' ? 1 : event.key === 'ArrowLeft' || event.key === 'ArrowUp' ? -1 : 0;
+    const nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? predictionOptions.length - 1 : direction ? (index + direction + predictionOptions.length) % predictionOptions.length : -1;
+    if (nextIndex < 0) return;
+    event.preventDefault();
+    setPrediction(predictionOptions[nextIndex]);
+    event.currentTarget.parentElement?.querySelectorAll<HTMLButtonElement>('[role="radio"]')[nextIndex]?.focus();
+  };
 
   const copyLink = async () => {
     try {
@@ -80,20 +90,20 @@ export function LessonPage({ topicId, completed, bookmarks, sidebarOpen, onToggl
 
         <section className="learning-goals">
           <div className="learning-goals__icon"><Target size={22} /></div>
-          <div><span>{t('lesson.after')}</span><ul>{topic.concepts.slice(0, 4).map((concept) => <li key={concept}><Check size={16} /> {concept.replace(/\.$/u, '').toLocaleLowerCase(locale === 'en' ? 'en-US' : 'ru-RU')}</li>)}</ul></div>
+          <div><span>{t('lesson.after')}</span><ul>{topic.concepts.slice(0, 4).map((concept) => <li key={concept}><Check size={16} /> {concept}</li>)}</ul></div>
         </section>
 
         <section id="phenomenon" className="lesson-section">
           <div className="lesson-section__label"><span>01</span> {t('lesson.phenomenon')}</div>
           <h2>{t('lesson.questionFirst')}</h2>
           <p className="lesson-lead">{topicQuestion(topic, locale)}</p>
-          <div className="prediction-card">
+          {implementedLab && <div className="prediction-card">
             <div><Lightbulb size={21} /><span><strong>{t('lesson.prediction')}</strong><small>{t('lesson.predictionText')}</small></span></div>
             <div className="prediction-options" role="radiogroup" aria-label={t('lesson.predictionGroup')}>
-              {[t('lesson.decrease'), t('lesson.same'), t('lesson.increase')].map((option) => <button type="button" role="radio" aria-checked={prediction === option} className={prediction === option ? 'is-selected' : ''} onClick={() => setPrediction(option)} key={option}>{option}</button>)}
+              {predictionOptions.map((option, index) => <button type="button" role="radio" aria-checked={prediction === option} tabIndex={prediction === option || (!prediction && index === 0) ? 0 : -1} className={prediction === option ? 'is-selected' : ''} onClick={() => setPrediction(option)} onKeyDown={(event) => movePrediction(event, index)} key={option}>{option}</button>)}
             </div>
             {prediction && <p className="prediction-feedback">{t('lesson.predictionSaved', { value: prediction })}</p>}
-          </div>
+          </div>}
         </section>
 
         <section id="experiment" className="lesson-section lesson-section--wide">
@@ -118,7 +128,7 @@ export function LessonPage({ topicId, completed, bookmarks, sidebarOpen, onToggl
             {topic.concepts.map((concept, index) => (
               <div className="concept-row" key={concept}>
                 <span>{String(index + 1).padStart(2, '0')}</span>
-                <div><strong>{concept.replace(/\.$/u, '')}</strong><p>{conceptExplanation(concept, index, locale)}</p></div>
+                <div><strong>{concept}</strong></div>
               </div>
             ))}
           </div>
@@ -156,8 +166,8 @@ export function LessonPage({ topicId, completed, bookmarks, sidebarOpen, onToggl
           <h2>{t('lesson.explain')}</h2>
           <div className="quick-check">
             <p>{t('lesson.checkQuestion')}</p>
-            <button type="button" onClick={() => setAnswerOpen((value) => !value)}>{answerOpen ? t('lesson.hideHint') : t('lesson.showHint')} <ArrowRight size={16} /></button>
-            {answerOpen && <div className="quick-check__answer"><strong>{t('lesson.answerGuide')}</strong><p>{t('lesson.answerText', { summary: topic.summary.replace(/\.$/u, '') })}</p></div>}
+            <button type="button" aria-expanded={answerOpen} aria-controls={quickCheckId} onClick={() => setAnswerOpen((value) => !value)}>{answerOpen ? t('lesson.hideHint') : t('lesson.showHint')} <ArrowRight size={16} /></button>
+            <div id={quickCheckId} className="quick-check__answer" hidden={!answerOpen}><strong>{t('lesson.answerGuide')}</strong><p>{t('lesson.answerText', { summary: topic.summary.replace(/\.$/u, '') })}</p></div>
           </div>
         </section>
 
@@ -188,24 +198,4 @@ export function LessonPage({ topicId, completed, bookmarks, sidebarOpen, onToggl
 
 function OutlineButton({ target, children }: { target: string; children: React.ReactNode }) {
   return <button type="button" onClick={() => document.getElementById(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>{children}</button>;
-}
-
-function conceptExplanation(concept: string, index: number, locale: Locale) {
-  const clean = concept.replace(/\.$/u, '');
-  if (locale === 'en') {
-    const templates = [
-      `Express “${clean.toLocaleLowerCase('en-US')}” through observable quantities rather than the name of a law.`,
-      'Connect this statement to a diagram: identify the direction, sign, and reference frame.',
-      'Test the statement in a simple limiting case where the result can be predicted without calculation.',
-      'Match the verbal description to a graph: what does its slope, area, or characteristic scale mean?',
-    ];
-    return templates[index % templates.length];
-  }
-  const templates = [
-    `Сформулируйте «${clean.toLocaleLowerCase('ru-RU')}» через наблюдаемые величины, а не через название закона.`,
-    'Свяжите этот тезис со схемой: укажите направление, знак и выбранную систему отсчёта.',
-    'Проверьте утверждение на простом предельном случае, где результат можно предсказать без вычислений.',
-    'Сопоставьте словесное описание с графиком: что означает наклон, площадь или характерный масштаб?',
-  ];
-  return templates[index % templates.length];
 }
