@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.DS_Store
+.screenshots/
+coverage/
+.env
+.env.*
+!.env.example
+/interactive_physics_book*.md

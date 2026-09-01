@@ -1,0 +1,492 @@
+{
+  "chapters": {
+    "0": {
+      "title": "How Physics Works"
+    },
+    "1": {
+      "title": "Measurement and the Mathematical Language"
+    },
+    "2": {
+      "title": "Kinematics"
+    },
+    "3": {
+      "title": "Dynamics and Newton's Laws"
+    },
+    "4": {
+      "title": "Energy, Momentum, and Rotation"
+    },
+    "5": {
+      "title": "Gravitation and Celestial Mechanics"
+    }
+  },
+  "topics": {
+    "0.1": {
+      "title": "Physics as Model Building",
+      "concepts": [
+        "Observation, idealization, model, prediction, and experiment.",
+        "A model as a useful simplification rather than a literal copy of reality.",
+        "Approximations and domains of applicability.",
+        "The distinction between a law, a model, a hypothesis, and a measured fact."
+      ],
+      "interactive": "comparing a body's fall in a vacuum, air, and a viscous medium"
+    },
+    "0.2": {
+      "title": "How a Physics Experiment Is Structured",
+      "concepts": [
+        "The system under study, input parameters, and measured quantities.",
+        "Controlling variables.",
+        "Repeatability and reproducibility.",
+        "Why a single agreement does not prove anything yet."
+      ],
+      "interactive": "determining what the period of a pendulum depends on"
+    },
+    "0.3": {
+      "title": "How to Use the Interactive Book",
+      "concepts": [
+        "The cycle: predict → run → measure → explain.",
+        "Working with sliders, graphs, and virtual instruments.",
+        "Keeping a laboratory notebook and saving results.",
+        "Three levels of depth: intuition, the core path, and mathematical exploration."
+      ],
+      "interactive": "a first self-guided model with an unknown relationship"
+    },
+    "1.1": {
+      "title": "Physical Quantities, Units, and Scales",
+      "concepts": [
+        "A numerical value and a unit of measurement.",
+        "The SI system and its prefixes.",
+        "Dimensions of physical quantities.",
+        "Unit conversions and checking equations by dimensional analysis.",
+        "Orders of magnitude and Fermi estimates."
+      ],
+      "interactive": "a scale spanning from an atomic nucleus to the observable Universe"
+    },
+    "1.2": {
+      "title": "Measurement Uncertainty",
+      "concepts": [
+        "Instrument scale divisions and resolution.",
+        "Random and systematic errors.",
+        "Absolute and relative uncertainty.",
+        "Significant figures and sensible rounding.",
+        "Propagation of uncertainty in simple examples."
+      ],
+      "interactive": "measuring the same object with instruments of different precision"
+    },
+    "1.3": {
+      "title": "Data, Statistics, and Model Fitting",
+      "concepts": [
+        "A series of measurements, the mean value, and the spread.",
+        "Histograms and the normal distribution at an intuitive level.",
+        "Outliers: when they may be excluded and when they may not.",
+        "Straight-line fitting, residuals, and goodness of fit.",
+        "Correlation does not necessarily imply causation."
+      ],
+      "interactive": "inferring the law of motion from noisy data"
+    },
+    "1.4": {
+      "title": "Functions and Graphs",
+      "concepts": [
+        "Independent and dependent variables.",
+        "Direct, inverse, quadratic, and exponential relationships.",
+        "Linear and logarithmic scales.",
+        "The slope of a graph and the area under it.",
+        "Reading the physical meaning of a graph without substituting numbers."
+      ],
+      "interactive": "linking an equation, a graph, and an animation of a process"
+    },
+    "1.5": {
+      "title": "Scalars and Vectors",
+      "concepts": [
+        "Quantities that have only a value and quantities that also have a direction.",
+        "The magnitude and direction of a vector.",
+        "Equality of free vectors regardless of their position.",
+        "Vector addition and subtraction.",
+        "Multiplication of a vector by a scalar."
+      ],
+      "interactive": "a geometric vector-addition builder"
+    },
+    "1.6": {
+      "title": "Projections, Components, and Vector Products",
+      "concepts": [
+        "A projection as the 'shadow' of a vector on a chosen axis.",
+        "The sign of a projection and a zero projection.",
+        "Moving from one axis to two- and three-dimensional coordinates.",
+        "Reconstructing a vector from its components.",
+        "The dot product as a measure of alignment.",
+        "The cross product as an oriented area—an overview."
+      ],
+      "interactive": "rotating a vector and the coordinate axes with real-time recalculation of its components"
+    },
+    "1.7": {
+      "title": "The Derivative, the Integral, and Equations of Change",
+      "concepts": [
+        "The derivative as the instantaneous rate of change.",
+        "The integral as an accumulated quantity.",
+        "The connection between finite increments and continuous change.",
+        "A differential equation as a rule governing the evolution of a system.",
+        "Numerical solution in small steps."
+      ],
+      "interactive": "comparing exact motion with a step-by-step numerical simulation"
+    },
+    "2.1": {
+      "title": "Events and Frames of Reference",
+      "concepts": [
+        "A point particle and a model of an extended body.",
+        "A reference body, coordinates, and a clock.",
+        "An event as a position and an instant in time.",
+        "The relativity of rest and motion."
+      ],
+      "interactive": "the same motion as seen by three observers"
+    },
+    "2.2": {
+      "title": "Position, Trajectory, Distance, and Displacement",
+      "concepts": [
+        "The position vector and the position of a body.",
+        "The trajectory and the distance traveled.",
+        "The displacement vector.",
+        "Why distance and the magnitude of displacement are different."
+      ],
+      "interactive": "a route editor that calculates distance and displacement"
+    },
+    "2.3": {
+      "title": "Average and Instantaneous Velocity",
+      "concepts": [
+        "Average speed.",
+        "Average velocity.",
+        "Instantaneous velocity as a limit and as the slope of a graph.",
+        "The direction of velocity along a curved trajectory."
+      ],
+      "interactive": "the motion of a point together with the tangent to its position graph"
+    },
+    "2.4": {
+      "title": "Acceleration and Motion Graphs",
+      "concepts": [
+        "Acceleration as a change in the velocity vector.",
+        "Speeding up, slowing down, and turning.",
+        "The relationship among position, velocity, and acceleration graphs.",
+        "Motion with constant acceleration.",
+        "Motion with variable acceleration and numerical integration."
+      ],
+      "interactive": "drawing a graph that a body must then reproduce"
+    },
+    "2.5": {
+      "title": "Free Fall and Projectile Motion",
+      "concepts": [
+        "Acceleration due to gravity.",
+        "The independence of horizontal and vertical motion.",
+        "Horizontal and angled projectile launches.",
+        "Range, height, and time of flight.",
+        "The effect of air resistance."
+      ],
+      "interactive": "a ballistics sandbox with ideal and realistic modes"
+    },
+    "2.6": {
+      "title": "Relative and Curvilinear Motion",
+      "concepts": [
+        "The addition of velocities.",
+        "A boat in a current, an airplane in the wind, and moving rain.",
+        "Angular quantities.",
+        "Tangential and normal components of acceleration.",
+        "The kinematics of circular motion."
+      ],
+      "interactive": "choosing a heading in a crosswind or a cross-current"
+    },
+    "3.1": {
+      "title": "Interactions and Force Diagrams",
+      "concepts": [
+        "Force as a description of an interaction.",
+        "Choosing the system under study.",
+        "External and internal influences.",
+        "The free-body diagram.",
+        "Typical spurious or nonexistent forces introduced in incorrect free-body diagrams."
+      ],
+      "interactive": "a force-diagram builder with logic checking"
+    },
+    "3.2": {
+      "title": "Inertia and Newton's First Law",
+      "concepts": [
+        "Why motion does not require a continuous force.",
+        "Inertial frames of reference.",
+        "Galilean relativity.",
+        "Mass as a measure of inertia."
+      ],
+      "interactive": "the motion of a puck as friction is gradually reduced"
+    },
+    "3.3": {
+      "title": "Newton's Second Law",
+      "concepts": [
+        "The net force.",
+        "The relationship among force, mass, and acceleration.",
+        "Vector notation and equations along coordinate axes.",
+        "Initial conditions and the prediction of motion.",
+        "Numerical modeling of a force that depends on position or velocity."
+      ],
+      "interactive": "carts of different masses acted on by adjustable forces"
+    },
+    "3.4": {
+      "title": "Newton's Third Law",
+      "concepts": [
+        "Interactions occurring in pairs.",
+        "Why action and reaction act on different bodies.",
+        "Walking, swimming, recoil, and thrust.",
+        "Resolving common paradoxes."
+      ],
+      "interactive": "finding force pairs in a complex scene"
+    },
+    "3.5": {
+      "title": "Normal Force, Tension, and Elasticity",
+      "concepts": [
+        "The force of gravity and apparent weight.",
+        "The normal force.",
+        "Tension in a string.",
+        "Hooke's law.",
+        "Systems of connected bodies and pulleys.",
+        "Apparent weight in an accelerating elevator."
+      ],
+      "interactive": "a system of weights, springs, strings, and pulleys"
+    },
+    "3.6": {
+      "title": "Friction and Drag",
+      "concepts": [
+        "Static and kinetic friction.",
+        "The coefficient of friction and the limits of applicability of the simple model.",
+        "Drag proportional to speed and to the square of speed.",
+        "Terminal velocity.",
+        "A falling skydiver and a moving car."
+      ],
+      "interactive": "determining the drag law from trajectory data"
+    },
+    "3.7": {
+      "title": "Constraints, Circular Motion, and Non-Inertial Frames",
+      "concepts": [
+        "Geometric constraints and constrained motion.",
+        "Which real force plays the role of the centripetal force.",
+        "A rotating frame of reference.",
+        "The centrifugal effect and the Coriolis force.",
+        "The Foucault pendulum and atmospheric vortices."
+      ],
+      "interactive": "the motion of a body on a rotating platform"
+    },
+    "4.1": {
+      "title": "Work and Power",
+      "concepts": [
+        "Work done by a constant or variable force.",
+        "The role of the component of force along the displacement.",
+        "Work as the area under a force graph.",
+        "Power and the rate of energy transfer."
+      ],
+      "interactive": "moving a load along different trajectories and comparing the work done"
+    },
+    "4.2": {
+      "title": "Kinetic Energy and the Work–Energy Theorem",
+      "concepts": [
+        "The energy of motion.",
+        "The relationship between net work and the change in kinetic energy.",
+        "Braking distance.",
+        "Work in different frames of reference."
+      ],
+      "interactive": "reconstructing a body's speed from a force graph"
+    },
+    "4.3": {
+      "title": "Potential Energy and Force",
+      "concepts": [
+        "Conservative interactions.",
+        "Gravitational and elastic potential energy.",
+        "Choosing the zero level.",
+        "The potential-energy landscape and equilibrium.",
+        "Force as the negative gradient of potential energy (minus the slope in one dimension)."
+      ],
+      "interactive": "the motion of a ball through an editable energy landscape"
+    },
+    "4.4": {
+      "title": "Conservation of Energy",
+      "concepts": [
+        "Closed and open systems.",
+        "Energy transformations.",
+        "Dissipation and the conversion of mechanical energy into internal energy.",
+        "Efficiency.",
+        "Energy flows and Sankey diagrams."
+      ],
+      "interactive": "a roller coaster with a live energy balance"
+    },
+    "4.5": {
+      "title": "Momentum and Impulse",
+      "concepts": [
+        "The momentum of a body.",
+        "Impulse as a change in momentum.",
+        "Conservation of momentum.",
+        "Recoil and rocket propulsion."
+      ],
+      "interactive": "a controlled impulsive maneuver in weightlessness"
+    },
+    "4.6": {
+      "title": "Collisions, the Center of Mass, and Rockets",
+      "concepts": [
+        "Elastic and inelastic collisions.",
+        "Momentum conservation and, for elastic collisions, conservation of kinetic energy.",
+        "The center of mass and the motion of a system as a whole.",
+        "A variable-mass system.",
+        "The simplest rocket equation."
+      ],
+      "interactive": "a laboratory for collisions and rocket propulsion"
+    },
+    "4.7": {
+      "title": "Rotational Kinematics and Dynamics",
+      "concepts": [
+        "Angle, angular velocity, and angular acceleration.",
+        "Moment of inertia and mass distribution.",
+        "Rotational kinetic energy.",
+        "Rolling without slipping."
+      ],
+      "interactive": "a race between rolling bodies of equal mass and different shapes"
+    },
+    "4.8": {
+      "title": "Torque and Angular Momentum",
+      "concepts": [
+        "The lever arm and torque.",
+        "Static equilibrium.",
+        "Angular momentum and its conservation.",
+        "Gyroscopic stability and precession.",
+        "Symmetries as the source of conservation laws—an overview."
+      ],
+      "interactive": "a virtual gyroscope and a rotating chair"
+    },
+    "5.1": {
+      "title": "Gravitational Field and Potential",
+      "concepts": [
+        "Newton's law of universal gravitation.",
+        "The field of multiple bodies and superposition.",
+        "Potential and potential energy.",
+        "Acceleration near the surface of a planet."
+      ],
+      "interactive": "a map of the field and potential around a system of masses"
+    },
+    "5.2": {
+      "title": "Kepler's Laws and Orbits",
+      "concepts": [
+        "An elliptical orbit.",
+        "The equal-areas law.",
+        "The relationship between orbital period and orbit size.",
+        "An orbit as continuous free fall."
+      ],
+      "interactive": "reconstructing Kepler's laws from the motion of a planet"
+    },
+    "5.3": {
+      "title": "Orbital Energy and Cosmic Velocities",
+      "concepts": [
+        "Circular and elliptical orbits.",
+        "The first and second cosmic velocities: circular-orbit speed and escape speed.",
+        "Bound and unbound trajectories.",
+        "Changing an orbit with a brief impulse."
+      ],
+      "interactive": "orbital maneuvers and a Hohmann transfer"
+    },
+    "5.4": {
+      "title": "Tides and Rotating Systems",
+      "concepts": [
+        "The nonuniformity of a gravitational field.",
+        "Tidal forces.",
+        "Synchronous rotation.",
+        "The Roche limit.",
+        "Lagrange points at a qualitative level."
+      ],
+      "interactive": "a planet–satellite system with tidal deformations"
+    },
+    "5.5": {
+      "title": "The Many-Body Problem",
+      "concepts": [
+        "Why the two-body problem has a particularly simple solution.",
+        "The mutual influence of three or more bodies.",
+        "Stable, quasiperiodic, and chaotic orbits.",
+        "Numerical integration of motion."
+      ],
+      "interactive": "finding a stable three-body configuration"
+    }
+  },
+  "formulas": {
+    "normalized-residual": {
+      "title": "Normalized Model Residual",
+      "plain": "z = (x_obs − x_model) / sqrt(σ_obs² + σ_model²)",
+      "meaning": "Shows how many combined standard uncertainties separate an observation from the model's prediction.",
+      "conditions": "The uncertainties must be standard, independent, and approximately normally distributed; covariance is required when they are correlated.",
+      "units": "z: dimensionless; x and σ: the same SI units"
+    },
+    "uncertainty-propagation": {
+      "title": "Propagation of Independent Uncertainties",
+      "plain": "σ_f² ≈ Σ_i (∂f/∂x_i)² σ_xi²",
+      "meaning": "Estimates the standard uncertainty of a calculated quantity from the uncertainties of the input data.",
+      "conditions": "Linearization is valid for small uncertainties; the input quantities are uncorrelated, otherwise covariance terms must be added.",
+      "units": "σ_f: the SI unit of f; each term in the sum: the square of the unit of f"
+    },
+    "vector-dot-product": {
+      "title": "Dot Product of Vectors",
+      "plain": "a · b = |a||b| cos θ = Σ_i a_i b_i",
+      "meaning": "Relates the geometric angle between vectors to their components and isolates the longitudinal component.",
+      "conditions": "The component-sum form is written in an orthonormal Euclidean basis.",
+      "units": "the product of the SI units of quantities a and b"
+    },
+    "velocity-acceleration": {
+      "title": "Instantaneous Velocity and Acceleration",
+      "plain": "v = dr/dt; a = dv/dt = d²r/dt²",
+      "meaning": "Velocity gives the rate of change of position, while acceleration gives the rate of change of velocity.",
+      "conditions": "The trajectory must be differentiable with respect to time in the chosen frame of reference.",
+      "units": "r: m; v: m/s; a: m/s²"
+    },
+    "constant-acceleration-motion": {
+      "title": "Motion with Constant Acceleration",
+      "plain": "v(t) = v₀ + at; r(t) = r₀ + v₀t + at²/2",
+      "meaning": "Gives a body's velocity and position as functions of time when its acceleration remains constant.",
+      "conditions": "Acceleration is constant in both magnitude and direction throughout the interval considered; time is measured from the initial state.",
+      "units": "r: m; v: m/s; a: m/s²; t: s"
+    },
+    "newton-second-law": {
+      "title": "Newton's Second Law",
+      "plain": "ΣF = dp/dt; for constant mass, ΣF = ma",
+      "meaning": "The net external force determines the change in a body's momentum.",
+      "conditions": "This form applies in an inertial frame of reference; the ma form requires constant mass and nonrelativistic motion.",
+      "units": "F: N; p: kg·m/s; m: kg; a: m/s²"
+    },
+    "dry-friction": {
+      "title": "Dry Friction",
+      "plain": "|F_static| ≤ μ_s N; F_kinetic = −μ_k N · v_rel/|v_rel|",
+      "meaning": "Static friction adjusts up to a limiting value, while kinetic friction points opposite to the relative velocity.",
+      "conditions": "This is the empirical Coulomb–Amontons model for dry surfaces; the coefficients depend on the pair of materials and the condition of their surfaces.",
+      "units": "F and N: N; μ_s and μ_k: dimensionless"
+    },
+    "work-energy-theorem": {
+      "title": "Work–Energy Theorem",
+      "plain": "W_net = ∫ F_net · dr = ΔK; K = mv²/2",
+      "meaning": "The work done by the net force equals the change in the body's kinetic energy.",
+      "conditions": "The expression K = mv²/2 is valid for a point particle of constant mass at nonrelativistic speeds.",
+      "units": "W and K: J; F: N; r: m"
+    },
+    "momentum-conservation": {
+      "title": "Momentum Balance and Conservation",
+      "plain": "dP/dt = F_ext; if F_ext = 0, then P = const",
+      "meaning": "The total momentum of a system is conserved when the net external force is zero.",
+      "conditions": "The system must be closed with respect to momentum; internal forces are counted in pairs and do not change the total momentum.",
+      "units": "P: kg·m/s; F: N; t: s"
+    },
+    "angular-momentum-balance": {
+      "title": "Angular Momentum Balance",
+      "plain": "L = r × p; dL/dt = τ_ext",
+      "meaning": "External torque gives the rate of change of angular momentum about the chosen origin.",
+      "conditions": "The origin is stationary in an inertial frame; when the external torque is zero, L is conserved.",
+      "units": "L: kg·m²/s; τ: N·m; r: m; p: kg·m/s"
+    },
+    "newton-gravitation": {
+      "title": "Newton's Law of Universal Gravitation",
+      "plain": "F₁←₂ = G m₁m₂ (r₂ − r₁) / |r₂ − r₁|³",
+      "meaning": "Two point masses attract each other with a force that decreases with the square of the distance between them.",
+      "conditions": "The bodies are pointlike or spherically symmetric and do not overlap; this is the force on mass 1 due to mass 2; the field is Newtonian and weak.",
+      "units": "F: N; G: m³/(kg·s²); m: kg; r: m"
+    },
+    "kepler-third-law": {
+      "title": "Kepler's Third Law for the Two-Body Problem",
+      "plain": "T² = 4π²a³ / [G(M + m)]",
+      "meaning": "Relates the period of an elliptical orbit to its semimajor axis and the sum of the bodies' masses.",
+      "conditions": "An isolated Newtonian two-body system of pointlike or spherically symmetric bodies; perturbations and relativistic corrections are small.",
+      "units": "T: s; a: m; M and m: kg; G: m³/(kg·s²)"
+    }
+  }
+}

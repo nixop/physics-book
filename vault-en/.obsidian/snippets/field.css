@@ -1,0 +1,4 @@
+body { --font-text-theme: Inter, system-ui, sans-serif; --link-color: #245fc9; --interactive-accent: #245fc9; }
+.pole-map.markdown-preview-view h1 { font-size: 2.4em; }
+.callout[data-callout="abstract"] { --callout-color: 36, 95, 201; }
+.callout[data-callout="warning"] { --callout-color: 155, 92, 12; }

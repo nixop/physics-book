@@ -1,0 +1,115 @@
+{
+  "guides": {
+    "0": {
+      "eyebrow": "How We Know",
+      "lead": "Physics begins not with a formula, but with a decision: what to treat as essential and how to test a prediction.",
+      "question": "How can we distinguish a successful model from an appealing coincidence?",
+      "boundary": "Every model answers a limited class of questions and works within a specified range of conditions."
+    },
+    "1": {
+      "eyebrow": "The Language of Measurement",
+      "lead": "A number becomes a physical result only when it is accompanied by a unit, an uncertainty, and a method of measurement.",
+      "question": "What does a measurement actually tell us, and how much can we trust it?",
+      "boundary": "The accuracy of a result cannot exceed the accuracy of the input data and the model being used."
+    },
+    "2": {
+      "eyebrow": "The Geometry of Motion",
+      "lead": "Kinematics describes where an object is and how its motion changes, without yet asking what causes that motion.",
+      "question": "How can we reconstruct motion from coordinates, vectors, and graphs?",
+      "boundary": "The description depends on the frame of reference; a point-particle model is appropriate only when the object's size and rotation are irrelevant."
+    },
+    "3": {
+      "eyebrow": "The Cause of Change",
+      "lead": "Dynamics connects changes in motion with interactions and teaches us to view forces as elements of a model.",
+      "question": "Which interactions actually change the motion of a system?",
+      "boundary": "Newton's laws apply in inertial frames and require us to identify the object and the forces acting on it separately."
+    },
+    "4": {
+      "eyebrow": "Invariants of Motion",
+      "lead": "Energy and momentum let us reason about a process without reconstructing every detail of its trajectory.",
+      "question": "What remains conserved when the details of motion become too complex?",
+      "boundary": "First define the boundary of the system: exchange with the surroundings changes the balance of a conserved quantity."
+    },
+    "5": {
+      "eyebrow": "Gravitation",
+      "lead": "A single law connects falling near Earth's surface, the motion of a satellite, and the architecture of planetary systems.",
+      "question": "Why are free fall and orbit two regimes of the same motion?",
+      "boundary": "Point masses and the Newtonian gravitational field are approximations; strong fields and relativistic speeds require a different model."
+    },
+    "6": {
+      "eyebrow": "Matter as a Medium",
+      "lead": "Macroscopic properties arise from microstructure, but they can often be described by fields of pressure, density, and strain.",
+      "question": "When can matter be treated as a continuum, and how does it respond to a load?",
+      "boundary": "The continuum approximation breaks down at scales comparable to the mean free path or the size of the underlying structure."
+    },
+    "7": {
+      "eyebrow": "Rhythm and Transport",
+      "lead": "An oscillation localizes repetition, while a wave carries a disturbance and energy through space.",
+      "question": "How does a propagating wave emerge from a local oscillation?",
+      "boundary": "Linear superposition is valid for sufficiently small disturbances; dispersion and nonlinearity change the picture."
+    },
+    "8": {
+      "eyebrow": "From Particles to Heat",
+      "lead": "Thermodynamics connects microscopic random motion with measurable pressure, temperature, and work.",
+      "question": "How does irreversibility emerge from the reversible laws governing particle motion?",
+      "boundary": "Equilibrium quantities are defined for sufficiently large systems and sufficiently long observation times."
+    },
+    "9": {
+      "eyebrow": "Charge and Potential",
+      "lead": "The electric field turns a distribution of charges into a local rule for the force on a test particle.",
+      "question": "How can we read an electric circuit both as the motion of charges and as the transfer of energy?",
+      "boundary": "Lumped circuit elements are valid when the dimensions of the circuit are small compared with the signal's wavelength."
+    },
+    "10": {
+      "eyebrow": "A Unified Field",
+      "lead": "Magnetism reveals how electrical phenomena depend on motion and leads to a unified electromagnetic picture.",
+      "question": "How do changing fields create one another and carry energy?",
+      "boundary": "Quasistatic models are no longer sufficient when the propagation delay of the field cannot be neglected."
+    },
+    "11": {
+      "eyebrow": "Light",
+      "lead": "Ray, wave, and photon are different models of light, each suited to questions on a particular scale.",
+      "question": "How do we choose among geometric, wave, and quantum models of light?",
+      "boundary": "Ray optics requires objects much larger than the wavelength; diffraction becomes important for small apertures."
+    },
+    "12": {
+      "eyebrow": "Spacetime",
+      "lead": "The constancy of the speed of light transforms our familiar ideas of simultaneity, length, time, and energy.",
+      "question": "What must observers moving relative to one another agree on?",
+      "boundary": "The Newtonian approximation is recovered at speeds much lower than the speed of light and in weak gravitational fields."
+    },
+    "13": {
+      "eyebrow": "The Quantum World",
+      "lead": "Quantum theory predicts the probabilities of outcomes and links particles with wave-like properties.",
+      "question": "What exactly evolves between the preparation of a state and its measurement?",
+      "boundary": "A classical trajectory is not a universal description; the measurement setup is part of the problem itself."
+    },
+    "14": {
+      "eyebrow": "Nuclei and Particles",
+      "lead": "Binding energy, symmetries, and decay probabilities explain the stability of nuclei and the transformations of particles.",
+      "question": "Which conservation laws allow a process, and which make it impossible?",
+      "boundary": "Decay laws are statistical: half-life characterizes an ensemble, not the moment when an individual nucleus decays."
+    },
+    "15": {
+      "eyebrow": "Physics of the Universe",
+      "lead": "Light from distant objects becomes a measuring instrument for studying stars, galaxies, and the history of cosmic expansion.",
+      "question": "How can we reconstruct an inaccessible object from its spectrum and motion?",
+      "boundary": "Cosmological conclusions depend on the model, distance calibration, and systematic effects in the observations."
+    },
+    "16": {
+      "eyebrow": "Complexity",
+      "lead": "Simple deterministic rules can produce bifurcations, structures, and unpredictability over long time scales.",
+      "question": "Why does knowing the law not always make long-range prediction possible?",
+      "boundary": "Chaos limits the prediction horizon, but it does not eliminate determinism or statistical regularities."
+    }
+  },
+  "labs": {
+    "1.3": "Data and Noise",
+    "2.5": "Projectile Motion Sandbox",
+    "5.2": "Kepler's Laws",
+    "7.4": "Wave on a String",
+    "9.2": "Electric Field of Multiple Charges",
+    "12.4": "Spacetime Diagram",
+    "13.2": "Double-Slit Experiment"
+  }
+}

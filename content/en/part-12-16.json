@@ -1,0 +1,516 @@
+{
+  "chapters": {
+    "12": {
+      "title": "Spacetime and Relativity"
+    },
+    "13": {
+      "title": "Quantum Physics, Atomic Physics, and Materials Physics"
+    },
+    "14": {
+      "title": "Nuclear Physics and Elementary Particle Physics"
+    },
+    "15": {
+      "title": "Astrophysics and Cosmology"
+    },
+    "16": {
+      "title": "Nonlinearity, Chaos, and the Capstone Laboratory"
+    }
+  },
+  "topics": {
+    "12.1": {
+      "title": "Why Classical Mechanics Proved Insufficient",
+      "concepts": [
+        "Galilean velocity addition.",
+        "Electrodynamics and the invariance of the speed of light.",
+        "The postulates of special relativity.",
+        "The absence of an absolute rest frame."
+      ],
+      "interactive": "an attempt to measure one's own motion relative to the \"aether\""
+    },
+    "12.2": {
+      "title": "Simultaneity and Light Clocks",
+      "concepts": [
+        "Synchronizing distant clocks.",
+        "The relativity of simultaneity.",
+        "Time dilation.",
+        "Proper time."
+      ],
+      "interactive": "light clocks in different frames of reference"
+    },
+    "12.3": {
+      "title": "Length Contraction and Lorentz Transformations",
+      "concepts": [
+        "Measuring the length of a moving body.",
+        "Length contraction.",
+        "The Lorentz factor.",
+        "Transformations of coordinates and time.",
+        "Relativistic velocity addition."
+      ],
+      "interactive": "switching between frames of reference on a shared grid of events"
+    },
+    "12.4": {
+      "title": "Spacetime Diagrams and Causality",
+      "concepts": [
+        "Worldlines.",
+        "Light cones.",
+        "The spacetime interval.",
+        "Causally connected and causally disconnected events.",
+        "The twin paradox and other apparent contradictions."
+      ],
+      "interactive": "a worldline editor on a Minkowski diagram"
+    },
+    "12.5": {
+      "title": "Relativistic Energy and Momentum",
+      "concepts": [
+        "Momentum at relativistic speeds.",
+        "Rest energy.",
+        "The energy–momentum relation.",
+        "E = mc² and the conversion of mass into other forms of energy.",
+        "Four-momentum as an optional advanced topic."
+      ],
+      "interactive": "particle collisions in different frames of reference"
+    },
+    "12.6": {
+      "title": "From the Equivalence Principle to Curved Spacetime",
+      "concepts": [
+        "The local equivalence of a uniform gravitational field and a uniformly accelerated frame.",
+        "Free fall as inertial motion.",
+        "Gravitational time dilation.",
+        "Geodesics and curvature.",
+        "A bridge from special to general relativity."
+      ],
+      "interactive": "a laboratory inside an accelerating cabin"
+    },
+    "13.1": {
+      "title": "The Crisis of Classical Physics and the Photon",
+      "concepts": [
+        "Thermal radiation and the ultraviolet catastrophe.",
+        "Planck's hypothesis.",
+        "The photoelectric effect.",
+        "The photon, its energy, and its momentum.",
+        "The Compton effect."
+      ],
+      "interactive": "the photoelectric effect with adjustable light frequency and intensity"
+    },
+    "13.2": {
+      "title": "Matter Waves and the Double-Slit Experiment",
+      "concepts": [
+        "The de Broglie hypothesis.",
+        "Electron diffraction.",
+        "Individual detection events and the build-up of an interference pattern.",
+        "Wave–particle duality."
+      ],
+      "interactive": "a double-slit experiment with photons, electrons, and larger particles"
+    },
+    "13.3": {
+      "title": "Quantum State and Measurement",
+      "concepts": [
+        "The wavefunction as a tool for calculating probabilities.",
+        "Probability amplitudes.",
+        "Superposition.",
+        "Measurement and the set of possible outcomes.",
+        "Why quantum theory does not require a conscious observer."
+      ],
+      "interactive": "sequential measurements of two incompatible observables"
+    },
+    "13.4": {
+      "title": "Uncertainty and the Schrödinger Equation",
+      "concepts": [
+        "Wave packets.",
+        "The uncertainty relation.",
+        "The Schrödinger equation as the law governing the evolution of a quantum state.",
+        "A particle in a potential well.",
+        "Energy quantization.",
+        "Tunneling and the classical limit."
+      ],
+      "interactive": "an editable potential and the particle's eigenstates"
+    },
+    "13.5": {
+      "title": "Spin, Entanglement, and Decoherence",
+      "concepts": [
+        "Spin as an intrinsic quantum property.",
+        "Quantum correlations and entanglement.",
+        "The idea behind Bell inequalities.",
+        "Why entanglement cannot transmit a signal faster than light.",
+        "Decoherence and the emergence of classical behavior."
+      ],
+      "interactive": "measurement correlations for a pair of entangled particles"
+    },
+    "13.6": {
+      "title": "Atoms, Molecules, and Spectra",
+      "concepts": [
+        "Rutherford's experiment and the Bohr model as a historical stepping stone.",
+        "Atomic orbitals and quantum numbers.",
+        "The Pauli exclusion principle and the periodic table.",
+        "Chemical bonding at a qualitative level.",
+        "Energy transitions, spectra, and lasers."
+      ],
+      "interactive": "a builder for energy levels and spectral transitions"
+    },
+    "13.7": {
+      "title": "Solid-State Physics and Semiconductors",
+      "concepts": [
+        "Crystal lattices and collective electron states.",
+        "Energy bands.",
+        "Conductors, insulators, and semiconductors.",
+        "Dopants and the p–n junction.",
+        "Diodes, transistors, light-emitting diodes, and solar cells."
+      ],
+      "interactive": "a band diagram and current through a p–n junction"
+    },
+    "13.8": {
+      "title": "Quantum Technologies",
+      "concepts": [
+        "Lasers and masers.",
+        "Scanning tunneling and electron microscopes.",
+        "Magnetic resonance imaging.",
+        "An overview of superconductivity.",
+        "Qubits, quantum operations, and the limitations of quantum computers."
+      ],
+      "interactive": "the state of a single qubit on the Bloch sphere"
+    },
+    "14.1": {
+      "title": "The Atomic Nucleus and Binding Energy",
+      "concepts": [
+        "Protons and neutrons.",
+        "The strong interaction.",
+        "Mass defect and binding energy.",
+        "Isotopes and the valley of stability."
+      ],
+      "interactive": "a plot of binding energy per nucleon"
+    },
+    "14.2": {
+      "title": "Radioactivity and the Interaction of Radiation with Matter",
+      "concepts": [
+        "Alpha, beta, and gamma decay.",
+        "The probabilistic law of decay and half-life.",
+        "Activity, absorbed dose, and equivalent dose.",
+        "Shielding and biological effects."
+      ],
+      "interactive": "a statistical simulation of decay and the passage of radiation through matter"
+    },
+    "14.3": {
+      "title": "Nuclear Fission and Reactors",
+      "concepts": [
+        "Fission of a heavy nucleus.",
+        "Neutron chain reactions.",
+        "Criticality.",
+        "The design of a nuclear power reactor.",
+        "Decay heat, waste, and safety."
+      ],
+      "interactive": "controlling a reactor with neutron absorbers or control rods and a moderator"
+    },
+    "14.4": {
+      "title": "Nuclear Fusion",
+      "concepts": [
+        "The Coulomb barrier and quantum tunneling.",
+        "Fusion in stars.",
+        "The conditions for plasma confinement.",
+        "Magnetic and inertial confinement.",
+        "The energy balance of a fusion reactor."
+      ],
+      "interactive": "a diagram of plasma ignition conditions"
+    },
+    "14.5": {
+      "title": "Elementary Particles and the Standard Model",
+      "concepts": [
+        "Quarks, leptons, and force carriers.",
+        "Antiparticles.",
+        "Symmetries and conservation laws.",
+        "The Higgs field.",
+        "What the Standard Model does not explain."
+      ],
+      "interactive": "a builder for allowed particle decays"
+    },
+    "15.1": {
+      "title": "How We Measure the Universe",
+      "concepts": [
+        "Angular sizes and parallax.",
+        "Standard candles.",
+        "Luminosity, flux, and magnitude.",
+        "Spectrum, temperature, composition, and radial velocity.",
+        "Redshift."
+      ],
+      "interactive": "determining the properties of an unknown star from observational data"
+    },
+    "15.2": {
+      "title": "A Star's Equilibrium and Energy",
+      "concepts": [
+        "Gravitational contraction and pressure.",
+        "Hydrostatic equilibrium.",
+        "Energy transport from the stellar interior.",
+        "Thermonuclear reactions in stars.",
+        "Solar neutrinos."
+      ],
+      "interactive": "a model of a star that balances gravity and pressure"
+    },
+    "15.3": {
+      "title": "Stellar Evolution and the Origin of the Elements",
+      "concepts": [
+        "The Hertzsprung–Russell diagram.",
+        "The birth of a star.",
+        "The main sequence, giants, and supernovae.",
+        "Stellar nucleosynthesis.",
+        "The origin of elements heavier than iron."
+      ],
+      "interactive": "the evolutionary track of a star of a specified mass"
+    },
+    "15.4": {
+      "title": "Compact Objects",
+      "concepts": [
+        "White dwarfs and degeneracy pressure.",
+        "Neutron stars and pulsars.",
+        "Black holes and event horizons.",
+        "Accretion disks and jets.",
+        "An overview of the information paradox."
+      ],
+      "interactive": "orbits and redshift near a compact object"
+    },
+    "15.5": {
+      "title": "General Relativity as Observable Physics",
+      "concepts": [
+        "The deflection of light and gravitational lensing.",
+        "Orbital precession.",
+        "Gravitational time dilation and GPS.",
+        "Gravitational waves."
+      ],
+      "interactive": "lensing a distant source with a system of masses"
+    },
+    "15.6": {
+      "title": "Galaxies, Dark Matter, and Large-Scale Structure",
+      "concepts": [
+        "The structure and dynamics of galaxies.",
+        "Rotation curves.",
+        "Galaxy clusters and gravitational lensing.",
+        "The cosmic web.",
+        "Observational evidence for dark matter."
+      ],
+      "interactive": "comparing the rotation of a galaxy with and without a dark matter halo"
+    },
+    "15.7": {
+      "title": "The Expanding Universe",
+      "concepts": [
+        "The expansion of space and the Hubble–Lemaître law.",
+        "The hot Big Bang.",
+        "Primordial nucleosynthesis and the cosmic microwave background.",
+        "Dark energy.",
+        "The observable Universe and cosmological horizons.",
+        "Open questions in modern cosmology."
+      ],
+      "interactive": "an expanding grid with moving photons and a horizon"
+    },
+    "16.1": {
+      "title": "Nonlinearity and Feedback",
+      "concepts": [
+        "Linear models and the superposition principle.",
+        "What changes when a relationship becomes nonlinear.",
+        "Positive and negative feedback.",
+        "Stability and saturation."
+      ],
+      "interactive": "systems with adjustable feedback"
+    },
+    "16.2": {
+      "title": "Phase Portraits, Attractors, and Bifurcations",
+      "concepts": [
+        "The state of a dynamical system.",
+        "Fixed points, cycles, and attractors.",
+        "Changes in behavior as a parameter is varied continuously.",
+        "Bifurcations."
+      ],
+      "interactive": "constructing a bifurcation diagram"
+    },
+    "16.3": {
+      "title": "Deterministic Chaos",
+      "concepts": [
+        "Sensitivity to initial conditions.",
+        "The predictability horizon.",
+        "The logistic map and the double pendulum.",
+        "The distinction between chaos and randomness.",
+        "Fractal structure."
+      ],
+      "interactive": "two nearly identical double pendulums"
+    },
+    "16.4": {
+      "title": "Capstone Research Laboratory",
+      "concepts": [
+        "Obtaining raw data from an unknown system.",
+        "Formulating a hypothesis.",
+        "Choosing variables and plotting graphs.",
+        "Fitting a model and estimating uncertainty.",
+        "Testing the model against new data."
+      ],
+      "interactive": "reconstructing a physical law without knowing in advance which system generated the data"
+    }
+  },
+  "formulas": {
+    "lorentz-factor-time-dilation": {
+      "title": "Lorentz Factor and Time Dilation",
+      "plain": "γ = 1/sqrt(1 − v²/c²); Δt = γΔτ",
+      "meaning": "Between the same two events, a moving clock records less elapsed time than clocks in the laboratory frame.",
+      "conditions": "Inertial frames with a constant relative speed |v| < c; Δτ is the time between events in the frame where they occur at the same location.",
+      "units": "γ: dimensionless; v and c: m/s; Δt and Δτ: s"
+    },
+    "relativistic-energy-momentum": {
+      "title": "Relativistic Energy–Momentum Relation",
+      "plain": "E² = p²c² + m²c⁴",
+      "meaning": "The total energy of a free particle is related to its momentum and invariant mass.",
+      "conditions": "A free particle in special relativity; E includes the rest energy mc².",
+      "units": "E and mc²: J; p: kg·m/s; m: kg; c: m/s"
+    },
+    "photon-de-broglie-relations": {
+      "title": "Planck and de Broglie Relations",
+      "plain": "E_γ = hν; p = h/λ",
+      "meaning": "Frequency determines a photon's energy, while wavelength determines the momentum of a quantum or a free particle.",
+      "conditions": "E = hν applies to a photon; λ = h/p is the de Broglie wavelength of a quasi-monochromatic free state.",
+      "units": "E: J; h: J·s; ν: Hz; p: kg·m/s; λ: m"
+    },
+    "heisenberg-uncertainty": {
+      "title": "Heisenberg Uncertainty Relation",
+      "plain": "σ_x σ_p ≥ ħ/2",
+      "meaning": "A quantum state cannot simultaneously have arbitrarily small spreads in position and its conjugate momentum.",
+      "conditions": "σ_x and σ_p are the standard deviations of measurement outcomes for the same normalized quantum state.",
+      "units": "σ_x: m; σ_p: kg·m/s; product: J·s"
+    },
+    "schrodinger-equation": {
+      "title": "Time-Dependent Schrödinger Equation",
+      "plain": "iħ ∂ψ/∂t = [−ħ²∇²/(2m) + V(r,t)]ψ",
+      "meaning": "It governs the unitary evolution of the wavefunction of a nonrelativistic particle.",
+      "conditions": "A nonrelativistic spinless particle of constant mass in a scalar potential; ψ must satisfy the boundary conditions and normalization.",
+      "units": "both sides: J·ψ; ħ: J·s; m: kg; V: J; r: m; t: s"
+    },
+    "radioactive-decay": {
+      "title": "Law of Radioactive Decay",
+      "plain": "N(t) = N₀e^(−λt); A = λN; T₁/₂ = ln 2 / λ",
+      "meaning": "The number of undecayed nuclei and the activity decrease exponentially when the decay probability is constant.",
+      "conditions": "The nuclei decay independently with a constant λ; the nuclide is neither produced nor subject to changes in its decay channel.",
+      "units": "N: dimensionless; λ: s⁻¹; A: Bq = s⁻¹; T₁/₂ and t: s"
+    },
+    "nuclear-binding-energy": {
+      "title": "Nuclear Binding Energy",
+      "plain": "E_b = (Z m_p + N m_n − m_nucleus)c²",
+      "meaning": "The mass defect between the free nucleons and the nucleus corresponds to the energy required to separate the nucleus into its constituent nucleons.",
+      "conditions": "Consistent ground-state nuclear masses must be used; when using atomic masses, electron masses and their binding energy must be accounted for consistently.",
+      "units": "E_b: J; masses: kg; Z and N: dimensionless; c: m/s"
+    },
+    "hubble-law": {
+      "title": "Hubble–Lemaître Law",
+      "plain": "v_recession ≈ H₀d",
+      "meaning": "At low cosmological redshifts, a galaxy's recession speed is approximately proportional to its distance.",
+      "conditions": "A homogeneously expanding Universe and a sufficiently small redshift; the peculiar velocity must be small compared with H₀d.",
+      "units": "v: m/s; H₀: s⁻¹; d: m"
+    },
+    "stellar-hydrostatic-equilibrium": {
+      "title": "Hydrostatic Equilibrium of a Star",
+      "plain": "dP/dr = −G M(r)ρ(r)/r²; dM/dr = 4πr²ρ(r)",
+      "meaning": "The pressure gradient supports a spherical star against contraction under its own gravity.",
+      "conditions": "Spherical symmetry, quasistatic Newtonian equilibrium, and negligible rotation; relativistic corrections are required for compact objects.",
+      "units": "P: Pa; r: m; M: kg; ρ: kg/m³; G: m³/(kg·s²)"
+    },
+    "logistic-map": {
+      "title": "Logistic Map",
+      "plain": "x_(n+1) = r x_n(1 − x_n)",
+      "meaning": "This simple nonlinear map exhibits stable points, bifurcations, and chaos as the parameter r changes.",
+      "conditions": "A dimensionless discrete model; to keep x_n in [0, 1], one usually takes x₀ in [0, 1] and 0 ≤ r ≤ 4.",
+      "units": "x and r: dimensionless"
+    },
+    "lyapunov-exponent-map": {
+      "title": "Lyapunov Exponent of a One-Dimensional Map",
+      "plain": "λ_L = lim_(N→∞) (1/N) Σ_(n=0)^(N−1) ln|f′(x_n)|",
+      "meaning": "A positive exponent indicates exponential divergence of nearby trajectories and sensitivity to initial conditions.",
+      "conditions": "A differentiable one-dimensional map and a typical, sufficiently long trajectory; when physical time is used, the result is divided by the duration of one time step.",
+      "units": "dimensionless (per iteration)"
+    }
+  },
+  "constants": {
+    "speed-of-light": {
+      "name": "Speed of light in vacuum",
+      "unit": "m/s",
+      "note": "Exact SI defining value."
+    },
+    "gravitational-constant": {
+      "name": "Gravitational constant",
+      "unit": "m³/(kg·s²)",
+      "note": "CODATA 2022; the standard uncertainty is 0.00015e−11 m³/(kg·s²)."
+    },
+    "planck-constant": {
+      "name": "Planck constant",
+      "unit": "J·s",
+      "note": "Exact SI defining value."
+    },
+    "reduced-planck-constant": {
+      "name": "Reduced Planck constant",
+      "unit": "J·s",
+      "note": "Rounded decimal representation of the exact relation ħ = h/(2π)."
+    },
+    "elementary-charge": {
+      "name": "Elementary charge",
+      "unit": "C",
+      "note": "Exact SI defining value; the electron's charge is −e."
+    },
+    "boltzmann-constant": {
+      "name": "Boltzmann constant",
+      "unit": "J/K",
+      "note": "Exact SI defining value."
+    },
+    "avogadro-constant": {
+      "name": "Avogadro constant",
+      "unit": "mol⁻¹",
+      "note": "Exact SI defining value."
+    },
+    "molar-gas-constant": {
+      "name": "Molar gas constant",
+      "unit": "J/(mol·K)",
+      "note": "The exact product N_A k_B."
+    },
+    "vacuum-permittivity": {
+      "name": "Vacuum permittivity",
+      "unit": "F/m",
+      "note": "CODATA 2022; since the redefinition of the SI, it is a measured derived quantity."
+    },
+    "vacuum-permeability": {
+      "name": "Vacuum permeability",
+      "unit": "N/A²",
+      "note": "CODATA 2022; since the redefinition of the SI, it is no longer exactly equal to 4π·10⁻⁷ N/A²."
+    },
+    "fine-structure-constant": {
+      "name": "Fine-structure constant",
+      "unit": "dimensionless",
+      "note": "CODATA 2022; it characterizes the strength of the electromagnetic interaction."
+    },
+    "electron-mass": {
+      "name": "Electron mass",
+      "unit": "kg",
+      "note": "CODATA 2022 recommended value."
+    },
+    "proton-mass": {
+      "name": "Proton mass",
+      "unit": "kg",
+      "note": "CODATA 2022 recommended value."
+    },
+    "neutron-mass": {
+      "name": "Neutron mass",
+      "unit": "kg",
+      "note": "CODATA 2022 recommended value."
+    },
+    "atomic-mass-constant": {
+      "name": "Atomic mass constant",
+      "unit": "kg",
+      "note": "CODATA 2022; also denoted by u or the dalton (Da)."
+    },
+    "standard-gravity": {
+      "name": "Standard acceleration due to gravity",
+      "unit": "m/s²",
+      "note": "Exact conventional value; the local acceleration due to gravity depends on location."
+    },
+    "stefan-boltzmann-constant": {
+      "name": "Stefan–Boltzmann constant",
+      "unit": "W/(m²·K⁴)",
+      "note": "Rounded decimal representation of the value derived from the exact c, h, and k_B."
+    },
+    "electronvolt-joule": {
+      "name": "Electronvolt in joules",
+      "unit": "J",
+      "note": "Exact conversion: 1 eV is the energy acquired by a charge e when it passes through a potential difference of 1 V."
+    }
+  }
+}

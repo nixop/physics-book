@@ -1,0 +1,585 @@
+{
+  "chapters": {
+    "6": {
+      "title": "Matter, Elasticity, and Fluids"
+    },
+    "7": {
+      "title": "Oscillations, Waves, and Sound"
+    },
+    "8": {
+      "title": "Molecular and Statistical Physics, Thermodynamics"
+    },
+    "9": {
+      "title": "Electricity, Circuits, and Signals"
+    },
+    "10": {
+      "title": "Magnetism and Electrodynamics"
+    },
+    "11": {
+      "title": "Light and Optics"
+    }
+  },
+  "topics": {
+    "6.1": {
+      "title": "States of Matter and the Continuum Approximation",
+      "concepts": [
+        "Solids, liquids, gases, and plasma.",
+        "Density and pressure.",
+        "Microscopic structure and macroscopic properties.",
+        "When matter can be treated as a continuous medium."
+      ],
+      "interactive": "switching between particle-based and continuum models of a medium"
+    },
+    "6.2": {
+      "title": "Deformation and Strength of Materials",
+      "concepts": [
+        "Stress and strain.",
+        "Elastic and plastic regimes.",
+        "Young's modulus.",
+        "Shear, bending, and torsion.",
+        "Fracture, fatigue, and stress concentrations."
+      ],
+      "interactive": "a virtual tensile-testing machine for a material specimen"
+    },
+    "6.3": {
+      "title": "Hydrostatics and Buoyancy",
+      "concepts": [
+        "How pressure varies with depth.",
+        "Pascal's principle and the hydraulic press.",
+        "Buoyant force.",
+        "Conditions for flotation and stability."
+      ],
+      "interactive": "a floating-vessel design tool"
+    },
+    "6.4": {
+      "title": "Surface Tension and Capillarity",
+      "concepts": [
+        "Surface energy.",
+        "The shape of a droplet.",
+        "Wetting and the contact angle.",
+        "Capillary rise.",
+        "The role of scale: why small organisms interact with water differently."
+      ],
+      "interactive": "a droplet on surfaces with different wettabilities"
+    },
+    "6.5": {
+      "title": "Flow of Real Fluids",
+      "concepts": [
+        "Volume flow rate and the continuity equation.",
+        "Bernoulli's equation and its limitations.",
+        "Viscosity and flow through a pipe.",
+        "The Reynolds number.",
+        "Laminar flow, turbulence, and the boundary layer."
+      ],
+      "interactive": "a pipe with adjustable geometry, flow speed, and fluid viscosity"
+    },
+    "7.1": {
+      "title": "The Harmonic Oscillator",
+      "concepts": [
+        "Equilibrium position.",
+        "Amplitude, period, frequency, and phase.",
+        "The spring oscillator and the simple pendulum.",
+        "Harmonic motion as the projection of uniform circular motion."
+      ],
+      "interactive": "a synchronized view of an oscillator, circular motion, and a graph"
+    },
+    "7.2": {
+      "title": "Energy and Phase Space",
+      "concepts": [
+        "The exchange between kinetic and potential energy.",
+        "The state of a system as a position–velocity pair.",
+        "A phase-space trajectory.",
+        "What a phase portrait reveals better than a conventional animation."
+      ],
+      "interactive": "plotting phase-space trajectories of an oscillator"
+    },
+    "7.3": {
+      "title": "Damping, Driving, and Resonance",
+      "concepts": [
+        "Energy dissipation.",
+        "Forced oscillations.",
+        "Natural frequency and resonance.",
+        "The quality factor and the resonance curve.",
+        "Parametric resonance—an overview."
+      ],
+      "interactive": "constructing a resonance curve from measurements"
+    },
+    "7.4": {
+      "title": "How Waves Propagate",
+      "concepts": [
+        "The transfer of a disturbance without the net transport of matter.",
+        "Longitudinal and transverse waves.",
+        "Wavelength, frequency, and wave speed.",
+        "An intuitive derivation of the wave equation.",
+        "Reflection and refraction."
+      ],
+      "interactive": "a pulse and a periodic wave on a string"
+    },
+    "7.5": {
+      "title": "Superposition and Standing Waves",
+      "concepts": [
+        "The superposition of waves.",
+        "Constructive and destructive interference.",
+        "Standing waves, nodes, and antinodes.",
+        "Boundary conditions and normal modes."
+      ],
+      "interactive": "a string with adjustable end conditions and driving frequency"
+    },
+    "7.6": {
+      "title": "Dispersion and the Fourier Transform",
+      "concepts": [
+        "A complex waveform as a sum of harmonics.",
+        "The spectrum of a signal.",
+        "Phase and group velocities.",
+        "Dispersion and the spreading of a wave packet."
+      ],
+      "interactive": "building a pulse from sine waves and observing its propagation"
+    },
+    "7.7": {
+      "title": "Sound and Acoustics",
+      "concepts": [
+        "Pressure in a sound wave.",
+        "Pitch, loudness, and timbre.",
+        "Musical instruments and resonators.",
+        "Reverberation and room acoustics.",
+        "The Doppler effect and shock waves."
+      ],
+      "interactive": "a spectrum synthesizer and an acoustic model of a room"
+    },
+    "8.1": {
+      "title": "The Molecular Picture and Temperature",
+      "concepts": [
+        "Atoms, molecules, and thermal motion.",
+        "Diffusion and Brownian motion.",
+        "Temperature as a statistical property.",
+        "The zeroth law of thermodynamics."
+      ],
+      "interactive": "mixing two systems at different temperatures"
+    },
+    "8.2": {
+      "title": "Kinetic Theory of an Ideal Gas",
+      "concepts": [
+        "Pressure as the result of particle collisions.",
+        "The relationship between temperature and average kinetic energy.",
+        "The ideal-gas equation of state.",
+        "The limits of the ideal-gas model."
+      ],
+      "interactive": "a particle gas with live pressure, volume, and temperature readings"
+    },
+    "8.3": {
+      "title": "Distributions, Fluctuations, and Diffusion",
+      "concepts": [
+        "Why molecules do not all have the same speed.",
+        "A qualitative view of the Maxwell speed distribution.",
+        "Mean values and fluctuations.",
+        "Random walks and diffusion."
+      ],
+      "interactive": "connecting the random steps of individual particles to the diffusion law"
+    },
+    "8.4": {
+      "title": "Internal Energy and the First Law",
+      "concepts": [
+        "Internal energy.",
+        "Heat and work as modes of energy transfer.",
+        "The first law of thermodynamics.",
+        "The work done by a gas as an area on a pV diagram.",
+        "The heat capacities of a gas."
+      ],
+      "interactive": "freehand construction of a process on a pV diagram"
+    },
+    "8.5": {
+      "title": "Heating, Phase Transitions, and Heat Transfer",
+      "concepts": [
+        "Specific heat capacity.",
+        "Melting, evaporation, and latent heat.",
+        "The phase diagram.",
+        "Conduction, convection, and thermal radiation."
+      ],
+      "interactive": "virtual calorimetry of an unknown material"
+    },
+    "8.6": {
+      "title": "Thermodynamic Processes",
+      "concepts": [
+        "Isochoric, isobaric, isothermal, and adiabatic processes.",
+        "Quasistatic change.",
+        "A cycle on a pV diagram.",
+        "Work, heat, and internal energy along each leg of a process.",
+        "Real and idealized processes."
+      ],
+      "interactive": "a thermodynamic-cycle builder"
+    },
+    "8.7": {
+      "title": "Entropy and the Second Law",
+      "concepts": [
+        "Microstates and macrostates.",
+        "The probabilistic nature of equilibrium.",
+        "Entropy in terms of the number of accessible microstates.",
+        "Irreversibility and the arrow of time.",
+        "A local decrease in entropy within an open system."
+      ],
+      "interactive": "statistical mixing of particles with the option to reverse their velocities"
+    },
+    "8.8": {
+      "title": "Heat Engines, Refrigerators, and Free Energy",
+      "concepts": [
+        "Heat engines and refrigerators.",
+        "Efficiency and the coefficient of performance.",
+        "The Carnot cycle and the maximum possible efficiency.",
+        "The heat pump.",
+        "Gibbs or Helmholtz free-energy change as a spontaneity criterion under specified constraints—an overview."
+      ],
+      "interactive": "configuring an engine operating between two thermal reservoirs"
+    },
+    "9.1": {
+      "title": "Electric Charge and Matter",
+      "concepts": [
+        "Positive and negative charge.",
+        "Conservation and quantization of charge.",
+        "Conductors, dielectrics, and polarization.",
+        "Electrostatic induction and grounding."
+      ],
+      "interactive": "transferring charge between objects and exploring electrostatic induction"
+    },
+    "9.2": {
+      "title": "Coulomb's Law and the Electric Field",
+      "concepts": [
+        "The interaction between point charges.",
+        "The principle of superposition.",
+        "Electric field strength.",
+        "Field lines and their limitations as a visualization."
+      ],
+      "interactive": "a charge-configuration editor with a vector-field display"
+    },
+    "9.3": {
+      "title": "Electric Flux and Gauss's Law",
+      "concepts": [
+        "Flux through a surface.",
+        "Sources of the electric field.",
+        "Gauss's law.",
+        "Spherical, cylindrical, and planar symmetry.",
+        "When Gauss's law simplifies a calculation—and when it remains true but is not computationally useful."
+      ],
+      "interactive": "a deformable closed surface enclosing electric charges"
+    },
+    "9.4": {
+      "title": "Electric Potential and Voltage",
+      "concepts": [
+        "The potential energy of a charge.",
+        "Electric potential.",
+        "Potential difference.",
+        "Equipotential surfaces.",
+        "The relationship between the electric field and the spatial variation of potential."
+      ],
+      "interactive": "moving a test charge across a potential map"
+    },
+    "9.5": {
+      "title": "Conductors, Dielectrics, and Capacitors",
+      "concepts": [
+        "Electric fields and charge inside and on the surface of a conductor.",
+        "Capacitance.",
+        "The parallel-plate capacitor.",
+        "A dielectric in an electric field.",
+        "Energy stored in the electric field."
+      ],
+      "interactive": "a capacitor with adjustable geometry and dielectric material"
+    },
+    "9.6": {
+      "title": "Current, Resistance, and the Microscopic Picture",
+      "concepts": [
+        "Electric current and current density.",
+        "The drift of charge carriers.",
+        "Resistance and resistivity.",
+        "Ohm's law and its limits.",
+        "The temperature dependence of resistance."
+      ],
+      "interactive": "the motion and scattering of charge carriers in a conductor"
+    },
+    "9.7": {
+      "title": "Sources, Power, and Energy Transfer",
+      "concepts": [
+        "Electromotive force.",
+        "The internal resistance of a source.",
+        "Power and Joule heating.",
+        "Load matching.",
+        "Why electrical energy is not transported by a ‘supply of electrons in the wire.’"
+      ],
+      "interactive": "a source with an adjustable load and a live power balance"
+    },
+    "9.8": {
+      "title": "Electric Circuits and Measuring Instruments",
+      "concepts": [
+        "Series and parallel connections.",
+        "Kirchhoff's circuit laws.",
+        "Ammeters, voltmeters, and the effect of a measuring instrument on a circuit.",
+        "Short circuits and electrical safety."
+      ],
+      "interactive": "a circuit builder with a troubleshooting mode"
+    },
+    "9.9": {
+      "title": "RC Circuits, Filters, and Signals",
+      "concepts": [
+        "Charging and discharging a capacitor.",
+        "The time constant.",
+        "An exponential transient response.",
+        "The integrating and differentiating behavior of an RC circuit.",
+        "Low-pass and high-pass filters."
+      ],
+      "interactive": "an oscilloscope and an RC circuit with an arbitrary input signal"
+    },
+    "10.1": {
+      "title": "The Magnetic Field and the Lorentz Force",
+      "concepts": [
+        "Magnetic poles and the absence of observed magnetic monopoles.",
+        "The field of a moving charge.",
+        "The Lorentz force.",
+        "The direction of the force and the work done by a magnetic field."
+      ],
+      "interactive": "a three-dimensional controller for the directions of velocity, field, and force"
+    },
+    "10.2": {
+      "title": "Motion of a Charge in a Magnetic Field",
+      "concepts": [
+        "Circular and helical trajectories.",
+        "The cyclotron frequency.",
+        "Crossed electric and magnetic fields.",
+        "The mass spectrometer, cyclotron, and magnetosphere."
+      ],
+      "interactive": "a chamber for observing the motion of a charged particle"
+    },
+    "10.3": {
+      "title": "Fields Produced by Electric Currents",
+      "concepts": [
+        "The fields of a straight wire, a current loop, and a solenoid.",
+        "The idea behind the Biot–Savart law.",
+        "Ampère's law and symmetry.",
+        "The interaction between parallel currents."
+      ],
+      "interactive": "building current configurations and visualizing their magnetic fields"
+    },
+    "10.4": {
+      "title": "Magnetic Materials and the Electric Motor",
+      "concepts": [
+        "The magnetic dipole moment of a current loop.",
+        "Torque.",
+        "Diamagnetic, paramagnetic, and ferromagnetic materials.",
+        "Magnetic domains and hysteresis.",
+        "The operating principle of an electric motor."
+      ],
+      "interactive": "a motor with visible currents, magnetic field, and torque"
+    },
+    "10.5": {
+      "title": "Electromagnetic Induction",
+      "concepts": [
+        "Magnetic flux.",
+        "Faraday's law.",
+        "Lenz's law and conservation of energy.",
+        "Eddy currents.",
+        "The electric generator."
+      ],
+      "interactive": "a magnet and coil with a graph of the induced voltage"
+    },
+    "10.6": {
+      "title": "Inductance, Alternating Current, and the RLC Circuit",
+      "concepts": [
+        "Self-inductance and energy stored in the magnetic field.",
+        "Transient behavior in RL and LC circuits.",
+        "RLC resonance.",
+        "Phase shifts in an AC circuit.",
+        "The transformer and electric-power transmission."
+      ],
+      "interactive": "a signal generator, oscilloscope, and RLC circuit"
+    },
+    "10.7": {
+      "title": "Maxwell's Equations and Electromagnetic Waves",
+      "concepts": [
+        "The four ideas behind Maxwell's equations, without premature formalism.",
+        "Displacement current.",
+        "Self-sustaining electric and magnetic fields.",
+        "The speed of light.",
+        "The electromagnetic spectrum.",
+        "Energy transport by fields and the Poynting vector—an overview."
+      ],
+      "interactive": "the generation and propagation of an electromagnetic wave"
+    },
+    "11.1": {
+      "title": "The Ray Model, Reflection, and Fermat's Principle",
+      "concepts": [
+        "The rectilinear propagation of light.",
+        "Shadows and penumbrae.",
+        "The law of reflection.",
+        "The plane mirror.",
+        "Stationary optical paths and Fermat's principle."
+      ],
+      "interactive": "finding a stationary-time optical path, including minimum-time cases"
+    },
+    "11.2": {
+      "title": "Refraction, Dispersion, and Total Internal Reflection",
+      "concepts": [
+        "The speed of light in matter.",
+        "Snell's law.",
+        "The refractive index.",
+        "Dispersion and the rainbow.",
+        "Total internal reflection and optical fibers."
+      ],
+      "interactive": "a light ray passing through boundaries between arbitrary media"
+    },
+    "11.3": {
+      "title": "Mirrors and Lenses",
+      "concepts": [
+        "Spherical mirrors.",
+        "Converging and diverging lenses.",
+        "Focal points and ray diagrams for image formation.",
+        "The thin-lens equation.",
+        "Magnification."
+      ],
+      "interactive": "an optical bench for constructing ray diagrams"
+    },
+    "11.4": {
+      "title": "The Eye, Camera, Microscope, and Telescope",
+      "concepts": [
+        "Image formation on the retina and an image sensor.",
+        "Accommodation and refractive errors of the eye.",
+        "Aperture, exposure time, and depth of field.",
+        "Angular magnification.",
+        "Aberrations in optical systems."
+      ],
+      "interactive": "a camera or telescope design tool"
+    },
+    "11.5": {
+      "title": "Interference, Diffraction, and the Resolution Limit",
+      "concepts": [
+        "Coherence.",
+        "The double-slit experiment.",
+        "Diffraction by an aperture and a grating.",
+        "The relationship between aperture size and the width of the diffraction pattern or diffraction spot.",
+        "The Rayleigh criterion."
+      ],
+      "interactive": "a smooth transition from geometric optics to diffraction"
+    },
+    "11.6": {
+      "title": "Polarization, Color, and Spectroscopy",
+      "concepts": [
+        "The polarization of light.",
+        "Malus's law.",
+        "Color mixing and perception.",
+        "Source spectra and spectral lines.",
+        "How light reveals the composition and motion of matter."
+      ],
+      "interactive": "polarizers, a spectral color mixer, and a virtual spectroscope"
+    }
+  },
+  "formulas": {
+    "linear-elasticity": {
+      "title": "Hooke's Law for Uniaxial Deformation",
+      "plain": "σ = Eε; ε = ΔL/L₀",
+      "meaning": "In the linear elastic regime, mechanical stress is proportional to strain.",
+      "conditions": "Small uniaxial deformation of a homogeneous material below its proportional limit; the material returns to its original shape after unloading.",
+      "units": "σ and E: Pa; ε: dimensionless; L: m"
+    },
+    "bernoulli-equation": {
+      "title": "Bernoulli's Equation",
+      "plain": "p + ρv²/2 + ρgz = const",
+      "meaning": "Expresses conservation of mechanical energy per unit volume in a flowing fluid.",
+      "conditions": "Steady flow of an incompressible, inviscid fluid along a streamline; the same constant applies throughout the flow only when the flow is irrotational.",
+      "units": "each term: Pa = J/m³; ρ: kg/m³; v: m/s; z: m"
+    },
+    "harmonic-oscillator": {
+      "title": "Harmonic Oscillator",
+      "plain": "m ẍ + kx = 0; ω₀ = sqrt(k/m); x = A cos(ω₀t + φ)",
+      "meaning": "A linear restoring force produces sinusoidal oscillations at the natural frequency.",
+      "conditions": "There is no damping or external driving; the force is linear in displacement, and the parameters m and k are constant.",
+      "units": "m: kg; k: N/m; x and A: m; ω₀: rad/s; φ: dimensionless"
+    },
+    "standing-wave-string": {
+      "title": "Natural Frequencies of a Stretched String",
+      "plain": "f_n = n/(2L) · sqrt(T/μ), n = 1, 2, 3, …",
+      "meaning": "The boundary conditions select a discrete set of standing-wave frequencies on the string.",
+      "conditions": "A uniform, flexible string with fixed ends, constant tension, and small transverse oscillations.",
+      "units": "f: Hz; L: m; T: N; μ: kg/m"
+    },
+    "ideal-gas-law": {
+      "title": "Ideal-Gas Equation of State",
+      "plain": "pV = nRT = Nk_B T",
+      "meaning": "Relates the pressure, volume, particle count, and absolute temperature of a dilute gas.",
+      "conditions": "The gas is close to ideal: interactions between particles and their own volume can be neglected, and the system is in equilibrium.",
+      "units": "p: Pa; V: m³; n: mol; T: K; R: J/(mol·K); k_B: J/K; N: dimensionless"
+    },
+    "first-law-thermodynamics": {
+      "title": "First Law of Thermodynamics",
+      "plain": "ΔU = Q − W; W = ∫ p_ext dV",
+      "meaning": "The change in internal energy equals the heat supplied to the system minus the work done by the system.",
+      "conditions": "A closed system; the convention W > 0 is used for work done by the system on its surroundings; the integral describes volume work in terms of the external pressure.",
+      "units": "U, Q, and W: J; p: Pa; V: m³"
+    },
+    "entropy-balance": {
+      "title": "Entropy Change and the Second Law",
+      "plain": "ΔS = ∫ δQ_rev/T; ΔS_universe ≥ 0",
+      "meaning": "A change in the entropy of a state is calculated along a reversible path, while the total entropy of an isolated system and its surroundings cannot decrease.",
+      "conditions": "The initial and final states are equilibrium states; the integral uses a hypothetical reversible path, which need not be the actual process.",
+      "units": "S: J/K; Q: J; T: K"
+    },
+    "coulomb-law": {
+      "title": "Coulomb's Law",
+      "plain": "F₂←₁ = [1/(4πε₀)] q₁q₂ (r₂ − r₁)/|r₂ − r₁|³",
+      "meaning": "Describes the electrostatic force on point charge 2 due to point charge 1 in a vacuum.",
+      "conditions": "The charges are at rest and their dimensions are small compared with their separation; r₂ − r₁ points from charge 1 to charge 2; the surrounding medium is a vacuum.",
+      "units": "F: N; q: C; r: m; ε₀: F/m"
+    },
+    "ohm-law": {
+      "title": "Ohm's Law and the Resistance of a Conductor",
+      "plain": "V = IR; R = ρℓ/A",
+      "meaning": "The voltage across an ohmic element is proportional to the current, while the resistance of a uniform conductor is determined by its geometry and material.",
+      "conditions": "A linear ohmic regime with constant temperature and resistivity; the conductor is uniform and has a constant cross-sectional area.",
+      "units": "V: V; I: A; R: Ω; ρ: Ω·m; ℓ: m; A: m²"
+    },
+    "capacitor-energy": {
+      "title": "Capacitance and Capacitor Energy",
+      "plain": "C = Q/V; U_C = Q²/(2C) = CV²/2",
+      "meaning": "Capacitance relates charge to voltage, while the stored energy depends quadratically on either charge or voltage.",
+      "conditions": "A linear capacitor of constant capacitance is charged quasistatically; losses and fringing effects are neglected.",
+      "units": "C: F; Q: C; V: V; U_C: J"
+    },
+    "lorentz-force": {
+      "title": "Lorentz Force",
+      "plain": "F = q(E + v × B) = dp/dt",
+      "meaning": "Electric and magnetic fields determine the change in momentum of a charged particle.",
+      "conditions": "A point particle of charge q in prescribed classical fields; at relativistic speeds, p is the relativistic momentum.",
+      "units": "F: N; q: C; E: V/m; v: m/s; B: T; p: kg·m/s"
+    },
+    "faraday-induction": {
+      "title": "Faraday's Law of Electromagnetic Induction",
+      "plain": "ℰ = ∮ E · dl = −dΦ_B/dt; Φ_B = ∫ B · dS",
+      "meaning": "A changing magnetic flux produces a nonconservative electric field and an electromotive force.",
+      "conditions": "The loop C is stationary; the orientations of C and S are related by the right-hand rule; for a moving loop, the v × B contribution must be included.",
+      "units": "ℰ: V; E: V/m; Φ_B: Wb; B: T; S: m²"
+    },
+    "electromagnetic-wave-speed": {
+      "title": "Speed of an Electromagnetic Wave in Vacuum",
+      "plain": "c = 1/sqrt(μ₀ε₀)",
+      "meaning": "Maxwell's equations relate the speed of light to the electric and magnetic properties of vacuum.",
+      "conditions": "Linear electrodynamics in vacuum; in a material medium, the wave speed depends on the medium's dispersive properties.",
+      "units": "c: m/s; μ₀: N/A²; ε₀: F/m"
+    },
+    "snell-law": {
+      "title": "Snell's Law of Refraction",
+      "plain": "n₁ sin θ₁ = n₂ sin θ₂; n = c/v_phase",
+      "meaning": "Determines how the direction of a light ray changes at the boundary between two media.",
+      "conditions": "Homogeneous, isotropic media, a planar interface, and the geometric-optics approximation; both refractive indices are evaluated at the same frequency.",
+      "units": "n: dimensionless; θ: rad; c and v_phase: m/s"
+    },
+    "thin-lens-equation": {
+      "title": "Thin-Lens Equation",
+      "plain": "1/f = 1/d_o + 1/d_i; M = −d_i/d_o",
+      "meaning": "Relates focal length to object and image positions and gives the transverse magnification.",
+      "conditions": "A thin lens, paraxial rays, and a consistent sign convention for real and virtual distances.",
+      "units": "f, d_o, and d_i: m; M: dimensionless"
+    },
+    "double-slit-maxima": {
+      "title": "Double-Slit Interference Maxima",
+      "plain": "d sin θ_m = mλ, m = 0, ±1, ±2, …",
+      "meaning": "A path difference equal to an integer number of wavelengths determines the directions of the interference maxima.",
+      "conditions": "Coherent monochromatic light, identical slits, and the far-field regime; the diffraction envelope of each slit is treated separately.",
+      "units": "d and λ: m; θ: rad; m: dimensionless"
+    }
+  }
+}
