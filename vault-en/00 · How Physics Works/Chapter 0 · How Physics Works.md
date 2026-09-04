@@ -17,9 +17,9 @@ tags:
 
 ## Cards
 
-- [[0.1 · Physics as Model Building|0.1. Physics as Model Building]] — Observation, idealization, model, prediction, and experiment.
-- [[0.2 · How a Physics Experiment Is Structured|0.2. How a Physics Experiment Is Structured]] — The system under study, input parameters, and measured quantities.
-- [[0.3 · How to Use the Interactive Book|0.3. How to Use the Interactive Book]] — The cycle: predict → run → measure → explain.
+- [[0.1 · Physics as Model Building|0.1. Physics as Model Building]] — A physical investigation begins with a choice: which properties matter to the question and which can be neglected.
+- [[0.2 · How a Physics Experiment Is Structured|0.2. How a Physics Experiment Is Structured]] — An experiment is not merely an observed outcome but a predefined procedure.
+- [[0.3 · How to Use the Interactive Book|0.3. How to Use the Interactive Book]] — An interactive becomes useful when it is treated as a small experiment.
 
 ## Navigation
 

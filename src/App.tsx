@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { AppHeader } from './components/AppHeader';
 import { SearchDialog } from './components/SearchDialog';
 import { CatalogPage } from './pages/CatalogPage';
@@ -7,11 +7,10 @@ import { FormulasPage } from './pages/FormulasPage';
 import { HomePage } from './pages/HomePage';
 import { LabsPage } from './pages/LabsPage';
 import { LessonPage } from './pages/LessonPage';
-import { allTopics, bookMeta } from './data';
+import { bookMeta } from './data/meta.generated';
+import { topicIds } from './data/topic-ids.generated';
 import { parseRoute, routeToHash, type Route } from './routing';
 import { LocaleProvider, useLocale } from './i18n/LocaleContext';
-import { book as bookEn } from './data/book.en.generated';
-import { book as bookRu } from './data/book.generated';
 
 const COMPLETED_KEY = 'pole:completed';
 const BOOKMARKS_KEY = 'pole:bookmarks';
@@ -35,7 +34,7 @@ function readStringSet(key: string) {
   }
 }
 
-const validTopicIds = new Set(allTopics.map((topic) => topic.id));
+const validTopicIds = new Set(topicIds);
 const readTopicSet = (key: string) => new Set([...readStringSet(key)].filter((id) => validTopicIds.has(id)));
 
 function readPreferredRoute(hash = window.location.hash): Route {
@@ -53,6 +52,7 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [completed, setCompleted] = useState<Set<string>>(() => readTopicSet(COMPLETED_KEY));
   const [bookmarks, setBookmarks] = useState<Set<string>>(() => readTopicSet(BOOKMARKS_KEY));
+  const routeFocusPending = useRef(false);
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     const saved = safeStorageGet(THEME_KEY);
     if (saved === 'light' || saved === 'dark') return saved;
@@ -61,14 +61,28 @@ function App() {
 
   useEffect(() => {
     const onHashChange = () => {
+      routeFocusPending.current = document.documentElement.dataset.restoreFocus !== 'locale';
       setRoute(readPreferredRoute());
       setMobileOpen(false);
       setSidebarOpen(false);
-      window.scrollTo({ top: 0, behavior: 'auto' });
+      window.scrollTo({ top: 0, behavior: 'instant' });
     };
     window.addEventListener('hashchange', onHashChange);
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
+
+  useEffect(() => {
+    if (!routeFocusPending.current) return;
+    routeFocusPending.current = false;
+    const frame = window.requestAnimationFrame(() => {
+      const heading = document.querySelector<HTMLElement>('.book-main h1, main h1');
+      if (!heading) return;
+      heading.tabIndex = -1;
+      heading.focus({ preventScroll: true });
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [route]);
 
   useEffect(() => {
     safeStorageSet(LOCALE_KEY, route.locale);
@@ -81,27 +95,7 @@ function App() {
     document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute('content', theme === 'light' ? '#f4f2eb' : '#0c1724');
   }, [theme]);
 
-  useEffect(() => {
-    document.documentElement.lang = route.locale;
-    let title = 'Поле — интерактивная физика';
-    const localizedBook = route.locale === 'en' ? bookEn : bookRu;
-    const localizedTopics = localizedBook.flatMap((chapter) => chapter.topics);
-    const brand = route.locale === 'en' ? 'Field' : 'Поле';
-    if (route.locale === 'en') title = 'Field — interactive physics';
-    if (route.page === 'catalog') title = `${route.locale === 'en' ? 'Contents' : 'Оглавление'} — ${brand}`;
-    if (route.page === 'labs') title = `${route.locale === 'en' ? 'Laboratories' : 'Лаборатории'} — ${brand}`;
-    if (route.page === 'formulas') title = `${route.locale === 'en' ? 'Formulas' : 'Формулы'} — ${brand}`;
-    if (route.page === 'chapter') title = `${localizedBook[route.chapter]?.title ?? (route.locale === 'en' ? 'Section' : 'Раздел')} — ${brand}`;
-    if (route.page === 'topic') title = `${localizedTopics.find((topic) => topic.id === route.topic)?.title ?? (route.locale === 'en' ? 'Card' : 'Карточка')} — ${brand}`;
-    document.title = title;
-    const description = route.locale === 'en'
-      ? 'FIELD is an interactive physics guide from measurement and mechanics to quantum theory and the Universe.'
-      : 'ПОЛЕ — интерактивный справочник по физике: от измерений и механики до квантового мира и Вселенной.';
-    document.querySelector<HTMLMetaElement>('meta[property="og:title"]')?.setAttribute('content', title);
-    document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute('content', description);
-    document.querySelector<HTMLMetaElement>('meta[property="og:description"]')?.setAttribute('content', description);
-    document.querySelector<HTMLMetaElement>('meta[property="og:locale"]')?.setAttribute('content', route.locale === 'en' ? 'en_US' : 'ru_RU');
-  }, [route]);
+  useEffect(() => { document.documentElement.lang = route.locale; }, [route.locale]);
 
   const openSearch = useCallback(() => {
     setSearchOpen(true);
@@ -135,6 +129,7 @@ function App() {
 
   return (
     <LocaleProvider locale={route.locale}>
+    <DocumentMeta route={route} />
     <div className="app-shell">
       <AppHeader
         route={route}
@@ -158,6 +153,28 @@ function App() {
     </div>
     </LocaleProvider>
   );
+}
+
+function DocumentMeta({ route }: { route: Route }) {
+  const { locale, book, allTopics } = useLocale();
+  useEffect(() => {
+    const brand = locale === 'en' ? 'Field' : 'Поле';
+    let title = locale === 'en' ? 'Field — interactive physics' : 'Поле — интерактивная физика';
+    if (route.page === 'catalog') title = `${locale === 'en' ? 'Contents' : 'Оглавление'} — ${brand}`;
+    if (route.page === 'labs') title = `${locale === 'en' ? 'Laboratories' : 'Лаборатории'} — ${brand}`;
+    if (route.page === 'formulas') title = `${locale === 'en' ? 'Formulas' : 'Формулы'} — ${brand}`;
+    if (route.page === 'chapter') title = `${book[route.chapter]?.title ?? (locale === 'en' ? 'Section' : 'Раздел')} — ${brand}`;
+    if (route.page === 'topic') title = `${allTopics.find((topic) => topic.id === route.topic)?.title ?? (locale === 'en' ? 'Card' : 'Карточка')} — ${brand}`;
+    document.title = title;
+    const description = locale === 'en'
+      ? 'FIELD is an interactive physics guide from measurement and mechanics to quantum theory and the Universe.'
+      : 'ПОЛЕ — интерактивный справочник по физике: от измерений и механики до квантового мира и Вселенной.';
+    document.querySelector<HTMLMetaElement>('meta[property="og:title"]')?.setAttribute('content', title);
+    document.querySelector<HTMLMetaElement>('meta[name="description"]')?.setAttribute('content', description);
+    document.querySelector<HTMLMetaElement>('meta[property="og:description"]')?.setAttribute('content', description);
+    document.querySelector<HTMLMetaElement>('meta[property="og:locale"]')?.setAttribute('content', locale === 'en' ? 'en_US' : 'ru_RU');
+  }, [allTopics, book, locale, route]);
+  return null;
 }
 
 function LocalizedFooter() {

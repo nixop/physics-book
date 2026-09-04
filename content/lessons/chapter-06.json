@@ -1,0 +1,397 @@
+{
+  "chapter": 6,
+  "ru": {
+    "6.1": {
+      "question": "Почему вещество с дискретными атомами во многих задачах можно описывать непрерывными полями плотности, давления и температуры?",
+      "overview": [
+        "Агрегатное состояние определяется не названием вещества, а соотношением энергии теплового движения, взаимодействия частиц и внешних условий. В твёрдом теле сохраняется дальний или локальный структурный порядок, жидкость течёт при почти неизменном объёме, газ заполняет доступный объём, а плазма содержит достаточно свободных зарядов, чтобы коллективно реагировать на электромагнитные поля.",
+        "Макроскопическое описание усредняет огромное число частиц по малому физическому объёму. Если этот объём всё ещё содержит много частиц, но намного меньше масштаба изменения потока, можно ввести поля rho(r,t), p(r,t) и T(r,t). Приближение сплошной среды перестаёт быть надёжным, когда длина свободного пробега или размер микроструктуры сравнимы с размером задачи."
+      ],
+      "conceptExplanations": [
+        "Различие состояний проявляется в способности сохранять форму и объём, в характере межчастичного порядка и в наличии свободных носителей заряда; границы между состояниями задаются фазовой диаграммой.",
+        "Плотность rho = dm/dV характеризует массу локального объёма, а давление p — нормальную силу на единицу площади; в равновесной среде обе величины можно задавать в каждой точке.",
+        "Температура, давление и вязкость не принадлежат отдельной молекуле в том же смысле, что системе: они возникают после статистического усреднения микроскопических движений и столкновений.",
+        "Практический критерий — малое число Кнудсена Kn = lambda/L, где lambda — средняя длина свободного пробега, а L — характерный масштаб изменения макроскопических величин."
+      ],
+      "boundary": "Континуальная модель требует Kn намного меньше 1 и локального термодинамического равновесия; в разреженном газе, наноканале, ударном фронте или гранулированной среде нужен кинетический либо дискретный подход.",
+      "example": {
+        "title": "Проверка континуального приближения для воздуха",
+        "problem": "Средняя длина свободного пробега молекул воздуха равна 70 нм, а характерная ширина канала — 1.0 мм. Оценить число Кнудсена и решить, допустима ли обычная гидродинамика вдали от стенок.",
+        "steps": [
+          "Переведём величины в СИ: lambda = 7.0e-8 м, L = 1.0e-3 м.",
+          "Вычислим Kn = lambda/L = 7.0e-5.",
+          "Полученное значение намного меньше 0.01, поэтому столкновения быстро восстанавливают локальное равновесие и объёмную часть потока можно считать сплошной."
+        ],
+        "answer": "Kn = 7.0e-5; континуальная модель для объёмного потока применима.",
+        "check": "Kn безразмерно и уменьшается при увеличении канала; возле самой стенки всё равно может потребоваться отдельное граничное условие."
+      },
+      "pitfall": "Нельзя считать, что плазма — просто очень горячий идеальный газ: даже при малой степени ионизации дальнодействующие поля могут создавать коллективные эффекты и новые масштабы.",
+      "practice": [
+        {
+          "question": "Почему давление газа нельзя приписать одной выбранной молекуле?",
+          "hint": "Сравните мгновенный импульс одной частицы и усреднённый поток импульса через площадку.",
+          "answer": "Давление определяется статистически как средний поток нормального импульса множества частиц через единицу площади; траектория одной молекулы даёт лишь отдельные импульсы."
+        },
+        {
+          "question": "Для газа lambda = 20 мкм в канале шириной 0.20 мм. Найдите Kn и оцените модель.",
+          "hint": "Приведите оба размера к метрам и разделите lambda на L.",
+          "answer": "Kn = 0.10. Это переходный режим: стандартная континуальная гидродинамика без поправок на скольжение уже ненадёжна."
+        }
+      ]
+    },
+    "6.2": {
+      "question": "Как по нагрузке предсказать обратимую деформацию детали и понять, когда линейная модель перестаёт описывать материал?",
+      "overview": [
+        "Нагрузка создаёт внутри тела напряжения, а геометрический отклик описывается деформациями. Для одноосного растяжения среднее нормальное напряжение равно F/A, а относительное удлинение — Delta L/L0. Эти величины разделяют влияние силы и размеров образца и позволяют сравнивать испытания разных деталей.",
+        "В малой упругой области многие материалы приближённо подчиняются закону Гука sigma = E epsilon. После разгрузки упругая деформация исчезает, тогда как пластическая оставляет остаточное изменение формы. Реальная прочность определяется не только табличным пределом: отверстия, трещины, циклическая нагрузка и неоднородность усиливают локальные напряжения."
+      ],
+      "conceptExplanations": [
+        "Напряжение является внутренней силой на площадку и в общем случае задаётся тензором, а деформация измеряет относительное изменение длин и углов; простые скаляры sigma и epsilon относятся к одноосной схеме.",
+        "Упругая область допускает возврат к исходной форме, пластическая связана с необратимой перестройкой структуры; переход определяют по диаграмме напряжение–деформация.",
+        "Модуль Юнга E — наклон линейного участка диаграммы: большой E означает малую упругую деформацию при данном напряжении, но сам по себе не равен прочности.",
+        "При сдвиге меняются углы, при изгибе одна сторона элемента растягивается, другая сжимается, а при кручении распределение касательных напряжений зависит от формы сечения.",
+        "Усталость позволяет трещине расти при многократных циклах ниже статического предела, а резкий надрез увеличивает локальное напряжение относительно среднего F/A."
+      ],
+      "boundary": "Формула sigma = E epsilon описывает малую одноосную упругую деформацию однородного материала; она не заменяет тензорную модель, диаграмму пластичности, критерий разрушения или анализ устойчивости тонкой детали.",
+      "example": {
+        "title": "Удлинение стального стержня",
+        "problem": "Стержень длиной 2.0 м и площадью сечения 400 мм² растягивают силой 20 кН. Принять E = 200 ГПа и предел текучести 250 МПа. Найти напряжение и упругое удлинение.",
+        "steps": [
+          "Переведём данные: A = 4.00e-4 м², F = 2.0e4 Н, E = 2.00e11 Па.",
+          "Среднее напряжение sigma = F/A = 5.0e7 Па = 50 МПа, что ниже заданного предела текучести.",
+          "Деформация epsilon = sigma/E = 2.5e-4.",
+          "Удлинение Delta L = epsilon L0 = 5.0e-4 м = 0.50 мм."
+        ],
+        "answer": "sigma = 50 МПа, Delta L = 0.50 мм; по заданным данным деформация остаётся упругой.",
+        "check": "Относительное удлинение 0.025% мало, а размерность F/A равна Па. Вывод о безопасности не учитывает надрезы, усталость и потерю устойчивости."
+      },
+      "pitfall": "Высокий модуль Юнга не означает высокий предел прочности: жёсткость характеризует наклон упругого участка, а разрушение и текучесть — другие свойства.",
+      "practice": [
+        {
+          "question": "Почему отверстие в растянутой пластине опаснее, чем следует из среднего напряжения F/A?",
+          "hint": "Подумайте, как силовые линии обходят край отверстия.",
+          "answer": "У края отверстия поле напряжений неоднородно и локальный максимум выше среднего; именно там легче зарождается трещина."
+        },
+        {
+          "question": "Проволока длиной 1.5 м имеет E = 70 ГПа и испытывает напряжение 140 МПа в линейной области. Найдите удлинение.",
+          "hint": "Сначала epsilon = sigma/E, затем Delta L = epsilon L0.",
+          "answer": "epsilon = 0.002, поэтому Delta L = 0.003 м = 3.0 мм."
+        }
+      ]
+    },
+    "6.3": {
+      "question": "Как распределение давления в покоящейся жидкости определяет силу на погружённое тело и его устойчивость на плаву?",
+      "overview": [
+        "В жидкости в покое касательные напряжения отсутствуют, а давление действует нормально к любой площадке. Баланс маленького объёма в однородном поле тяжести даёт dp/dz = -rho g: чем ниже точка, тем больше давление. Разность давлений, а не само атмосферное давление, создаёт результирующую гидростатическую силу.",
+        "Интегрирование давления по поверхности погружённого тела приводит к силе Архимеда, равной весу вытесненной жидкости. Плавающее тело устанавливает такую погружённую долю, при которой эта сила равна весу. Для ориентационной устойчивости важны линии действия веса и силы плавучести, а не только равенство их модулей."
+      ],
+      "conceptExplanations": [
+        "Для жидкости постоянной плотности p = p0 + rho g h; точки одной связной покоящейся жидкости на одной высоте имеют одинаковое давление.",
+        "Переданное внешнее приращение давления распространяется по замкнутой жидкости, поэтому гидравлический пресс меняет силу в отношении площадей, сохраняя работу в идеальном пределе.",
+        "Сила плавучести направлена против эффективной тяжести и равна rho_fluid g V_displaced; она возникает из большего давления на нижние участки поверхности.",
+        "Для равновесного плавания F_A = mg, а после малого наклона должен возникать возвращающий момент; положение метацентра относительно центра масс служит критерием для малых наклонов."
+      ],
+      "boundary": "Гидростатические формулы требуют покоя жидкости в выбранной системе и известного поля эффективной тяжести; при ускоренном потоке, заметной сжимаемости или сильных капиллярных эффектах одного p = p0 + rho gh недостаточно.",
+      "example": {
+        "title": "Доля погружения плавающего блока",
+        "problem": "Однородный блок объёмом 0.020 м³ и массой 12 кг свободно плавает в воде плотностью 1000 кг/м³. Найти вытесненный объём и долю объёма под водой.",
+        "steps": [
+          "В равновесии вес mg равен силе Архимеда rho g V_sub.",
+          "Сократим g и получим V_sub = m/rho = 12/1000 = 0.012 м³.",
+          "Доля погружения равна V_sub/V = 0.012/0.020 = 0.60."
+        ],
+        "answer": "Блок вытесняет 0.012 м³ воды и погружён на 60% своего объёма.",
+        "check": "Средняя плотность блока 600 кг/м³ меньше плотности воды, поэтому частичное плавание возможно; результат не зависит от g после сокращения."
+      },
+      "pitfall": "Сила Архимеда не обязана равняться весу тела: это равенство выполняется только при вертикальном равновесии свободно плавающего тела без дополнительных сил.",
+      "practice": [
+        {
+          "question": "Почему давление на дне сосуда не определяется полной массой жидкости однозначно?",
+          "hint": "Сравните p = p0 + rho gh для сосудов разной формы, но одинаковой глубины.",
+          "answer": "Локальное давление задаётся глубиной, плотностью и поверхностным давлением; часть веса жидкости может передаваться стенкам, поэтому сила на дно зависит также от его площади."
+        },
+        {
+          "question": "Каково избыточное давление на глубине 5.0 м в пресной воде? Принять g = 9.81 м/с².",
+          "hint": "Используйте Delta p = rho gh при rho = 1000 кг/м³.",
+          "answer": "Delta p = 4.905e4 Па, то есть примерно 49 кПа."
+        }
+      ]
+    },
+    "6.4": {
+      "question": "Почему поверхность жидкости стремится сократить площадь и как из этого возникают капли, мениски и капиллярный подъём?",
+      "overview": [
+        "Молекула внутри жидкости окружена соседями со всех сторон, а у поверхности окружение несимметрично. Создание новой границы требует работы, поэтому свободная поверхностная энергия при фиксированных условиях пропорциональна площади: dW = gamma dA. Та же величина gamma описывает касательную силу на единицу длины линии границы.",
+        "Кривизна поверхности создаёт скачок давления, а конкуренция поверхностной энергии, тяжести и контакта с твёрдым телом определяет форму. В тонком капилляре вертикальная составляющая силы поверхностного натяжения может поддерживать столб жидкости. Эффект быстро усиливается при уменьшении размера, потому что поверхностные силы масштабируются как длина, а вес — как объём."
+      ],
+      "conceptExplanations": [
+        "Коэффициент gamma равен обратимой работе увеличения площади на единицу площади при заданных температуре и составе; примеси и температура способны заметно его менять.",
+        "Без тяжести капля заданного объёма стремится к сфере как поверхности минимальной площади, а при заметном весе её форма определяется капиллярной длиной.",
+        "Контактный угол измеряют через жидкость в равновесии трёх границ; угол меньше 90 градусов соответствует преимущественному смачиванию, но зависит от материала и чистоты поверхности.",
+        "Для круглого тонкого капилляра равновесная высота h = 2 gamma cos(theta)/(rho g r); знак cos(theta) определяет подъём или понижение уровня.",
+        "Отношение поверхностной силы к весу растёт примерно как 1/L² при уменьшении характерного размера, поэтому водомерку поддерживает поверхность, а крупному животному такой механизм недоступен."
+      ],
+      "boundary": "Простые формулы предполагают равновесную чистую поверхность, постоянное gamma, заданный контактный угол и цилиндрический капилляр; динамическое смачивание, испарение, загрязнение и гистерезис контактного угла требуют дополнительной модели.",
+      "example": {
+        "title": "Подъём воды в стеклянном капилляре",
+        "problem": "Для воды gamma = 0.072 Н/м, rho = 1000 кг/м³, контактный угол считать нулевым. Найти высоту подъёма в капилляре радиусом 0.50 мм при g = 9.81 м/с².",
+        "steps": [
+          "Запишем баланс: h = 2 gamma cos(theta)/(rho g r).",
+          "Переведём радиус: r = 5.0e-4 м, а cos(0) = 1.",
+          "Подстановка даёт h = 0.144/(1000 x 9.81 x 5.0e-4) = 2.94e-2 м."
+        ],
+        "answer": "В идеальной модели вода поднимется примерно на 2.9 см.",
+        "check": "Высота имеет размерность метра и обратно пропорциональна радиусу: в капилляре вдвое тоньше прогноз был бы вдвое больше."
+      },
+      "pitfall": "Поверхностное натяжение не является плёнкой, натянутой поверх жидкости: это термодинамическое свойство границы, а силы возникают вдоль любой проведённой на ней линии.",
+      "practice": [
+        {
+          "question": "Почему маленькая капля ближе к сфере, чем крупная капля той же жидкости на горизонтальной поверхности?",
+          "hint": "Сравните масштаб поверхностной энергии и гравитационной энергии при изменении размера.",
+          "answer": "При малом размере поверхностный вклад относительно веса больше и минимизация площади доминирует; у крупной капли тяжесть сильнее сплющивает форму."
+        },
+        {
+          "question": "Во сколько раз изменится капиллярная высота, если радиус трубки увеличить с 0.25 до 1.0 мм при неизменных остальных параметрах?",
+          "hint": "В формуле h пропорциональна 1/r.",
+          "answer": "Радиус вырос в 4 раза, поэтому высота уменьшится в 4 раза."
+        }
+      ]
+    },
+    "6.5": {
+      "question": "Как законы сохранения и вязкость связывают геометрию трубы со скоростью, давлением и режимом течения?",
+      "overview": [
+        "Для установившегося потока сохранение массы требует одинакового массового расхода через последовательные сечения. У несжимаемой жидкости это даёт A v_bar = const: сужение увеличивает среднюю скорость. В идеальном невязком потоке вдоль линии тока сумма p + rho v²/2 + rho gz постоянна и выражает баланс механической энергии единицы объёма.",
+        "Реальная жидкость рассеивает механическую энергию из-за вязкости и взаимодействует со стенкой через условие прилипания. Число Рейнольдса Re = rho v L/mu сравнивает инерционные и вязкие эффекты, но критическое значение зависит от геометрии и возмущений. В турбулентном потоке среднее движение сопровождается пульсациями и переносом импульса вихрями."
+      ],
+      "conceptExplanations": [
+        "Объёмный расход Q = dV/dt равен интегралу скорости по сечению; выражение Q = A v_bar использует среднюю по сечению скорость, а для несжимаемого стационарного потока Q сохраняется.",
+        "Уравнение Бернулли является энергетическим интегралом для стационарного невязкого потока; насосы, турбины и потери напора добавляют отдельные члены.",
+        "Динамическая вязкость mu связывает касательное напряжение с градиентом скорости в ньютоновской жидкости; в длинной круглой трубе ламинарный расход особенно чувствителен к радиусу.",
+        "Re не является скоростью само по себе: одинаковый Re означает сходный баланс инерции и вязкости для геометрически подобных задач.",
+        "Пограничный слой — область быстрого изменения скорости у поверхности; его отрыв меняет сопротивление и может породить широкий вихревой след."
+      ],
+      "boundary": "Связи Q = Av и Бернулли в простой форме требуют стационарности и несжимаемости, а Бернулли дополнительно — пренебрежимо малых вязких потерь вдоль выбранной линии тока; для газа при большом числе Маха и для неньютоновской жидкости нужны другие уравнения состояния и реологии.",
+      "example": {
+        "title": "Сужение водяной трубы",
+        "problem": "Горизонтальная труба сужается от диаметра 4.0 см до 2.0 см. Скорость воды до сужения 1.0 м/с, rho = 1000 кг/м³, mu = 1.0e-3 Па·с. Найти идеальные скорость и падение статического давления, затем оценить Re в узкой части.",
+        "steps": [
+          "Площадь пропорциональна D², поэтому A1/A2 = 4 и из непрерывности v2 = 4.0 м/с.",
+          "Для горизонтального идеального потока p1 - p2 = rho(v2² - v1²)/2 = 7.5e3 Па.",
+          "Число Рейнольдса в узкой части Re = rho v2 D2/mu = 8.0e4.",
+          "Такой Re указывает, что реальный поток, вероятно, турбулентен и фактическое падение давления будет больше идеального из-за потерь."
+        ],
+        "answer": "v2 = 4.0 м/с, идеальное p1 - p2 = 7.5 кПа, Re = 8.0e4; последний результат предупреждает об ограничении идеального расчёта.",
+        "check": "Скорость выросла обратно площади, а статическое давление уменьшилось; энергия не исчезает, но в реальном потоке часть переходит во внутреннюю энергию."
+      },
+      "pitfall": "Фраза «больше скорость — меньше давление» не является универсальным локальным законом: она следует из Бернулли только при сравнении точек одного подходящего потока с учётом высоты, работы устройств и потерь.",
+      "practice": [
+        {
+          "question": "Почему скорость вязкой жидкости у неподвижной стенки обычно принимают равной скорости стенки?",
+          "hint": "Назовите граничное условие для обычной вязкой жидкости.",
+          "answer": "Условие прилипания задаёт нулевую относительную скорость жидкости на твёрдой стенке; отсюда возникает градиент скорости и касательное напряжение."
+        },
+        {
+          "question": "В несжимаемом потоке площадь сечения уменьшается с 30 до 10 см² при скорости 0.50 м/с в широком сечении. Найдите скорость в узком.",
+          "hint": "Используйте A1 v1 = A2 v2.",
+          "answer": "v2 = (30/10) x 0.50 = 1.5 м/с."
+        }
+      ]
+    }
+  },
+  "en": {
+    "6.1": {
+      "question": "Why can matter made of discrete atoms often be described by continuous fields of density, pressure, and temperature?",
+      "overview": [
+        "A state of matter is determined by the balance between thermal motion, interactions among particles, and external conditions rather than by the substance name alone. A solid preserves long-range or local structural order, a liquid flows while remaining nearly fixed in volume, a gas fills the available volume, and a plasma contains enough free charges to respond collectively to electromagnetic fields.",
+        "A macroscopic description averages over a huge number of particles inside a small physical volume. If that volume still contains many particles but is much smaller than the scale over which the flow changes, fields such as rho(r,t), p(r,t), and T(r,t) can be defined. The continuum approximation becomes unreliable when the mean free path or a microstructural size is comparable to the problem scale."
+      ],
+      "conceptExplanations": [
+        "The states differ through their ability to preserve shape and volume, the character of particle order, and the presence of mobile charge carriers; a phase diagram locates transitions under specified conditions.",
+        "Density rho = dm/dV measures mass in a local volume, whereas pressure p is normal force per unit area; in an equilibrium medium both can be assigned at every point.",
+        "Temperature, pressure, and viscosity are not properties of a single molecule in the same sense as they are properties of a system; they emerge after statistical averaging of microscopic motion and collisions.",
+        "A practical criterion is a small Knudsen number Kn = lambda/L, where lambda is the mean free path and L is the characteristic scale of macroscopic variation."
+      ],
+      "boundary": "A continuum model requires Kn much less than 1 and local thermodynamic equilibrium; a rarefied gas, nanoscopic channel, shock front, or granular medium may require a kinetic or discrete description.",
+      "example": {
+        "title": "Testing the continuum approximation for air",
+        "problem": "The molecular mean free path in air is 70 nm and the characteristic channel width is 1.0 mm. Estimate the Knudsen number and decide whether ordinary fluid mechanics is suitable away from the walls.",
+        "steps": [
+          "Convert to SI units: lambda = 7.0e-8 m and L = 1.0e-3 m.",
+          "Calculate Kn = lambda/L = 7.0e-5.",
+          "This is much less than 0.01, so collisions rapidly restore local equilibrium and the bulk flow can be treated as a continuum."
+        ],
+        "answer": "Kn = 7.0e-5; the continuum model is appropriate for the bulk flow.",
+        "check": "Kn is dimensionless and decreases for a wider channel; a separate boundary condition may still be needed immediately next to a wall."
+      },
+      "pitfall": "A plasma is not merely a very hot ideal gas: even a modest ionized fraction can produce collective behavior through long-range fields and introduce new length and time scales.",
+      "practice": [
+        {
+          "question": "Why cannot pressure be assigned to one selected gas molecule?",
+          "hint": "Compare one instantaneous molecular impulse with an averaged momentum flux through an area.",
+          "answer": "Pressure is the statistical mean normal momentum flux of many particles per unit area; one molecular path supplies only isolated impulses."
+        },
+        {
+          "question": "A gas has lambda = 20 micrometers in a channel 0.20 mm wide. Find Kn and assess the model.",
+          "hint": "Put both lengths in metres and divide lambda by L.",
+          "answer": "Kn = 0.10. This is a transition regime, so conventional continuum fluid mechanics without slip corrections is unreliable."
+        }
+      ]
+    },
+    "6.2": {
+      "question": "How can an applied load predict reversible deformation, and how can we tell when the linear material model has failed?",
+      "overview": [
+        "A load creates stresses inside a body, while its geometric response is described by strains. For uniaxial tension, the mean normal stress is F/A and the longitudinal strain is Delta L/L0. These quantities remove the direct effect of specimen size and allow tests of different parts to be compared.",
+        "Within a small elastic range, many materials approximately obey Hooke's law, sigma = E epsilon. Elastic strain vanishes after unloading, whereas plastic strain leaves a permanent change of shape. Real strength is not fixed by one tabulated limit: holes, cracks, cyclic loading, and material heterogeneity amplify local stresses."
+      ],
+      "conceptExplanations": [
+        "Stress is internal force per area and is generally a tensor, while strain measures relative changes of lengths and angles; the simple scalars sigma and epsilon belong to a uniaxial test.",
+        "An elastic regime permits recovery of the original shape, whereas a plastic regime involves irreversible structural rearrangement; the transition is identified on a stress-strain curve.",
+        "Young's modulus E is the slope of the linear portion of that curve: a large E means little elastic strain at a given stress, but it does not by itself imply high strength.",
+        "Shear changes angles, bending stretches one side and compresses the other, and torsion produces a shear-stress distribution that depends on cross-sectional geometry.",
+        "Fatigue permits crack growth under repeated loads below a static limit, and a sharp notch raises the local stress above the average F/A."
+      ],
+      "boundary": "The relation sigma = E epsilon describes small uniaxial elastic strain in a homogeneous material; it does not replace a tensor model, a plasticity law, a fracture criterion, or a buckling analysis for a slender member.",
+      "example": {
+        "title": "Extension of a steel rod",
+        "problem": "A rod 2.0 m long with cross-sectional area 400 mm^2 carries a tensile force of 20 kN. Take E = 200 GPa and yield stress 250 MPa. Find the stress and elastic extension.",
+        "steps": [
+          "Convert the data: A = 4.00e-4 m^2, F = 2.0e4 N, and E = 2.00e11 Pa.",
+          "The mean stress is sigma = F/A = 5.0e7 Pa = 50 MPa, below the stated yield stress.",
+          "The strain is epsilon = sigma/E = 2.5e-4.",
+          "The extension is Delta L = epsilon L0 = 5.0e-4 m = 0.50 mm."
+        ],
+        "answer": "sigma = 50 MPa and Delta L = 0.50 mm; under the stated assumptions the deformation is elastic.",
+        "check": "The relative extension is only 0.025%, and F/A has units of pascals. The calculation does not assess notches, fatigue, or buckling."
+      },
+      "pitfall": "A high Young's modulus does not imply a high strength: stiffness is the slope of the elastic curve, whereas yielding and fracture are separate properties.",
+      "practice": [
+        {
+          "question": "Why is a hole in a stretched plate more dangerous than the average stress F/A suggests?",
+          "hint": "Consider how load paths bend around the edge of the hole.",
+          "answer": "The stress field is nonuniform near the hole and its local maximum exceeds the average; cracks therefore tend to initiate at the edge."
+        },
+        {
+          "question": "A 1.5 m wire has E = 70 GPa and a stress of 140 MPa within its linear range. Find its extension.",
+          "hint": "First use epsilon = sigma/E and then Delta L = epsilon L0.",
+          "answer": "epsilon = 0.002, so Delta L = 0.003 m = 3.0 mm."
+        }
+      ]
+    },
+    "6.3": {
+      "question": "How does the pressure distribution in a stationary liquid determine the force and orientational stability of an immersed body?",
+      "overview": [
+        "A fluid at rest has no shear stress, and pressure acts normal to every surface. Balancing a small volume in a uniform gravitational field gives dp/dz = -rho g: pressure increases downward. A pressure difference, rather than atmospheric pressure by itself, creates a net hydrostatic force.",
+        "Integrating pressure over an immersed surface produces the buoyant force, equal to the weight of displaced fluid. A floating body settles at an immersed volume for which buoyancy equals its weight. Orientational stability also depends on the lines of action of weight and buoyancy, not only on equality of their magnitudes."
+      ],
+      "conceptExplanations": [
+        "For a liquid of constant density, p = p0 + rho g h; points at equal height in one connected stationary liquid have equal pressure.",
+        "An externally applied pressure increment is transmitted through an enclosed liquid, so an ideal hydraulic press changes force in the area ratio while conserving work.",
+        "Buoyancy points opposite to effective gravity and has magnitude rho_fluid g V_displaced; it arises because lower parts of the surface experience greater pressure.",
+        "Floating equilibrium requires F_b = mg, and a small tilt must produce a restoring torque; the metacentre relative to the centre of mass supplies a small-angle stability criterion."
+      ],
+      "boundary": "Hydrostatic relations require a fluid at rest in the chosen frame and a known effective gravity field; accelerated flow, appreciable compressibility, or dominant capillary forces require more than p = p0 + rho gh.",
+      "example": {
+        "title": "Immersed fraction of a floating block",
+        "problem": "A uniform block of volume 0.020 m^3 and mass 12 kg floats freely in water of density 1000 kg/m^3. Find the displaced volume and the fraction below water.",
+        "steps": [
+          "At equilibrium, weight mg equals buoyancy rho g V_sub.",
+          "Cancel g to obtain V_sub = m/rho = 12/1000 = 0.012 m^3.",
+          "The immersed fraction is V_sub/V = 0.012/0.020 = 0.60."
+        ],
+        "answer": "The block displaces 0.012 m^3 of water and has 60% of its volume submerged.",
+        "check": "Its mean density is 600 kg/m^3, below that of water, so partial flotation is possible; g cancels as expected."
+      },
+      "pitfall": "Buoyancy need not equal an object's weight: that equality holds only for vertical equilibrium of a freely floating object with no additional vertical forces.",
+      "practice": [
+        {
+          "question": "Why is pressure at a vessel bottom not determined uniquely by the total mass of liquid?",
+          "hint": "Compare p = p0 + rho gh for differently shaped vessels having the same depth.",
+          "answer": "Local pressure depends on depth, density, and surface pressure; vessel walls may carry part of the liquid weight, and bottom force also depends on bottom area."
+        },
+        {
+          "question": "What is the gauge pressure 5.0 m below the surface of fresh water? Take g = 9.81 m/s^2.",
+          "hint": "Use Delta p = rho gh with rho = 1000 kg/m^3.",
+          "answer": "Delta p = 4.905e4 Pa, approximately 49 kPa."
+        }
+      ]
+    },
+    "6.4": {
+      "question": "Why does a liquid surface tend to reduce its area, and how does that tendency produce droplets, menisci, and capillary rise?",
+      "overview": [
+        "A molecule inside a liquid is surrounded on all sides, whereas the environment of a surface molecule is asymmetric. Creating a new interface requires work, so at fixed conditions the free surface energy changes as dW = gamma dA. The same coefficient gamma describes tangential force per unit length along a line in the interface.",
+        "Surface curvature creates a pressure jump, and the competition among surface energy, gravity, and contact with a solid determines shape. In a narrow capillary, the vertical component of surface tension can support a liquid column. The effect strengthens rapidly as size decreases because surface force scales with length while weight scales with volume."
+      ],
+      "conceptExplanations": [
+        "The coefficient gamma is reversible work per unit increase of area at specified temperature and composition; contaminants and temperature can change it substantially.",
+        "Without gravity, a droplet of fixed volume approaches a sphere, the minimum-area shape; when weight matters, the capillary length controls the deformation.",
+        "The equilibrium contact angle is measured through the liquid where three interfaces meet; an angle below 90 degrees indicates preferential wetting but depends on material and surface cleanliness.",
+        "For a thin circular capillary, h = 2 gamma cos(theta)/(rho g r); the sign of cos(theta) determines a rise or depression.",
+        "The ratio of surface force to weight grows approximately as 1/L^2 as size falls, allowing a water strider to be supported by an interface while the same mechanism cannot support a large animal."
+      ],
+      "boundary": "Elementary formulas assume an equilibrium clean interface, constant gamma, a specified contact angle, and a cylindrical tube; dynamic wetting, evaporation, contamination, and contact-angle hysteresis require additional modeling.",
+      "example": {
+        "title": "Water rise in a glass capillary",
+        "problem": "For water, gamma = 0.072 N/m and rho = 1000 kg/m^3; take the contact angle as zero. Find the rise in a capillary of radius 0.50 mm with g = 9.81 m/s^2.",
+        "steps": [
+          "Use h = 2 gamma cos(theta)/(rho g r).",
+          "Convert the radius: r = 5.0e-4 m, and cos(0) = 1.",
+          "Substitution gives h = 0.144/(1000 x 9.81 x 5.0e-4) = 2.94e-2 m."
+        ],
+        "answer": "The ideal model predicts a rise of about 2.9 cm.",
+        "check": "The result has units of length and is inversely proportional to radius; a tube half as wide would predict twice the rise."
+      },
+      "pitfall": "Surface tension is not a literal skin stretched over the liquid: it is a thermodynamic property of an interface, with forces acting along any line drawn in that interface.",
+      "practice": [
+        {
+          "question": "Why is a small drop closer to spherical than a large drop of the same liquid on a horizontal surface?",
+          "hint": "Compare the scaling of surface energy and gravitational energy with size.",
+          "answer": "At small size the surface contribution is larger relative to weight, so area minimization dominates; gravity flattens a larger drop more strongly."
+        },
+        {
+          "question": "By what factor does capillary height change if tube radius increases from 0.25 to 1.0 mm with all other parameters fixed?",
+          "hint": "The formula gives h proportional to 1/r.",
+          "answer": "The radius increases by a factor of 4, so the height decreases by a factor of 4."
+        }
+      ]
+    },
+    "6.5": {
+      "question": "How do conservation laws and viscosity connect pipe geometry with flow speed, pressure, and flow regime?",
+      "overview": [
+        "For steady flow, mass conservation requires the same mass flow rate through successive sections. For an incompressible liquid this becomes A v_mean = constant, so a constriction increases the mean speed. In ideal inviscid flow, p + rho v^2/2 + rho gz remains constant along a streamline and expresses mechanical energy per unit volume.",
+        "A real fluid dissipates mechanical energy through viscosity and interacts with a wall through the no-slip condition. The Reynolds number Re = rho v L/mu compares inertial and viscous effects, although its critical value depends on geometry and disturbances. Turbulent flow adds fluctuations and eddy transport of momentum to the mean motion."
+      ],
+      "conceptExplanations": [
+        "Volume flow rate Q = dV/dt is the integral of velocity over a cross-section; Q = A v_mean uses its area average, and Q is conserved in steady incompressible flow.",
+        "Bernoulli's equation is an energy integral for steady inviscid flow; pumps, turbines, and head loss require additional terms.",
+        "Dynamic viscosity mu relates shear stress to velocity gradient in a Newtonian fluid; in a long round pipe, laminar flow rate is particularly sensitive to radius.",
+        "Re is not a speed by itself: equal Reynolds numbers describe a similar inertia-to-viscosity balance in geometrically similar problems.",
+        "A boundary layer is the region of rapid velocity change near a surface; its separation changes drag and can create a broad wake."
+      ],
+      "boundary": "The simple forms Q = Av and Bernoulli require steadiness and incompressibility, while Bernoulli additionally neglects viscous loss along the selected streamline; high-Mach-number gases and non-Newtonian fluids require other equations of state or constitutive laws.",
+      "example": {
+        "title": "A constriction in a water pipe",
+        "problem": "A horizontal pipe narrows from diameter 4.0 cm to 2.0 cm. Upstream water speed is 1.0 m/s, rho = 1000 kg/m^3, and mu = 1.0e-3 Pa s. Find the ideal downstream speed and pressure drop, then estimate Re downstream.",
+        "steps": [
+          "Area is proportional to D^2, so A1/A2 = 4 and continuity gives v2 = 4.0 m/s.",
+          "For ideal horizontal flow, p1 - p2 = rho(v2^2 - v1^2)/2 = 7.5e3 Pa.",
+          "The downstream Reynolds number is Re = rho v2 D2/mu = 8.0e4.",
+          "This Re suggests a likely turbulent real flow, so the actual pressure drop exceeds the ideal value because of loss."
+        ],
+        "answer": "v2 = 4.0 m/s, ideal p1 - p2 = 7.5 kPa, and Re = 8.0e4; the final result flags the limitation of the ideal calculation.",
+        "check": "Speed rises inversely with area and static pressure falls; energy is not destroyed, but real flow converts some mechanical energy into internal energy."
+      },
+      "pitfall": "The phrase 'higher speed means lower pressure' is not a universal local law; it follows from Bernoulli only when suitable points on a flow are compared with height, devices, and losses accounted for.",
+      "practice": [
+        {
+          "question": "Why is the velocity of an ordinary viscous fluid at a stationary wall usually taken to equal the wall velocity?",
+          "hint": "Name the standard boundary condition for a viscous fluid.",
+          "answer": "The no-slip condition gives zero relative velocity at the solid wall, producing a velocity gradient and shear stress."
+        },
+        {
+          "question": "In incompressible flow, area decreases from 30 to 10 cm^2 while speed is 0.50 m/s in the wider section. Find the narrower-section speed.",
+          "hint": "Use A1 v1 = A2 v2.",
+          "answer": "v2 = (30/10) x 0.50 = 1.5 m/s."
+        }
+      ]
+    }
+  }
+}

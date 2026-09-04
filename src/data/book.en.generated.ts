@@ -18,7 +18,7 @@ export const book: Chapter[] = [
         "order": 1,
         "title": "Physics as Model Building",
         "pages": 3,
-        "minutes": 21,
+        "minutes": 14,
         "level": "foundation",
         "concepts": [
           "Observation, idealization, model, prediction, and experiment.",
@@ -26,7 +26,7 @@ export const book: Chapter[] = [
           "Approximations and domains of applicability.",
           "The distinction between a law, a model, a hypothesis, and a measured fact."
         ],
-        "summary": "Observation, idealization, model, prediction, and experiment.",
+        "summary": "A physical investigation begins with a choice: which properties matter to the question and which can be neglected.",
         "labKind": "interactive",
         "interactive": "comparing a body's fall in a vacuum, air, and a viscous medium"
       },
@@ -38,7 +38,7 @@ export const book: Chapter[] = [
         "order": 2,
         "title": "How a Physics Experiment Is Structured",
         "pages": 3,
-        "minutes": 21,
+        "minutes": 14,
         "level": "foundation",
         "concepts": [
           "The system under study, input parameters, and measured quantities.",
@@ -46,7 +46,7 @@ export const book: Chapter[] = [
           "Repeatability and reproducibility.",
           "Why a single agreement does not prove anything yet."
         ],
-        "summary": "The system under study, input parameters, and measured quantities.",
+        "summary": "An experiment is not merely an observed outcome but a predefined procedure.",
         "labKind": "mini-lab",
         "interactive": "determining what the period of a pendulum depends on"
       },
@@ -58,7 +58,7 @@ export const book: Chapter[] = [
         "order": 3,
         "title": "How to Use the Interactive Book",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 14,
         "level": "foundation",
         "concepts": [
           "The cycle: predict → run → measure → explain.",
@@ -66,7 +66,7 @@ export const book: Chapter[] = [
           "Keeping a laboratory notebook and saving results.",
           "Three levels of depth: intuition, the core path, and mathematical exploration."
         ],
-        "summary": "The cycle: predict → run → measure → explain.",
+        "summary": "An interactive becomes useful when it is treated as a small experiment.",
         "labKind": "interactive",
         "interactive": "a first self-guided model with an unknown relationship"
       }
@@ -88,7 +88,7 @@ export const book: Chapter[] = [
         "order": 1,
         "title": "Physical Quantities, Units, and Scales",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 14,
         "level": "foundation",
         "concepts": [
           "A numerical value and a unit of measurement.",
@@ -97,7 +97,7 @@ export const book: Chapter[] = [
           "Unit conversions and checking equations by dimensional analysis.",
           "Orders of magnitude and Fermi estimates."
         ],
-        "summary": "A numerical value and a unit of measurement.",
+        "summary": "A physical quantity is defined through comparison with an accepted unit.",
         "labKind": "interactive",
         "interactive": "a scale spanning from an atomic nucleus to the observable Universe"
       },
@@ -109,7 +109,7 @@ export const book: Chapter[] = [
         "order": 2,
         "title": "Measurement Error and Uncertainty",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 14,
         "level": "foundation",
         "concepts": [
           "Instrument resolution and scale divisions limit the available information.",
@@ -119,7 +119,7 @@ export const book: Chapter[] = [
           "Absolute uncertainty has the unit of the measurand, whereas relative uncertainty is dimensionless; expanded uncertainty is distinguished from standard uncertainty by reporting its coverage factor and coverage probability.",
           "Input uncertainties must be propagated with their correlations taken into account."
         ],
-        "summary": "Instrument resolution and scale divisions limit the available information.",
+        "summary": "Measurement links an instrument indication to a quantity through calibration and a measurement model.",
         "labKind": "interactive",
         "interactive": "measuring the same object with instruments of different precision"
       },
@@ -131,7 +131,7 @@ export const book: Chapter[] = [
         "order": 3,
         "title": "Data, Statistics, and Model Fitting",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 14,
         "level": "foundation",
         "concepts": [
           "A series of measurements, the mean value, and the spread.",
@@ -140,7 +140,7 @@ export const book: Chapter[] = [
           "Straight-line fitting, residuals, and goodness of fit.",
           "Correlation does not necessarily imply causation."
         ],
-        "summary": "A series of measurements, the mean value, and the spread.",
+        "summary": "Raw data become a physical result after the procedure is documented, the distribution is visualized, and predictions are compared with observations.",
         "labKind": "mini-lab",
         "interactive": "inferring the law of motion from noisy data"
       },
@@ -152,7 +152,7 @@ export const book: Chapter[] = [
         "order": 4,
         "title": "Functions and Graphs",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 14,
         "level": "foundation",
         "concepts": [
           "Independent and dependent variables.",
@@ -161,7 +161,7 @@ export const book: Chapter[] = [
           "The slope of a graph and the area under it.",
           "Reading the physical meaning of a graph without substituting numbers."
         ],
-        "summary": "Independent and dependent variables.",
+        "summary": "A function assigns an outcome to an independent variable while other conditions are fixed.",
         "labKind": "interactive",
         "interactive": "linking an equation, a graph, and an animation of a process"
       },
@@ -173,7 +173,7 @@ export const book: Chapter[] = [
         "order": 5,
         "title": "Scalars and Vectors",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 14,
         "level": "foundation",
         "concepts": [
           "Quantities that have only a value and quantities that also have a direction.",
@@ -182,7 +182,7 @@ export const book: Chapter[] = [
           "Vector addition and subtraction.",
           "Multiplication of a vector by a scalar."
         ],
-        "summary": "Quantities that have only a value and quantities that also have a direction.",
+        "summary": "A scalar is specified by a value with a unit and remains unchanged when coordinates are rotated, whereas a vector also carries a geometrical direction.",
         "labKind": "interactive",
         "interactive": "a geometric vector-addition builder"
       },
@@ -194,7 +194,7 @@ export const book: Chapter[] = [
         "order": 6,
         "title": "Projections, Components, and Vector Products",
         "pages": 3,
-        "minutes": 21,
+        "minutes": 14,
         "level": "foundation",
         "concepts": [
           "A projection as the 'shadow' of a vector on a chosen axis.",
@@ -204,7 +204,7 @@ export const book: Chapter[] = [
           "The dot product as a measure of alignment.",
           "The cross product as an oriented area—an overview."
         ],
-        "summary": "A projection as the 'shadow' of a vector on a chosen axis.",
+        "summary": "A projection asks how much of a vector points along a selected axis.",
         "labKind": "interactive",
         "interactive": "rotating a vector and the coordinate axes with real-time recalculation of its components"
       },
@@ -216,7 +216,7 @@ export const book: Chapter[] = [
         "order": 7,
         "title": "The Derivative, the Integral, and Equations of Change",
         "pages": 3,
-        "minutes": 21,
+        "minutes": 14,
         "level": "foundation",
         "concepts": [
           "The derivative as the instantaneous rate of change.",
@@ -225,7 +225,7 @@ export const book: Chapter[] = [
           "A differential equation as a rule governing the evolution of a system.",
           "Numerical solution in small steps."
         ],
-        "summary": "The derivative as the instantaneous rate of change.",
+        "summary": "A derivative is the limiting ratio of a small change in a quantity to a small change in its argument.",
         "labKind": "interactive",
         "interactive": "comparing exact motion with a step-by-step numerical simulation"
       }
@@ -247,7 +247,7 @@ export const book: Chapter[] = [
         "order": 1,
         "title": "Events and Frames of Reference",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 14,
         "level": "foundation",
         "concepts": [
           "A point particle and a model of an extended body.",
@@ -255,7 +255,7 @@ export const book: Chapter[] = [
           "An event as a position and an instant in time.",
           "The relativity of rest and motion."
         ],
-        "summary": "A point particle and a model of an extended body.",
+        "summary": "Kinematics describes motion relative to a chosen reference frame.",
         "labKind": "interactive",
         "interactive": "the same motion as seen by three observers"
       },
@@ -267,7 +267,7 @@ export const book: Chapter[] = [
         "order": 2,
         "title": "Position, Trajectory, Distance, and Displacement",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "foundation",
         "concepts": [
           "The position vector and the position of a body.",
@@ -275,7 +275,7 @@ export const book: Chapter[] = [
           "The displacement vector.",
           "Why distance and the magnitude of displacement are different."
         ],
-        "summary": "The position vector and the position of a body.",
+        "summary": "A body's position at a selected time is given by a position vector from the origin.",
         "labKind": "interactive",
         "interactive": "a route editor that calculates distance and displacement"
       },
@@ -287,7 +287,7 @@ export const book: Chapter[] = [
         "order": 3,
         "title": "Average and Instantaneous Velocity",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "foundation",
         "concepts": [
           "Average speed.",
@@ -295,7 +295,7 @@ export const book: Chapter[] = [
           "Instantaneous velocity as a limit and as the slope of a graph.",
           "The direction of velocity along a curved trajectory."
         ],
-        "summary": "Average speed.",
+        "summary": "Average speed is total distance divided by duration and carries no direction.",
         "labKind": "interactive",
         "interactive": "the motion of a point together with the tangent to its position graph"
       },
@@ -307,7 +307,7 @@ export const book: Chapter[] = [
         "order": 4,
         "title": "Acceleration and Motion Graphs",
         "pages": 5,
-        "minutes": 35,
+        "minutes": 13,
         "level": "foundation",
         "concepts": [
           "Acceleration as a change in the velocity vector.",
@@ -316,7 +316,7 @@ export const book: Chapter[] = [
           "Motion with constant acceleration.",
           "Motion with variable acceleration and numerical integration."
         ],
-        "summary": "Acceleration as a change in the velocity vector.",
+        "summary": "Acceleration is the derivative of vector velocity, so it responds to a change in either magnitude or direction.",
         "labKind": "interactive",
         "interactive": "drawing a graph that a body must then reproduce"
       },
@@ -328,7 +328,7 @@ export const book: Chapter[] = [
         "order": 5,
         "title": "Free Fall and Projectile Motion",
         "pages": 5,
-        "minutes": 35,
+        "minutes": 14,
         "level": "foundation",
         "concepts": [
           "Acceleration due to gravity.",
@@ -337,7 +337,7 @@ export const book: Chapter[] = [
           "Range, maximum height, and time of flight.",
           "Air drag couples the components of motion and changes the trajectory."
         ],
-        "summary": "Acceleration due to gravity.",
+        "summary": "Near Earth's surface over modest heights, gravity can be treated as uniform: acceleration points vertically downward and is approximately g.",
         "labKind": "interactive",
         "interactive": "a ballistics sandbox with ideal and realistic modes"
       },
@@ -349,7 +349,7 @@ export const book: Chapter[] = [
         "order": 6,
         "title": "Relative and Curvilinear Motion",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 14,
         "level": "foundation",
         "concepts": [
           "The addition of velocities.",
@@ -358,7 +358,7 @@ export const book: Chapter[] = [
           "Tangential and normal components of acceleration.",
           "The kinematics of circular motion."
         ],
-        "summary": "The addition of velocities.",
+        "summary": "In classical mechanics, a body's velocity relative to Earth is the vector sum of its velocity relative to a moving medium and the medium's velocity.",
         "labKind": "interactive",
         "interactive": "choosing a heading in a crosswind or a cross-current"
       }
@@ -380,7 +380,7 @@ export const book: Chapter[] = [
         "order": 1,
         "title": "Interactions and Force Diagrams",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 14,
         "level": "foundation",
         "concepts": [
           "Force as a description of an interaction.",
@@ -389,7 +389,7 @@ export const book: Chapter[] = [
           "The free-body diagram.",
           "Typical spurious or nonexistent forces introduced in incorrect free-body diagrams."
         ],
-        "summary": "Force as a description of an interaction.",
+        "summary": "Force is not something stored inside a body; it is a vector description of a particular interaction.",
         "labKind": "interactive",
         "interactive": "a force-diagram builder with logic checking"
       },
@@ -401,7 +401,7 @@ export const book: Chapter[] = [
         "order": 2,
         "title": "Inertia and Newton's First Law",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "foundation",
         "concepts": [
           "Why motion does not require a continuous force.",
@@ -409,7 +409,7 @@ export const book: Chapter[] = [
           "Galilean relativity.",
           "Mass as a measure of inertia."
         ],
-        "summary": "Why motion does not require a continuous force.",
+        "summary": "The first law rejects the idea that force maintains velocity.",
         "labKind": "interactive",
         "interactive": "the motion of a puck as friction is gradually reduced"
       },
@@ -421,7 +421,7 @@ export const book: Chapter[] = [
         "order": 3,
         "title": "Newton's Second Law",
         "pages": 5,
-        "minutes": 35,
+        "minutes": 13,
         "level": "foundation",
         "concepts": [
           "The net external force.",
@@ -430,7 +430,7 @@ export const book: Chapter[] = [
           "Vector notation and component equations.",
           "Initial conditions and numerical prediction of motion."
         ],
-        "summary": "The net external force.",
+        "summary": "Newton's second law connects the cause of motion change to the momentum derivative: ΣFext = dp/dt for a material system of fixed composition.",
         "labKind": "interactive",
         "interactive": "carts of different masses acted on by adjustable forces"
       },
@@ -442,7 +442,7 @@ export const book: Chapter[] = [
         "order": 4,
         "title": "Newton's Third Law",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "foundation",
         "concepts": [
           "Interactions occurring in pairs.",
@@ -450,7 +450,7 @@ export const book: Chapter[] = [
           "Walking, swimming, recoil, and thrust.",
           "Resolving common paradoxes."
         ],
-        "summary": "Interactions occurring in pairs.",
+        "summary": "If body A acts on B, B simultaneously acts on A with an equal and opposite force.",
         "labKind": "interactive",
         "interactive": "finding force pairs in a complex scene"
       },
@@ -462,7 +462,7 @@ export const book: Chapter[] = [
         "order": 5,
         "title": "Normal Force, Tension, and Elasticity",
         "pages": 5,
-        "minutes": 35,
+        "minutes": 14,
         "level": "foundation",
         "concepts": [
           "The force of gravity and apparent weight.",
@@ -472,7 +472,7 @@ export const book: Chapter[] = [
           "Systems of connected bodies and pulleys.",
           "Apparent weight in an accelerating elevator."
         ],
-        "summary": "The force of gravity and apparent weight.",
+        "summary": "A support, string, or spring restricts possible motion and develops force through contact or deformation.",
         "labKind": "interactive",
         "interactive": "a system of weights, springs, strings, and pulleys"
       },
@@ -484,7 +484,7 @@ export const book: Chapter[] = [
         "order": 6,
         "title": "Friction and Drag",
         "pages": 5,
-        "minutes": 35,
+        "minutes": 14,
         "level": "foundation",
         "concepts": [
           "Static and kinetic friction.",
@@ -493,7 +493,7 @@ export const book: Chapter[] = [
           "Terminal velocity.",
           "A falling skydiver and a moving car."
         ],
-        "summary": "Static and kinetic friction.",
+        "summary": "Friction and drag emerge from many microscopic interactions and are described by effective models.",
         "labKind": "mini-lab",
         "interactive": "determining the drag law from trajectory data"
       },
@@ -505,7 +505,7 @@ export const book: Chapter[] = [
         "order": 7,
         "title": "Constraints, Circular Motion, and Non-Inertial Frames",
         "pages": 5,
-        "minutes": 35,
+        "minutes": 13,
         "level": "foundation",
         "concepts": [
           "Geometric constraints and constrained motion.",
@@ -514,7 +514,7 @@ export const book: Chapter[] = [
           "The centrifugal effect and the Coriolis force.",
           "The Foucault pendulum and atmospheric vortices."
         ],
-        "summary": "Geometric constraints and constrained motion.",
+        "summary": "A constraint limits allowed positions and velocities, while support or tension forces provide the required acceleration.",
         "labKind": "interactive",
         "interactive": "the motion of a body on a rotating platform"
       }
@@ -536,7 +536,7 @@ export const book: Chapter[] = [
         "order": 1,
         "title": "Work and Power",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "foundation",
         "concepts": [
           "Work done by a constant or variable force.",
@@ -544,7 +544,7 @@ export const book: Chapter[] = [
           "Work as the area under a force graph.",
           "Power and the rate of energy transfer."
         ],
-        "summary": "Work done by a constant or variable force.",
+        "summary": "Mechanical work measures energy transfer by a force along the actual displacement.",
         "labKind": "interactive",
         "interactive": "moving a load along different trajectories and comparing the work done"
       },
@@ -556,7 +556,7 @@ export const book: Chapter[] = [
         "order": 2,
         "title": "Kinetic Energy and the Work–Energy Theorem",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "foundation",
         "concepts": [
           "The energy of motion.",
@@ -564,7 +564,7 @@ export const book: Chapter[] = [
           "Braking distance.",
           "Work in different frames of reference."
         ],
-        "summary": "The energy of motion.",
+        "summary": "In nonrelativistic mechanics, particle kinetic energy is K = mv²/2.",
         "labKind": "interactive",
         "interactive": "reconstructing a body's speed from a force graph"
       },
@@ -576,7 +576,7 @@ export const book: Chapter[] = [
         "order": 3,
         "title": "Potential Energy and Force",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "foundation",
         "concepts": [
           "Conservative interactions.",
@@ -585,7 +585,7 @@ export const book: Chapter[] = [
           "Potential-energy landscapes and stability of equilibrium.",
           "Force points opposite the increase of potential energy: `F = −∇U`."
         ],
-        "summary": "Conservative interactions.",
+        "summary": "For a conservative interaction, work between two configurations is path independent.",
         "labKind": "interactive",
         "interactive": "the motion of a ball through an editable energy landscape"
       },
@@ -597,7 +597,7 @@ export const book: Chapter[] = [
         "order": 4,
         "title": "Conservation of Energy",
         "pages": 5,
-        "minutes": 35,
+        "minutes": 13,
         "level": "foundation",
         "concepts": [
           "Closed and open systems.",
@@ -606,7 +606,7 @@ export const book: Chapter[] = [
           "Efficiency.",
           "Energy flows and Sankey diagrams."
         ],
-        "summary": "Closed and open systems.",
+        "summary": "A selected system's total energy remains constant when no energy crosses its boundary, but can move among kinetic, potential, internal, and other forms.",
         "labKind": "interactive",
         "interactive": "a roller coaster with a live energy balance"
       },
@@ -618,7 +618,7 @@ export const book: Chapter[] = [
         "order": 5,
         "title": "Momentum and Impulse",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "foundation",
         "concepts": [
           "The momentum of a body.",
@@ -626,7 +626,7 @@ export const book: Chapter[] = [
           "Conservation of momentum.",
           "Recoil and rocket propulsion."
         ],
-        "summary": "The momentum of a body.",
+        "summary": "Momentum p = mv combines mass with vector velocity.",
         "labKind": "interactive",
         "interactive": "a controlled impulsive maneuver in weightlessness"
       },
@@ -638,7 +638,7 @@ export const book: Chapter[] = [
         "order": 6,
         "title": "Collisions, the Center of Mass, and Rockets",
         "pages": 5,
-        "minutes": 35,
+        "minutes": 13,
         "level": "foundation",
         "concepts": [
           "Elastic and inelastic collisions.",
@@ -648,7 +648,7 @@ export const book: Chapter[] = [
           "The fixed-composition formula `F = d(mv)/dt` cannot be applied to a rocket without an additional momentum-flux term.",
           "The simplest Tsiolkovsky rocket equation."
         ],
-        "summary": "Elastic and inelastic collisions.",
+        "summary": "During a short collision, external impulse is often negligible, so total system momentum is conserved.",
         "labKind": "interactive",
         "interactive": "a laboratory for collisions and rocket propulsion"
       },
@@ -660,7 +660,7 @@ export const book: Chapter[] = [
         "order": 7,
         "title": "Rotational Kinematics and Dynamics",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "foundation",
         "concepts": [
           "Angle, angular velocity, and angular acceleration.",
@@ -668,7 +668,7 @@ export const book: Chapter[] = [
           "Rotational kinetic energy.",
           "Rolling without slipping."
         ],
-        "summary": "Angle, angular velocity, and angular acceleration.",
+        "summary": "Rotation about a fixed axis is described by angle, angular velocity, and angular acceleration just as translation uses position, velocity, and acceleration.",
         "labKind": "interactive",
         "interactive": "a race between rolling bodies of equal mass and different shapes"
       },
@@ -680,7 +680,7 @@ export const book: Chapter[] = [
         "order": 8,
         "title": "Torque and Angular Momentum",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "foundation",
         "concepts": [
           "Lever arm and torque.",
@@ -690,7 +690,7 @@ export const book: Chapter[] = [
           "Gyroscopic stability and precession.",
           "Symmetries as the origin of conservation laws—an overview."
         ],
-        "summary": "Lever arm and torque.",
+        "summary": "Torque τ = r×F measures an external force's ability to alter rotation about a chosen origin.",
         "labKind": "interactive",
         "interactive": "a virtual gyroscope and a rotating chair"
       }
@@ -712,7 +712,7 @@ export const book: Chapter[] = [
         "order": 1,
         "title": "Gravitational Field and Potential",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "in-depth",
         "concepts": [
           "Newton's law of universal gravitation.",
@@ -720,7 +720,7 @@ export const book: Chapter[] = [
           "Potential and potential energy.",
           "Acceleration near the surface of a planet."
         ],
-        "summary": "Newton's law of universal gravitation.",
+        "summary": "A point mass M creates gravitational field g = −GMr/r³ directed toward the source.",
         "labKind": "interactive",
         "interactive": "a map of the field and potential around a system of masses"
       },
@@ -732,7 +732,7 @@ export const book: Chapter[] = [
         "order": 2,
         "title": "Kepler's Laws and Orbits",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "in-depth",
         "concepts": [
           "In the two-body problem the relative orbit is a conic; a bound orbit is an ellipse.",
@@ -740,7 +740,7 @@ export const book: Chapter[] = [
           "In Kepler's third law, `a` is the semimajor axis of the relative orbit of one body with respect to the other.",
           "An orbit as continuous free fall."
         ],
-        "summary": "In the two-body problem the relative orbit is a conic; a bound orbit is an ellipse.",
+        "summary": "An isolated Newtonian two-body problem reduces to motion of the relative position vector in a central field.",
         "labKind": "interactive",
         "interactive": "reconstructing Kepler's laws from the motion of a planet"
       },
@@ -752,7 +752,7 @@ export const book: Chapter[] = [
         "order": 3,
         "title": "Orbital Energy and Cosmic Velocities",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "in-depth",
         "concepts": [
           "Circular and elliptical orbits.",
@@ -760,7 +760,7 @@ export const book: Chapter[] = [
           "Bound and unbound trajectories.",
           "Changing an orbit with a brief impulse."
         ],
-        "summary": "Circular and elliptical orbits.",
+        "summary": "Specific mechanical energy in a Newtonian field is ε = v²/2 − μ/r, where μ = GM.",
         "labKind": "interactive",
         "interactive": "orbital maneuvers and a Hohmann transfer"
       },
@@ -772,7 +772,7 @@ export const book: Chapter[] = [
         "order": 4,
         "title": "Tides and Rotating Systems",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "in-depth",
         "concepts": [
           "The nonuniformity of a gravitational field.",
@@ -781,7 +781,7 @@ export const book: Chapter[] = [
           "The Roche limit.",
           "Lagrange points at a qualitative level."
         ],
-        "summary": "The nonuniformity of a gravitational field.",
+        "summary": "A tide is caused not by gravitational field alone but by its difference across an extended body.",
         "labKind": "interactive",
         "interactive": "a planet–satellite system with tidal deformations"
       },
@@ -793,7 +793,7 @@ export const book: Chapter[] = [
         "order": 5,
         "title": "The Many-Body Problem",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 14,
         "level": "in-depth",
         "concepts": [
           "Why the two-body problem has a particularly simple solution.",
@@ -801,7 +801,7 @@ export const book: Chapter[] = [
           "Stable, quasiperiodic, and chaotic orbits.",
           "Numerical integration of motion."
         ],
-        "summary": "Why the two-body problem has a particularly simple solution.",
+        "summary": "In the two-body problem, center-of-mass motion separates and relative motion has enough conserved quantities for an analytic conic-section description.",
         "labKind": "mini-lab",
         "interactive": "finding a stable three-body configuration"
       }
@@ -823,7 +823,7 @@ export const book: Chapter[] = [
         "order": 1,
         "title": "States of Matter and the Continuum Approximation",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "in-depth",
         "concepts": [
           "Solids, liquids, gases, and plasma.",
@@ -831,7 +831,7 @@ export const book: Chapter[] = [
           "Microscopic structure and macroscopic properties.",
           "When matter can be treated as a continuous medium."
         ],
-        "summary": "Solids, liquids, gases, and plasma.",
+        "summary": "A state of matter is determined by the balance between thermal motion, interactions among particles, and external conditions rather than by the substance name alone.",
         "labKind": "interactive",
         "interactive": "switching between particle-based and continuum models of a medium"
       },
@@ -843,7 +843,7 @@ export const book: Chapter[] = [
         "order": 2,
         "title": "Deformation and Strength of Materials",
         "pages": 5,
-        "minutes": 35,
+        "minutes": 14,
         "level": "in-depth",
         "concepts": [
           "Stress and strain.",
@@ -852,7 +852,7 @@ export const book: Chapter[] = [
           "Shear, bending, and torsion.",
           "Fracture, fatigue, and stress concentrations."
         ],
-        "summary": "Stress and strain.",
+        "summary": "A load creates stresses inside a body, while its geometric response is described by strains.",
         "labKind": "interactive",
         "interactive": "a virtual tensile-testing machine for a material specimen"
       },
@@ -864,7 +864,7 @@ export const book: Chapter[] = [
         "order": 3,
         "title": "Hydrostatics and Buoyancy",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "How pressure varies with depth.",
@@ -872,7 +872,7 @@ export const book: Chapter[] = [
           "Buoyant force.",
           "Conditions for flotation and stability."
         ],
-        "summary": "How pressure varies with depth.",
+        "summary": "A fluid at rest has no shear stress, and pressure acts normal to every surface.",
         "labKind": "interactive",
         "interactive": "a floating-vessel design tool"
       },
@@ -884,7 +884,7 @@ export const book: Chapter[] = [
         "order": 4,
         "title": "Surface Tension and Capillarity",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "in-depth",
         "concepts": [
           "Surface energy.",
@@ -893,7 +893,7 @@ export const book: Chapter[] = [
           "Capillary rise.",
           "The role of scale: why small organisms interact with water differently."
         ],
-        "summary": "Surface energy.",
+        "summary": "A molecule inside a liquid is surrounded on all sides, whereas the environment of a surface molecule is asymmetric.",
         "labKind": "interactive",
         "interactive": "a droplet on surfaces with different wettabilities"
       },
@@ -905,7 +905,7 @@ export const book: Chapter[] = [
         "order": 5,
         "title": "Flow of Real Fluids",
         "pages": 5,
-        "minutes": 35,
+        "minutes": 14,
         "level": "in-depth",
         "concepts": [
           "Volume flow rate and the continuity equation.",
@@ -914,7 +914,7 @@ export const book: Chapter[] = [
           "The Reynolds number.",
           "Laminar flow, turbulence, and the boundary layer."
         ],
-        "summary": "Volume flow rate and the continuity equation.",
+        "summary": "For steady flow, mass conservation requires the same mass flow rate through successive sections.",
         "labKind": "interactive",
         "interactive": "a pipe with adjustable geometry, flow speed, and fluid viscosity"
       }
@@ -936,7 +936,7 @@ export const book: Chapter[] = [
         "order": 1,
         "title": "The Harmonic Oscillator",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Stable equilibrium.",
@@ -945,7 +945,7 @@ export const book: Chapter[] = [
           "A simple pendulum becomes harmonic only in the small-angle approximation `sin θ ≈ θ`, with `θ` expressed in radians.",
           "Harmonic motion as the projection of uniform circular motion."
         ],
-        "summary": "Stable equilibrium.",
+        "summary": "At stable equilibrium, a small displacement produces a force directed back toward equilibrium.",
         "labKind": "interactive",
         "interactive": "a synchronized view of an oscillator, circular motion, and a graph"
       },
@@ -957,7 +957,7 @@ export const book: Chapter[] = [
         "order": 2,
         "title": "Energy and Phase Space",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "The exchange between kinetic and potential energy.",
@@ -965,7 +965,7 @@ export const book: Chapter[] = [
           "A phase-space trajectory.",
           "What a phase portrait reveals better than a conventional animation."
         ],
-        "summary": "The exchange between kinetic and potential energy.",
+        "summary": "One coordinate is insufficient for a one-dimensional oscillator: at the same position the body may move right or left.",
         "labKind": "interactive",
         "interactive": "plotting phase-space trajectories of an oscillator"
       },
@@ -977,7 +977,7 @@ export const book: Chapter[] = [
         "order": 3,
         "title": "Damping, Driving, and Resonance",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Energy dissipation.",
@@ -986,7 +986,7 @@ export const book: Chapter[] = [
           "The quality factor and the resonance curve.",
           "Parametric resonance—an overview."
         ],
-        "summary": "Energy dissipation.",
+        "summary": "Drag or internal friction removes mechanical energy, so free oscillation decays.",
         "labKind": "mini-lab",
         "interactive": "constructing a resonance curve from measurements"
       },
@@ -998,7 +998,7 @@ export const book: Chapter[] = [
         "order": 4,
         "title": "How Waves Propagate",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "The transfer of a disturbance without the net transport of matter.",
@@ -1007,7 +1007,7 @@ export const book: Chapter[] = [
           "An intuitive derivation of the wave equation.",
           "Reflection and refraction."
         ],
-        "summary": "The transfer of a disturbance without the net transport of matter.",
+        "summary": "A wave forms when a local displacement creates forces or fluxes that affect a neighboring region while inertia delays its response.",
         "labKind": "interactive",
         "interactive": "a pulse and a periodic wave on a string"
       },
@@ -1019,7 +1019,7 @@ export const book: Chapter[] = [
         "order": 5,
         "title": "Superposition and Standing Waves",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "The superposition of waves.",
@@ -1027,7 +1027,7 @@ export const book: Chapter[] = [
           "Standing waves, nodes, and antinodes.",
           "Boundary conditions and normal modes."
         ],
-        "summary": "The superposition of waves.",
+        "summary": "In a linear medium, the sum of two wave-equation solutions is also a solution.",
         "labKind": "interactive",
         "interactive": "a string with adjustable end conditions and driving frequency"
       },
@@ -1039,7 +1039,7 @@ export const book: Chapter[] = [
         "order": 6,
         "title": "Dispersion and the Fourier Transform",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "A complex waveform as a sum of harmonics.",
@@ -1047,7 +1047,7 @@ export const book: Chapter[] = [
           "Phase and group velocities.",
           "Dispersion and the spreading of a wave packet."
         ],
-        "summary": "A complex waveform as a sum of harmonics.",
+        "summary": "A Fourier transform represents a suitable signal as a sum of sinusoids with different frequencies, amplitudes, and phases.",
         "labKind": "interactive",
         "interactive": "building a pulse from sine waves and observing its propagation"
       },
@@ -1059,7 +1059,7 @@ export const book: Chapter[] = [
         "order": 7,
         "title": "Sound and Acoustics",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Pressure in a sound wave.",
@@ -1068,7 +1068,7 @@ export const book: Chapter[] = [
           "Reverberation and room acoustics.",
           "The Doppler effect and shock waves."
         ],
-        "summary": "Pressure in a sound wave.",
+        "summary": "Sound in a liquid or gas is mainly a longitudinal wave of alternating compression and rarefaction.",
         "labKind": "interactive",
         "interactive": "a spectrum synthesizer and an acoustic model of a room"
       }
@@ -1090,7 +1090,7 @@ export const book: Chapter[] = [
         "order": 1,
         "title": "The Molecular Picture and Temperature",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Atoms, molecules, and thermal motion.",
@@ -1098,7 +1098,7 @@ export const book: Chapter[] = [
           "Temperature as a statistical property.",
           "The zeroth law of thermodynamics."
         ],
-        "summary": "Atoms, molecules, and thermal motion.",
+        "summary": "The molecular picture connects observable properties of matter to motion and interaction of microscopic particles.",
         "labKind": "interactive",
         "interactive": "mixing two systems at different temperatures"
       },
@@ -1110,7 +1110,7 @@ export const book: Chapter[] = [
         "order": 2,
         "title": "Kinetic Theory of an Ideal Gas",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "in-depth",
         "concepts": [
           "Pressure as a result of particle collisions.",
@@ -1119,7 +1119,7 @@ export const book: Chapter[] = [
           "The ideal-gas equation of state.",
           "The limits of the ideal-gas model."
         ],
-        "summary": "Pressure as a result of particle collisions.",
+        "summary": "In the kinetic model, ideal-gas particles are small compared with their separations and interact only through elastic collisions.",
         "labKind": "interactive",
         "interactive": "a particle gas with live pressure, volume, and temperature readings"
       },
@@ -1131,7 +1131,7 @@ export const book: Chapter[] = [
         "order": 3,
         "title": "Distributions, Fluctuations, and Diffusion",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Why molecules do not all have the same speed.",
@@ -1139,7 +1139,7 @@ export const book: Chapter[] = [
           "Mean values and fluctuations.",
           "Random walks and diffusion."
         ],
-        "summary": "Why molecules do not all have the same speed.",
+        "summary": "Collisions continually redistribute energy among molecules, so equal temperature does not mean equal speed.",
         "labKind": "interactive",
         "interactive": "connecting the random steps of individual particles to the diffusion law"
       },
@@ -1151,7 +1151,7 @@ export const book: Chapter[] = [
         "order": 4,
         "title": "Internal Energy and the First Law",
         "pages": 5,
-        "minutes": 35,
+        "minutes": 13,
         "level": "in-depth",
         "concepts": [
           "Internal energy is a state function.",
@@ -1161,7 +1161,7 @@ export const book: Chapter[] = [
           "When electrical, chemical, and other work channels are absent, the area under `p_ext(V)` gives the total work.",
           "Gas heat capacities depend on the constraints of the process."
         ],
-        "summary": "Internal energy is a state function.",
+        "summary": "Internal energy U contains microscopic kinetic and potential contributions within the chosen system and is a state function.",
         "labKind": "interactive",
         "interactive": "freehand construction of a process on a pV diagram"
       },
@@ -1173,7 +1173,7 @@ export const book: Chapter[] = [
         "order": 5,
         "title": "Heating, Phase Transitions, and Heat Transfer",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Specific heat capacity.",
@@ -1181,7 +1181,7 @@ export const book: Chapter[] = [
           "The phase diagram.",
           "Conduction, convection, and thermal radiation."
         ],
-        "summary": "Specific heat capacity.",
+        "summary": "Within one phase and over a modest interval, heat is often estimated as Q = mc Delta T, where c depends on substance and process conditions.",
         "labKind": "mini-lab",
         "interactive": "virtual calorimetry of an unknown material"
       },
@@ -1193,7 +1193,7 @@ export const book: Chapter[] = [
         "order": 6,
         "title": "Thermodynamic Processes",
         "pages": 5,
-        "minutes": 35,
+        "minutes": 13,
         "level": "in-depth",
         "concepts": [
           "Isochoric, isobaric, isothermal, and adiabatic processes.",
@@ -1202,7 +1202,7 @@ export const book: Chapter[] = [
           "Work, heat, and internal energy along each leg of a process.",
           "Real and idealized processes."
         ],
-        "summary": "Isochoric, isobaric, isothermal, and adiabatic processes.",
+        "summary": "Isochoric, isobaric, isothermal, and adiabatic processes impose different constraints: fixed V, p, T, or no heat transfer, respectively.",
         "labKind": "interactive",
         "interactive": "a thermodynamic-cycle builder"
       },
@@ -1214,7 +1214,7 @@ export const book: Chapter[] = [
         "order": 7,
         "title": "Entropy and the Second Law",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Microstates and macrostates.",
@@ -1224,7 +1224,7 @@ export const book: Chapter[] = [
           "Irreversibility and the statistical arrow of time.",
           "Entropy can decrease locally in an open system through exchange with its surroundings."
         ],
-        "summary": "Microstates and macrostates.",
+        "summary": "A macrostate is fixed by a few measured variables, whereas a microstate specifies all microscopic degrees of freedom.",
         "labKind": "interactive",
         "interactive": "statistical mixing of particles with the option to reverse their velocities"
       },
@@ -1236,7 +1236,7 @@ export const book: Chapter[] = [
         "order": 8,
         "title": "Heat Engines, Refrigerators, and Free Energy",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "in-depth",
         "concepts": [
           "Heat engines, refrigerators, and heat pumps.",
@@ -1245,7 +1245,7 @@ export const book: Chapter[] = [
           "In a closed system at constant `T, V` with no non-pV work, Helmholtz free energy does not increase during a spontaneous process: `ΔF ≤ 0`.",
           "In a closed system at constant `T, p` with no non-pV work, Gibbs free energy does not increase during a spontaneous process: `ΔG ≤ 0`."
         ],
-        "summary": "Heat engines, refrigerators, and heat pumps.",
+        "summary": "A heat engine receives Q_h from a hot reservoir, delivers work W, and rejects Q_c to a cold reservoir.",
         "labKind": "interactive",
         "interactive": "configuring an engine operating between two thermal reservoirs"
       }
@@ -1267,7 +1267,7 @@ export const book: Chapter[] = [
         "order": 1,
         "title": "Electric Charge and Matter",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Positive and negative charge.",
@@ -1275,7 +1275,7 @@ export const book: Chapter[] = [
           "Conductors, dielectrics, and polarization.",
           "Electrostatic induction and grounding."
         ],
-        "summary": "Positive and negative charge.",
+        "summary": "Electric charge sets the sign and strength of electromagnetic interaction.",
         "labKind": "interactive",
         "interactive": "transferring charge between objects and exploring electrostatic induction"
       },
@@ -1287,7 +1287,7 @@ export const book: Chapter[] = [
         "order": 2,
         "title": "Coulomb's Law and the Electric Field",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "The interaction between point charges.",
@@ -1295,7 +1295,7 @@ export const book: Chapter[] = [
           "Electric field strength.",
           "Field lines and their limitations as a visualization."
         ],
-        "summary": "The interaction between point charges.",
+        "summary": "Coulomb's law gives the vacuum force between stationary point charges: magnitude falls as 1/r^2 and direction lies along their separation.",
         "labKind": "interactive",
         "interactive": "a charge-configuration editor with a vector-field display"
       },
@@ -1307,7 +1307,7 @@ export const book: Chapter[] = [
         "order": 3,
         "title": "Electric Flux and Gauss's Law",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Flux through a surface.",
@@ -1316,7 +1316,7 @@ export const book: Chapter[] = [
           "Spherical, cylindrical, and planar symmetry.",
           "When Gauss's law simplifies a calculation—and when it remains true but is not computationally useful."
         ],
-        "summary": "Flux through a surface.",
+        "summary": "Electric flux through an oriented surface is the integral of E dot dA and counts only normal field.",
         "labKind": "interactive",
         "interactive": "a deformable closed surface enclosing electric charges"
       },
@@ -1328,7 +1328,7 @@ export const book: Chapter[] = [
         "order": 4,
         "title": "Electric Potential and Voltage",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "The potential energy of a charge.",
@@ -1337,7 +1337,7 @@ export const book: Chapter[] = [
           "Equipotential surfaces.",
           "The relationship between the electric field and the spatial variation of potential."
         ],
-        "summary": "The potential energy of a charge.",
+        "summary": "For an electrostatic field, work between two points is path-independent, so potential energy U and potential phi = U/q can be defined for a probe charge.",
         "labKind": "interactive",
         "interactive": "moving a test charge across a potential map"
       },
@@ -1349,7 +1349,7 @@ export const book: Chapter[] = [
         "order": 5,
         "title": "Conductors, Dielectrics, and Capacitors",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Electric fields and charge inside and on the surface of a conductor.",
@@ -1358,7 +1358,7 @@ export const book: Chapter[] = [
           "A dielectric in an electric field.",
           "Energy stored in the electric field."
         ],
-        "summary": "Electric fields and charge inside and on the surface of a conductor.",
+        "summary": "At electrostatic equilibrium, field inside the bulk of an ideal conductor is zero, its potential is constant, and excess free charge lies on its surface.",
         "labKind": "interactive",
         "interactive": "a capacitor with adjustable geometry and dielectric material"
       },
@@ -1370,7 +1370,7 @@ export const book: Chapter[] = [
         "order": 6,
         "title": "Current, Resistance, and the Microscopic Picture",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Electric current and current density.",
@@ -1379,7 +1379,7 @@ export const book: Chapter[] = [
           "Ohm's law and its limits.",
           "The temperature dependence of resistance."
         ],
-        "summary": "Electric current and current density.",
+        "summary": "Current I = dQ/dt measures charge transfer rate through a selected cross-section, while current density J describes it locally.",
         "labKind": "interactive",
         "interactive": "the motion and scattering of charge carriers in a conductor"
       },
@@ -1391,7 +1391,7 @@ export const book: Chapter[] = [
         "order": 7,
         "title": "Sources, Power, and Energy Transfer",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "in-depth",
         "concepts": [
           "Electromotive force.",
@@ -1400,7 +1400,7 @@ export const book: Chapter[] = [
           "Load matching.",
           "Why electrical energy is not transported by a ‘supply of electrons in the wire.’"
         ],
-        "summary": "Electromotive force.",
+        "summary": "A source's electromotive force is work by non-electrostatic processes per unit charge moved inside the source.",
         "labKind": "interactive",
         "interactive": "a source with an adjustable load and a live power balance"
       },
@@ -1412,7 +1412,7 @@ export const book: Chapter[] = [
         "order": 8,
         "title": "Electric Circuits and Measuring Instruments",
         "pages": 3,
-        "minutes": 21,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Series and parallel connections.",
@@ -1420,7 +1420,7 @@ export const book: Chapter[] = [
           "Ammeters, voltmeters, and the effect of a measuring instrument on a circuit.",
           "Short circuits and electrical safety."
         ],
-        "summary": "Series and parallel connections.",
+        "summary": "In series, one current passes through every element and voltages add.",
         "labKind": "interactive",
         "interactive": "a circuit builder with a troubleshooting mode"
       },
@@ -1432,7 +1432,7 @@ export const book: Chapter[] = [
         "order": 9,
         "title": "RC Circuits, Filters, and Signals",
         "pages": 3,
-        "minutes": 21,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Charging and discharging a capacitor.",
@@ -1441,7 +1441,7 @@ export const book: Chapter[] = [
           "The integrating and differentiating behavior of an RC circuit.",
           "Low-pass and high-pass filters."
         ],
-        "summary": "Charging and discharging a capacitor.",
+        "summary": "Ideal-capacitor voltage cannot jump because Q = CV and finite current moves finite charge.",
         "labKind": "interactive",
         "interactive": "an oscilloscope and an RC circuit with an arbitrary input signal"
       }
@@ -1463,7 +1463,7 @@ export const book: Chapter[] = [
         "order": 1,
         "title": "The Magnetic Field and the Lorentz Force",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Magnetic poles and the absence of observed magnetic monopoles.",
@@ -1471,7 +1471,7 @@ export const book: Chapter[] = [
           "The Lorentz force.",
           "The direction of the force and the work done by a magnetic field."
         ],
-        "summary": "Magnetic poles and the absence of observed magnetic monopoles.",
+        "summary": "Magnetic field B is defined through the transverse part of Lorentz force, F = q(E + v x B).",
         "labKind": "interactive",
         "interactive": "a three-dimensional controller for the directions of velocity, field, and force"
       },
@@ -1483,7 +1483,7 @@ export const book: Chapter[] = [
         "order": 2,
         "title": "Motion of a Charge in a Magnetic Field",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Circular and helical trajectories.",
@@ -1491,7 +1491,7 @@ export const book: Chapter[] = [
           "Crossed electric and magnetic fields.",
           "The mass spectrometer, cyclotron, and magnetosphere."
         ],
-        "summary": "Circular and helical trajectories.",
+        "summary": "Velocity perpendicular to uniform B experiences centripetal force and forms a circle of radius r = p_perp/(|q|B).",
         "labKind": "interactive",
         "interactive": "a chamber for observing the motion of a charged particle"
       },
@@ -1503,7 +1503,7 @@ export const book: Chapter[] = [
         "order": 3,
         "title": "Fields Produced by Electric Currents",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "The fields of a straight wire, a current loop, and a solenoid.",
@@ -1511,7 +1511,7 @@ export const book: Chapter[] = [
           "Ampère's law and symmetry.",
           "The interaction between parallel currents."
         ],
-        "summary": "The fields of a straight wire, a current loop, and a solenoid.",
+        "summary": "Every steady-current element contributes to B in a direction set by the cross product of path element with direction toward the observation point.",
         "labKind": "interactive",
         "interactive": "building current configurations and visualizing their magnetic fields"
       },
@@ -1523,7 +1523,7 @@ export const book: Chapter[] = [
         "order": 4,
         "title": "Magnetic Materials and the Electric Motor",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "The magnetic dipole moment of a current loop.",
@@ -1532,7 +1532,7 @@ export const book: Chapter[] = [
           "Magnetic domains and hysteresis.",
           "The operating principle of an electric motor."
         ],
-        "summary": "The magnetic dipole moment of a current loop.",
+        "summary": "A planar current loop has magnetic dipole moment mu = NIA n_hat.",
         "labKind": "interactive",
         "interactive": "a motor with visible currents, magnetic field, and torque"
       },
@@ -1544,7 +1544,7 @@ export const book: Chapter[] = [
         "order": 5,
         "title": "Electromagnetic Induction",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Magnetic flux.",
@@ -1553,7 +1553,7 @@ export const book: Chapter[] = [
           "Eddy currents.",
           "The electric generator."
         ],
-        "summary": "Magnetic flux.",
+        "summary": "Magnetic flux Phi_B = integral B dot dS counts normal B through an oriented surface.",
         "labKind": "interactive",
         "interactive": "a magnet and coil with a graph of the induced voltage"
       },
@@ -1565,7 +1565,7 @@ export const book: Chapter[] = [
         "order": 6,
         "title": "Inductance, Alternating Current, and the RLC Circuit",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Self-inductance and energy stored in the magnetic field.",
@@ -1574,7 +1574,7 @@ export const book: Chapter[] = [
           "Phase shifts in an AC circuit.",
           "The transformer and electric-power transmission."
         ],
-        "summary": "Self-inductance and energy stored in the magnetic field.",
+        "summary": "Changing a coil's own current changes linked magnetic flux and creates self-induced emf opposing that change.",
         "labKind": "interactive",
         "interactive": "a signal generator, oscilloscope, and RLC circuit"
       },
@@ -1586,7 +1586,7 @@ export const book: Chapter[] = [
         "order": 7,
         "title": "Maxwell's Equations and Electromagnetic Waves",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "The four ideas behind Maxwell's equations, without premature formalism.",
@@ -1596,7 +1596,7 @@ export const book: Chapter[] = [
           "The electromagnetic spectrum.",
           "Energy transport by fields and the Poynting vector—an overview."
         ],
-        "summary": "The four ideas behind Maxwell's equations, without premature formalism.",
+        "summary": "Maxwell's equations connect electric flux to charge, exclude net magnetic charge in the classical field, connect circulating E to changing magnetic flux, and connect circulating B to current plus changing electric flux.",
         "labKind": "interactive",
         "interactive": "the generation and propagation of an electromagnetic wave"
       }
@@ -1618,7 +1618,7 @@ export const book: Chapter[] = [
         "order": 1,
         "title": "The Ray Model, Reflection, and Fermat's Principle",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Straight-line propagation of light in a homogeneous medium within the ray approximation.",
@@ -1627,7 +1627,7 @@ export const book: Chapter[] = [
           "The plane mirror.",
           "Fermat's principle requires stationary optical time, not necessarily a minimum."
         ],
-        "summary": "Straight-line propagation of light in a homogeneous medium within the ray approximation.",
+        "summary": "A ray gives energy-flow direction when wavelength is much smaller than obstacles and medium-variation scales.",
         "labKind": "interactive",
         "interactive": "finding a path with stationary optical travel time"
       },
@@ -1639,7 +1639,7 @@ export const book: Chapter[] = [
         "order": 2,
         "title": "Refraction, Dispersion, and Total Internal Reflection",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "The speed of light in matter.",
@@ -1648,7 +1648,7 @@ export const book: Chapter[] = [
           "Dispersion and the rainbow.",
           "Total internal reflection and optical fibers."
         ],
-        "summary": "The speed of light in matter.",
+        "summary": "Light phase speed in linear matter is usually below c and depends on frequency; n = c/v_ph characterizes it at a stated frequency.",
         "labKind": "interactive",
         "interactive": "a light ray passing through boundaries between arbitrary media"
       },
@@ -1660,7 +1660,7 @@ export const book: Chapter[] = [
         "order": 3,
         "title": "Mirrors and Lenses",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Spherical mirrors.",
@@ -1669,7 +1669,7 @@ export const book: Chapter[] = [
           "The thin-lens equation.",
           "Magnification."
         ],
-        "summary": "Spherical mirrors.",
+        "summary": "A spherical mirror redirects rays by reflection from different local normals.",
         "labKind": "interactive",
         "interactive": "an optical bench for constructing ray diagrams"
       },
@@ -1681,7 +1681,7 @@ export const book: Chapter[] = [
         "order": 4,
         "title": "The Eye, Camera, Microscope, and Telescope",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Image formation on the retina and an image sensor.",
@@ -1690,7 +1690,7 @@ export const book: Chapter[] = [
           "Angular magnification.",
           "Aberrations in optical systems."
         ],
-        "summary": "Image formation on the retina and an image sensor.",
+        "summary": "The eye and camera must form a real image on a fixed surface: retina or sensor.",
         "labKind": "interactive",
         "interactive": "a camera or telescope design tool"
       },
@@ -1702,7 +1702,7 @@ export const book: Chapter[] = [
         "order": 5,
         "title": "Interference, Diffraction, and the Resolution Limit",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Coherence.",
@@ -1711,7 +1711,7 @@ export const book: Chapter[] = [
           "The relationship between aperture size and the width of the diffraction pattern or diffraction spot.",
           "The Rayleigh criterion."
         ],
-        "summary": "Coherence.",
+        "summary": "Interference requires a stable phase difference over observation.",
         "labKind": "interactive",
         "interactive": "a smooth transition from geometric optics to diffraction"
       },
@@ -1723,7 +1723,7 @@ export const book: Chapter[] = [
         "order": 6,
         "title": "Polarization, Color, and Spectroscopy",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "The polarization of light.",
@@ -1732,7 +1732,7 @@ export const book: Chapter[] = [
           "Source spectra and spectral lines.",
           "How light reveals the composition and motion of matter."
         ],
-        "summary": "The polarization of light.",
+        "summary": "Polarization describes orientation of transverse electric field.",
         "labKind": "interactive",
         "interactive": "polarizers, a spectral color mixer, and a virtual spectroscope"
       }
@@ -1754,7 +1754,7 @@ export const book: Chapter[] = [
         "order": 1,
         "title": "Why Classical Mechanics Proved Insufficient",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "advanced",
         "concepts": [
           "Galilean velocity addition.",
@@ -1762,7 +1762,7 @@ export const book: Chapter[] = [
           "The postulates of special relativity.",
           "The absence of an absolute rest frame."
         ],
-        "summary": "Galilean velocity addition.",
+        "summary": "Newtonian kinematics treats time as common to all observers, so changing frames changes a velocity according to u' = u - v.",
         "labKind": "interactive",
         "interactive": "an attempt to measure one's own motion relative to the \"aether\""
       },
@@ -1774,7 +1774,7 @@ export const book: Chapter[] = [
         "order": 2,
         "title": "Simultaneity and Light Clocks",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "advanced",
         "concepts": [
           "Synchronizing distant clocks.",
@@ -1782,7 +1782,7 @@ export const book: Chapter[] = [
           "Time dilation.",
           "Proper time."
         ],
-        "summary": "Synchronizing distant clocks.",
+        "summary": "Distant clocks cannot be compared without a convention for transferring time.",
         "labKind": "interactive",
         "interactive": "light clocks in different frames of reference"
       },
@@ -1794,7 +1794,7 @@ export const book: Chapter[] = [
         "order": 3,
         "title": "Length Contraction and Lorentz Transformations",
         "pages": 5,
-        "minutes": 35,
+        "minutes": 13,
         "level": "advanced",
         "concepts": [
           "Measuring the length of a moving body.",
@@ -1803,7 +1803,7 @@ export const book: Chapter[] = [
           "Transformations of coordinates and time.",
           "Relativistic velocity addition."
         ],
-        "summary": "Measuring the length of a moving body.",
+        "summary": "Length is the distance between endpoint positions measured simultaneously in the frame where the answer is required.",
         "labKind": "interactive",
         "interactive": "switching between frames of reference on a shared grid of events"
       },
@@ -1815,7 +1815,7 @@ export const book: Chapter[] = [
         "order": 4,
         "title": "Spacetime Diagrams and Causality",
         "pages": 5,
-        "minutes": 35,
+        "minutes": 13,
         "level": "advanced",
         "concepts": [
           "Worldlines.",
@@ -1824,7 +1824,7 @@ export const book: Chapter[] = [
           "Causally connected and causally disconnected events.",
           "The twin paradox and other apparent contradictions."
         ],
-        "summary": "Worldlines.",
+        "summary": "A Minkowski diagram represents an event by coordinates x and ct and an object's history by a worldline.",
         "labKind": "interactive",
         "interactive": "a worldline editor on a Minkowski diagram"
       },
@@ -1836,7 +1836,7 @@ export const book: Chapter[] = [
         "order": 5,
         "title": "Relativistic Energy and Momentum",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 14,
         "level": "advanced",
         "concepts": [
           "Relativistic momentum at high speeds.",
@@ -1845,7 +1845,7 @@ export const book: Chapter[] = [
           "Total energy is conserved in transformations; rest energy can become kinetic energy and vice versa.",
           "Four-momentum as an optional extension."
         ],
-        "summary": "Relativistic momentum at high speeds.",
+        "summary": "For a particle of invariant mass m, relativistic momentum is p = γmv and total energy is E = γmc².",
         "labKind": "interactive",
         "interactive": "particle collisions in different frames of reference"
       },
@@ -1857,7 +1857,7 @@ export const book: Chapter[] = [
         "order": 6,
         "title": "From the Equivalence Principle to Curved Spacetime",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "advanced",
         "concepts": [
           "The local equivalence of a uniform gravitational field and a uniformly accelerated frame.",
@@ -1866,7 +1866,7 @@ export const book: Chapter[] = [
           "Geodesics and curvature.",
           "A bridge from special to general relativity."
         ],
-        "summary": "The local equivalence of a uniform gravitational field and a uniformly accelerated frame.",
+        "summary": "In a sufficiently small freely falling laboratory, the uniform part of a gravitational field can be removed by choosing the frame: unsupported bodies move inertially there.",
         "labKind": "interactive",
         "interactive": "a laboratory inside an accelerating cabin"
       }
@@ -1888,7 +1888,7 @@ export const book: Chapter[] = [
         "order": 1,
         "title": "The Crisis of Classical Physics and the Photon",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 14,
         "level": "advanced",
         "concepts": [
           "Thermal radiation and the ultraviolet catastrophe.",
@@ -1897,7 +1897,7 @@ export const book: Chapter[] = [
           "The photon, its energy, and its momentum.",
           "The Compton effect."
         ],
-        "summary": "Thermal radiation and the ultraviolet catastrophe.",
+        "summary": "Classical electrodynamics correctly describes light propagation, but combined with classical statistics it gives the wrong high-frequency thermal spectrum.",
         "labKind": "interactive",
         "interactive": "the photoelectric effect with adjustable light frequency and intensity"
       },
@@ -1909,7 +1909,7 @@ export const book: Chapter[] = [
         "order": 2,
         "title": "Matter Waves and the Double-Slit Experiment",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 14,
         "level": "advanced",
         "concepts": [
           "The de Broglie hypothesis.",
@@ -1917,7 +1917,7 @@ export const book: Chapter[] = [
           "Individual detection events and the build-up of an interference pattern.",
           "Wave–particle duality."
         ],
-        "summary": "The de Broglie hypothesis.",
+        "summary": "The de Broglie hypothesis assigns a free particle wavelength λ = h/p.",
         "labKind": "interactive",
         "interactive": "a double-slit experiment with photons, electrons, and larger particles"
       },
@@ -1929,7 +1929,7 @@ export const book: Chapter[] = [
         "order": 3,
         "title": "Quantum State and Measurement",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 14,
         "level": "advanced",
         "concepts": [
           "The wavefunction as a tool for calculating probabilities.",
@@ -1938,7 +1938,7 @@ export const book: Chapter[] = [
           "Measurement and the set of possible outcomes.",
           "Why quantum theory does not require a conscious observer."
         ],
-        "summary": "The wavefunction as a tool for calculating probabilities.",
+        "summary": "A quantum state encodes the most complete predictions available within the theory for a specified preparation.",
         "labKind": "interactive",
         "interactive": "sequential measurements of two incompatible observables"
       },
@@ -1950,7 +1950,7 @@ export const book: Chapter[] = [
         "order": 4,
         "title": "Uncertainty and the Schrödinger Equation",
         "pages": 5,
-        "minutes": 35,
+        "minutes": 14,
         "level": "advanced",
         "concepts": [
           "Wave packets.",
@@ -1960,7 +1960,7 @@ export const book: Chapter[] = [
           "Energy quantization.",
           "Tunneling and the classical limit."
         ],
-        "summary": "Wave packets.",
+        "summary": "A localized state is a wave packet built from components with different wave numbers, so compressing the packet requires a broader momentum range.",
         "labKind": "interactive",
         "interactive": "an editable potential and the particle's eigenstates"
       },
@@ -1972,7 +1972,7 @@ export const book: Chapter[] = [
         "order": 5,
         "title": "Spin, Entanglement, and Decoherence",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 14,
         "level": "advanced",
         "concepts": [
           "Spin as an intrinsic quantum property.",
@@ -1981,7 +1981,7 @@ export const book: Chapter[] = [
           "Why entanglement cannot transmit a signal faster than light.",
           "Decoherence and the emergence of classical behavior."
         ],
-        "summary": "Spin as an intrinsic quantum property.",
+        "summary": "Spin is an intrinsic quantum degree of freedom with discrete projection results; it cannot literally be modeled as a rotating charged ball.",
         "labKind": "interactive",
         "interactive": "measurement correlations for a pair of entangled particles"
       },
@@ -1993,7 +1993,7 @@ export const book: Chapter[] = [
         "order": 6,
         "title": "Atoms, Molecules, and Spectra",
         "pages": 5,
-        "minutes": 35,
+        "minutes": 14,
         "level": "advanced",
         "concepts": [
           "Rutherford's experiment and the Bohr model as a historical stepping stone.",
@@ -2002,7 +2002,7 @@ export const book: Chapter[] = [
           "Chemical bonding at a qualitative level.",
           "Energy transitions, spectra, and lasers."
         ],
-        "summary": "Rutherford's experiment and the Bohr model as a historical stepping stone.",
+        "summary": "Rutherford scattering showed that positive charge and nearly all atomic mass occupy a tiny nucleus.",
         "labKind": "interactive",
         "interactive": "a builder for energy levels and spectral transitions"
       },
@@ -2014,7 +2014,7 @@ export const book: Chapter[] = [
         "order": 7,
         "title": "Solid-State Physics and Semiconductors",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "advanced",
         "concepts": [
           "Crystal lattices and collective electron states.",
@@ -2023,7 +2023,7 @@ export const book: Chapter[] = [
           "Dopants and the p–n junction.",
           "Diodes, transistors, light-emitting diodes, and solar cells."
         ],
-        "summary": "Crystal lattices and collective electron states.",
+        "summary": "The lattice's periodic potential and the Pauli principle turn discrete atomic levels from an enormous number of atoms into allowed energy bands.",
         "labKind": "interactive",
         "interactive": "a band diagram and current through a p–n junction"
       },
@@ -2035,7 +2035,7 @@ export const book: Chapter[] = [
         "order": 8,
         "title": "Quantum Technologies",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "advanced",
         "concepts": [
           "Lasers and masers.",
@@ -2044,7 +2044,7 @@ export const book: Chapter[] = [
           "An overview of superconductivity.",
           "Qubits, quantum operations, and the limitations of quantum computers."
         ],
-        "summary": "Lasers and masers.",
+        "summary": "Quantum technology extends far beyond quantum computers.",
         "labKind": "interactive",
         "interactive": "the state of a single qubit on the Bloch sphere"
       }
@@ -2066,7 +2066,7 @@ export const book: Chapter[] = [
         "order": 1,
         "title": "The Atomic Nucleus and Binding Energy",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 14,
         "level": "advanced",
         "concepts": [
           "Protons and neutrons.",
@@ -2074,7 +2074,7 @@ export const book: Chapter[] = [
           "Mass defect and binding energy.",
           "Isotopes and the valley of stability."
         ],
-        "summary": "Protons and neutrons.",
+        "summary": "A nucleus contains Z protons and N neutrons.",
         "labKind": "interactive",
         "interactive": "a plot of binding energy per nucleon"
       },
@@ -2086,7 +2086,7 @@ export const book: Chapter[] = [
         "order": 2,
         "title": "Radioactivity and the Interaction of Radiation with Matter",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "advanced",
         "concepts": [
           "Alpha, beta, and gamma decay.",
@@ -2094,7 +2094,7 @@ export const book: Chapter[] = [
           "Activity, absorbed dose, and equivalent dose.",
           "Shielding and biological effects."
         ],
-        "summary": "Alpha, beta, and gamma decay.",
+        "summary": "Alpha, beta, and gamma processes change a nucleus in different ways while conserving energy, momentum, charge, and applicable quantum numbers.",
         "labKind": "interactive",
         "interactive": "a statistical simulation of decay and the passage of radiation through matter"
       },
@@ -2106,7 +2106,7 @@ export const book: Chapter[] = [
         "order": 3,
         "title": "Nuclear Fission and Reactors",
         "pages": 5,
-        "minutes": 35,
+        "minutes": 14,
         "level": "advanced",
         "concepts": [
           "Fission of a heavy nucleus.",
@@ -2115,7 +2115,7 @@ export const book: Chapter[] = [
           "The design of a nuclear power reactor.",
           "Decay heat, waste, and safety."
         ],
-        "summary": "Fission of a heavy nucleus.",
+        "summary": "In fission, a heavy nucleus becomes two principal fragments, neutrons, and radiation; reduced final mass releases energy of order hundreds of MeV per event.",
         "labKind": "interactive",
         "interactive": "controlling a reactor with neutron absorbers or control rods and a moderator"
       },
@@ -2127,7 +2127,7 @@ export const book: Chapter[] = [
         "order": 4,
         "title": "Nuclear Fusion",
         "pages": 5,
-        "minutes": 35,
+        "minutes": 14,
         "level": "advanced",
         "concepts": [
           "The Coulomb barrier and quantum tunneling.",
@@ -2136,7 +2136,7 @@ export const book: Chapter[] = [
           "Magnetic and inertial confinement.",
           "The energy balance of a fusion reactor."
         ],
-        "summary": "The Coulomb barrier and quantum tunneling.",
+        "summary": "Positively charged nuclei repel, while the strong interaction binds only at very short distance.",
         "labKind": "interactive",
         "interactive": "a diagram of plasma ignition conditions"
       },
@@ -2148,7 +2148,7 @@ export const book: Chapter[] = [
         "order": 5,
         "title": "Elementary Particles and the Standard Model",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 14,
         "level": "advanced",
         "concepts": [
           "Quarks, leptons, and force carriers.",
@@ -2157,7 +2157,7 @@ export const book: Chapter[] = [
           "The Higgs field.",
           "What the Standard Model does not explain."
         ],
-        "summary": "Quarks, leptons, and force carriers.",
+        "summary": "Matter fermions form three generations of quarks and leptons.",
         "labKind": "interactive",
         "interactive": "a builder for allowed particle decays"
       }
@@ -2179,7 +2179,7 @@ export const book: Chapter[] = [
         "order": 1,
         "title": "How We Measure the Universe",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 14,
         "level": "advanced",
         "concepts": [
           "Angular sizes and parallax.",
@@ -2188,7 +2188,7 @@ export const book: Chapter[] = [
           "Spectrum, temperature, composition, and radial velocity.",
           "Redshift."
         ],
-        "summary": "Angular sizes and parallax.",
+        "summary": "Astronomical measurement is usually an inverse problem: a telescope records angles, times, flux, and spectra, while a physical model connects them to source properties.",
         "labKind": "mini-lab",
         "interactive": "determining the properties of an unknown star from observational data"
       },
@@ -2200,7 +2200,7 @@ export const book: Chapter[] = [
         "order": 2,
         "title": "A Star's Equilibrium and Energy",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 12,
         "level": "advanced",
         "concepts": [
           "Gravitational contraction and pressure.",
@@ -2209,7 +2209,7 @@ export const book: Chapter[] = [
           "Thermonuclear reactions in stars.",
           "Solar neutrinos."
         ],
-        "summary": "Gravitational contraction and pressure.",
+        "summary": "Gravity tends to compress a star, heating matter and increasing gas and radiation pressure.",
         "labKind": "interactive",
         "interactive": "a model of a star that balances gravity and pressure"
       },
@@ -2221,7 +2221,7 @@ export const book: Chapter[] = [
         "order": 3,
         "title": "Stellar Evolution and the Origin of the Elements",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 14,
         "level": "advanced",
         "concepts": [
           "The Hertzsprung–Russell diagram.",
@@ -2230,7 +2230,7 @@ export const book: Chapter[] = [
           "Stellar nucleosynthesis.",
           "The origin of elements heavier than iron."
         ],
-        "summary": "The Hertzsprung–Russell diagram.",
+        "summary": "The Hertzsprung-Russell diagram compares luminosity with effective temperature or spectral class.",
         "labKind": "interactive",
         "interactive": "the evolutionary track of a star of a specified mass"
       },
@@ -2242,7 +2242,7 @@ export const book: Chapter[] = [
         "order": 4,
         "title": "Compact Objects",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "advanced",
         "concepts": [
           "White dwarfs and degeneracy pressure.",
@@ -2251,7 +2251,7 @@ export const book: Chapter[] = [
           "Accretion disks and jets.",
           "An overview of the information paradox."
         ],
-        "summary": "White dwarfs and degeneracy pressure.",
+        "summary": "A white dwarf is supported mainly by electron degeneracy pressure, while a neutron star uses degeneracy and short-range nuclear interactions at much greater density.",
         "labKind": "interactive",
         "interactive": "orbits and redshift near a compact object"
       },
@@ -2263,7 +2263,7 @@ export const book: Chapter[] = [
         "order": 5,
         "title": "General Relativity as Observable Physics",
         "pages": 4,
-        "minutes": 28,
+        "minutes": 13,
         "level": "advanced",
         "concepts": [
           "The deflection of light and gravitational lensing.",
@@ -2271,7 +2271,7 @@ export const book: Chapter[] = [
           "Gravitational time dilation and GPS.",
           "Gravitational waves."
         ],
-        "summary": "The deflection of light and gravitational lensing.",
+        "summary": "Curved spacetime changes paths of light and freely moving bodies: lenses produce shifts, arcs, and multiple images, while orbits acquire corrections to Newtonian precession.",
         "labKind": "interactive",
         "interactive": "lensing a distant source with a system of masses"
       },
@@ -2283,7 +2283,7 @@ export const book: Chapter[] = [
         "order": 6,
         "title": "Galaxies, Dark Matter, and Large-Scale Structure",
         "pages": 3,
-        "minutes": 21,
+        "minutes": 14,
         "level": "advanced",
         "concepts": [
           "The structure and dynamics of galaxies.",
@@ -2292,7 +2292,7 @@ export const book: Chapter[] = [
           "The cosmic web.",
           "Observational evidence for dark matter."
         ],
-        "summary": "The structure and dynamics of galaxies.",
+        "summary": "Stars, gas, dust, and central compact objects form a galaxy's visible component, but their motions probe the total potential.",
         "labKind": "interactive",
         "interactive": "comparing the rotation of a galaxy with and without a dark matter halo"
       },
@@ -2304,7 +2304,7 @@ export const book: Chapter[] = [
         "order": 7,
         "title": "The Expanding Universe",
         "pages": 3,
-        "minutes": 21,
+        "minutes": 13,
         "level": "advanced",
         "concepts": [
           "The expansion of space and the Hubble–Lemaître law.",
@@ -2314,7 +2314,7 @@ export const book: Chapter[] = [
           "The observable Universe and cosmological horizons.",
           "Open questions in modern cosmology."
         ],
-        "summary": "The expansion of space and the Hubble–Lemaître law.",
+        "summary": "In a homogeneous cosmological model, separation between unbound comoving objects grows with scale factor a(t).",
         "labKind": "interactive",
         "interactive": "an expanding grid with moving photons and a horizon"
       }
@@ -2336,7 +2336,7 @@ export const book: Chapter[] = [
         "order": 1,
         "title": "Nonlinearity and Feedback",
         "pages": 3,
-        "minutes": 21,
+        "minutes": 14,
         "level": "advanced",
         "concepts": [
           "Linear models and the superposition principle.",
@@ -2344,7 +2344,7 @@ export const book: Chapter[] = [
           "Positive and negative feedback.",
           "Stability and saturation."
         ],
-        "summary": "Linear models and the superposition principle.",
+        "summary": "A linear model preserves sums and scale: its response to ax₁ + bx₂ is a times the response to x₁ plus b times the response to x₂.",
         "labKind": "interactive",
         "interactive": "systems with adjustable feedback"
       },
@@ -2356,7 +2356,7 @@ export const book: Chapter[] = [
         "order": 2,
         "title": "Phase Portraits, Attractors, and Bifurcations",
         "pages": 3,
-        "minutes": 21,
+        "minutes": 14,
         "level": "advanced",
         "concepts": [
           "The state of a dynamical system.",
@@ -2364,7 +2364,7 @@ export const book: Chapter[] = [
           "Changes in behavior as a parameter is varied continuously.",
           "Bifurcations."
         ],
-        "summary": "The state of a dynamical system.",
+        "summary": "A dynamical-system state is the smallest variable set that, with the evolution law, predicts the next state.",
         "labKind": "interactive",
         "interactive": "constructing a bifurcation diagram"
       },
@@ -2376,7 +2376,7 @@ export const book: Chapter[] = [
         "order": 3,
         "title": "Deterministic Chaos",
         "pages": 3,
-        "minutes": 21,
+        "minutes": 14,
         "level": "advanced",
         "concepts": [
           "Sensitivity to initial conditions.",
@@ -2385,7 +2385,7 @@ export const book: Chapter[] = [
           "The distinction between chaos and randomness.",
           "Fractal structure."
         ],
-        "summary": "Sensitivity to initial conditions.",
+        "summary": "In a chaotic regime, nearby initial states separate on average exponentially: δ(t) ≈ δ₀e^(λt) for a positive largest Lyapunov exponent while separation remains small.",
         "labKind": "interactive",
         "interactive": "two nearly identical double pendulums"
       },
@@ -2397,7 +2397,7 @@ export const book: Chapter[] = [
         "order": 4,
         "title": "Capstone Research Laboratory",
         "pages": 3,
-        "minutes": 21,
+        "minutes": 14,
         "level": "advanced",
         "concepts": [
           "Obtaining raw data from an unknown system.",
@@ -2406,7 +2406,7 @@ export const book: Chapter[] = [
           "Fitting a model and estimating uncertainty.",
           "Testing the model against new data."
         ],
-        "summary": "Obtaining raw data from an unknown system.",
+        "summary": "An investigation begins by preserving original values, units, timing, calibration, and experimental conditions.",
         "labKind": "project",
         "interactive": "reconstructing a physical law without knowing in advance which system generated the data"
       }

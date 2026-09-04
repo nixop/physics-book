@@ -1,10 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import katex from 'katex';
-import { allTopics, book, bookMeta, constants, formulas } from '../src/data';
+import { allTopics, book, bookMeta, constants, formulas, lessonDetails } from '../src/data';
 import { book as bookEn } from '../src/data/book.en.generated';
 import { formulas as formulasEn } from '../src/data/formulas.en.generated';
 import { constants as constantsEn } from '../src/data/constants.en.generated';
-import { implementedLabForTopic, topicBoundary } from '../src/lib/content';
+import { lessonDetails as lessonDetailsEn } from '../src/data/lessons.en.generated';
+import { implementedLabForTopic } from '../src/lib/content';
 import { pluralEn } from '../src/lib/format';
 
 describe('редакционная модель книги', () => {
@@ -15,6 +16,7 @@ describe('редакционная модель книги', () => {
     expect(new Set(allTopics.map((topic) => topic.uid)).size).toBe(108);
     expect(allTopics.every((topic) => topic.concepts.length >= 4 && topic.concepts.length <= 6)).toBe(true);
     expect(allTopics.find((topic) => topic.id === '16.4')?.concepts).toHaveLength(5);
+    expect(allTopics.every((topic) => topic.summary !== topic.concepts[0] && topic.summary.length >= 30)).toBe(true);
     expect(book.reduce((sum, chapter) => sum + chapter.pages, 0)).toBe(438);
     expect(bookMeta.pages).toBe(450);
     expect(JSON.stringify(book)).not.toMatch(/sourceLine|sourceFile|sourceHash/u);
@@ -50,7 +52,7 @@ describe('редакционная модель книги', () => {
     expect(topicsEn.every((topic) => topic.title.length > 0 && topic.concepts.length >= 4 && topic.interactive.length > 0)).toBe(true);
     expect(topicsEn.every((topic) => !/[А-Яа-яЁё]/u.test(`${topic.title} ${topic.concepts.join(' ')} ${topic.interactive}`))).toBe(true);
     expect(JSON.stringify(bookEn)).not.toMatch(/[А-Яа-яЁё]/u);
-    expect(formulasEn.every((formula) => !/[А-Яа-яЁё]/u.test(`${formula.title} ${formula.meaning} ${formula.conditions} ${formula.units}`))).toBe(true);
+    expect(formulasEn.every((formula) => !/[А-Яа-яЁё]/u.test(`${formula.title} ${formula.latex} ${formula.plain} ${formula.meaning} ${formula.conditions} ${formula.units}`))).toBe(true);
     expect(constantsEn.every((constant) => !/[А-Яа-яЁё]/u.test(`${constant.name} ${constant.unit} ${constant.note}`))).toBe(true);
   });
 
@@ -83,11 +85,32 @@ describe('редакционная модель книги', () => {
     expect(formulaFor('double-slit-probability')?.relatedTopics).toContain('13.2');
   });
 
-  it('даёт каждой карточке собственную границу модели и отмечает только семь готовых лабораторий', () => {
-    const ruBoundaries = allTopics.map((topic) => topicBoundary(topic, 'ru'));
-    const enBoundaries = bookEn.flatMap((chapter) => chapter.topics).map((topic) => topicBoundary(topic, 'en'));
-    expect(new Set(ruBoundaries).size).toBe(allTopics.length);
-    expect(new Set(enBoundaries).size).toBe(allTopics.length);
+  it('даёт каждой карточке полноценный уникальный урок в обеих локалях', () => {
+    const topicsEn = bookEn.flatMap((chapter) => chapter.topics);
+    expect(Object.keys(lessonDetails)).toHaveLength(allTopics.length);
+    expect(Object.keys(lessonDetailsEn)).toHaveLength(topicsEn.length);
+    for (const [topics, details, locale] of [[allTopics, lessonDetails, 'ru'], [topicsEn, lessonDetailsEn, 'en']] as const) {
+      for (const topic of topics) {
+        const detail = details[topic.id];
+        expect(detail.topicId).toBe(topic.id);
+        expect(detail.overview).toHaveLength(2);
+        expect(detail.conceptExplanations).toHaveLength(topic.concepts.length);
+        expect(detail.example.steps.length).toBeGreaterThanOrEqual(3);
+        expect(detail.practice).toHaveLength(2);
+        expect(detail.question).not.toBe(topic.summary);
+        expect(detail.conceptExplanations.every((explanation, index) => explanation !== topic.concepts[index])).toBe(true);
+        if (locale === 'en') expect(JSON.stringify(detail)).not.toMatch(/[А-Яа-яЁё]/u);
+      }
+      expect(new Set(Object.values(details).map((detail) => detail.question)).size).toBe(topics.length);
+      expect(new Set(Object.values(details).map((detail) => detail.boundary)).size).toBe(topics.length);
+      expect(new Set(Object.values(details).map((detail) => detail.example.problem)).size).toBe(topics.length);
+      expect(JSON.stringify(details)).not.toMatch(/This card connects|Карточка связывает наблюдаемое|not implemented|не реализован/iu);
+    }
+    expect(allTopics.every((topic) => topic.minutes >= 10 && topic.minutes <= 30)).toBe(true);
+    expect(allTopics.some((topic) => topic.minutes !== topic.pages * 7)).toBe(true);
+  });
+
+  it('честно отмечает только семь готовых лабораторий', () => {
     expect(allTopics.filter((topic) => implementedLabForTopic(topic.id))).toHaveLength(7);
   });
 

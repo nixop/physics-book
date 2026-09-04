@@ -29,7 +29,7 @@ export function ChapterPage({ chapterNumber, completed, sidebarOpen, onToggleSid
     <main className="book-layout">
       <BookSidebar currentChapter={chapter.number} completed={completed} open={sidebarOpen} onClose={onToggleSidebar} onOpenSearch={onOpenSearch} />
       <article className="chapter-page book-main">
-        <button type="button" className="mobile-sidebar-trigger" onClick={onToggleSidebar}><Menu size={18} /> {t('sidebar.contents')}</button>
+        <button type="button" className="mobile-sidebar-trigger" aria-expanded={sidebarOpen} aria-controls="book-sidebar" onClick={onToggleSidebar}><Menu size={18} /> {t('sidebar.contents')}</button>
         <nav className="breadcrumbs"><a href={routes.catalog(locale)}>{t('chapter.guide')}</a><span>/</span><span>{t('chapter.section', { number: chapter.number })}</span></nav>
         <header className={`chapter-hero accent-${chapter.accent}`}>
           <div className="chapter-hero__index"><span>{String(chapter.number).padStart(2, '0')}</span><small>{guide.eyebrow}</small></div>

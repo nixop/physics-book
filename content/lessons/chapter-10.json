@@ -1,0 +1,549 @@
+{
+  "chapter": 10,
+  "ru": {
+    "10.1": {
+      "question": "Как магнитное поле меняет направление движения заряда, не изменяя его кинетическую энергию?",
+      "overview": [
+        "Магнитное поле B определяется через поперечную часть силы Лоренца F = q(E + v x B). В отличие от электрического поля, стационарное B действует только на движущийся заряд. Поле токов связано с движущимися зарядами и зависит от системы отсчёта, а электрические и магнитные компоненты вместе образуют единое электромагнитное поле.",
+        "Вектор v x B перпендикулярен скорости, поэтому чистая магнитная сила меняет импульс по направлению, но имеет нулевую мгновенную мощность F·v. Линии B не имеют начала и конца: у локализованных источников они замыкаются, а в идеализированном однородном поле могут уходить на бесконечность; поток B через любую замкнутую поверхность равен нулю."
+      ],
+      "conceptExplanations": [
+        "Разрезание стержневого магнита создаёт два меньших диполя, а не отдельные северный и южный полюса; отсутствие наблюдений монополей выражает div B = 0 в классической теории.",
+        "Медленно движущийся точечный заряд создаёт магнитный вклад, направленный вокруг его движения; при релятивистском движении нужен полный запаздывающий закон поля.",
+        "Электрический вклад qE не зависит от v, а магнитный q v x B зависит от скорости и меняет знак вместе с q.",
+        "Правило правой руки задаёт v x B для положительного заряда; для отрицательного направление силы противоположно, а работа чистого B остаётся нулевой."
+      ],
+      "boundary": "Форма q(E + v x B) применима к точечной частице в заданном локальном поле; для протяжённого тела силы интегрируют по распределению заряда и тока, а излучение ускоренного заряда и самодействие требуют дополнительной модели.",
+      "example": {
+        "title": "Поперечная сила на протон",
+        "problem": "Протон летит со скоростью 2.0e6 м/с вдоль +x в однородном поле 0.20 Т вдоль +z. Электрического поля нет. Найти модуль и направление силы; e = 1.602e-19 Кл.",
+        "steps": [
+          "Скорость перпендикулярна B, поэтому F = qvB.",
+          "F = 1.602e-19 x 2.0e6 x 0.20 = 6.41e-14 Н.",
+          "Для положительного заряда +x x +z = -y, поэтому сила направлена вдоль -y."
+        ],
+        "answer": "F = 6.41e-14 Н вдоль -y.",
+        "check": "F·v = 0, поэтому сила изгибает траекторию, но не меняет скорость протона по модулю."
+      },
+      "pitfall": "Правило правой руки сразу даёт направление только для положительного заряда; для электрона результат нужно обратить.",
+      "practice": [
+        {
+          "question": "Почему однородное магнитное поле не может разогнать покоящийся заряд?",
+          "hint": "Подставьте v = 0 в магнитную часть силы Лоренца.",
+          "answer": "При v = 0 произведение v x B равно нулю, поэтому магнитная сила отсутствует; начать движение может электрическое поле или другая сила."
+        },
+        {
+          "question": "Заряд 3.0 мкКл движется перпендикулярно B = 0.50 Т со скоростью 40 м/с. Найдите силу.",
+          "hint": "Используйте F = |q|vB.",
+          "answer": "F = 3.0e-6 x 40 x 0.50 = 6.0e-5 Н."
+        }
+      ]
+    },
+    "10.2": {
+      "question": "Как геометрия силы Лоренца превращает однородное магнитное поле в селектор скорости и анализатор отношения массы к заряду?",
+      "overview": [
+        "Компонента скорости, перпендикулярная однородному B, испытывает центростремительную силу и создаёт окружность радиуса r = p_perp/(|q|B). Параллельная компонента не меняется, поэтому общее движение является винтовым. В нерелятивистском пределе циклотронная угловая частота omega_c = |q|B/m не зависит от скорости.",
+        "В скрещенных полях E и B частицы с v = E/B и подходящим направлением проходят без отклонения. После отбора скорости магнитный радиус раскрывает m/|q|, что лежит в основе масс-спектрометрии. В циклотроне ускорение синхронизируют с обращением, а магнитосфера направляет заряженные частицы вдоль силовых линий."
+      ],
+      "conceptExplanations": [
+        "При v_perp поле непрерывно поворачивает скорость и даёт окружность; добавление неизменной v_parallel переносит центр окружности вдоль B и создаёт спираль.",
+        "Частота |q|B/(2 pi m) справедлива для постоянного B и нерелятивистского импульса mv; при росте релятивистской энергии она уменьшается.",
+        "Когда qE и q v x B равны и противоположны, суммарная поперечная сила нулевая; отношение E/B имеет размерность скорости.",
+        "Масс-спектрометр разделяет ионы по m/q, циклотрон добавляет энергию электрическим полем, а неоднородное магнитосферное поле может отражать частицы магнитным зеркалом."
+      ],
+      "boundary": "Круговой радиус r = mv/(|q|B) и независимая от скорости циклотронная частота требуют однородного поля, v намного меньше c и пренебрежимых потерь; столкновения, градиенты B и излучение меняют движение.",
+      "example": {
+        "title": "Орбита протона в магнитном поле",
+        "problem": "Протон со скоростью 1.0e6 м/с влетает перпендикулярно в B = 0.50 Т. Использовать m_p = 1.673e-27 кг, e = 1.602e-19 Кл. Найти радиус и частоту обращения.",
+        "steps": [
+          "Из |q|vB = mv²/r получаем r = mv/(|q|B).",
+          "r = 1.673e-27 x 1.0e6/(1.602e-19 x 0.50) = 2.09e-2 м.",
+          "f_c = |q|B/(2 pi m) = 7.62e6 Гц."
+        ],
+        "answer": "r = 2.09 см, f_c = 7.62 МГц.",
+        "check": "Удвоение скорости увеличило бы радиус вдвое, но в нерелятивистской модели не изменило бы частоту."
+      },
+      "pitfall": "Магнитное поле не поставляет кинетическую энергию циклотрону: энергию частице сообщает электрическое поле в зазорах.",
+      "practice": [
+        {
+          "question": "Что произойдёт с шагом винтовой траектории, если увеличить v_parallel при прежних v_perp и B?",
+          "hint": "Период обращения не меняется, а продольное расстояние за период равно v_parallel T.",
+          "answer": "Радиус останется прежним, а шаг спирали возрастёт пропорционально v_parallel."
+        },
+        {
+          "question": "В селекторе E = 3.0e4 В/м и B = 0.20 Т. Какая скорость проходит без отклонения?",
+          "hint": "При взаимно перпендикулярных полях v = E/B.",
+          "answer": "v = 1.5e5 м/с."
+        }
+      ]
+    },
+    "10.3": {
+      "question": "Как форма тока определяет симметрию магнитного поля и выбор между законом Био–Савара и законом Ампера?",
+      "overview": [
+        "Каждый элемент стационарного тока вносит в B вклад, направление которого задаёт векторное произведение элемента пути на направление к точке наблюдения. Интеграл Био–Савара применим к произвольной заданной геометрии, хотя вычисление может быть сложным. Прямой провод, круговой виток и длинный соленоид дают характерные поля.",
+        "Циркуляция B по замкнутому контуру связана с охваченным током законом Ампера в магнитостатике. Он особенно полезен при цилиндрической или тороидальной симметрии, когда B можно вынести из интеграла. Параллельные токи одного направления притягиваются, потому что каждый провод испытывает силу в поле другого."
+      ],
+      "conceptExplanations": [
+        "Вокруг длинного прямого провода линии B являются окружностями, на оси витка поле направлено вдоль его нормали, а внутри длинного плотного соленоида поле почти однородно.",
+        "Закон Био–Савара складывает направленные вклады I dl x r_hat/r² и требует стационарного тока для простой магнитостатической формы.",
+        "Равенство integral B·dl = mu0 I_inside вычисляет B напрямую только когда симметрия фиксирует направление и постоянство модуля на выбранном контуре.",
+        "Сила на участок второго провода равна I dl x B первого; смена направления одного тока меняет притяжение на отталкивание."
+      ],
+      "boundary": "Формулы длинного провода и идеального соленоида пренебрегают концами и конечным сечением; магнитостатические законы без тока смещения требуют постоянных токов и квазистационарного режима.",
+      "example": {
+        "title": "Поле длинного прямого провода",
+        "problem": "По длинному прямому проводу течёт ток 10 А. Найти B на расстоянии 5.0 см в вакууме; mu0 = 4 pi e-7 Гн/м.",
+        "steps": [
+          "Цилиндрическая симметрия делает B касательным и постоянным на окружности радиуса r.",
+          "Закон Ампера даёт B 2 pi r = mu0 I.",
+          "B = mu0 I/(2 pi r) = 4.0e-5 Т."
+        ],
+        "answer": "B = 40 мкТ, направлено по касательной согласно правилу правой руки.",
+        "check": "Поле убывает как 1/r; значение сравнимо по порядку с магнитным полем Земли."
+      },
+      "pitfall": "Контур Ампера можно выбрать всегда, но это не гарантирует вычисление B: без симметрии неизвестное поле нельзя вынести из интеграла.",
+      "practice": [
+        {
+          "question": "Почему поле идеального длинного соленоида снаружи мало, хотя каждый виток создаёт поле снаружи?",
+          "hint": "Сложите направления вкладов многих соседних витков.",
+          "answer": "Внешние вклады разных участков и витков в значительной мере компенсируются, а внутренние сонаправлены; у конечного соленоида компенсация неполна."
+        },
+        {
+          "question": "Как изменится B длинного провода, если ток удвоить, а расстояние увеличить втрое?",
+          "hint": "B пропорционально I/r.",
+          "answer": "Поле станет 2/3 исходного."
+        }
+      ]
+    },
+    "10.4": {
+      "question": "Как магнитный момент превращает ток в механический момент и почему магнитный материал сохраняет или почти не сохраняет намагниченность?",
+      "overview": [
+        "Плоская рамка с током имеет магнитный дипольный момент mu = NIA n_hat. В однородном поле результирующая сила может быть нулевой, но пара сил создаёт момент tau = mu x B, стремящийся совместить mu с B. Электродвигатель поддерживает направленный момент, переключая ток или поле по мере вращения.",
+        "Магнитный отклик вещества возникает из орбитальных и спиновых магнитных моментов. Диамагнитный вклад направлен против приложенного поля, парамагнитные моменты слабо ориентируются по полю, а в ферромагнетике обменное взаимодействие создаёт домены с коллективным порядком. Движение доменных стенок приводит к нелинейности и гистерезису."
+      ],
+      "conceptExplanations": [
+        "Вектор mu направлен по правилу правой руки относительно тока, а его модуль NIA растёт с числом витков, током и площадью.",
+        "Модуль момента mu B sin(theta) максимален при перпендикулярности и равен нулю при соосности, хотя последняя ориентация может быть устойчивой или неустойчивой.",
+        "Диамагнетизм присутствует у всех материалов, парамагнетизм требует нескомпенсированных моментов, ферромагнетизм создаёт самопроизвольный порядок ниже температуры Кюри.",
+        "Домены уменьшают внешнюю магнитную энергию, а петля гистерезиса показывает остаточную намагниченность и потери энергии при цикле поля.",
+        "В моторе силы на проводники создают момент, а противо-ЭДС при вращении отражает преобразование электрической энергии в механическую."
+      ],
+      "boundary": "Дипольная формула рамки предполагает её размер малым относительно масштаба изменения B; линейная магнитная проницаемость неприменима возле насыщения, при гистерезисе и сильной зависимости от частоты или температуры.",
+      "example": {
+        "title": "Момент многовитковой рамки",
+        "problem": "Рамка имеет N = 100 витков, площадь каждого 2.0e-3 м² и ток 0.50 А. Она находится в B = 0.20 Т; угол между нормалью рамки и B равен 30 градусов. Найти mu и tau.",
+        "steps": [
+          "mu = NIA = 100 x 0.50 x 2.0e-3 = 0.10 А·м².",
+          "tau = mu B sin(theta).",
+          "tau = 0.10 x 0.20 x sin(30 градусов) = 1.0e-2 Н·м."
+        ],
+        "answer": "mu = 0.10 А·м², tau = 0.010 Н·м.",
+        "check": "При theta = 0 момент исчезает, а при 90 градусах был бы вдвое больше."
+      },
+      "pitfall": "Ферромагнит без внешнего поля не обязан иметь максимальную внешнюю намагниченность: домены могут быть ориентированы так, что их суммарные моменты почти компенсируются.",
+      "practice": [
+        {
+          "question": "Почему сердечник трансформатора делают из материала с узкой петлёй гистерезиса?",
+          "hint": "Площадь петли связана с энергией, потерянной за цикл.",
+          "answer": "Узкая петля уменьшает гистерезисные потери и нагрев при многократном перемагничивании."
+        },
+        {
+          "question": "Как изменится максимальный момент рамки, если ток увеличить в 3 раза?",
+          "hint": "tau_max = N I A B.",
+          "answer": "Максимальный момент увеличится в 3 раза."
+        }
+      ]
+    },
+    "10.5": {
+      "question": "Почему изменение магнитного потока создаёт вихревое электрическое поле и как правило Ленца обеспечивает энергетический баланс?",
+      "overview": [
+        "Магнитный поток Phi_B = integral B·dS учитывает нормальную компоненту B через выбранную ориентированную поверхность. Закон Фарадея связывает скорость его изменения с циркуляцией индуцированного E: emf = -dPhi_B/dt. Поток может меняться из-за B, площади, ориентации или движения контура.",
+        "Минус выражает правило Ленца: индуцированный ток создаёт магнитный эффект, противодействующий изменению потока, а не самому исходному полю. Поэтому механический генератор встречает тормозящий момент под нагрузкой. В массивном проводнике замкнутые вихревые токи нагревают материал и создают силы; их либо уменьшают шихтованием, либо используют для торможения и нагрева."
+      ],
+      "conceptExplanations": [
+        "Поток зависит от выбранной ориентации поверхности; смена нормали меняет знак Phi_B и одновременно согласованное направление обхода контура.",
+        "ЭДС равна циркуляции поля по замкнутому пути и существует даже без металлического провода; провод лишь позволяет возникнуть заметному току.",
+        "Противодействие изменению не запрещает рост потока: внешний агент совершает дополнительную работу, которая переходит в электрическую энергию и тепло.",
+        "Вихревые токи текут по объёмным петлям проводника, поэтому разрезы и изолированные пластины ограничивают площадь контуров и потери.",
+        "Генератор изменяет поток через катушку механическим вращением и тем самым преобразует механическую работу в электрическую энергию."
+      ],
+      "boundary": "Простая формула -N dPhi/dt предполагает одинаковый поток через N витков и заданный контур; при высоких частотах распределённые поля, скин-эффект и паразитная ёмкость требуют полной электромагнитной модели.",
+      "example": {
+        "title": "Амплитуда ЭДС вращающейся катушки",
+        "problem": "Катушка N = 200, площадь витка 5.0e-3 м², вращается с частотой 50 Гц в однородном B = 0.40 Т. Ось вращения перпендикулярна B. Найти амплитуду ЭДС.",
+        "steps": [
+          "Потокосцепление N Phi = NBA cos(omega t), поэтому emf имеет амплитуду N B A omega.",
+          "omega = 2 pi f = 314 рад/с.",
+          "emf_max = 200 x 0.40 x 5.0e-3 x 314 = 126 В."
+        ],
+        "answer": "Амплитуда ЭДС примерно 126 В.",
+        "check": "При удвоении частоты скорость изменения потока и амплитуда ЭДС удвоились бы."
+      },
+      "pitfall": "Индукция определяется изменением потока, а не наличием большого постоянного потока: неподвижная катушка в постоянном однородном поле может иметь нулевую ЭДС.",
+      "practice": [
+        {
+          "question": "В каком направлении течёт ток, если магнитный поток наружу из страницы увеличивается?",
+          "hint": "Индуцированное поле должно противодействовать росту потока.",
+          "answer": "Катушка создаёт поле внутрь страницы, поэтому по правилу правой руки ток идёт по часовой стрелке."
+        },
+        {
+          "question": "Поток через один виток равномерно падает от 8 до 2 мВб за 0.030 с. Найдите модуль средней ЭДС.",
+          "hint": "Используйте |Delta Phi|/Delta t.",
+          "answer": "|emf| = 6.0e-3/0.030 = 0.20 В."
+        }
+      ]
+    },
+    "10.6": {
+      "question": "Как индуктивность хранит энергию, задерживает изменение тока и создаёт частотный резонанс вместе с ёмкостью?",
+      "overview": [
+        "Изменение собственного тока меняет связанный магнитный поток и создаёт ЭДС самоиндукции, противодействующую этому изменению. Для линейной катушки потокосцепление равно LI, напряжение связано с L dI/dt, а энергия магнитного поля равна LI²/2. В RL-цепи ток меняется с масштабом L/R.",
+        "В идеальном LC-контуре энергия периодически переходит между электрическим полем конденсатора и магнитным полем катушки с omega0 = 1/sqrt(LC). Сопротивление рассеивает энергию и ограничивает RLC-резонанс. В переменном токе реактивные элементы создают фазовые сдвиги. Трансформатор использует общий переменный поток и повышает напряжение, уменьшая ток при примерно сохранённой мощности."
+      ],
+      "conceptExplanations": [
+        "Индуктивность зависит от геометрии и магнитной среды; ток не может скачком измениться в идеальной конечной L без бесконечного напряжения.",
+        "RL-переход стремится к стационарному току, а идеальный LC-контур колеблется; реальные сопротивления превращают свободные колебания в затухающие.",
+        "В последовательной RLC-цепи при omega L = 1/(omega C) реактивные напряжения компенсируются и импеданс минимален, но их отдельные амплитуды могут быть велики.",
+        "У резистора ток и напряжение в фазе, у идеальной L ток отстаёт, у идеальной C опережает; общий угол определяется суммарным импедансом.",
+        "Идеальный трансформатор подчиняется V2/V1 = N2/N1 и I2/I1 = N1/N2; постоянный ток после перехода не создаёт изменяющегося потока и не трансформируется."
+      ],
+      "boundary": "Идеальные RLC и трансформаторные формулы предполагают линейные сосредоточенные элементы, синусоидальный режим и слабые паразитные параметры; насыщение сердечника, потери, утечка потока и высокочастотное излучение меняют ответ.",
+      "example": {
+        "title": "Резонанс последовательной RLC-цепи",
+        "problem": "В последовательной цепи L = 0.10 Гн, C = 100 мкФ и R = 10 Ом. Найти идеальную резонансную частоту и оценить Q = omega0 L/R.",
+        "steps": [
+          "omega0 = 1/sqrt(LC) = 1/sqrt(0.10 x 100e-6) = 316 рад/с.",
+          "f0 = omega0/(2 pi) = 50.3 Гц.",
+          "Q = omega0 L/R = 316 x 0.10/10 = 3.16."
+        ],
+        "answer": "f0 = 50.3 Гц, Q примерно 3.16.",
+        "check": "LC имеет размерность с², а увеличение R снизило бы Q без изменения идеального f0."
+      },
+      "pitfall": "Резонанс не означает нулевых напряжений на L и C: их сумма может компенсироваться, хотя каждое напряжение велико.",
+      "practice": [
+        {
+          "question": "Почему размыкание цепи большой индуктивности может вызвать высокое напряжение?",
+          "hint": "Катушка противодействует быстрому изменению тока через L dI/dt.",
+          "answer": "Попытка быстро обнулить ток создаёт большую ЭДС самоиндукции, достаточную для искры или пробоя без защитного пути."
+        },
+        {
+          "question": "Идеальный трансформатор имеет N2/N1 = 5 и V1 = 24 В. Найдите V2.",
+          "hint": "V2/V1 = N2/N1.",
+          "answer": "V2 = 120 В."
+        }
+      ]
+    },
+    "10.7": {
+      "question": "Как четыре закона поля предсказывают волну, которая распространяется в вакууме и переносит энергию?",
+      "overview": [
+        "Уравнения Максвелла связывают электрический поток с зарядом, запрещают чистый магнитный заряд в классическом поле, связывают вихревое E с изменением магнитного потока и вихревое B с током и изменением электрического потока. Ток смещения делает закон Ампера совместимым с сохранением заряда, например между пластинами заряжающегося конденсатора.",
+        "В свободном пространстве меняющиеся E и B удовлетворяют волновым уравнениям со скоростью c = 1/sqrt(mu0 epsilon0). В плоской волне поля взаимно перпендикулярны и перпендикулярны распространению, B = E/c. Частота определяет диапазон спектра, но все вакуумные компоненты имеют одну скорость; вектор Пойнтинга задаёт поток энергии."
+      ],
+      "conceptExplanations": [
+        "Два уравнения описывают источники через потоки, два — циркуляцию полей при изменении потока другого поля; вместе с силой Лоренца они задают классическую электродинамику.",
+        "Член epsilon0 dPhi_E/dt создаёт магнитную циркуляцию там, где проводникового тока через выбранную поверхность нет, сохраняя независимость результата от поверхности.",
+        "Фраза о самоподдержании не означает причинную цепочку E затем B затем E в одной точке; оба поля являются совместным решением уравнений с граничными условиями.",
+        "Значения mu0 и epsilon0 определяют скорость классической вакуумной волны; c также является инвариантной предельной скоростью специальной относительности.",
+        "Радио, микроволны, инфракрасное, видимое, ультрафиолетовое, рентгеновское и гамма-излучение различаются частотой и взаимодействием с веществом, а не природой вакуумного поля.",
+        "S = E x H направлен по переносу энергии; интеграл S через поверхность даёт электромагнитную мощность через неё."
+      ],
+      "boundary": "Соотношения B = E/c и <S> = epsilon0 c E0²/2 относятся к плоской синусоидальной волне в вакууме; ближнее поле антенны, направляющая среда, дисперсия и поглощение требуют иной геометрии и материальных соотношений.",
+      "example": {
+        "title": "Поля и интенсивность плоской волны",
+        "problem": "Синусоидальная плоская волна в вакууме имеет амплитуду E0 = 300 В/м. Найти B0 и среднюю интенсивность. Использовать c = 2.998e8 м/с, epsilon0 = 8.854e-12 Ф/м.",
+        "steps": [
+          "B0 = E0/c = 300/2.998e8 = 1.00e-6 Т.",
+          "Средняя интенсивность <S> = epsilon0 c E0²/2.",
+          "Подстановка даёт <S> примерно 119 Вт/м²."
+        ],
+        "answer": "B0 примерно 1.00 мкТ, средняя интенсивность примерно 119 Вт/м².",
+        "check": "E0/B0 равно c, а направление E x B совпадает с направлением распространения."
+      },
+      "pitfall": "Электромагнитной волне не нужна материальная среда; параметры mu0 и epsilon0 в вакуумной формуле не являются механическими свойствами эфира.",
+      "practice": [
+        {
+          "question": "Почему ток смещения необходим в зазоре заряжающегося конденсатора?",
+          "hint": "Один и тот же контур ограничивает поверхность через провод и поверхность между пластинами.",
+          "answer": "Изменяющийся электрический поток между пластинами даёт тот же магнитный эффект, что проводниковый ток в проводе, делая закон независимым от выбранной поверхности."
+        },
+        {
+          "question": "Какова длина волны радиосигнала 100 МГц в вакууме?",
+          "hint": "lambda = c/f.",
+          "answer": "lambda = 2.998e8/1.00e8 примерно 3.00 м."
+        }
+      ]
+    }
+  },
+  "en": {
+    "10.1": {
+      "question": "How can a magnetic field change charge motion direction without changing kinetic energy?",
+      "overview": [
+        "Magnetic field B is defined through the transverse part of Lorentz force, F = q(E + v x B). Unlike an electric field, a static B acts only on moving charge. Current fields are tied to moving charges and depend on reference frame, while electric and magnetic components form one electromagnetic field.",
+        "The vector v x B is perpendicular to velocity, so a purely magnetic force changes momentum direction but has zero instantaneous power F dot v. Magnetic field lines have no beginning or end: they close for localized sources and may extend to infinity in an ideal uniform field; B flux through every closed surface is zero."
+      ],
+      "conceptExplanations": [
+        "Cutting a bar magnet makes two smaller dipoles rather than isolated north and south poles; absence of observed monopoles is expressed by div B = 0 in classical theory.",
+        "A slowly moving point charge creates a magnetic contribution circling its motion; relativistic motion requires the complete retarded field law.",
+        "The electric term qE is independent of v, while q v x B depends on velocity and reverses with charge sign.",
+        "The right-hand rule gives v x B for positive charge; negative charge reverses force direction, while magnetic work remains zero."
+      ],
+      "boundary": "The form q(E + v x B) applies to a point particle in a prescribed local field; extended bodies require integration over charge and current, while radiation and self-force of an accelerated charge need additional modeling.",
+      "example": {
+        "title": "Transverse force on a proton",
+        "problem": "A proton travels at 2.0e6 m/s along +x in a uniform 0.20 T field along +z. There is no electric field. Find force magnitude and direction; e = 1.602e-19 C.",
+        "steps": [
+          "Velocity is perpendicular to B, so F = qvB.",
+          "F = 1.602e-19 x 2.0e6 x 0.20 = 6.41e-14 N.",
+          "For positive charge, +x cross +z equals -y, so force points along -y."
+        ],
+        "answer": "F = 6.41e-14 N along -y.",
+        "check": "F dot v = 0, so the force bends the path without changing proton speed magnitude."
+      },
+      "pitfall": "The right-hand rule directly gives force direction only for positive charge; reverse it for an electron.",
+      "practice": [
+        {
+          "question": "Why can a uniform magnetic field not accelerate a charge initially at rest?",
+          "hint": "Put v = 0 into the magnetic Lorentz term.",
+          "answer": "At v = 0, v x B is zero, so no magnetic force acts; an electric field or another force is needed to start motion."
+        },
+        {
+          "question": "A 3.0 microC charge moves perpendicular to B = 0.50 T at 40 m/s. Find force magnitude.",
+          "hint": "Use F = |q|vB.",
+          "answer": "F = 3.0e-6 x 40 x 0.50 = 6.0e-5 N."
+        }
+      ]
+    },
+    "10.2": {
+      "question": "How does Lorentz-force geometry turn a uniform magnetic field into a velocity selector and mass-to-charge analyzer?",
+      "overview": [
+        "Velocity perpendicular to uniform B experiences centripetal force and forms a circle of radius r = p_perp/(|q|B). The parallel component is unchanged, so general motion is helical. In the nonrelativistic limit, cyclotron angular frequency omega_c = |q|B/m is speed-independent.",
+        "In crossed E and B fields, particles with v = E/B in the proper direction pass undeflected. After velocity selection, magnetic radius reveals m/|q| for mass spectrometry. A cyclotron synchronizes electric acceleration with orbital motion, and a magnetosphere guides charged particles along field lines."
+      ],
+      "conceptExplanations": [
+        "For v_perp, field continuously turns velocity into a circle; unchanged v_parallel carries the circle center along B to produce a helix.",
+        "The frequency |q|B/(2 pi m) assumes constant B and nonrelativistic momentum mv; it decreases as relativistic energy grows.",
+        "When qE and q v x B are equal and opposite, total transverse force vanishes; E/B has units speed.",
+        "A mass spectrometer separates ions by m/q, a cyclotron adds energy through electric field, and a nonuniform magnetosphere can reflect particles through magnetic mirroring."
+      ],
+      "boundary": "The circular radius r = mv/(|q|B) and speed-independent cyclotron frequency require uniform field, v much less than c, and negligible loss; collisions, B gradients, and radiation alter the motion.",
+      "example": {
+        "title": "A proton orbit in a magnetic field",
+        "problem": "A proton at 1.0e6 m/s enters perpendicular to B = 0.50 T. Use m_p = 1.673e-27 kg and e = 1.602e-19 C. Find radius and orbital frequency.",
+        "steps": [
+          "From |q|vB = mv^2/r, r = mv/(|q|B).",
+          "r = 1.673e-27 x 1.0e6/(1.602e-19 x 0.50) = 2.09e-2 m.",
+          "f_c = |q|B/(2 pi m) = 7.62e6 Hz."
+        ],
+        "answer": "r = 2.09 cm and f_c = 7.62 MHz.",
+        "check": "Doubling speed would double radius but leave frequency unchanged in this nonrelativistic model."
+      },
+      "pitfall": "The magnetic field does not supply cyclotron kinetic energy; electric field in the gaps accelerates the particle.",
+      "practice": [
+        {
+          "question": "What happens to helical pitch if v_parallel increases at unchanged v_perp and B?",
+          "hint": "Orbital period stays fixed and axial distance per period is v_parallel T.",
+          "answer": "Radius remains fixed and pitch increases in proportion to v_parallel."
+        },
+        {
+          "question": "A selector has E = 3.0e4 V/m and B = 0.20 T. What speed passes undeflected?",
+          "hint": "For perpendicular fields, v = E/B.",
+          "answer": "v = 1.5e5 m/s."
+        }
+      ]
+    },
+    "10.3": {
+      "question": "How does current geometry determine magnetic-field symmetry and the choice between Biot-Savart and Ampere laws?",
+      "overview": [
+        "Every steady-current element contributes to B in a direction set by the cross product of path element with direction toward the observation point. The Biot-Savart integral applies to any prescribed geometry, though evaluation may be difficult. A straight wire, circular loop, and long solenoid provide characteristic fields.",
+        "Circulation of B around a closed path is connected to enclosed current by Ampere's law in magnetostatics. It is most useful with cylindrical or toroidal symmetry, where B can leave the integral. Parallel currents in the same direction attract because each wire feels force in the other's field."
+      ],
+      "conceptExplanations": [
+        "Around a long straight wire, B lines are circles; on a loop axis, field follows its normal; inside a long densely wound solenoid, field is nearly uniform.",
+        "Biot-Savart adds directed contributions I dl cross r_hat/r^2 and assumes steady current in its simple magnetostatic form.",
+        "The equality integral B dot dl = mu0 I_inside directly finds B only when symmetry fixes direction and constant magnitude on the selected path.",
+        "Force on a second wire element is I dl cross B from the first; reversing one current changes attraction to repulsion."
+      ],
+      "boundary": "Long-wire and ideal-solenoid formulas neglect ends and finite cross-sections; magnetostatic laws without displacement current require steady currents and a quasistatic regime.",
+      "example": {
+        "title": "Field of a long straight wire",
+        "problem": "A long straight wire carries 10 A. Find B at 5.0 cm in vacuum; mu0 = 4 pi e-7 H/m.",
+        "steps": [
+          "Cylindrical symmetry makes B tangential and constant around a circle of radius r.",
+          "Ampere's law gives B 2 pi r = mu0 I.",
+          "B = mu0 I/(2 pi r) = 4.0e-5 T."
+        ],
+        "answer": "B = 40 microT, tangent to the circle by the right-hand rule.",
+        "check": "Field falls as 1/r, and its magnitude is comparable in order to Earth's magnetic field."
+      },
+      "pitfall": "An Amperian path can always be drawn, but it does not always compute B: without symmetry, the unknown field cannot leave the integral.",
+      "practice": [
+        {
+          "question": "Why is the outside field of an ideal long solenoid small although every turn produces outside field?",
+          "hint": "Add directions from many neighboring turns.",
+          "answer": "Outside contributions largely cancel while inside contributions reinforce; cancellation is incomplete for a finite solenoid."
+        },
+        {
+          "question": "How does long-wire B change if current doubles and distance triples?",
+          "hint": "B is proportional to I/r.",
+          "answer": "It becomes 2/3 of the original field."
+        }
+      ]
+    },
+    "10.4": {
+      "question": "How does magnetic moment turn current into mechanical torque, and why does a magnetic material retain or nearly lose magnetization?",
+      "overview": [
+        "A planar current loop has magnetic dipole moment mu = NIA n_hat. In uniform field, net force can vanish while a force pair creates torque tau = mu x B tending to align mu with B. A motor sustains directed torque by switching current or field as rotation proceeds.",
+        "Material response arises from orbital and spin magnetic moments. Diamagnetism opposes applied field, paramagnetic moments weakly align with it, and exchange interaction in a ferromagnet creates collectively ordered domains. Domain-wall motion produces nonlinearity and hysteresis."
+      ],
+      "conceptExplanations": [
+        "Vector mu follows the current right-hand rule, and its magnitude NIA grows with turn count, current, and area.",
+        "Torque magnitude mu B sin(theta) is greatest at perpendicular orientation and zero when aligned, although aligned states can be stable or unstable.",
+        "Diamagnetism occurs in all materials, paramagnetism requires uncompensated moments, and ferromagnetism produces spontaneous order below a Curie temperature.",
+        "Domains reduce external magnetic energy, while a hysteresis loop shows remanent magnetization and energy loss during a field cycle.",
+        "Motor conductor forces create torque, and rotational back emf reflects conversion of electrical into mechanical energy."
+      ],
+      "boundary": "The loop dipole formula assumes loop size small compared with the B variation scale; linear permeability fails near saturation, with hysteresis, and under strong frequency or temperature dependence.",
+      "example": {
+        "title": "Torque on a multiturn loop",
+        "problem": "A loop has N = 100 turns, area 2.0e-3 m^2 per turn, and current 0.50 A. It lies in B = 0.20 T with a 30 degree angle between loop normal and B. Find mu and torque.",
+        "steps": [
+          "mu = NIA = 100 x 0.50 x 2.0e-3 = 0.10 A m^2.",
+          "tau = mu B sin(theta).",
+          "tau = 0.10 x 0.20 x sin(30 degrees) = 1.0e-2 N m."
+        ],
+        "answer": "mu = 0.10 A m^2 and tau = 0.010 N m.",
+        "check": "At theta = 0 torque vanishes, while at 90 degrees it would be twice as large."
+      },
+      "pitfall": "A ferromagnet in zero external field need not have maximum external magnetization; differently oriented domains can nearly cancel in total.",
+      "practice": [
+        {
+          "question": "Why use a transformer core with a narrow hysteresis loop?",
+          "hint": "Loop area is related to energy lost per cycle.",
+          "answer": "A narrow loop reduces hysteresis loss and heating under repeated magnetization reversal."
+        },
+        {
+          "question": "How does maximum loop torque change if current is tripled?",
+          "hint": "tau_max = N I A B.",
+          "answer": "Maximum torque triples."
+        }
+      ]
+    },
+    "10.5": {
+      "question": "Why does changing magnetic flux create a circulating electric field, and how does Lenz's law preserve energy balance?",
+      "overview": [
+        "Magnetic flux Phi_B = integral B dot dS counts normal B through an oriented surface. Faraday's law connects its rate of change to circulation of induced E: emf = -dPhi_B/dt. Flux can change through B, area, orientation, or contour motion.",
+        "The minus sign is Lenz's law: induced current produces a magnetic effect opposing flux change, not necessarily the original field. A mechanical generator therefore feels opposing torque under load. Closed eddy currents in bulk conductors heat material and create forces; lamination suppresses them, while braking and induction heating exploit them."
+      ],
+      "conceptExplanations": [
+        "Flux depends on selected surface orientation; reversing its normal reverses Phi_B and the consistently associated contour direction.",
+        "Emf is field circulation around a closed path and exists without a metal wire; a conductor merely permits substantial current.",
+        "Opposition to change does not prevent flux growth: an external agent performs extra work that becomes electrical energy and heat.",
+        "Eddy currents flow in bulk loops, so slots and insulated laminations limit loop area and reduce loss.",
+        "A generator changes coil flux mechanically and thereby converts mechanical work into electrical energy."
+      ],
+      "boundary": "The simple form -N dPhi/dt assumes equal flux through N turns and a defined contour; at high frequency, distributed fields, skin effect, and parasitic capacitance require a full electromagnetic model.",
+      "example": {
+        "title": "Emf amplitude of a rotating coil",
+        "problem": "A coil with N = 200 and turn area 5.0e-3 m^2 rotates at 50 Hz in uniform B = 0.40 T. Its rotation axis is perpendicular to B. Find emf amplitude.",
+        "steps": [
+          "Flux linkage N Phi = NBA cos(omega t), so emf amplitude is N B A omega.",
+          "omega = 2 pi f = 314 rad/s.",
+          "emf_max = 200 x 0.40 x 5.0e-3 x 314 = 126 V."
+        ],
+        "answer": "Emf amplitude is approximately 126 V.",
+        "check": "Doubling rotation frequency would double flux-change rate and emf amplitude."
+      },
+      "pitfall": "Induction depends on flux change, not on a large constant flux: a stationary coil in a constant uniform field can have zero emf.",
+      "practice": [
+        {
+          "question": "Which way does current flow if outward magnetic flux through the page increases?",
+          "hint": "Induced field must oppose the increase.",
+          "answer": "The coil creates field into the page, so the right-hand rule gives clockwise current."
+        },
+        {
+          "question": "One-turn flux falls uniformly from 8 to 2 mWb in 0.030 s. Find average emf magnitude.",
+          "hint": "Use |Delta Phi|/Delta t.",
+          "answer": "|emf| = 6.0e-3/0.030 = 0.20 V."
+        }
+      ]
+    },
+    "10.6": {
+      "question": "How does inductance store energy, delay current change, and create frequency resonance with capacitance?",
+      "overview": [
+        "Changing a coil's own current changes linked magnetic flux and creates self-induced emf opposing that change. For a linear coil, flux linkage is LI, voltage is related to L dI/dt, and magnetic-field energy is LI^2/2. In an RL circuit, current changes on scale L/R.",
+        "In an ideal LC circuit, energy alternates between capacitor electric field and coil magnetic field at omega0 = 1/sqrt(LC). Resistance dissipates energy and limits RLC resonance. Reactive elements create phase shifts in AC. A transformer uses shared alternating flux to raise voltage while lowering current at approximately conserved power."
+      ],
+      "conceptExplanations": [
+        "Inductance depends on geometry and magnetic medium; ideal finite L forbids an instantaneous current jump without infinite voltage.",
+        "An RL transient approaches steady current, while an ideal LC circuit oscillates; real resistance turns free oscillation into decay.",
+        "In a series RLC circuit at omega L = 1/(omega C), reactive voltages cancel in the sum and impedance is minimal, although each voltage may be large.",
+        "Resistor current and voltage are in phase, ideal-L current lags, and ideal-C current leads; total angle follows the combined impedance.",
+        "An ideal transformer obeys V2/V1 = N2/N1 and I2/I1 = N1/N2; steady DC after the transient creates no changing flux and is not transformed."
+      ],
+      "boundary": "Ideal RLC and transformer formulas assume linear lumped elements, sinusoidal operation, and weak parasitics; core saturation, loss, leakage flux, and high-frequency radiation alter response.",
+      "example": {
+        "title": "Series RLC resonance",
+        "problem": "A series circuit has L = 0.10 H, C = 100 microF, and R = 10 ohm. Find ideal resonance frequency and estimate Q = omega0 L/R.",
+        "steps": [
+          "omega0 = 1/sqrt(LC) = 1/sqrt(0.10 x 100e-6) = 316 rad/s.",
+          "f0 = omega0/(2 pi) = 50.3 Hz.",
+          "Q = omega0 L/R = 316 x 0.10/10 = 3.16."
+        ],
+        "answer": "f0 = 50.3 Hz and Q is about 3.16.",
+        "check": "LC has units s^2, and increasing R lowers Q without changing ideal f0."
+      },
+      "pitfall": "Resonance does not mean zero voltage on L and C: their sum can cancel while each voltage is large.",
+      "practice": [
+        {
+          "question": "Why can opening a circuit with a large inductance create high voltage?",
+          "hint": "The coil opposes rapid current change through L dI/dt.",
+          "answer": "Trying to force current rapidly to zero creates a large self-induced emf, enough for a spark or breakdown without a protective path."
+        },
+        {
+          "question": "An ideal transformer has N2/N1 = 5 and V1 = 24 V. Find V2.",
+          "hint": "V2/V1 = N2/N1.",
+          "answer": "V2 = 120 V."
+        }
+      ]
+    },
+    "10.7": {
+      "question": "How do four field laws predict a wave that propagates through vacuum and transports energy?",
+      "overview": [
+        "Maxwell's equations connect electric flux to charge, exclude net magnetic charge in the classical field, connect circulating E to changing magnetic flux, and connect circulating B to current plus changing electric flux. Displacement current makes Ampere's law consistent with charge conservation, including between charging capacitor plates.",
+        "In free space, changing E and B satisfy wave equations with speed c = 1/sqrt(mu0 epsilon0). In a plane wave, fields are mutually perpendicular and transverse to propagation, with B = E/c. Frequency selects the spectrum band, but every vacuum component has the same speed; the Poynting vector gives energy flux."
+      ],
+      "conceptExplanations": [
+        "Two equations describe sources through fluxes and two describe field circulation under changing flux of the other field; with Lorentz force they form classical electrodynamics.",
+        "The term epsilon0 dPhi_E/dt produces magnetic circulation where no conduction current crosses a selected surface, preserving surface-independent results.",
+        "Self-sustaining does not mean a time-ordered chain E then B then E at one point; both fields are one joint solution with boundary conditions.",
+        "The values mu0 and epsilon0 determine classical vacuum wave speed, and c is also the invariant limiting speed in special relativity.",
+        "Radio, microwave, infrared, visible, ultraviolet, X-ray, and gamma radiation differ in frequency and matter interaction, not in vacuum-field nature.",
+        "S = E cross H points along energy transport, and its surface integral gives electromagnetic power crossing that surface."
+      ],
+      "boundary": "B = E/c and mean S = epsilon0 c E0^2/2 describe a sinusoidal plane wave in vacuum; antenna near fields, guiding media, dispersion, and absorption require different geometry and material relations.",
+      "example": {
+        "title": "Fields and intensity of a plane wave",
+        "problem": "A sinusoidal plane wave in vacuum has electric amplitude E0 = 300 V/m. Find B0 and mean intensity. Use c = 2.998e8 m/s and epsilon0 = 8.854e-12 F/m.",
+        "steps": [
+          "B0 = E0/c = 300/2.998e8 = 1.00e-6 T.",
+          "Mean intensity is <S> = epsilon0 c E0^2/2.",
+          "Substitution gives <S> approximately 119 W/m^2."
+        ],
+        "answer": "B0 is about 1.00 microT and mean intensity about 119 W/m^2.",
+        "check": "E0/B0 equals c, and E cross B points along propagation."
+      },
+      "pitfall": "An electromagnetic wave needs no material medium; mu0 and epsilon0 in the vacuum formula are not mechanical properties of an ether.",
+      "practice": [
+        {
+          "question": "Why is displacement current needed in a charging-capacitor gap?",
+          "hint": "One loop bounds both a surface crossing the wire and a surface passing between plates.",
+          "answer": "Changing electric flux between plates supplies the same magnetic effect as conduction current in the wire, making the law independent of surface choice."
+        },
+        {
+          "question": "What is the vacuum wavelength of a 100 MHz radio signal?",
+          "hint": "Use lambda = c/f.",
+          "answer": "lambda = 2.998e8/1.00e8, approximately 3.00 m."
+        }
+      ]
+    }
+  }
+}

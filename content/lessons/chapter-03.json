@@ -1,0 +1,565 @@
+{
+  "chapter": 3,
+  "ru": {
+    "3.1": {
+      "question": "Как выбрать тело и изобразить только те силы, которые действительно действуют на него со стороны окружения?",
+      "overview": [
+        "Сила не является запасом внутри тела: это векторная характеристика конкретного взаимодействия. Перед записью второго закона выбирают систему, перечисляют внешние объекты, взаимодействующие с ней, и для каждого взаимодействия наносят одну силу на диаграмму свободного тела.",
+        "Хорошая диаграмма отделяет геометрию от динамики. На ней показывают выбранные оси и силы, но не скорость, ускорение, предполагаемое направление движения или силы, действующие на другие тела; затем каждую силу проектируют на оси."
+      ],
+      "conceptExplanations": [
+        "Гравитационная, электромагнитная и контактная силы обозначают влияние одного объекта на другой. Название силы должно позволять назвать источник и тело, на которое она действует.",
+        "Граница системы решает, какие силы внешние. Если два связанных бруска рассматриваются вместе, натяжение между ними внутреннее; для одного бруска то же натяжение является внешней силой.",
+        "Внутренние силы могут менять относительное движение частей, но попарно не входят в изменение полного импульса замкнутой системы. Обмен с объектами за границей системы создаёт внешнее воздействие.",
+        "На отдельном рисунке оставляют только выбранное тело и стрелки сил с точками приложения или линиями действия, когда важен момент. Такая схема превращает словесную задачу в векторное уравнение.",
+        "Скорость и ускорение не являются силами, а сила инерции появляется только при осознанном переходе в неинерциальную систему. Сила действия партнёра по третьему закону приложена к другому телу и не относится к этой диаграмме."
+      ],
+      "boundary": "Диаграмма сил зависит от границы системы и системы отсчёта; в неинерциальной системе для сохранения формы ma = ΣF добавляют явно обозначенные инерционные силы, а для протяжённого тела могут понадобиться моменты и распределённые нагрузки.",
+      "example": {
+        "title": "Брусок на горизонтальной поверхности",
+        "problem": "Брусок массой 5,0 кг тянут горизонтально силой 18 Н; сила трения скольжения равна 3 Н. Постройте баланс сил и найдите ускорение при g = 9,81 м/с².",
+        "steps": [
+          "Выберите системой только брусок. На него действуют Земля с mg вниз, опора с N вверх, тяга 18 Н вправо и трение 3 Н влево.",
+          "По вертикали ускорения нет, поэтому N − mg = 0 и N = 49,05 Н.",
+          "По горизонтали результирующая сила равна 18 − 3 = 15 Н вправо.",
+          "Из ΣFₓ = maₓ получите aₓ = 15/5,0 = 3,0 м/с²."
+        ],
+        "answer": "Ускорение бруска равно 3,0 м/с² вправо; вертикальные силы взаимно компенсируются.",
+        "check": "Ускорение направлено как результирующая, а не обязательно как скорость; единица Н/кг равна м/с²."
+      },
+      "pitfall": "Нельзя рисовать на диаграмме бруска одновременно силу опоры на брусок и силу бруска на опору: это пара третьего закона, приложенная к разным телам.",
+      "practice": [
+        {
+          "question": "Какие силы нужно показать для книги, неподвижно лежащей на столе?",
+          "hint": "Для каждой стрелки назови внешний объект-источник.",
+          "answer": "Силу тяжести со стороны Земли вниз и нормальную силу стола вверх. Их равенство следует из нулевого ускорения, а не из третьего закона Ньютона."
+        },
+        {
+          "question": "На тело массой 2 кг действуют 7 Н вправо и 3 Н влево. Найди ускорение.",
+          "hint": "Сначала найди векторную сумму сил.",
+          "answer": "Результирующая равна 4 Н вправо, поэтому a = 4/2 = 2 м/с² вправо."
+        }
+      ]
+    },
+    "3.2": {
+      "question": "Почему для сохранения равномерного движения не нужна постоянная сила и как узнать инерциальную систему?",
+      "overview": [
+        "Первый закон отвергает представление, будто сила поддерживает скорость. Если внешние силы взаимно компенсированы, тело сохраняет состояние покоя или движется прямолинейно и равномерно; сила нужна для изменения вектора скорости.",
+        "Одновременно закон определяет класс инерциальных систем. Любая система, движущаяся относительно инерциальной равномерно и без вращения, также инерциальна, и механические эксперименты внутри неё не выделяют абсолютный равномерный покой."
+      ],
+      "conceptExplanations": [
+        "После прекращения тяги идеальное тело не обязано останавливаться. В быту его замедляют трение и сопротивление, а не отсутствие поддерживающей силы.",
+        "Инерциальная система — та, где свободное тело имеет постоянную скорость. Ускорение или вращение системы проявляется согласованными кажущимися отклонениями многих свободных тел.",
+        "Преобразования Галилея сохраняют ускорение и форму законов ньютоновской механики между равномерно движущимися инерциальными системами. Никакой внутренний механический опыт не определяет их абсолютную скорость.",
+        "При одной и той же результирующей силе тело большей массы получает меньшее ускорение. Это операционно выражает инертность, хотя масса также участвует в других физических теориях."
+      ],
+      "boundary": "Первый закон в этой форме относится к инерциальным системам классической механики; Землю можно считать приблизительно инерциальной лишь в задачах, где эффекты её вращения и орбитального ускорения пренебрежимо малы.",
+      "example": {
+        "title": "Шайба после короткого толчка",
+        "problem": "Шайба получила скорость 6 м/с вдоль +x, после чего результирующая внешняя сила стала пренебрежимо малой. Где она будет через 8 с, если x(0) = 2 м?",
+        "steps": [
+          "Нулевая результирующая означает a = 0 в инерциальной системе.",
+          "Следовательно, скорость сохраняется: vₓ(t) = 6 м/с.",
+          "Координата меняется как x = x₀ + vₓt.",
+          "Подстановка даёт x = 2 + 6×8 = 50 м."
+        ],
+        "answer": "Через 8 с шайба окажется в x = 50 м, если сопротивлением действительно можно пренебречь.",
+        "check": "На каждом секундном интервале координата увеличивается на одинаковые 6 м, что соответствует постоянной скорости."
+      },
+      "pitfall": "Нулевая результирующая не означает нулевую скорость: она означает нулевое ускорение и потому постоянный вектор скорости.",
+      "practice": [
+        {
+          "question": "Пассажир в закрытом вагоне, движущемся равномерно по прямой, бросает мяч вертикально. Может ли опыт определить скорость вагона относительно Земли?",
+          "hint": "Сравни механические законы в двух инерциальных системах.",
+          "answer": "Нет. При пренебрежении тряской и воздухом мяч возвращается к пассажиру так же, как в покоящемся вагоне; механический опыт не выделяет равномерную скорость относительно Земли."
+        },
+        {
+          "question": "Тело движется со скоростью (3, −4) м/с и испытывает нулевую результирующую 5 с. Найди его перемещение.",
+          "hint": "При a = 0 умножь каждую компоненту скорости на время.",
+          "answer": "Δr = (15, −20) м, модуль перемещения равен 25 м."
+        }
+      ]
+    },
+    "3.3": {
+      "question": "Как результирующая внешняя сила определяет изменение импульса системы и при каких условиях получается привычное F = ma?",
+      "overview": [
+        "Второй закон связывает причину изменения движения с производной импульса: ΣFвнеш = dp/dt для материальной системы фиксированного состава. Он является векторным законом, поэтому одно уравнение раскладывается на независимые уравнения по выбранным осям.",
+        "Если масса постоянна, dp/dt = m dv/dt и получается ΣF = ma. Для предсказания траектории закон дополняют моделями конкретных сил и начальными условиями положения и скорости."
+      ],
+      "conceptExplanations": [
+        "Складываются все силы со стороны объектов вне выбранной системы. Отдельная большая сила может не вызвать ускорения, если другие силы дают противоположную сумму.",
+        "Импульс материальной системы p = Σmᵢvᵢ изменяется из-за внешней силы. Условие фиксированного состава исключает перенос частиц через границу, который несёт дополнительный поток импульса.",
+        "При постоянной инертной массе ускорение параллельно результирующей и обратно пропорционально массе. Формула относится к сумме сил, а не к каждой силе по отдельности.",
+        "Запись по осям ΣFₓ = maₓ, ΣFᵧ = maᵧ позволяет использовать геометрические связи. Знаки компонентов следуют из выбранных направлений осей, а не из названий сил.",
+        "Дифференциальное уравнение второго порядка требует начальных r(t₀) и v(t₀). Без них одна и та же сила допускает семейство траекторий."
+      ],
+      "boundary": "Форма ΣF = dp/dt требует инерциальной системы и материальной системы фиксированного состава; для ракеты или струи нужен баланс потока импульса, а при релятивистских скоростях p не равен mv.",
+      "example": {
+        "title": "Натяжение в ускоряющемся лифте",
+        "problem": "Груз массой 60 кг поднимают тросом с ускорением 1,2 м/с². Найдите натяжение при g = 9,81 м/с², выбрав +y вверх.",
+        "steps": [
+          "Для системы из одного груза внешние силы: натяжение T вверх и тяжесть mg вниз.",
+          "Запишите проекцию второго закона: T − mg = ma.",
+          "Выразите T = m(g + a).",
+          "Подставьте: T = 60×(9,81 + 1,2) = 660,6 Н."
+        ],
+        "answer": "Натяжение троса приблизительно 661 Н; оно больше mg, потому что результирующая направлена вверх.",
+        "check": "Если a → 0, выражение возвращает T = mg, как для покоя или равномерного движения."
+      },
+      "pitfall": "Выражение ma не является дополнительной силой на диаграмме: это результат векторной суммы реальных внешних сил в инерциальной системе.",
+      "practice": [
+        {
+          "question": "На тело действуют несколько ненулевых сил, но их сумма равна нулю. Что можно сказать о движении?",
+          "hint": "Второй закон определяет ускорение, а не скорость напрямую.",
+          "answer": "Ускорение равно нулю; тело покоится или движется с постоянной векторной скоростью в зависимости от начального состояния."
+        },
+        {
+          "question": "На массу 4 кг действуют силы (10, 0) Н и (−2, 6) Н. Найди ускорение.",
+          "hint": "Сложи компоненты сил и раздели на массу.",
+          "answer": "ΣF = (8, 6) Н, поэтому a = (2,0; 1,5) м/с²; модуль ускорения 2,5 м/с²."
+        }
+      ]
+    },
+    "3.4": {
+      "question": "Почему силы взаимодействия всегда возникают парой, но не уничтожают друг друга на диаграмме одного тела?",
+      "overview": [
+        "Если тело A действует на B, то B одновременно действует на A силой равного модуля и противоположного направления. Эти силы относятся к одному взаимодействию, имеют одинаковую физическую природу и приложены к разным телам.",
+        "Пара третьего закона не определяет равновесие одного тела, потому что её стрелки нельзя складывать в одном уравнении движения. При объединении обоих тел в систему пара становится внутренней и взаимно сокращается в балансе полного импульса."
+      ],
+      "conceptExplanations": [
+        "Парность означает F_A→B = −F_B→A в ньютоновской модели взаимодействия. Изменение одной силы означает одновременное изменение её партнёра, а не последовательную реакцию после задержки.",
+        "Сила Земли на яблоко приложена к яблоку, а сила яблока на Землю — к Земле. Равенство модулей совместимо с очень разными ускорениями из-за различия масс.",
+        "При ходьбе нога толкает Землю назад, а Земля через статическое трение толкает человека вперёд. Пловец и ракета получают импульс, передавая противоположный импульс воде или выхлопу.",
+        "Лошадь ускоряет систему лошадь–телега благодаря внешней силе трения Земли; внутренняя пара между лошадью и телегой не запрещает ускорение всей системы. Аналогично Земля движется навстречу падающему телу, но её ускорение чрезвычайно мало."
+      ],
+      "boundary": "Мгновенная форма парных сил достаточна в ньютоновской механике; в электромагнитных системах с конечной скоростью распространения полный баланс импульса может требовать учёта импульса поля.",
+      "example": {
+        "title": "Два конькобежца после толчка",
+        "problem": "Конькобежцы массами 50 и 75 кг покоятся и отталкиваются друг от друга. Первый получает скорость +3,0 м/с. Найдите скорость второго, пренебрегая внешними горизонтальными силами.",
+        "steps": [
+          "Во время контакта силы конькобежцев равны и противоположны, поэтому их импульсы сил также противоположны.",
+          "Начальный полный импульс равен нулю, а внешним горизонтальным импульсом пренебрегаем.",
+          "Запишите 50×3,0 + 75v₂ = 0.",
+          "Получите v₂ = −150/75 = −2,0 м/с."
+        ],
+        "answer": "Второй конькобежец движется со скоростью 2,0 м/с в противоположном направлении.",
+        "check": "Импульсы +150 и −150 кг·м/с взаимно компенсируются, хотя скорости различаются."
+      },
+      "pitfall": "Сила тяжести и нормальная сила на лежащую книгу могут быть равны, но не образуют пару третьего закона: обе приложены к книге и возникают в разных взаимодействиях.",
+      "practice": [
+        {
+          "question": "Какой силе соответствует партнёр по третьему закону для силы Земли, действующей на спутник?",
+          "hint": "Поменяй местами источник и получатель взаимодействия.",
+          "answer": "Это гравитационная сила спутника на Землю; она равна по модулю, противоположна и приложена к Земле."
+        },
+        {
+          "question": "Тело массой 3 кг, первоначально покоясь, выбрасывает назад массу 1 кг со скоростью −6 м/с относительно Земли. Найди скорость оставшейся массы 2 кг при нулевом внешнем импульсе.",
+          "hint": "Полный импульс до и после равен нулю.",
+          "answer": "1×(−6) + 2v = 0, поэтому оставшаяся часть движется со скоростью +3 м/с."
+        }
+      ]
+    },
+    "3.5": {
+      "question": "Как контактные и упругие силы определяются связями системы, а не заранее равняются привычным значениям вроде mg?",
+      "overview": [
+        "Опора, нить и пружина ограничивают возможное движение и создают силы в ответ на деформацию или контакт. Их величины обычно находятся из уравнений движения вместе с геометрическими связями, а не задаются автоматически.",
+        "Вес в бытовом смысле часто соответствует показанию весов — нормальной силе опоры. Он совпадает с mg только при отсутствии вертикального ускорения; в ускоряющемся лифте показание меняется, хотя гравитационная сила mg почти постоянна."
+      ],
+      "conceptExplanations": [
+        "Сила тяжести — действие гравитационного поля на тело. Показание опорных весов является силой контакта и зависит от ускорения; поэтому полезно явно различать mg и кажущийся вес N.",
+        "Нормальная сила направлена перпендикулярно поверхности и принимает значение, необходимое для выполнения ограничения непроникновения, пока контакт сохраняется. Она не обязана равняться mg.",
+        "Идеальная невесомая нерастяжимая нить передаёт одинаковое натяжение вдоль участка, если блоки идеальны. У массивной нити или блока натяжение может различаться.",
+        "В линейном упругом диапазоне пружина создаёт F = −kx относительно положения равновесия. Коэффициент k зависит от геометрии и материала, а за пределом упругости закон Гука нарушается.",
+        "Для связанных тел записывают отдельный второй закон и одно условие связи, например равенство модулей ускорений концов нерастяжимой нити. Внутреннее натяжение исчезает только при балансе всей системы.",
+        "При ускорении лифта вверх N = m(g + a), вниз при выбранном положительном вверх N = m(g + a) с отрицательным a. При свободном падении контактное показание стремится к нулю."
+      ],
+      "boundary": "Равное натяжение требует невесомой нити и идеального блока, а закон Гука — малой обратимой деформации; при потере контакта нормальная сила становится нулевой и прежнее уравнение связи перестаёт действовать.",
+      "example": {
+        "title": "Показание весов в лифте",
+        "problem": "Человек массой 70 кг стоит на весах в лифте, ускоряющемся вверх с 2,0 м/с². Что покажет датчик силы при g = 9,81 м/с²?",
+        "steps": [
+          "Выберите человека системой и ось +y вверх; действуют N вверх и mg вниз.",
+          "Запишите N − mg = ma.",
+          "Выразите N = m(g + a).",
+          "Подставьте N = 70×(9,81 + 2,0) = 826,7 Н."
+        ],
+        "answer": "Весы измерят нормальную силу около 827 Н, что соответствует калиброванному показанию около 84,3 кг на шкале, делящей силу на g.",
+        "check": "При ускорении вверх N > mg ≈ 687 Н; знак согласуется с ощущением увеличенного кажущегося веса."
+      },
+      "pitfall": "Равенство N = mg нельзя писать до анализа ускорения и других вертикальных сил; оно является следствием конкретного баланса, а не определением реакции опоры.",
+      "practice": [
+        {
+          "question": "Может ли нормальная сила на брусок на наклонной плоскости быть меньше mg, даже если вертикального падения нет?",
+          "hint": "Опора компенсирует компоненту перпендикулярно плоскости, а не обязательно всю тяжесть.",
+          "answer": "Да. Без других перпендикулярных сил N = mg cos θ, что меньше mg при ненулевом угле θ."
+        },
+        {
+          "question": "Идеальная машина Атвуда имеет массы 3,0 и 2,0 кг. Найди модуль ускорения при g = 9,81 м/с².",
+          "hint": "Для всей системы движущая сила равна разности тяжестей, а инертная масса — их сумме.",
+          "answer": "a = (3−2)g/(3+2) = 1,96 м/с²; масса 3 кг движется вниз."
+        }
+      ]
+    },
+    "3.6": {
+      "question": "Почему сила трения или сопротивления не задаётся одной универсальной формулой и как определить установившуюся скорость?",
+      "overview": [
+        "Трение и сопротивление возникают из множества микроскопических взаимодействий и описываются эффективными моделями. Статическое трение подстраивается до предельного значения, а трение скольжения часто приближают постоянной долей нормальной силы.",
+        "Сопротивление среды направлено против скорости относительно среды и зависит от режима течения. При малых числах Рейнольдса оно может быть приблизительно линейным по скорости, а при инерционном обтекании — квадратичным; предельная скорость возникает из баланса сопротивления и движущей силы."
+      ],
+      "conceptExplanations": [
+        "Для покоя |f_s| ≤ μ_sN: сила принимает нужное значение до максимума. После скольжения простая модель даёт |f_k| ≈ μ_kN против относительного движения, обычно с μ_k < μ_s.",
+        "Коэффициенты зависят от пары материалов, загрязнения, температуры и режима контакта. Формула μN не является фундаментальным законом и плохо описывает смазку, качение и адгезивные контакты.",
+        "Линейная модель F_d = −bv характерна, например, для медленного вязкого течения вокруг малой сферы. Квадратичная модель F_d = −½ρC_dAv|v| чаще применима при больших числах Рейнольдса.",
+        "Установившаяся скорость достигается, когда сумма сил равна нулю и ускорение исчезает. Для квадратичного сопротивления падающего тела v_t = √(2mg/(ρC_dA)) при постоянных параметрах.",
+        "Для парашютиста изменение площади и C_d резко уменьшает предельную скорость. У автомобиля сопротивление воздуха увеличивает требуемую мощность примерно как v³ в квадратичном режиме."
+      ],
+      "boundary": "Коэффициенты сухого трения и сопротивления являются эмпирическими и могут зависеть от скорости, шероховатости, ориентации и режима потока; переход между линейным и квадратичным законами нельзя описывать резкой универсальной границей.",
+      "example": {
+        "title": "Падение с квадратичным сопротивлением",
+        "problem": "Тело массой 80 кг падает, а сопротивление вверх моделируется как kv² с k = 0,25 кг/м. Найдите предельную скорость и ускорение вниз при v = 40 м/с, приняв g = 9,81 м/с².",
+        "steps": [
+          "При установившемся падении mg = kv_t², поэтому v_t = √(mg/k).",
+          "Подстановка даёт v_t = √(80×9,81/0,25) ≈ 56,0 м/с.",
+          "При v = 40 м/с сопротивление kv² = 0,25×1600 = 400 Н вверх.",
+          "Выбрав вниз положительным, a = (mg − kv²)/m = (784,8 − 400)/80 ≈ 4,81 м/с²."
+        ],
+        "answer": "Предельная скорость около 56,0 м/с; при 40 м/с тело ещё ускоряется вниз с 4,81 м/с².",
+        "check": "При v = 0 ускорение равно g, а при v = v_t обращается в ноль, что согласуется с предельными случаями."
+      },
+      "pitfall": "Статическое трение не всегда равно μ_sN: это только верхняя граница; если для покоя достаточно меньшей силы, трение принимает именно её.",
+      "practice": [
+        {
+          "question": "На брусок массой 10 кг на горизонтали действует сила 20 Н, μ_s = 0,40. Брусок первоначально покоится. Чему равно трение?",
+          "hint": "Сравни требуемые 20 Н с пределом μ_smg.",
+          "answer": "Предел около 0,40×10×9,81 = 39,2 Н, поэтому брусок остаётся в покое, а статическое трение равно 20 Н в противоположную сторону."
+        },
+        {
+          "question": "При квадратичном сопротивлении площадь тела увеличили в четыре раза без изменения C_d, ρ и массы. Как изменится предельная скорость?",
+          "hint": "В выражении v_t площадь находится под квадратным корнем в знаменателе.",
+          "answer": "Предельная скорость уменьшится в √4 = 2 раза."
+        }
+      ]
+    },
+    "3.7": {
+      "question": "Какие реальные силы искривляют траекторию и как описание меняется во вращающейся системе отсчёта?",
+      "overview": [
+        "Связь ограничивает допустимые положения и скорости тела, а силы опоры или натяжения обеспечивают необходимое ускорение. Центростремительная сила — не новый вид взаимодействия, а название направленной к центру суммы компонентов реальных сил.",
+        "Во вращающейся системе свободные тела кажутся отклонёнными. Чтобы применять форму второго закона относительно таких координат, вводят центробежную и кориолисову инерционные силы, а при меняющейся угловой скорости — также эйлерову."
+      ],
+      "conceptExplanations": [
+        "Геометрическое условие, например постоянная длина стержня, связывает координаты частей системы. Реакция связи определяется совместным решением условия и уравнений движения.",
+        "На повороте роль радиальной силы может играть трение, натяжение, гравитация или их сумма. Добавление отдельной стрелки центростремительной силы поверх этих сил означало бы двойной учёт.",
+        "Оси вращающейся системы меняют ориентацию относительно инерциальных. Даже тело с постоянной инерциальной скоростью получает в этих координатах кажущееся ускорение.",
+        "Центробежный член направлен от оси вращения, а кориолисов член −2mΩ×vотн перпендикулярен относительной скорости. Они являются свойствами описания в неинерциальной системе, а не новыми взаимодействиями.",
+        "Плоскость колебаний маятника Фуко сохраняет направление приблизительно в инерциальном пространстве, пока Земля поворачивается под ней. Кориолисов эффект также влияет на крупномасштабные атмосферные потоки, но не сам создаёт их энергию."
+      ],
+      "boundary": "Формулы для равномерно вращающейся системы предполагают известный вектор Ω; при его изменении нужен эйлеров член, а на малых лабораторных масштабах вращением Земли часто можно пренебречь после оценки величины эффекта.",
+      "example": {
+        "title": "Поворот автомобиля на плоской дороге",
+        "problem": "Автомобиль проходит плоский поворот радиуса 50 м со скоростью 10 м/с. Какое минимальное значение коэффициента статического трения нужно при g = 9,81 м/с²?",
+        "steps": [
+          "Необходимое нормальное ускорение равно a_n = v²/R = 100/50 = 2,0 м/с².",
+          "Единственная горизонтальная сила к центру на идеальной плоской дороге — статическое трение f = ma_n.",
+          "Максимум трения μ_sN = μ_smg, поскольку N = mg.",
+          "Условие ma_n ≤ μ_smg даёт μ_s ≥ v²/(Rg) = 100/(50×9,81) ≈ 0,204."
+        ],
+        "answer": "Нужен коэффициент статического трения не меньше примерно 0,204; фактический запас должен учитывать неровности и изменение скорости.",
+        "check": "Масса сократилась, поэтому в этой идеальной модели предел скорости не зависит от массы автомобиля."
+      },
+      "pitfall": "Центробежную силу нельзя добавлять на диаграмму в инерциальной системе вместе с реальными силами; она вводится только в уравнении вращающихся координат.",
+      "practice": [
+        {
+          "question": "Спутник движется по круговой орбите. Какая сила является центростремительной?",
+          "hint": "Ищи реальное взаимодействие, направленное к центру орбиты.",
+          "answer": "Гравитационная сила планеты. Отдельной дополнительной центростремительной силы нет."
+        },
+        {
+          "question": "Шарик массой 0,50 кг движется по окружности радиуса 2,0 м со скоростью 4,0 м/с. Найди необходимую радиальную результирующую.",
+          "hint": "Используй F_r = mv²/R.",
+          "answer": "F_r = 0,50×16/2,0 = 4,0 Н к центру. Какая конкретная сила создаёт эту сумму, зависит от установки."
+        }
+      ]
+    }
+  },
+  "en": {
+    "3.1": {
+      "question": "How should a body be selected so that a diagram contains only forces actually exerted on it by its surroundings?",
+      "overview": [
+        "Force is not something stored inside a body; it is a vector description of a particular interaction. Before applying the second law, select a system, list external objects that interact with it, and draw one force for each interaction on a free-body diagram.",
+        "A good diagram separates geometry from dynamics. It shows chosen axes and forces, but not velocity, acceleration, an assumed direction of motion, or forces exerted on other bodies; each force is then projected onto the axes."
+      ],
+      "conceptExplanations": [
+        "Gravitational, electromagnetic, and contact forces describe one object's effect on another. A force label should identify both the source and the body receiving it.",
+        "The system boundary decides which forces are external. If two connected blocks are treated together, tension between them is internal; for one block, the same tension is external.",
+        "Internal forces can change relative motion of parts but cancel pairwise from the total momentum balance of a closed system. Interaction with objects beyond the boundary supplies external influence.",
+        "A separate sketch isolates the selected body and shows force arrows, including points or lines of action when torque matters. The diagram turns a verbal problem into a vector equation.",
+        "Velocity and acceleration are not forces, and an inertial force appears only after an explicit choice of a non-inertial frame. The third-law partner acts on another body and does not belong on this diagram."
+      ],
+      "boundary": "A force diagram depends on both system boundary and reference frame; a non-inertial frame needs explicitly labeled inertial forces to retain the form ma = ΣF, while an extended body may also require torques and distributed loads.",
+      "example": {
+        "title": "A block on a horizontal surface",
+        "problem": "A 5.0 kg block is pulled horizontally with 18 N while kinetic friction is 3 N. Draw the force balance and find acceleration for g = 9.81 m/s².",
+        "steps": [
+          "Choose the block alone as the system. Earth exerts mg downward, the support exerts N upward, the pull is 18 N right, and friction is 3 N left.",
+          "There is no vertical acceleration, so N − mg = 0 and N = 49.05 N.",
+          "The horizontal resultant is 18 − 3 = 15 N to the right.",
+          "From ΣFₓ = maₓ, aₓ = 15/5.0 = 3.0 m/s²."
+        ],
+        "answer": "The block accelerates at 3.0 m/s² to the right; vertical forces cancel.",
+        "check": "Acceleration follows the resultant, not necessarily velocity, and N/kg is equivalent to m/s²."
+      },
+      "pitfall": "Do not draw both the support force on the block and the block's force on the support on one block diagram: they are a third-law pair acting on different bodies.",
+      "practice": [
+        {
+          "question": "Which forces belong on the diagram of a book resting on a table?",
+          "hint": "Name an external source for every arrow.",
+          "answer": "Earth's gravitational force downward and the table's normal force upward. Their equality follows from zero acceleration, not from Newton's third law."
+        },
+        {
+          "question": "A 2 kg body experiences 7 N right and 3 N left. Find its acceleration.",
+          "hint": "Find the vector sum of forces first.",
+          "answer": "The resultant is 4 N right, so a = 4/2 = 2 m/s² right."
+        }
+      ]
+    },
+    "3.2": {
+      "question": "Why is no continuous force needed to maintain uniform motion, and how can an inertial frame be recognized?",
+      "overview": [
+        "The first law rejects the idea that force maintains velocity. If external forces cancel, a body stays at rest or moves uniformly in a straight line; force is required to change the velocity vector.",
+        "The law also defines the class of inertial frames. Any frame moving uniformly without rotation relative to an inertial frame is also inertial, and internal mechanical experiments cannot identify absolute uniform rest."
+      ],
+      "conceptExplanations": [
+        "After a push ends, an ideal body need not stop. Everyday objects slow because of friction and drag, not because a sustaining force is absent.",
+        "An inertial frame is one in which a free body has constant velocity. Acceleration or rotation of a frame appears as coordinated apparent deviations of many free bodies.",
+        "Galilean transformations preserve acceleration and the form of Newtonian mechanical laws between uniformly moving inertial frames. No internal mechanical experiment determines their absolute velocity.",
+        "Under the same resultant force, a body with greater mass has less acceleration. This operationally expresses inertia, although mass also enters other physical theories."
+      ],
+      "boundary": "The first law in this form concerns inertial frames of classical mechanics; Earth is only approximately inertial in problems where effects of its rotation and orbital acceleration are negligible.",
+      "example": {
+        "title": "A puck after a brief push",
+        "problem": "A puck is given velocity 6 m/s along +x, after which net external force is negligible. Where is it after 8 s if x(0) = 2 m?",
+        "steps": [
+          "Zero resultant means a = 0 in an inertial frame.",
+          "Velocity therefore remains vₓ(t) = 6 m/s.",
+          "Position evolves as x = x₀ + vₓt.",
+          "Substitution gives x = 2 + 6×8 = 50 m."
+        ],
+        "answer": "After 8 s the puck is at x = 50 m if resistance is genuinely negligible.",
+        "check": "Position increases by the same 6 m during every second, which is constant velocity."
+      },
+      "pitfall": "Zero resultant does not mean zero velocity; it means zero acceleration and therefore a constant velocity vector.",
+      "practice": [
+        {
+          "question": "A passenger in a closed railcar moving uniformly in a straight line throws a ball vertically. Can the experiment determine the car's speed relative to Earth?",
+          "hint": "Compare mechanical laws in two inertial frames.",
+          "answer": "No. Neglecting vibration and air effects, the ball returns to the passenger just as in a stationary car; a mechanical experiment does not identify uniform speed relative to Earth."
+        },
+        {
+          "question": "A body moves at (3, −4) m/s under zero resultant force for 5 s. Find its displacement.",
+          "hint": "With a = 0, multiply each velocity component by time.",
+          "answer": "Δr = (15, −20) m and displacement magnitude is 25 m."
+        }
+      ]
+    },
+    "3.3": {
+      "question": "How does net external force determine momentum change, and under what conditions does the familiar F = ma follow?",
+      "overview": [
+        "Newton's second law connects the cause of motion change to the momentum derivative: ΣFext = dp/dt for a material system of fixed composition. It is a vector law, so one equation becomes independent component equations along chosen axes.",
+        "When mass is constant, dp/dt = m dv/dt and ΣF = ma follows. Predicting a trajectory also requires models for the individual forces and initial conditions for position and velocity."
+      ],
+      "conceptExplanations": [
+        "All forces exerted by objects outside the selected system are added. One large force need not cause acceleration if other forces provide an opposite sum.",
+        "Momentum of a material system p = Σmᵢvᵢ changes through external force. Fixed composition excludes particles crossing the boundary and carrying an additional momentum flux.",
+        "At constant inertial mass, acceleration is parallel to the resultant and inversely proportional to mass. The equation applies to the force sum, not separately to every force.",
+        "Component equations ΣFₓ = maₓ and ΣFᵧ = maᵧ incorporate geometrical constraints. Component signs follow chosen axis directions, not force names.",
+        "A second-order differential equation needs initial r(t₀) and v(t₀). Without them, the same force law permits a family of trajectories."
+      ],
+      "boundary": "The form ΣF = dp/dt requires an inertial frame and a material system of fixed composition; a rocket or jet needs a momentum-flux balance, and at relativistic speeds p is not mv.",
+      "example": {
+        "title": "Tension in an accelerating elevator",
+        "problem": "A 60 kg load is lifted by a cable with acceleration 1.2 m/s². Find tension for g = 9.81 m/s², choosing +y upward.",
+        "steps": [
+          "For the load alone, external forces are tension T upward and gravity mg downward.",
+          "Write the second-law component T − mg = ma.",
+          "Solve T = m(g + a).",
+          "Substitute T = 60×(9.81 + 1.2) = 660.6 N."
+        ],
+        "answer": "Cable tension is about 661 N; it exceeds mg because the resultant is upward.",
+        "check": "As a → 0, the expression returns T = mg for rest or uniform motion."
+      },
+      "pitfall": "The term ma is not an extra force on a free-body diagram; it is the result of summing real external forces in an inertial frame.",
+      "practice": [
+        {
+          "question": "Several nonzero forces act on a body but their sum is zero. What follows about motion?",
+          "hint": "The second law determines acceleration, not velocity directly.",
+          "answer": "Acceleration is zero; depending on its initial state, the body rests or moves with a constant velocity vector."
+        },
+        {
+          "question": "A 4 kg mass experiences forces (10, 0) N and (−2, 6) N. Find acceleration.",
+          "hint": "Add force components and divide by mass.",
+          "answer": "ΣF = (8, 6) N, so a = (2.0, 1.5) m/s² and acceleration magnitude is 2.5 m/s²."
+        }
+      ]
+    },
+    "3.4": {
+      "question": "Why do interaction forces always occur in pairs yet not cancel on a single body's diagram?",
+      "overview": [
+        "If body A acts on B, B simultaneously acts on A with an equal and opposite force. The forces belong to one interaction, have the same physical nature, and act on different bodies.",
+        "A third-law pair does not establish equilibrium of one body because its arrows cannot be added in one equation of motion. When both bodies form one system, the pair becomes internal and cancels from the total momentum balance."
+      ],
+      "conceptExplanations": [
+        "Pairing means F_A→B = −F_B→A in a Newtonian interaction model. A change in one force entails a simultaneous change in its partner rather than a delayed response.",
+        "Earth's force on an apple acts on the apple, while the apple's force on Earth acts on Earth. Equal magnitudes are compatible with vastly different accelerations because the masses differ.",
+        "While walking, a foot pushes Earth backward and Earth pushes the person forward through static friction. A swimmer and a rocket gain momentum by giving opposite momentum to water or exhaust.",
+        "A horse accelerates the horse-cart system through external friction from Earth; the internal pair between horse and cart does not forbid acceleration of the whole system. Likewise, Earth moves toward a falling body but with tiny acceleration."
+      ],
+      "boundary": "The instantaneous paired-force form is sufficient in Newtonian mechanics; electromagnetic systems with finite propagation speed may require field momentum for a complete momentum balance.",
+      "example": {
+        "title": "Two skaters after a push",
+        "problem": "Skaters of mass 50 and 75 kg start at rest and push apart. The first acquires +3.0 m/s. Find the second velocity, neglecting external horizontal impulse.",
+        "steps": [
+          "During contact, the forces are equal and opposite, so their impulses are opposite.",
+          "Initial total momentum is zero and external horizontal impulse is neglected.",
+          "Write 50×3.0 + 75v₂ = 0.",
+          "Thus v₂ = −150/75 = −2.0 m/s."
+        ],
+        "answer": "The second skater moves at 2.0 m/s in the opposite direction.",
+        "check": "Momenta +150 and −150 kg·m/s cancel although velocities differ."
+      },
+      "pitfall": "Gravity and the normal force on a resting book may be equal, but they are not a third-law pair: both act on the book and arise from different interactions.",
+      "practice": [
+        {
+          "question": "What is the third-law partner of Earth's gravitational force on a satellite?",
+          "hint": "Exchange the source and receiver of the interaction.",
+          "answer": "It is the satellite's gravitational force on Earth, equal in magnitude, opposite in direction, and applied to Earth."
+        },
+        {
+          "question": "A 3 kg body initially at rest ejects a 1 kg part backward at −6 m/s relative to Earth. Find the velocity of the remaining 2 kg when external impulse is zero.",
+          "hint": "Total momentum before and after is zero.",
+          "answer": "1×(−6) + 2v = 0, so the remaining part moves at +3 m/s."
+        }
+      ]
+    },
+    "3.5": {
+      "question": "How are contact and elastic forces determined by constraints rather than automatically equaling familiar quantities such as mg?",
+      "overview": [
+        "A support, string, or spring restricts possible motion and develops force through contact or deformation. Its magnitude is normally found from equations of motion together with geometrical constraints rather than assigned in advance.",
+        "Everyday apparent weight often means the scale reading, a normal force. It equals mg only without vertical acceleration; an accelerating elevator changes the reading while gravitational force mg remains nearly constant."
+      ],
+      "conceptExplanations": [
+        "Gravitational force is the field's action on a body. A support scale reads contact force and responds to acceleration, so it is useful to distinguish mg from apparent weight N.",
+        "Normal force is perpendicular to a surface and takes the value required by the no-penetration constraint while contact persists. It need not equal mg.",
+        "An ideal massless inextensible string transmits equal tension along a segment when pulleys are ideal. A massive string or pulley can have different tensions.",
+        "Within its linear elastic range, a spring exerts F = −kx relative to equilibrium. The constant k depends on material and geometry, and Hooke's law fails beyond the elastic regime.",
+        "For connected bodies, write a separate second law and one constraint such as equal acceleration magnitudes for ends of an inextensible string. Internal tension disappears only when balancing the whole system.",
+        "For upward elevator acceleration N = m(g + a); with +y upward, downward acceleration has negative a. During free fall the contact reading approaches zero."
+      ],
+      "boundary": "Equal tension requires a massless string and ideal pulley, while Hooke's law requires small reversible deformation; when contact is lost, normal force becomes zero and the former constraint equation no longer applies.",
+      "example": {
+        "title": "A scale reading in an elevator",
+        "problem": "A 70 kg person stands on a scale in an elevator accelerating upward at 2.0 m/s². What force does the scale read for g = 9.81 m/s²?",
+        "steps": [
+          "Choose the person as the system and +y upward; N acts upward and mg downward.",
+          "Write N − mg = ma.",
+          "Solve N = m(g + a).",
+          "Insert N = 70×(9.81 + 2.0) = 826.7 N."
+        ],
+        "answer": "The scale measures about 827 N, corresponding to about 84.3 kg on a mass-calibrated display that divides force by g.",
+        "check": "For upward acceleration N > mg ≈ 687 N, consistent with greater apparent weight."
+      },
+      "pitfall": "Do not write N = mg before analyzing acceleration and other vertical forces; it is a consequence of a particular balance, not the definition of normal force.",
+      "practice": [
+        {
+          "question": "Can normal force on a block resting on an incline be less than mg even without vertical free fall?",
+          "hint": "The support balances the component perpendicular to the plane, not necessarily all of gravity.",
+          "answer": "Yes. With no other perpendicular forces, N = mg cos θ, which is less than mg for a nonzero incline angle."
+        },
+        {
+          "question": "An ideal Atwood machine has masses 3.0 and 2.0 kg. Find acceleration magnitude for g = 9.81 m/s².",
+          "hint": "For the full system, driving force is the weight difference and inertial mass is the sum.",
+          "answer": "a = (3−2)g/(3+2) = 1.96 m/s², with the 3 kg mass moving down."
+        }
+      ]
+    },
+    "3.6": {
+      "question": "Why is there no single universal equation for friction or drag, and how is terminal speed determined?",
+      "overview": [
+        "Friction and drag emerge from many microscopic interactions and are described by effective models. Static friction adjusts up to a limiting value, while kinetic friction is often approximated as a constant fraction of normal force.",
+        "Fluid resistance opposes velocity relative to the medium and depends on flow regime. It can be approximately linear at low Reynolds number and quadratic in inertia-dominated flow; terminal speed occurs when drag balances the driving force."
+      ],
+      "conceptExplanations": [
+        "At rest |f_s| ≤ μ_sN: friction takes the value needed up to its maximum. After sliding begins, the simple model gives |f_k| ≈ μ_kN opposite relative motion, commonly with μ_k < μ_s.",
+        "Coefficients depend on material pair, contamination, temperature, and contact regime. The μN equation is not a fundamental law and poorly represents lubrication, rolling, or adhesive contacts.",
+        "Linear drag F_d = −bv describes, for example, slow viscous flow around a small sphere. Quadratic drag F_d = −½ρC_dAv|v| is more common at high Reynolds number.",
+        "Terminal speed occurs when the force sum is zero and acceleration vanishes. For a falling body with quadratic drag, v_t = √(2mg/(ρC_dA)) if parameters stay constant.",
+        "A skydiver's parachute increases area and changes C_d, sharply reducing terminal speed. For a car in a quadratic regime, aerodynamic power demand grows approximately as v³."
+      ],
+      "boundary": "Dry-friction and drag coefficients are empirical and may vary with speed, roughness, orientation, and flow regime; no universal sharp boundary separates linear and quadratic drag laws.",
+      "example": {
+        "title": "Falling with quadratic drag",
+        "problem": "An 80 kg body falls while upward drag is modeled as kv² with k = 0.25 kg/m. Find terminal speed and downward acceleration at v = 40 m/s, taking g = 9.81 m/s².",
+        "steps": [
+          "At terminal fall mg = kv_t², so v_t = √(mg/k).",
+          "Substitution gives v_t = √(80×9.81/0.25) ≈ 56.0 m/s.",
+          "At 40 m/s, drag is kv² = 0.25×1600 = 400 N upward.",
+          "Choosing downward positive, a = (mg − kv²)/m = (784.8 − 400)/80 ≈ 4.81 m/s²."
+        ],
+        "answer": "Terminal speed is about 56.0 m/s; at 40 m/s the body still accelerates downward at 4.81 m/s².",
+        "check": "At v = 0 acceleration is g, while at v = v_t it is zero, matching the limiting cases."
+      },
+      "pitfall": "Static friction is not always μ_sN; that is only its upper bound, and friction takes a smaller value whenever that is sufficient to prevent sliding.",
+      "practice": [
+        {
+          "question": "A 10 kg block on a horizontal surface is pushed with 20 N and μ_s = 0.40. It starts at rest. What is friction?",
+          "hint": "Compare the required 20 N with μ_smg.",
+          "answer": "The limit is about 0.40×10×9.81 = 39.2 N, so the block remains at rest and static friction is 20 N opposite the push."
+        },
+        {
+          "question": "With quadratic drag, body area is quadrupled without changing C_d, ρ, or mass. How does terminal speed change?",
+          "hint": "Area appears under a square root in the denominator of v_t.",
+          "answer": "Terminal speed decreases by √4 = 2."
+        }
+      ]
+    },
+    "3.7": {
+      "question": "Which real forces bend a trajectory, and how does the description change in a rotating reference frame?",
+      "overview": [
+        "A constraint limits allowed positions and velocities, while support or tension forces provide the required acceleration. Centripetal force is not a new interaction but a name for the inward sum of components of real forces.",
+        "In a rotating frame, free bodies appear to deflect. To retain the second-law form in those coordinates, centrifugal and Coriolis inertial forces are introduced, together with an Euler force when angular velocity changes."
+      ],
+      "conceptExplanations": [
+        "A geometrical condition such as fixed rod length relates coordinates of system parts. Constraint reaction is found by solving that condition together with equations of motion.",
+        "On a turn, radial force may be supplied by friction, tension, gravity, or their sum. Adding a separate centripetal-force arrow on top of these forces would double-count the same resultant.",
+        "Axes of a rotating frame change orientation relative to an inertial frame. Even a body with constant inertial velocity has an apparent acceleration in rotating coordinates.",
+        "The centrifugal term points away from the rotation axis, while the Coriolis term −2mΩ×vrel is perpendicular to relative velocity. They are features of a non-inertial description, not new interactions.",
+        "A Foucault pendulum's swing plane remains approximately fixed in inertial space while Earth turns beneath it. The Coriolis effect also influences large-scale atmospheric flow but does not supply its energy."
+      ],
+      "boundary": "Equations for a uniformly rotating frame assume a known Ω vector; changing Ω requires an Euler term, while Earth's rotation can often be neglected in small laboratory problems only after estimating the effect.",
+      "example": {
+        "title": "A car on a flat curve",
+        "problem": "A car takes a flat curve of radius 50 m at 10 m/s. What minimum static-friction coefficient is required for g = 9.81 m/s²?",
+        "steps": [
+          "Required normal acceleration is a_n = v²/R = 100/50 = 2.0 m/s².",
+          "On an ideal flat road, static friction f = ma_n is the only horizontal force toward the center.",
+          "Maximum friction is μ_sN = μ_smg because N = mg.",
+          "Condition ma_n ≤ μ_smg gives μ_s ≥ v²/(Rg) = 100/(50×9.81) ≈ 0.204."
+        ],
+        "answer": "The static-friction coefficient must be at least about 0.204; practical margins must allow for roughness and changing speed.",
+        "check": "Mass cancels, so the ideal-model speed limit does not depend on vehicle mass."
+      },
+      "pitfall": "A centrifugal force must not be added to a diagram in an inertial frame alongside real forces; it is introduced only in equations using rotating coordinates.",
+      "practice": [
+        {
+          "question": "A satellite follows a circular orbit. Which force supplies centripetal force?",
+          "hint": "Look for a real interaction directed toward the orbit center.",
+          "answer": "The planet's gravitational force. There is no separate additional centripetal force."
+        },
+        {
+          "question": "A 0.50 kg ball moves in a circle of radius 2.0 m at 4.0 m/s. Find the required radial resultant.",
+          "hint": "Use F_r = mv²/R.",
+          "answer": "F_r = 0.50×16/2.0 = 4.0 N toward the center. Which particular force supplies it depends on the apparatus."
+        }
+      ]
+    }
+  }
+}

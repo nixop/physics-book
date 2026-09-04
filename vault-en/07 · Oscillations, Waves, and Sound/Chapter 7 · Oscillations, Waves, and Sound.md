@@ -17,13 +17,13 @@ tags:
 
 ## Cards
 
-- [[7.1 · The Harmonic Oscillator|7.1. The Harmonic Oscillator]] — Stable equilibrium.
-- [[7.2 · Energy and Phase Space|7.2. Energy and Phase Space]] — The exchange between kinetic and potential energy.
-- [[7.3 · Damping, Driving, and Resonance|7.3. Damping, Driving, and Resonance]] — Energy dissipation.
-- [[7.4 · How Waves Propagate|7.4. How Waves Propagate]] — The transfer of a disturbance without the net transport of matter.
-- [[7.5 · Superposition and Standing Waves|7.5. Superposition and Standing Waves]] — The superposition of waves.
-- [[7.6 · Dispersion and the Fourier Transform|7.6. Dispersion and the Fourier Transform]] — A complex waveform as a sum of harmonics.
-- [[7.7 · Sound and Acoustics|7.7. Sound and Acoustics]] — Pressure in a sound wave.
+- [[7.1 · The Harmonic Oscillator|7.1. The Harmonic Oscillator]] — At stable equilibrium, a small displacement produces a force directed back toward equilibrium.
+- [[7.2 · Energy and Phase Space|7.2. Energy and Phase Space]] — One coordinate is insufficient for a one-dimensional oscillator: at the same position the body may move right or left.
+- [[7.3 · Damping, Driving, and Resonance|7.3. Damping, Driving, and Resonance]] — Drag or internal friction removes mechanical energy, so free oscillation decays.
+- [[7.4 · How Waves Propagate|7.4. How Waves Propagate]] — A wave forms when a local displacement creates forces or fluxes that affect a neighboring region while inertia delays its response.
+- [[7.5 · Superposition and Standing Waves|7.5. Superposition and Standing Waves]] — In a linear medium, the sum of two wave-equation solutions is also a solution.
+- [[7.6 · Dispersion and the Fourier Transform|7.6. Dispersion and the Fourier Transform]] — A Fourier transform represents a suitable signal as a sum of sinusoids with different frequencies, amplitudes, and phases.
+- [[7.7 · Sound and Acoustics|7.7. Sound and Acoustics]] — Sound in a liquid or gas is mainly a longitudinal wave of alternating compression and rarefaction.
 
 ## Navigation
 

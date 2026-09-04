@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Bookmark, Check, ChevronDown, Clock3, Filter, Search, Sparkles } from 'lucide-react';
-import { bookMeta } from '../data';
+import { bookMeta } from '../data/meta.generated';
 import { routes } from '../routing';
 import { pluralEn, pluralRu } from '../lib/format';
 import { useLocale } from '../i18n/LocaleContext';
@@ -13,12 +13,17 @@ interface CatalogPageProps {
 const normalize = (value: string) => value.toLocaleLowerCase('ru-RU').replaceAll('ё', 'е');
 
 export function CatalogPage({ completed, bookmarks }: CatalogPageProps) {
-  const { locale, t, book, groupLabel, levelLabel } = useLocale();
+  const { locale, t, book, groupLabel, levelLabel, lessonSearchTextForTopic } = useLocale();
   const [query, setQuery] = useState('');
   const [group, setGroup] = useState('all');
   const [bookmarkedOnly, setBookmarkedOnly] = useState(false);
   const groups = [...new Set(book.map((chapter) => chapter.group))];
   useEffect(() => setQuery(''), [locale]);
+
+  const searchCorpus = useMemo(() => new Map(book.flatMap((chapter) => chapter.topics.map((topic) => [
+    topic.id,
+    normalize(`${topic.id} ${topic.title} ${topic.summary} ${topic.concepts.join(' ')} ${lessonSearchTextForTopic(topic.id)} ${chapter.title}`),
+  ]))), [book, lessonSearchTextForTopic]);
 
   const filtered = useMemo(() => {
     const needle = normalize(query.trim());
@@ -27,11 +32,11 @@ export function CatalogPage({ completed, bookmarks }: CatalogPageProps) {
       topics: chapter.topics.filter((topic) => {
         const matchesGroup = group === 'all' || chapter.group === group;
         const matchesBookmark = !bookmarkedOnly || bookmarks.has(topic.id);
-        const haystack = normalize(`${topic.id} ${topic.title} ${topic.summary} ${topic.concepts.join(' ')} ${chapter.title}`);
+        const haystack = searchCorpus.get(topic.id) ?? '';
         return matchesGroup && matchesBookmark && (!needle || haystack.includes(needle));
       }),
     })).filter((chapter) => chapter.topics.length > 0);
-  }, [book, bookmarkedOnly, bookmarks, group, query]);
+  }, [book, bookmarkedOnly, bookmarks, group, query, searchCorpus]);
 
   const visibleCount = filtered.reduce((sum, chapter) => sum + chapter.topics.length, 0);
 

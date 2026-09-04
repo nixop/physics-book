@@ -1,5 +1,5 @@
 import { ArrowRight, Atom, BookOpen, CheckCircle2, Eye, FlaskConical, LineChart, Network, Orbit, SlidersHorizontal, Sparkles, Waves } from 'lucide-react';
-import { bookMeta } from '../data';
+import { bookMeta } from '../data/meta.generated';
 import { routes } from '../routing';
 import { PhysicsLab } from '../components/PhysicsLab';
 import { pluralRu } from '../lib/format';

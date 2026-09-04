@@ -460,6 +460,13 @@
       "conditions": "The expression K = mv²/2 is valid for a point particle of constant mass at nonrelativistic speeds.",
       "units": "W and K: J; F: N; r: m"
     },
+    "rotational-kinetic-energy": {
+      "title": "Rigid-Body Kinetic Energy and Rolling",
+      "plain": "K = Mv_cm²/2 + I_cmω²/2; v_cm = ωR for rolling without slipping",
+      "meaning": "Splits the kinetic energy of a rigid body in planar motion into translation of its center of mass and rotation about it; the no-slip condition relates the two speeds.",
+      "conditions": "A perfectly rigid body undergoes planar motion, with a principal axis through its center of mass. The relation v_cm = ωR applies to a round body of radius R rolling without slipping on a stationary surface; conservation of mechanical energy separately requires no dissipative work.",
+      "units": "K: J; M: kg; v_cm: m/s; I_cm: kg·m²; ω: rad/s; R: m"
+    },
     "momentum-conservation": {
       "title": "Momentum Balance and Conservation",
       "plain": "dP/dt = F_ext; if F_ext = 0, then P = const",
@@ -487,6 +494,13 @@
       "meaning": "Relates the period of an elliptical relative orbit to its semimajor axis and the sum of the bodies' masses.",
       "conditions": "An isolated Newtonian two-body system of pointlike or spherically symmetric bodies; a is the semimajor axis of one body's orbit relative to the other; perturbations and relativistic corrections are small.",
       "units": "T: s; a: m; M and m: kg; G: m³/(kg·s²)"
+    },
+    "vis-viva-orbital-energy": {
+      "title": "Orbital Energy and the Vis-Viva Equation",
+      "plain": "ε = v²/2 − μ/r = −μ/(2a); v² = μ(2/r − 1/a); μ = G(M + m)",
+      "meaning": "Relates specific relative-motion energy, speed, and position on a Keplerian orbit to the semimajor axis of its conic section.",
+      "conditions": "An isolated Newtonian two-body system of pointlike or nonoverlapping spherically symmetric bodies; r and v are relative separation and speed, and ε is energy per unit reduced mass. For an ellipse a > 0, for a parabola a tends to infinity, and for a hyperbola the convention a < 0 is used; drag, perturbations, and relativistic corrections are small.",
+      "units": "ε: J/kg = m²/s²; v: m/s; μ: m³/s²; r and a: m; M and m: kg"
     }
   }
 }

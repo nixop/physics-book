@@ -483,6 +483,13 @@
       "conditions": "Steady flow of an incompressible, inviscid fluid along a streamline; the same constant applies throughout the flow only when the flow is irrotational.",
       "units": "each term: Pa = J/m³; ρ: kg/m³; v: m/s; z: m"
     },
+    "simple-pendulum-small-angle": {
+      "title": "Small-Angle Period of a Simple Pendulum",
+      "plain": "T = 2π sqrt(L/g); ω₀ = sqrt(g/L)",
+      "meaning": "Gives the period and natural angular frequency of small oscillations of an ideal simple pendulum.",
+      "conditions": "The bob is a point particle, and the string of length L is massless, inextensible, and attached to a frictionless pivot; g is uniform, drag is absent, and amplitude |θ₀| is small enough in radians that sin θ ≈ θ. Amplitude independence of the period holds only to this approximation.",
+      "units": "T: s; L: m; g: m/s²; ω₀: rad/s; θ₀: rad (dimensionless)"
+    },
     "harmonic-oscillator": {
       "title": "Harmonic Oscillator",
       "plain": "m ẍ + kx = 0; ω₀ = sqrt(k/m); x = A cos(ω₀t + φ)",

@@ -1,0 +1,401 @@
+{
+  "chapter": 14,
+  "ru": {
+    "14.1": {
+      "question": "Почему масса связанного ядра меньше суммы масс свободных нуклонов и что эта разность говорит об устойчивости?",
+      "overview": [
+        "Ядро содержит Z протонов и N нейтронов. На ядерных расстояниях остаточное сильное взаимодействие связывает нуклоны, тогда как кулоновское отталкивание действует между всеми протонами; баланс этих вкладов и квантовое заполнение уровней определяют энергию конкретного нуклида.",
+        "Чтобы полностью разобрать ядро на свободные нуклоны, нужно сообщить энергию связи B = Δmc². Здесь дефект массы Δm — положительная разность между суммой масс свободных компонентов и массой связанного состояния. Энергия связи на нуклон удобна для сравнения, но сама по себе не определяет скорость или вероятность распада."
+      ],
+      "conceptExplanations": [
+        "Протон задаёт заряд ядра и химический элемент, а общее число нуклонов A = Z + N задаёт массовое число. Протоны и нейтроны состоят из кварков, но при низкоэнергетическом описании ядра часто выступают эффективными частицами.",
+        "Ядерная сила между нуклонами — низкоэнергетическое остаточное проявление сильного взаимодействия. Она короткодействующая и насыщается, поэтому далёкий протон не притягивает каждый нуклон так же, как электрический заряд взаимодействует со всеми другими зарядами.",
+        "Для ядерных масс Δm = Zmₚ + Nmₙ − Mядра. Если используются массы нейтральных атомов, удобнее согласованно заменить протон на атом водорода, чтобы электронные массы сократились; смешивание двух таблиц создаёт ошибку.",
+        "Изотопы имеют одинаковое Z и разное N. Область долгоживущих комбинаций образует долину стабильности: у тяжёлых ядер требуется избыток нейтронов, а нуклиды вне области приближаются к ней через бета-, альфа-распады или деление, если процесс энергетически разрешён."
+      ],
+      "boundary": "Полуэмпирическая картина объёмного, поверхностного, кулоновского и асимметричного вкладов объясняет общие тренды, но не заменяет оболочечную структуру и точные измеренные массы. При вычислении дефекта массы нужно использовать согласованный набор атомных либо ядерных масс и учитывать электронную связь на требуемой точности.",
+      "example": {
+        "title": "Энергия связи ядра гелия-4",
+        "problem": "Используя атомные массы m(¹H) = 1,007825 а.е.м., mₙ = 1,008665 а.е.м. и m(⁴He) = 4,002603 а.е.м., найти энергию связи и энергию связи на нуклон. Принять 1 а.е.м.c² = 931,5 МэВ.",
+        "steps": [
+          "Для атомных масс дефект равен Δm = 2m(¹H) + 2mₙ − m(⁴He).",
+          "Δm = 2·1,007825 + 2·1,008665 − 4,002603 = 0,030377 а.е.м.",
+          "B = 0,030377·931,5 МэВ ≈ 28,3 МэВ.",
+          "На четыре нуклона приходится B/A ≈ 28,3/4 = 7,07 МэВ."
+        ],
+        "answer": "Энергия связи ⁴He около 28,3 МэВ, или 7,07 МэВ на нуклон.",
+        "check": "Дефект положителен: связанное состояние легче свободных компонентов ровно на B/c². Электроны учтены согласованно через атомные массы водорода и гелия."
+      },
+      "pitfall": "Большая полная энергия связи не всегда означает большую устойчивость на нуклон: она растёт и просто из-за числа частиц. Для энергетики реакций сравнивают начальную и конечную суммарные массы, а не только одно B/A.",
+      "practice": [
+        {
+          "question": "Почему и слияние лёгких ядер, и деление очень тяжёлых могут выделять энергию?",
+          "hint": "Проследи движение продуктов по кривой энергии связи на нуклон.",
+          "answer": "В обоих случаях продукты оказываются ближе к области более высокой связи на нуклон, поэтому их суммарная масса меньше, а разность выходит как энергия."
+        },
+        {
+          "question": "Оцени энергию связи дейтрона по атомным массам m(¹H) = 1,007825, mₙ = 1,008665 и m(²H) = 2,014102 а.е.м.",
+          "hint": "Найди [m(¹H) + mₙ − m(²H)]·931,5 МэВ.",
+          "answer": "Δm = 0,002388 а.е.м., поэтому B ≈ 2,22 МэВ."
+        }
+      ]
+    },
+    "14.2": {
+      "question": "Как связать случайный распад отдельного ядра со строго предсказуемым законом для большого ансамбля и с реальной дозой в веществе?",
+      "overview": [
+        "Альфа-, бета- и гамма-процессы меняют ядро разными способами и подчиняются сохранению энергии, импульса, заряда и других квантовых чисел. Момент распада отдельного нестабильного ядра случаен, но постоянная вероятность в единицу времени приводит для большого числа одинаковых ядер к N(t) = N₀e^(−λt).",
+        "Активность A = λN измеряет число распадов в секунду, но не равна биологическому ущербу. Поглощённая доза измеряет энергию на массу в греях, эквивалентная доза учитывает тип излучения в зивертах, а реальный риск дополнительно зависит от ткани, распределения, мощности дозы и условий облучения."
+      ],
+      "conceptExplanations": [
+        "Альфа-распад испускает ядро ⁴He и уменьшает A на 4, Z на 2. В β⁻ нейтрон превращается в протон с электроном и антинейтрино; β⁺ или электронный захват уменьшают Z. Гамма-переход снимает возбуждение, не меняя A и Z.",
+        "Период полураспада T₁/₂ = ln 2/λ — характеристика ансамбля. Ядро не «стареет» к моменту распада: при экспоненциальном законе условная вероятность следующего распада не зависит от уже прожитого времени.",
+        "1 Бк означает один распад в секунду; 1 Гр = 1 Дж/кг поглощённой энергии. Эквивалентная доза H = ΣwᵣDᵣ использует радиационные весовые множители и выражается в зивертах; эти единицы нельзя взаимозаменять.",
+        "Экранирование выбирают по энергии и типу излучения: альфа-частицы имеют малый пробег, но опасны при попадании внутрь; бета-излучение может создавать тормозное излучение в тяжёлом экране; гамма-кванты ослабляются постепенно, а нейтроны требуют специальных водородсодержащих и поглощающих материалов."
+      ],
+      "boundary": "Один экспоненциальный закон описывает изолированную популяцию одного состояния с постоянной λ. Цепочки дочерних нуклидов, активация и изменяющийся источник требуют связанных уравнений. Активность источника нельзя переводить в дозу без геометрии, спектра, времени, поглощения и биокинетики.",
+      "example": {
+        "title": "Активность после трёх периодов",
+        "problem": "Препарат ¹³¹I имеет период полураспада 8,0 суток и начальную активность 80 МБк. Какова активность через 24 суток, если новых ядер не поступает?",
+        "steps": [
+          "Число прошедших периодов n = 24/8,0 = 3.",
+          "Активность убывает с тем же множителем, что и N: A = A₀(1/2)ⁿ.",
+          "A = 80 МБк·(1/2)³ = 80/8 МБк = 10 МБк."
+        ],
+        "answer": "Через 24 суток активность равна 10 МБк.",
+        "check": "Каждые 8 суток значение вдвое меньше: 80 → 40 → 20 → 10 МБк."
+      },
+      "pitfall": "Период полураспада не означает, что через два периода исчезнут все ядра. Остаётся в среднем четверть исходной популяции, а экспонента никогда не достигает ровно нуля за конечное время.",
+      "practice": [
+        {
+          "question": "Почему одинаковая активность двух источников не гарантирует одинаковую эквивалентную дозу человеку?",
+          "hint": "Перечисли хотя бы тип и энергию излучения, геометрию и путь попадания.",
+          "answer": "Один распад может отдавать разную энергию и иметь разную биологическую эффективность; важны расстояние, экранирование, облучённая ткань и внутреннее или внешнее расположение источника."
+        },
+        {
+          "question": "Активность образца 200 Бк, T₁/₂ = 6 ч. Какова активность через 18 ч?",
+          "hint": "18 ч — три периода полураспада.",
+          "answer": "A = 200·(1/2)³ = 25 Бк."
+        }
+      ]
+    },
+    "14.3": {
+      "question": "Как поддерживать полезную самоподдерживающуюся цепную реакцию и одновременно гарантировать отвод тепла и удержание радиоактивных продуктов?",
+      "overview": [
+        "При делении тяжёлое ядро превращается в два основных осколка, нейтроны и излучение; уменьшение суммарной массы даёт энергию порядка сотен МэВ на акт. Часть новых нейтронов вызывает следующие деления, а эффективный коэффициент размножения k_eff сравнивает их производство с поглощением и утечкой.",
+        "Энергетический реактор удерживают около k_eff = 1 средствами конструкции, обратных связей и управления, а тепло переносит теплоноситель к циклу преобразования энергии. Даже после остановки цепной реакции продукты деления продолжают выделять остаточное тепло, поэтому безопасность строится на охлаждении, физических барьерах и независимых уровнях защиты."
+      ],
+      "conceptExplanations": [
+        "Энергия деления распределяется главным образом в кинетической энергии осколков, затем превращающейся в тепло топлива. Не всякий захват нейтрона вызывает деление, и спектр продуктов вероятностный.",
+        "Цепь возможна, когда достаточно нейтронов следующего поколения остаётся в подходящем энергетическом диапазоне. Геометрия, состав, замедлитель, поглотители и утечка определяют баланс.",
+        "При k_eff < 1 система подкритична, при k_eff = 1 стационарна по поколениям, при k_eff > 1 число нейтронов растёт. Для управляемой динамики критически важна малая доля запаздывающих нейтронов, дающая время системам регулирования.",
+        "Конкретные схемы различаются, но обычно нужны топливо, управление реактивностью, теплоноситель, теплообмен или прямое парообразование, турбина-генератор и барьеры удержания. Не каждый реактор использует обычную воду как замедлитель.",
+        "Остаточное тепловыделение идёт от радиоактивных продуктов и актинидов и не прекращается вместе с делением. Отработавшее топливо остаётся источником тепла и излучения; обращение с ним включает охлаждение, экранирование, хранение и долгосрочную изоляцию."
+      ],
+      "boundary": "Модель одного k_eff на поколение показывает критичность, но не реальную мощность во времени. Кинетика реактора требует запаздывающих нейтронов, температурных и пустотных коэффициентов, пространственного потока и теплогидравлики; безопасность нельзя вывести из одного числа без проектных сценариев.",
+      "example": {
+        "title": "Чувствительность цепи к k_eff",
+        "problem": "В упрощённой модели поколений начинается 10⁶ нейтронов. Сколько будет через 20 поколений при k_eff = 0,98 и при k_eff = 1,02?",
+        "steps": [
+          "В модели Nₙ = N₀k_effⁿ; физическое время поколения здесь не задаётся.",
+          "Для 0,98: N₂₀ = 10⁶·0,98²⁰ ≈ 6,68·10⁵.",
+          "Для 1,02: N₂₀ = 10⁶·1,02²⁰ ≈ 1,49·10⁶.",
+          "Небольшое отклонение коэффициента многократно накапливается по поколениям."
+        ],
+        "answer": "Около 6,68·10⁵ нейтронов в подкритическом и 1,49·10⁶ в сверхкритическом случае.",
+        "check": "При k_eff < 1 последовательность убывает, при k_eff > 1 растёт; это не расчёт секунд или тепловой мощности."
+      },
+      "pitfall": "Слово «критический» не означает аварийный: k_eff = 1 — нормальное состояние постоянной цепи. Опасность определяется динамикой, запасом реактивности, охлаждением и состоянием барьеров.",
+      "practice": [
+        {
+          "question": "Почему аварийное глушение цепной реакции не устраняет необходимость охлаждения активной зоны?",
+          "hint": "Раздели мгновенную мощность деления и распады уже созданных продуктов.",
+          "answer": "Управляемая цепь прекращается, но накопленные радиоактивные продукты продолжают распадаться и выделять остаточное тепло, которое нужно отводить."
+        },
+        {
+          "question": "Реактор до остановки имел тепловую мощность 500 МВт. Если сразу после остановки остаточная мощность в заданной модели равна 6%, сколько тепла нужно отводить?",
+          "hint": "Процент задан как условие, а не универсальная константа.",
+          "answer": "0,06·500 МВт = 30 МВт тепловой мощности."
+        }
+      ]
+    },
+    "14.4": {
+      "question": "Какие условия позволяют лёгким ядрам преодолеть электрическое отталкивание достаточно часто, чтобы синтез давал устойчивый энергетический выигрыш?",
+      "overview": [
+        "Положительно заряженные ядра отталкиваются, а сильное взаимодействие связывает их только на очень малом расстоянии. Высокая температура увеличивает число быстрых столкновений, а квантовое туннелирование даёт ненулевую вероятность проникновения через кулоновский барьер даже при энергии ниже его вершины.",
+        "Полезный темп реакций требует одновременно достаточных плотности, температуры и времени удержания с учётом радиационных и транспортных потерь. Магнитные системы удерживают разреженную заряженную плазму полями, инерциальные быстро сжимают маленькую мишень; в обоих случаях плазменный коэффициент усиления ещё не равен чистой электрической эффективности установки."
+      ],
+      "conceptExplanations": [
+        "Проницаемость барьера резко зависит от заряда, энергии и приведённой массы, поэтому нагрев меняет скорость реакции намного сильнее линейно. Туннелирование не даёт ядру заимствовать энергию: полная энергия сохраняется.",
+        "В звёздном ядре гравитация поддерживает давление и высокую температуру огромного объёма в течение очень долгого времени. Солнце использует преимущественно протон-протонную цепочку, а не лабораторно удобную дейтерий-тритиевую реакцию.",
+        "Критерий удержания сравнивает генерацию альфа-нагрева с потерями и часто выражается через тройное произведение nTτ_E. Одной высокой температуры недостаточно, если плазма слишком быстро теряет энергию.",
+        "В токамаке и стеллараторе магнитное поле направляет заряженные частицы по винтовым траекториям, но турбулентность и неустойчивости вызывают перенос. Инерциальный подход использует импульс лазера или другой драйвер, чтобы топливо сгорело до разлёта.",
+        "Плазменный Q = P_fusion/P_heating сравнивает мощность синтеза с внешним нагревом плазмы. Для электростанции нужно также преобразовать энергию нейтронов в электричество и питать магниты, криогенику, драйверы и топливный цикл."
+      ],
+      "boundary": "Числа 17,6 МэВ и доли 3,5/14,1 МэВ относятся к реакции D + T → ⁴He + n. Плазменный Q, научная безубыточность, инженерный gain и электрический net gain — разные метрики; ни одна не должна подменять другую без границы системы и учёта длительности импульса.",
+      "example": {
+        "title": "Что означает плазменное усиление Q = 10",
+        "problem": "Плазму нагревают внешней мощностью 50 МВт, а заявленный плазменный коэффициент Q = 10. Найти мощность реакций и объяснить, можно ли отсюда получить чистую электрическую мощность.",
+        "steps": [
+          "По определению Q = P_fusion/P_heating.",
+          "P_fusion = 10·50 МВт = 500 МВт.",
+          "Вычитать 50 МВт из 500 МВт как «чистую мощность плазмы» нельзя: P_fusion включает энергию нейтронов и альфа-частиц, а Q задаёт только отношение мощностей.",
+          "Для net electricity нужны КПД теплового цикла и мощности всех вспомогательных систем."
+        ],
+        "answer": "Реакции дают 500 МВт тепловой мощности в принятом определении, но данных для чистой электрической мощности недостаточно.",
+        "check": "Единицы мощности совпадают, а граница системы явно отделяет нагрев плазмы от всей установки."
+      },
+      "pitfall": "Фраза «получили больше энергии, чем затратили» бессодержательна без определения входа, выхода, длительности и границы установки. Пиковая энергия мишени, Q плазмы и энергия из электросети — разные величины.",
+      "practice": [
+        {
+          "question": "Почему Солнце может поддерживать синтез при меньшей температуре, чем типичная земная D–T-плазма, хотя протон-протонная реакция медленнее?",
+          "hint": "Сравни объём, плотность и время гравитационного удержания.",
+          "answer": "Солнце удерживает колоссальную массу плазмы миллиарды лет; очень малой вероятности реакции достаточно для его мощности. Земной установке нужен намного больший темп в малом объёме и коротком времени."
+        },
+        {
+          "question": "D–T-плазма даёт 100 МВт мощности синтеза. Сколько приблизительно несут альфа-частицы и нейтроны, если энергии продуктов 3,5 и 14,1 МэВ?",
+          "hint": "Раздели мощность в отношении 3,5:14,1 при общей энергии 17,6 МэВ.",
+          "answer": "Альфа-частицы несут около 100·3,5/17,6 ≈ 20 МВт, нейтроны — около 80 МВт."
+        }
+      ]
+    },
+    "14.5": {
+      "question": "Как Стандартная модель организует элементарные частицы и взаимодействия и где заканчивается область её объяснительной силы?",
+      "overview": [
+        "Материальные фермионы образуют три поколения кварков и лептонов. Электромагнитное, слабое и сильное взаимодействия передаются квантами калибровочных полей — фотоном, W- и Z-бозонами и глюонами; кварки заключены в адронах, тогда как лептоны сильного взаимодействия не испытывают.",
+        "Поле Хиггса через нарушение электрослабой симметрии и связи с частицами задаёт массы W, Z и фермионов, но большая часть массы протона возникает из динамики кварков и глюонов КХД. Теория чрезвычайно точна в своей области, однако не включает квантовую гравитацию и не объясняет тёмную материю, тёмную энергию, барионную асимметрию и все параметры нейтрино."
+      ],
+      "conceptExplanations": [
+        "Шесть ароматов кварков имеют дробные заряды и цвет, шесть лептонов включают три заряженных и три нейтрино. Фотон переносит электромагнетизм, глюоны — сильное, W± и Z — слабое взаимодействие.",
+        "Каждой частице соответствует античастица той же массы и спина с противоположными аддитивными квантовыми числами. Аннигиляция превращает пару в другие разрешённые состояния, сохраняя полную энергию, импульс и заряд; материя не исчезает «в ничто».",
+        "Непрерывные симметрии связаны с законами сохранения, а калибровочная симметрия определяет структуру взаимодействий. В конкретных процессах нужно проверять электрический заряд, четырёхимпульс, угловой момент и применимые квантовые числа, а не один универсальный список.",
+        "Ненулевое среднее поле Хиггса позволяет W и Z быть массивными, сохраняя согласованность электрослабой теории; фермионные массы задают их юкавские связи. Фотон остаётся безмассовым, а масса составного нуклона не является простой суммой масс его валентных кварков.",
+        "Минимальная Стандартная модель не описывает гравитацию и должна быть расширена для наблюдаемых масс и смешивания нейтрино. Личность тёмной материи и причина преобладания вещества также остаются открытыми экспериментальными вопросами."
+      ],
+      "boundary": "Стандартная модель — квантовая теория полей трёх негравитационных взаимодействий. Её таблица элементарных частиц не является моделью атомных ядер или адронов без непертурбативной КХД, а обнаружение явления вне минимальной версии не автоматически указывает, какое именно расширение верно.",
+      "example": {
+        "title": "Законы сохранения в бета-распаде нейтрона",
+        "problem": "Проверить заряд, барионное и электронное лептонное числа в реакции n → p + e⁻ + антинейтрино_e и найти доступную энергию по массам: mₙc² = 939,565 МэВ, mₚc² = 938,272 МэВ, mₑc² = 0,511 МэВ.",
+        "steps": [
+          "Заряд: 0 = (+1) + (−1) + 0.",
+          "Барионное число: 1 = 1 + 0 + 0; электронное лептонное: 0 = 0 + 1 − 1.",
+          "Доступная кинетическая энергия Q = 939,565 − 938,272 − 0,511 МэВ.",
+          "Q ≈ 0,782 МэВ распределяется между электроном, антинейтрино и отдачей протона."
+        ],
+        "answer": "Указанные квантовые числа сохраняются, а суммарная кинетическая энергия продуктов около 0,782 МэВ.",
+        "check": "Без антинейтрино нарушались бы лептонное число и наблюдаемый непрерывный баланс энергии и импульса двух видимых продуктов."
+      },
+      "pitfall": "Нельзя говорить, что поле Хиггса создаёт всю массу окружающего вещества. Оно задаёт элементарные массовые параметры, но основная доля массы обычных протонов и нейтронов возникает из энергии сильного взаимодействия.",
+      "practice": [
+        {
+          "question": "Почему успешное описание бозона Хиггса не делает Стандартную модель теорией гравитации?",
+          "hint": "Раздели механизм масс частиц и динамику пространства-времени.",
+          "answer": "Механизм Хиггса относится к электрослабой квантовой теории полей. Он не квантует гравитационное поле и не заменяет уравнения общей относительности."
+        },
+        {
+          "question": "Найди электрические заряды протона uud и нейтрона udd, если q_u = +2e/3, q_d = −e/3.",
+          "hint": "Сложи заряды трёх валентных кварков.",
+          "answer": "Протон: 2/3 + 2/3 − 1/3 = +1, то есть +e. Нейтрон: 2/3 − 1/3 − 1/3 = 0."
+        }
+      ]
+    }
+  },
+  "en": {
+    "14.1": {
+      "question": "Why is a bound nucleus lighter than its free nucleons, and what does that difference say about stability?",
+      "overview": [
+        "A nucleus contains Z protons and N neutrons. At nuclear distances the residual strong interaction binds nucleons, while Coulomb repulsion acts among all protons; the balance of these terms and quantum shell filling determine a nuclide's energy.",
+        "Completely separating a nucleus into free nucleons requires binding energy B = Δmc². Here mass defect Δm is the positive difference between the sum of free-component masses and the bound-state mass. Binding energy per nucleon is useful for comparison but does not alone determine a decay rate or probability."
+      ],
+      "conceptExplanations": [
+        "The proton number determines nuclear charge and chemical element, while A = Z + N is the mass number. Protons and neutrons are made of quarks, but often serve as effective particles in low-energy nuclear descriptions.",
+        "The nuclear force among nucleons is a low-energy residual manifestation of the strong interaction. It is short-ranged and saturates, so a distant proton does not attract every nucleon as an electric charge interacts with every other charge.",
+        "For nuclear masses, Δm = Zmₚ + Nmₙ - Mnucleus. With neutral-atom masses, one should consistently replace each proton by a hydrogen atom so electron masses cancel; mixing the two tables creates an error.",
+        "Isotopes have the same Z and different N. Long-lived combinations form a valley of stability: heavy nuclei need a neutron excess, while nuclides away from the valley approach it through beta or alpha decay or fission when energetically allowed."
+      ],
+      "boundary": "A semi-empirical volume, surface, Coulomb, and asymmetry picture explains broad trends but not shell structure or precise measured masses. A mass-defect calculation must consistently use either atomic or nuclear masses and include electron binding at the required precision.",
+      "example": {
+        "title": "Binding Energy of Helium-4",
+        "problem": "Using atomic masses m(¹H) = 1.007825 u, mₙ = 1.008665 u, and m(⁴He) = 4.002603 u, find total and per-nucleon binding energy. Use 1 u·c² = 931.5 MeV.",
+        "steps": [
+          "For atomic masses, Δm = 2m(¹H) + 2mₙ - m(⁴He).",
+          "Δm = 2·1.007825 + 2·1.008665 - 4.002603 = 0.030377 u.",
+          "B = 0.030377·931.5 MeV ≈ 28.3 MeV.",
+          "For four nucleons, B/A ≈ 28.3/4 = 7.07 MeV."
+        ],
+        "answer": "The ⁴He binding energy is about 28.3 MeV, or 7.07 MeV per nucleon.",
+        "check": "The defect is positive: the bound state is lighter than its free components by B/c². Electrons cancel consistently through the hydrogen and helium atomic masses."
+      },
+      "pitfall": "A larger total binding energy does not always mean greater binding per particle; total B also grows with particle count. Reaction energetics require comparing complete initial and final masses, not only one B/A value.",
+      "practice": [
+        {
+          "question": "Why can both fusion of light nuclei and fission of very heavy nuclei release energy?",
+          "hint": "Track products along the binding-energy-per-nucleon curve.",
+          "answer": "In both cases products lie closer to the region of higher binding per nucleon, so their total mass is lower and the difference is released as energy."
+        },
+        {
+          "question": "Estimate deuteron binding from m(¹H) = 1.007825 u, mₙ = 1.008665 u, and m(²H) = 2.014102 u.",
+          "hint": "Find [m(¹H) + mₙ - m(²H)]·931.5 MeV.",
+          "answer": "Δm = 0.002388 u, giving B ≈ 2.22 MeV."
+        }
+      ]
+    },
+    "14.2": {
+      "question": "How does random decay of one nucleus produce a precise ensemble law, and how does that law connect to actual dose in matter?",
+      "overview": [
+        "Alpha, beta, and gamma processes change a nucleus in different ways while conserving energy, momentum, charge, and applicable quantum numbers. One unstable nucleus decays at a random time, but a constant probability per unit time gives N(t) = N₀e^(−λt) for a large identical population.",
+        "Activity A = λN counts decays per second but is not biological harm. Absorbed dose measures energy per mass in grays, equivalent dose weights radiation type in sieverts, and actual risk further depends on tissue, distribution, dose rate, and exposure conditions."
+      ],
+      "conceptExplanations": [
+        "Alpha decay emits a ⁴He nucleus and lowers A by 4 and Z by 2. In beta-minus decay a neutron becomes a proton with an electron and antineutrino; beta-plus decay or electron capture lowers Z. A gamma transition removes excitation without changing A or Z.",
+        "Half-life T₁/₂ = ln 2/λ characterizes an ensemble. A nucleus does not 'age' toward decay: for an exponential law, the conditional chance of decay in the next interval does not depend on its previous lifetime.",
+        "1 Bq is one decay per second; 1 Gy is 1 J/kg of absorbed energy. Equivalent dose H = ΣwᵣDᵣ uses radiation weighting factors and is measured in sieverts; these units are not interchangeable.",
+        "Shielding depends on energy and radiation type: alpha particles have short range but are dangerous internally; beta radiation can create bremsstrahlung in high-Z shielding; gamma rays are attenuated gradually, and neutrons need suitable hydrogen-rich and absorbing materials."
+      ],
+      "boundary": "One exponential describes an isolated population in one state with constant λ. Daughter chains, activation, and a changing source need coupled equations. Source activity cannot be converted to dose without geometry, spectrum, time, absorption, and biokinetics.",
+      "example": {
+        "title": "Activity After Three Half-Lives",
+        "problem": "An iodine-131 sample has half-life 8.0 days and initial activity 80 MBq. What is its activity after 24 days if no new nuclei enter?",
+        "steps": [
+          "The number of elapsed half-lives is n = 24/8.0 = 3.",
+          "Activity has the same decay factor as N: A = A₀(1/2)ⁿ.",
+          "A = 80 MBq·(1/2)³ = 80/8 MBq = 10 MBq."
+        ],
+        "answer": "After 24 days the activity is 10 MBq.",
+        "check": "Every 8 days it halves: 80 to 40 to 20 to 10 MBq."
+      },
+      "pitfall": "Half-life does not mean every nucleus is gone after two periods. On average one quarter remains, and an exponential never reaches exactly zero at finite time.",
+      "practice": [
+        {
+          "question": "Why does equal activity from two sources not guarantee equal equivalent dose to a person?",
+          "hint": "List radiation type and energy, geometry, and route of intake.",
+          "answer": "Each decay can deposit different energy with different biological effectiveness; distance, shielding, exposed tissue, and internal versus external location also matter."
+        },
+        {
+          "question": "A sample has activity 200 Bq and half-life 6 h. What is its activity after 18 h?",
+          "hint": "18 h is three half-lives.",
+          "answer": "A = 200·(1/2)³ = 25 Bq."
+        }
+      ]
+    },
+    "14.3": {
+      "question": "How can a useful self-sustaining chain reaction be maintained while heat removal and fission-product confinement remain assured?",
+      "overview": [
+        "In fission, a heavy nucleus becomes two principal fragments, neutrons, and radiation; reduced final mass releases energy of order hundreds of MeV per event. Some new neutrons induce later fissions, and the effective multiplication factor k_eff compares neutron production with absorption and leakage.",
+        "A power reactor is held near k_eff = 1 by design, feedback, and controls while coolant transports heat to an energy-conversion cycle. Fission products continue producing decay heat after the chain reaction stops, so safety relies on cooling, physical barriers, and independent layers of protection."
+      ],
+      "conceptExplanations": [
+        "Most fission energy begins as fragment kinetic energy and becomes fuel heat. Not every neutron capture causes fission, and the product spectrum is probabilistic.",
+        "A chain is possible when enough next-generation neutrons remain in a suitable energy range. Geometry, composition, moderator, absorbers, and leakage determine the balance.",
+        "A system is subcritical for k_eff below one, steady by generation at one, and growing above one. Controlled dynamics crucially uses the small delayed-neutron fraction, which provides time for regulation.",
+        "Specific designs vary, but usually require fuel, reactivity control, coolant, a heat exchanger or direct boiling, a turbine-generator, and confinement barriers. Not every reactor uses ordinary water as moderator.",
+        "Decay heat comes from radioactive products and actinides and does not stop with fission. Used fuel remains a heat and radiation source; its management includes cooling, shielding, storage, and long-term isolation."
+      ],
+      "boundary": "A one-k_eff generation model shows criticality but not real power versus time. Reactor kinetics needs delayed neutrons, temperature and void coefficients, spatial flux, and thermal hydraulics; safety cannot be inferred from one number without design scenarios.",
+      "example": {
+        "title": "Sensitivity of a Chain to k_eff",
+        "problem": "A simplified generation model starts with 10⁶ neutrons. How many remain after 20 generations for k_eff = 0.98 and k_eff = 1.02?",
+        "steps": [
+          "The model uses Nₙ = N₀k_effⁿ; no physical generation time is specified.",
+          "For 0.98, N₂₀ = 10⁶·0.98²⁰ ≈ 6.68·10⁵.",
+          "For 1.02, N₂₀ = 10⁶·1.02²⁰ ≈ 1.49·10⁶.",
+          "A small coefficient offset accumulates repeatedly across generations."
+        ],
+        "answer": "About 6.68·10⁵ neutrons in the subcritical case and 1.49·10⁶ in the supercritical case.",
+        "check": "Below-one k_eff gives decay and above-one gives growth; this is not a calculation of seconds or thermal power."
+      },
+      "pitfall": "'Critical' does not mean accidental: k_eff = 1 is the normal state of a steady chain. Hazard depends on dynamics, reactivity margin, cooling, and barrier condition.",
+      "practice": [
+        {
+          "question": "Why does an emergency shutdown of the chain reaction not remove the need to cool the core?",
+          "hint": "Separate prompt fission power from decay of products already created.",
+          "answer": "The controlled chain ends, but accumulated radioactive products keep decaying and generating heat that must be removed."
+        },
+        {
+          "question": "A reactor had 500 MW of thermal power before shutdown. If the stated model assigns 6% residual power immediately afterward, how much heat must be removed?",
+          "hint": "The percentage is a supplied assumption, not a universal constant.",
+          "answer": "0.06·500 MW = 30 MW of thermal power."
+        }
+      ]
+    },
+    "14.4": {
+      "question": "Which conditions let light nuclei penetrate electric repulsion often enough for fusion to deliver sustained energy gain?",
+      "overview": [
+        "Positively charged nuclei repel, while the strong interaction binds only at very short distance. High temperature increases fast collisions, and quantum tunneling gives a nonzero probability of crossing the Coulomb barrier even below its classical top.",
+        "A useful reaction rate requires sufficient density, temperature, and confinement time while radiation and transport losses are controlled. Magnetic systems confine a dilute charged plasma with fields, whereas inertial systems rapidly compress a small target; in either case plasma gain is not the same as net electrical efficiency."
+      ],
+      "conceptExplanations": [
+        "Barrier penetrability depends steeply on charge, energy, and reduced mass, so heating changes reaction rate much more than linearly. Tunneling does not let a nucleus borrow energy; total energy remains conserved.",
+        "In a stellar core, gravity maintains pressure and temperature throughout an enormous volume for a very long time. The Sun primarily uses the proton-proton chain, not the laboratory-friendly deuterium-tritium reaction.",
+        "A confinement criterion compares alpha heating with losses and is often expressed through the triple product nTτ_E. High temperature alone is insufficient if plasma loses energy too quickly.",
+        "In tokamaks and stellarators, magnetic fields guide charged particles along helical paths, but turbulence and instabilities cause transport. Inertial confinement uses a laser pulse or another driver so fuel burns before disassembly.",
+        "Plasma Q = P_fusion/P_heating compares fusion power with externally delivered plasma heating. A power plant must also convert neutron energy to electricity and operate magnets, cryogenics, drivers, and the fuel cycle."
+      ],
+      "boundary": "The 17.6 MeV total and 3.5/14.1 MeV product shares belong to D + T → ⁴He + n. Plasma Q, scientific breakeven, engineering gain, and net electric gain are different metrics; none should replace another without a system boundary and pulse duration.",
+      "example": {
+        "title": "Meaning of Plasma Gain Q = 10",
+        "problem": "A plasma receives 50 MW of external heating and has stated plasma gain Q = 10. Find fusion power and decide whether net electric output follows.",
+        "steps": [
+          "By definition Q = P_fusion/P_heating.",
+          "P_fusion = 10·50 MW = 500 MW.",
+          "Subtracting 50 MW from 500 MW as a 'net plasma power' is invalid: P_fusion includes neutron and alpha-particle energy, while Q specifies only a ratio.",
+          "Net electricity also needs thermal-cycle efficiency and every auxiliary-system load."
+        ],
+        "answer": "Fusion reactions produce 500 MW in the stated definition, but the data are insufficient for net electric power.",
+        "check": "Power units agree, and the system boundary explicitly separates plasma heating from the complete facility."
+      },
+      "pitfall": "'More energy out than in' is meaningless without defining inputs, outputs, duration, and facility boundary. Target gain, plasma Q, and energy drawn from the grid are different quantities.",
+      "practice": [
+        {
+          "question": "Why can the Sun sustain fusion at a lower temperature than a typical terrestrial D-T plasma even though the proton-proton reaction is slower?",
+          "hint": "Compare volume, density, and gravitational confinement time.",
+          "answer": "The Sun confines an enormous plasma mass for billions of years, so a tiny reaction probability can supply its power. A terrestrial device needs a much higher rate in a small volume and short time."
+        },
+        {
+          "question": "A D-T plasma produces 100 MW of fusion power. Approximately how much is carried by alpha particles and neutrons if their energies are 3.5 and 14.1 MeV?",
+          "hint": "Divide power in the ratio 3.5:14.1 with total energy 17.6 MeV.",
+          "answer": "Alpha particles carry about 100·3.5/17.6 ≈ 20 MW and neutrons about 80 MW."
+        }
+      ]
+    },
+    "14.5": {
+      "question": "How does the Standard Model organize elementary particles and interactions, and where does its explanatory scope end?",
+      "overview": [
+        "Matter fermions form three generations of quarks and leptons. Electromagnetic, weak, and strong interactions are mediated by gauge-field quanta: photons, W and Z bosons, and gluons; quarks are confined in hadrons while leptons do not undergo the strong interaction.",
+        "Through electroweak symmetry breaking and particle couplings, the Higgs field sets W, Z, and fermion masses, but most proton mass comes from quark-gluon dynamics in QCD. The theory is extraordinarily accurate in scope, yet it omits quantum gravity and does not explain dark matter, dark energy, baryon asymmetry, or all neutrino parameters."
+      ],
+      "conceptExplanations": [
+        "Six quark flavors carry fractional electric charge and color, while six leptons comprise three charged particles and three neutrinos. Photons mediate electromagnetism, gluons the strong force, and W± and Z bosons the weak force.",
+        "Every particle has an antiparticle with the same mass and spin and opposite additive quantum numbers. Annihilation converts a pair into other allowed states while conserving total energy, momentum, and charge; matter does not vanish into nothing.",
+        "Continuous symmetries connect to conservation laws, while gauge symmetry fixes interaction structure. A particular process requires checking electric charge, four-momentum, angular momentum, and applicable quantum numbers rather than one universal checklist.",
+        "A nonzero Higgs-field value lets W and Z be massive while retaining electroweak consistency; fermion masses arise from their Yukawa couplings. The photon stays massless, and a composite nucleon's mass is not a simple sum of its valence-quark masses.",
+        "The minimal Standard Model excludes gravity and must be extended for observed neutrino masses and mixing. The identity of dark matter and the reason matter dominates antimatter remain open experimental questions."
+      ],
+      "boundary": "The Standard Model is a quantum field theory of the three nongravitational interactions. Its elementary-particle chart is not by itself a model of nuclei or hadrons without nonperturbative QCD, and an observation beyond the minimal theory does not automatically identify the correct extension.",
+      "example": {
+        "title": "Conservation Laws in Neutron Beta Decay",
+        "problem": "Check charge, baryon number, and electron-lepton number in n → p + e⁻ + electron antineutrino, then find available energy using mₙc² = 939.565 MeV, mₚc² = 938.272 MeV, and mₑc² = 0.511 MeV.",
+        "steps": [
+          "Charge: 0 = (+1) + (-1) + 0.",
+          "Baryon number: 1 = 1 + 0 + 0; electron-lepton number: 0 = 0 + 1 - 1.",
+          "Available kinetic energy is Q = 939.565 - 938.272 - 0.511 MeV.",
+          "Q ≈ 0.782 MeV is shared by the electron, antineutrino, and proton recoil."
+        ],
+        "answer": "The listed quantum numbers are conserved and product kinetic energy totals about 0.782 MeV.",
+        "check": "Without the antineutrino, lepton number and the observed continuous energy-momentum balance of the two visible products would fail."
+      },
+      "pitfall": "Do not say the Higgs field creates all mass around us. It sets elementary mass parameters, while most ordinary proton and neutron mass arises from strong-interaction energy.",
+      "practice": [
+        {
+          "question": "Why does a successful Higgs mechanism not make the Standard Model a theory of gravity?",
+          "hint": "Separate particle mass generation from spacetime dynamics.",
+          "answer": "The Higgs mechanism belongs to electroweak quantum field theory. It neither quantizes gravity nor replaces the equations of general relativity."
+        },
+        {
+          "question": "Find the charges of proton uud and neutron udd when q_u = +2e/3 and q_d = -e/3.",
+          "hint": "Add the three valence-quark charges.",
+          "answer": "Proton: 2/3 + 2/3 - 1/3 = +1, or +e. Neutron: 2/3 - 1/3 - 1/3 = 0."
+        }
+      ]
+    }
+  }
+}

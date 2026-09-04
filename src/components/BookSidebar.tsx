@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Check, ChevronDown, ChevronRight, Search, X } from 'lucide-react';
-import { bookMeta } from '../data';
+import { bookMeta } from '../data/meta.generated';
 import { routes } from '../routing';
 import { useLocale } from '../i18n/LocaleContext';
 
@@ -34,6 +34,7 @@ export function BookSidebar({ currentChapter, currentTopic, completed, open, onC
     onClose();
     window.setTimeout(() => document.querySelector<HTMLButtonElement>('.mobile-sidebar-trigger')?.focus(), 20);
   }, [mobile, onClose]);
+  const closeForNavigation = useCallback(() => { if (mobile) onClose(); }, [mobile, onClose]);
 
   useEffect(() => {
     if (!mobile || !open) return;
@@ -59,7 +60,7 @@ export function BookSidebar({ currentChapter, currentTopic, completed, open, onC
   return (
     <>
       {mobile && open && <button type="button" className="sidebar-scrim" aria-label={t('sidebar.close')} onClick={closeMobile} />}
-      <aside className={`book-sidebar${open ? ' is-open' : ''}`} aria-label={t('sidebar.contents')} aria-hidden={mobile && !open} inert={mobile && !open ? true : undefined} onKeyDown={trapKeys}>
+      <aside id="book-sidebar" className={`book-sidebar${open ? ' is-open' : ''}`} aria-label={t('sidebar.contents')} aria-hidden={mobile && !open} inert={mobile && !open ? true : undefined} onKeyDown={trapKeys}>
         <div className="sidebar-mobile-head">
           <strong>{t('sidebar.contents')}</strong>
           <button ref={closeButtonRef} type="button" className="icon-button" onClick={closeMobile} aria-label={t('sidebar.close')}><X size={19} /></button>
@@ -88,9 +89,9 @@ export function BookSidebar({ currentChapter, currentTopic, completed, open, onC
                 </button>
                 {isExpanded && (
                   <div className="sidebar-topics">
-                    <a className="sidebar-overview" href={routes.chapter(chapter.number, locale)} onClick={closeMobile}>{t('sidebar.overview')}</a>
+                    <a className="sidebar-overview" href={routes.chapter(chapter.number, locale)} onClick={closeForNavigation}>{t('sidebar.overview')}</a>
                     {chapter.topics.map((topic) => (
-                      <a key={topic.id} className={topic.id === currentTopic ? 'is-active' : ''} href={routes.topic(topic.id, locale)} onClick={closeMobile}>
+                      <a key={topic.id} className={topic.id === currentTopic ? 'is-active' : ''} href={routes.topic(topic.id, locale)} onClick={closeForNavigation}>
                         <span>{topic.id}</span>
                         <span>{topic.title}</span>
                         {completed.has(topic.id) && <Check size={14} />}

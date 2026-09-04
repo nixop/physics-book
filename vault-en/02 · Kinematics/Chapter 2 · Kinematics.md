@@ -17,12 +17,12 @@ tags:
 
 ## Cards
 
-- [[2.1 · Events and Frames of Reference|2.1. Events and Frames of Reference]] — A point particle and a model of an extended body.
-- [[2.2 · Position, Trajectory, Distance, and Displacement|2.2. Position, Trajectory, Distance, and Displacement]] — The position vector and the position of a body.
-- [[2.3 · Average and Instantaneous Velocity|2.3. Average and Instantaneous Velocity]] — Average speed.
-- [[2.4 · Acceleration and Motion Graphs|2.4. Acceleration and Motion Graphs]] — Acceleration as a change in the velocity vector.
-- [[2.5 · Free Fall and Projectile Motion|2.5. Free Fall and Projectile Motion]] — Acceleration due to gravity.
-- [[2.6 · Relative and Curvilinear Motion|2.6. Relative and Curvilinear Motion]] — The addition of velocities.
+- [[2.1 · Events and Frames of Reference|2.1. Events and Frames of Reference]] — Kinematics describes motion relative to a chosen reference frame.
+- [[2.2 · Position, Trajectory, Distance, and Displacement|2.2. Position, Trajectory, Distance, and Displacement]] — A body's position at a selected time is given by a position vector from the origin.
+- [[2.3 · Average and Instantaneous Velocity|2.3. Average and Instantaneous Velocity]] — Average speed is total distance divided by duration and carries no direction.
+- [[2.4 · Acceleration and Motion Graphs|2.4. Acceleration and Motion Graphs]] — Acceleration is the derivative of vector velocity, so it responds to a change in either magnitude or direction.
+- [[2.5 · Free Fall and Projectile Motion|2.5. Free Fall and Projectile Motion]] — Near Earth's surface over modest heights, gravity can be treated as uniform: acceleration points vertically downward and is approximately g.
+- [[2.6 · Relative and Curvilinear Motion|2.6. Relative and Curvilinear Motion]] — In classical mechanics, a body's velocity relative to Earth is the vector sum of its velocity relative to a moving medium and the medium's velocity.
 
 ## Navigation
 

@@ -1,0 +1,481 @@
+{
+  "chapter": 2,
+  "ru": {
+    "2.1": {
+      "question": "Какие данные нужны, чтобы два наблюдателя однозначно описали одно и то же событие и перевели его координаты между системами отсчёта?",
+      "overview": [
+        "Кинематика описывает движение относительно выбранной системы отсчёта. Для этого задают тело отсчёта, пространственные оси, начало координат и процедуру синхронизации часов; без этих соглашений фраза о положении или скорости неполна.",
+        "Событие — локализованное происшествие с пространственными координатами и моментом времени. Координаты одного события зависят от системы отсчёта, но наблюдатели могут связать их преобразованием и согласиться, какое физическое происшествие описывается."
+      ],
+      "conceptExplanations": [
+        "Материальная точка хранит массу и траекторию, но не размер, форму и ориентацию тела. Она достаточна, когда эти свойства слабо влияют на интересующий результат по сравнению с масштабом движения.",
+        "Тело отсчёта определяет физический носитель координат, оси присваивают положениям числа, а часы — времена. Начало и ориентация осей являются соглашениями, которые нужно сообщить вместе с данными.",
+        "Например, вспышка датчика в определённой точке и моменте является событием. Траектория, напротив, представляет последовательность событий мировой линии тела.",
+        "Тело может покоиться относительно вагона и двигаться относительно платформы. Поэтому покой и скорость не являются свойствами тела без указания наблюдателя, хотя законы механики имеют одинаковую форму во всех инерциальных системах."
+      ],
+      "boundary": "Галилеевское преобразование с общим временем применимо при скоростях много меньше скорости света; при релятивистских скоростях синхронизация и одновременность зависят от системы и нужны преобразования Лоренца.",
+      "example": {
+        "title": "Событие в вагоне и на платформе",
+        "problem": "Вагон движется вдоль +x со скоростью 20 м/с. В момент совпадения начал координат часы показывают ноль. Через 5 с пассажир находится на 7,5 м впереди начала вагона. Где происходит это событие в системе платформы?",
+        "steps": [
+          "Обозначьте координату относительно вагона x′ = 7,5 м и время t′ = 5 с.",
+          "В классической кинематике используйте t = t′ и x = x′ + Vt.",
+          "Подставьте V = 20 м/с: x = 7,5 м + 20 м/с × 5 с.",
+          "Получите x = 107,5 м от согласованного начала платформы."
+        ],
+        "answer": "Событие имеет координаты (x′, t′) = (7,5 м, 5 с) в вагоне и (x, t) = (107,5 м, 5 с) на платформе в галилеевском приближении.",
+        "check": "Начало вагона к этому времени прошло 100 м, а пассажир расположен ещё на 7,5 м впереди, поэтому знак и масштаб результата согласованы."
+      },
+      "pitfall": "Нельзя сравнивать координаты или скорости из разных систем отсчёта, не указав преобразование между началами, осями и часами.",
+      "practice": [
+        {
+          "question": "Книга лежит на столе в движущемся поезде. Можно ли без уточнения сказать, что её скорость равна нулю?",
+          "hint": "Назови как минимум две возможные системы отсчёта.",
+          "answer": "Нет. Скорость равна нулю относительно вагона, но примерно равна скорости поезда относительно Земли."
+        },
+        {
+          "question": "Система S′ движется со скоростью 6 м/с вдоль +x относительно S, начала совпали при t = 0. Событие имеет x′ = −2 м при t = 4 с. Найди x в S.",
+          "hint": "Используй x = x′ + Vt.",
+          "answer": "x = −2 м + 6 м/с × 4 с = 22 м."
+        }
+      ]
+    },
+    "2.2": {
+      "question": "Почему конечные точки движения определяют перемещение, но не сообщают, какой путь прошло тело между ними?",
+      "overview": [
+        "Положение тела в выбранный момент задаётся радиус-вектором от начала координат. Последовательность положений образует траекторию, а её длина за интервал времени — скалярный путь.",
+        "Перемещение является разностью конечного и начального радиус-векторов. Оно не зависит от формы пройденной траектории, поэтому тела с одинаковыми началом и концом имеют одинаковое перемещение, но могут пройти совершенно разные расстояния."
+      ],
+      "conceptExplanations": [
+        "Радиус-вектор r(t) зависит от выбранного начала и координат, но однозначно задаёт положение в этой системе. Его компоненты являются координатами тела.",
+        "Траектория — геометрическая линия, а путь s — накопленная длина движения вдоль неё. Путь не убывает и зависит от всех промежуточных участков.",
+        "Перемещение Δr = r₂ − r₁ направлено от начальной точки прямо к конечной. При возвращении в исходную точку оно равно нулю независимо от пройденного маршрута.",
+        "Всегда выполняется |Δr| ≤ s. Равенство достигается, если движение проходит по прямому отрезку без изменения направления; обходы и возвраты увеличивают путь."
+      ],
+      "boundary": "Определение пути как длины траектории предполагает достаточно регулярную кривую и выбранную геометрию пространства; при конечной точности измерений мелкомасштабная шероховатость траектории зависит от разрешения.",
+      "example": {
+        "title": "Полуокружность вместо диаметра",
+        "problem": "Тело движется по верхней полуокружности радиуса 10 м из точки (10, 0) м в точку (−10, 0) м. Найдите путь и перемещение.",
+        "steps": [
+          "Длина полуокружности равна половине 2πR: s = πR = 10π м.",
+          "Начальный радиус-вектор r₁ = (10, 0) м, конечный r₂ = (−10, 0) м.",
+          "Перемещение Δr = r₂ − r₁ = (−20, 0) м.",
+          "Его модуль равен 20 м, что меньше пути 10π м ≈ 31,4 м."
+        ],
+        "answer": "Путь равен 10π м ≈ 31,4 м, а перемещение — (−20, 0) м с модулем 20 м.",
+        "check": "Кратчайшее расстояние между концами — диаметр 20 м, поэтому дуга не может быть короче модуля перемещения."
+      },
+      "pitfall": "Путь нельзя записывать со знаком минус: это накопленная длина; знак появляется у компоненты перемещения относительно выбранной оси.",
+      "practice": [
+        {
+          "question": "Спортсмен пробежал полный круг 400 м и вернулся к старту. Чему равны путь и перемещение?",
+          "hint": "Для перемещения важны только начальная и конечная точки.",
+          "answer": "Путь равен 400 м, а вектор перемещения и его модуль равны нулю."
+        },
+        {
+          "question": "Тело прошло 3 м на восток и 4 м на север. Найди путь и модуль перемещения.",
+          "hint": "Путь складывает участки, перемещение соединяет начало и конец.",
+          "answer": "Путь равен 7 м. Перемещение имеет компоненты (3, 4) м и модуль 5 м."
+        }
+      ]
+    },
+    "2.3": {
+      "question": "Какая скорость описывает весь интервал движения, а какая — состояние тела в конкретный момент?",
+      "overview": [
+        "Средняя путевая скорость равна полному пути, делённому на длительность, и не содержит направления. Средняя векторная скорость использует перемещение, поэтому может быть нулевой даже после большого пройденного пути.",
+        "Мгновенная скорость получается в пределе всё меньшего интервала как производная радиус-вектора по времени. Она касается траектории и указывает направление движения, тогда как её модуль равен мгновенной путевой скорости."
+      ],
+      "conceptExplanations": [
+        "Величина s/Δt усредняет темп накопления пути и всегда неотрицательна. Она не позволяет восстановить ни направление, ни конечное положение.",
+        "Вектор Δr/Δt соединяет начало и конец рассматриваемого интервала. Его модуль не превышает средней путевой скорости из-за неравенства |Δr| ≤ s.",
+        "Предел Δr/Δt при Δt → 0 равен dr/dt и геометрически задаёт наклон касательной к графику координаты. Он описывает локальное движение, а не весь предыдущий маршрут.",
+        "На гладкой кривой вектор скорости направлен по касательной. Его направление меняется при повороте даже тогда, когда модуль скорости остаётся постоянным."
+      ],
+      "boundary": "Мгновенная скорость определена там, где траектория дифференцируема; при идеализированном мгновенном изломе направления модель подразумевает неограниченное ускорение и требует более подробного описания перехода.",
+      "example": {
+        "title": "Путь и средняя скорость на маршруте с возвратом",
+        "problem": "Тело прошло 100 м на восток, затем 60 м на запад за общее время 80 с. Найдите среднюю путевую и среднюю векторную скорости.",
+        "steps": [
+          "Полный путь s = 100 + 60 = 160 м.",
+          "Средняя путевая скорость равна s/Δt = 160/80 = 2,0 м/с.",
+          "Выберите восток за +x; перемещение Δx = 100 − 60 = 40 м.",
+          "Средняя векторная скорость имеет компоненту 40/80 = +0,50 м/с."
+        ],
+        "answer": "Средняя путевая скорость равна 2,0 м/с, а средняя векторная скорость — 0,50 м/с на восток.",
+        "check": "Модуль средней векторной скорости меньше средней путевой, поскольку часть маршрута была пройдена обратно."
+      },
+      "pitfall": "Среднюю скорость на участках нельзя обычно находить как простое среднее двух скоростей: веса задаются временами участков, а при равных расстояниях времена различны.",
+      "practice": [
+        {
+          "question": "Может ли тело иметь ненулевую мгновенную скорость в момент, когда его средняя скорость за полный интервал равна нулю?",
+          "hint": "Представь полный круг с возвращением в начальную точку.",
+          "answer": "Да. За полный круг перемещение и средняя векторная скорость равны нулю, но во всех обычных точках движения мгновенная скорость ненулевая и касательна к окружности."
+        },
+        {
+          "question": "Координата задана x(t) = 2t² + 1 м. Найди мгновенную скорость при t = 3 с.",
+          "hint": "Возьми производную dx/dt.",
+          "answer": "v(t) = 4t м/с, поэтому v(3 с) = 12 м/с вдоль +x."
+        }
+      ]
+    },
+    "2.4": {
+      "question": "Как по изменению вектора скорости понять, разгоняется тело, тормозит или только поворачивает?",
+      "overview": [
+        "Ускорение — производная векторной скорости, поэтому оно реагирует и на изменение модуля, и на изменение направления. При движении по окружности с постоянной путевой скоростью ускорение ненулевое и направлено к центру.",
+        "Графики x(t), v(t) и a(t) связаны производными и интегралами. Знак ускорения сам по себе не означает разгон: модуль скорости растёт, когда скорость и ускорение сонаправлены, и уменьшается, когда они направлены противоположно."
+      ],
+      "conceptExplanations": [
+        "Среднее ускорение равно Δv/Δt, а мгновенное — dv/dt. Поскольку вычитаются векторы, одинаковые модули скоростей с разными направлениями дают ненулевое изменение.",
+        "В одном измерении тело разгоняется при va > 0 и тормозит при va < 0. В нескольких измерениях изменение перпендикулярно скорости может поворачивать траекторию без изменения быстроты.",
+        "Наклон x(t) даёт v, наклон v(t) — a; знаковая площадь под v(t) даёт перемещение, а под a(t) — изменение скорости. Экстремум x(t) часто соответствует v = 0, но не обязательно покою на конечном интервале.",
+        "При постоянном ускорении скорость линейна по времени, а координата квадратична. Формулы требуют одного и того же инерциального отсчёта и согласованных начальных условий.",
+        "При переменном ускорении движение находят интегрированием функции или пошаговым методом. Шаг выбирают достаточно малым относительно времени заметного изменения ускорения и проверяют сходимость."
+      ],
+      "boundary": "Формулы равноускоренного движения неприменимы, если ускорение существенно меняется с временем, положением или скоростью; кусочно-постоянное приближение требует контроля ошибки на границах шагов.",
+      "example": {
+        "title": "Разворот на графике скорости",
+        "problem": "Вдоль выбранной оси v(t) = 4 − 2t м/с от 0 до 3 с. Найдите ускорение, перемещение и пройденный путь.",
+        "steps": [
+          "Производная скорости постоянна: a = −2 м/с².",
+          "Скорость обращается в ноль при t = 2 с; после этого тело движется в отрицательном направлении.",
+          "Перемещение равно ∫₀³(4 − 2t)dt = 12 − 9 = 3 м.",
+          "Путь равен площади без знака: 4 м до остановки плюс 1 м после разворота, всего 5 м."
+        ],
+        "answer": "Ускорение равно −2 м/с², перемещение +3 м, путь 5 м; тело сначала тормозит, затем разгоняется вдоль −x.",
+        "check": "Конечная скорость −2 м/с подтверждает, что последний участок вычитается из перемещения, но добавляется к пути."
+      },
+      "pitfall": "Отрицательное ускорение не всегда означает торможение: если скорость тоже отрицательна, их сонаправленность увеличивает модуль скорости.",
+      "practice": [
+        {
+          "question": "Автомобиль проходит круг с постоянными 15 м/с. Есть ли у него ускорение?",
+          "hint": "Скорость — вектор, а не только её модуль.",
+          "answer": "Да. Направление скорости непрерывно меняется, поэтому есть нормальное ускорение к центру, хотя путевая скорость постоянна."
+        },
+        {
+          "question": "Тело движется по окружности радиуса 20 м со скоростью 10 м/с. Найди нормальное ускорение.",
+          "hint": "Используй aₙ = v²/R.",
+          "answer": "aₙ = (10 м/с)² / 20 м = 5,0 м/с² к центру окружности."
+        }
+      ]
+    },
+    "2.5": {
+      "question": "Почему в идеальной модели горизонтальное движение брошенного тела не меняет время его падения?",
+      "overview": [
+        "Вблизи поверхности Земли на умеренной высоте поле можно считать однородным: ускорение направлено вертикально вниз и приблизительно равно g. Без сопротивления воздуха горизонтальная компонента скорости постоянна, а вертикальная изменяется независимо по закону равноускоренного движения.",
+        "Общее время связывает компоненты в одну параболическую траекторию. Дальность, высота и время полёта следуют из начальной скорости, угла и разности высот; масса выпадает, потому что гравитационная сила и инертность пропорциональны одной массе."
+      ],
+      "conceptExplanations": [
+        "В локальной системе с осью +y вверх ускорение aᵧ = −g. Значение g немного зависит от широты и высоты, но 9,81 м/с² обычно достаточно для учебных задач у поверхности.",
+        "Уравнения x = x₀ + v₀ₓt и y = y₀ + v₀ᵧt − gt²/2 имеют общий параметр t, но горизонтальное уравнение не содержит вертикальных величин. Это и есть независимость компонент в данной модели.",
+        "Горизонтальный бросок имеет v₀ᵧ = 0, а бросок под углом — v₀ₓ = v₀cos θ и v₀ᵧ = v₀sin θ. Дальнейший расчёт одинаков после разложения начальной скорости.",
+        "При одинаковой высоте старта и финиша время равно 2v₀sin θ/g, максимальная высота над стартом v₀²sin²θ/(2g), а дальность v₀²sin 2θ/g.",
+        "Сопротивление зависит от скорости относительно воздуха и обычно связывает компоненты. Оно снижает дальность, нарушает симметрию подъёма и спуска и делает траекторию непараболической."
+      ],
+      "boundary": "Параболическая траектория требует однородного g, отсутствия сопротивления, плоской локальной геометрии и постоянной массы; для дальних, быстрых или аэродинамически значимых полётов нужна численная модель с кривизной, вращением Земли и сопротивлением.",
+      "example": {
+        "title": "Бросок под углом с одинаковой высотой старта и финиша",
+        "problem": "Тело брошено со скоростью 20 м/с под углом 30° к горизонту. Найдите время полёта, дальность и максимальную высоту при g = 9,81 м/с² без сопротивления воздуха.",
+        "steps": [
+          "Разложите скорость: v₀ₓ = 20cos30° ≈ 17,32 м/с, v₀ᵧ = 20sin30° = 10,0 м/с.",
+          "Из возврата на исходную высоту получите t_f = 2v₀ᵧ/g ≈ 2,04 с.",
+          "Дальность R = v₀ₓt_f ≈ 17,32 × 2,04 ≈ 35,3 м.",
+          "В вершине vᵧ = 0, поэтому H = v₀ᵧ²/(2g) ≈ 5,10 м."
+        ],
+        "answer": "Время полёта приблизительно 2,04 с, дальность 35,3 м, максимальная высота над точкой броска 5,10 м.",
+        "check": "Подъём длится v₀ᵧ/g ≈ 1,02 с, ровно половину полного времени в симметричной модели."
+      },
+      "pitfall": "Формула R = v₀²sin 2θ/g предполагает одинаковые высоты старта и финиша; её нельзя использовать для броска с обрыва без решения вертикального уравнения.",
+      "practice": [
+        {
+          "question": "Два тела разной массы одновременно отпустили с одной высоты в вакууме. Какое упадёт раньше?",
+          "hint": "Запиши второй закон с силой тяжести mg.",
+          "answer": "Они упадут одновременно при одинаковых начальных условиях: ma = mg даёт a = g независимо от массы."
+        },
+        {
+          "question": "Тело горизонтально брошено со скоростью 10 м/с с высоты 20 м. Оцени время и дальность при g = 9,81 м/с².",
+          "hint": "Сначала реши 0 = 20 − gt²/2, затем используй x = v₀ₓt.",
+          "answer": "t = √(40/9,81) ≈ 2,02 с, дальность R ≈ 10 × 2,02 = 20,2 м без сопротивления воздуха."
+        }
+      ]
+    },
+    "2.6": {
+      "question": "Как связать движение, измеренное внутри подвижной системы, с траекторией относительно Земли и с поворотом по кривой?",
+      "overview": [
+        "В классической механике скорость тела относительно Земли равна векторной сумме скорости относительно подвижной среды и скорости самой среды. Именно векторы, а не их модули, объясняют снос лодки течением, самолёта ветром и кажущееся направление дождя.",
+        "Криволинейное движение удобно разложить на изменение быстроты вдоль касательной и изменение направления к центру кривизны. Для окружности угловые и линейные величины связаны через радиус, а нормальное ускорение сохраняется даже при постоянной быстроте."
+      ],
+      "conceptExplanations": [
+        "При галилеевском сложении v_A/C = v_A/B + v_B/C. Все три вектора должны относиться к одному событию и согласованным невращающимся осям.",
+        "Для компенсации бокового течения или ветра направление собственной скорости выбирают так, чтобы её поперечная компонента погасила скорость среды. Если это невозможно по модулю, точный курс недостижим.",
+        "Угол поворота измеряют в радианах; угловая скорость ω = dφ/dt, а угловое ускорение α = dω/dt. Для точки на расстоянии R от оси v = ωR.",
+        "Касательное ускорение a_t = dv/dt меняет быстроту, а нормальное a_n = v²/R направлено к локальному центру кривизны и поворачивает вектор скорости.",
+        "Для равномерного движения по окружности период T = 2π/ω, скорость v = 2πR/T, а ускорение v²/R. Координаты при этом меняются синусоидально."
+      ],
+      "boundary": "Простое сложение скоростей предполагает малые по сравнению с c скорости и системы без относительного вращения; при ускоряющейся среде или меняющемся течении скорость системы зависит от времени и положения.",
+      "example": {
+        "title": "Лодка поперёк реки",
+        "problem": "Лодка направлена строго на север и движется относительно воды со скоростью 4 м/с; течение 3 м/с на восток. Ширина реки 200 м. Найдите скорость относительно берега, время переправы и снос.",
+        "steps": [
+          "Сложите компоненты: vберег = (3 восток, 4 север) м/с.",
+          "Модуль равен √(3² + 4²) = 5 м/с, направление — arctan(3/4) ≈ 36,9° к востоку от севера.",
+          "Поперечная северная компонента 4 м/с даёт время 200/4 = 50 с.",
+          "За это время течение сносит лодку на 3 × 50 = 150 м к востоку."
+        ],
+        "answer": "Относительно берега лодка движется со скоростью 5 м/с под углом 36,9° к востоку от севера, переправляется за 50 с и смещается на 150 м вниз по течению.",
+        "check": "Длина фактической прямой траектории √(200² + 150²) = 250 м; при скорости 5 м/с она действительно проходится за 50 с."
+      },
+      "pitfall": "Складывание модулей 4 + 3 дало бы 7 м/с, хотя взаимно перпендикулярные скорости складываются по Пифагору и дают 5 м/с.",
+      "practice": [
+        {
+          "question": "Почему дождь кажется наклонным пассажиру равномерно движущегося автомобиля, даже если относительно Земли капли падают вертикально?",
+          "hint": "Вычти скорость автомобиля из скорости капель.",
+          "answer": "Относительная скорость дождя равна vдождь/авто = vдождь/земля − vавто/земля и получает горизонтальную компоненту, направленную против движения автомобиля."
+        },
+        {
+          "question": "Точка движется по окружности радиуса 30 м со скоростью 12 м/с. Найди угловую скорость и нормальное ускорение.",
+          "hint": "Используй ω = v/R и aₙ = v²/R.",
+          "answer": "ω = 12/30 = 0,40 рад/с, aₙ = 12²/30 = 4,8 м/с² к центру."
+        }
+      ]
+    }
+  },
+  "en": {
+    "2.1": {
+      "question": "What information lets two observers describe the same event unambiguously and transform its coordinates between reference frames?",
+      "overview": [
+        "Kinematics describes motion relative to a chosen reference frame. One specifies a reference body, spatial axes, an origin, and a clock-synchronization procedure; without these conventions, a statement about position or velocity is incomplete.",
+        "An event is a localized occurrence with spatial coordinates and a time. Coordinates of one event depend on the frame, but observers can relate them by a transformation and agree on which physical occurrence is being described."
+      ],
+      "conceptExplanations": [
+        "A point particle retains mass and trajectory but omits size, shape, and orientation. It is adequate when these properties affect the requested result only weakly compared with the scale of motion.",
+        "A reference body physically anchors the coordinates, axes assign numbers to positions, and a clock assigns times. Origin and orientation are conventions that must accompany the data.",
+        "A sensor flash at one place and instant is an event. A trajectory, by contrast, represents a sequence of events along the body's worldline.",
+        "An object may rest relative to a railcar and move relative to a platform. Rest and velocity are therefore not properties of a body without an observer, although mechanical laws have the same form in all inertial frames."
+      ],
+      "boundary": "The Galilean transformation with universal time applies at speeds much smaller than light speed; at relativistic speeds synchronization and simultaneity depend on frame and Lorentz transformations are required.",
+      "example": {
+        "title": "An event in a railcar and on a platform",
+        "problem": "A railcar moves along +x at 20 m/s. Origins coincide when both clocks read zero. At 5 s a passenger is 7.5 m ahead of the car's origin. Where does this event occur in the platform frame?",
+        "steps": [
+          "Denote the coordinate in the car as x′ = 7.5 m and time as t′ = 5 s.",
+          "In classical kinematics use t = t′ and x = x′ + Vt.",
+          "Insert V = 20 m/s: x = 7.5 m + 20 m/s × 5 s.",
+          "The result is x = 107.5 m from the agreed platform origin."
+        ],
+        "answer": "The event is (x′, t′) = (7.5 m, 5 s) in the car and (x, t) = (107.5 m, 5 s) on the platform in the Galilean approximation.",
+        "check": "The car origin has traveled 100 m and the passenger is another 7.5 m ahead, confirming both sign and scale."
+      },
+      "pitfall": "Coordinates or velocities from different frames cannot be compared until the transformation between origins, axes, and clocks is specified.",
+      "practice": [
+        {
+          "question": "A book lies on a table in a moving train. Can its velocity be called zero without qualification?",
+          "hint": "Name at least two possible reference frames.",
+          "answer": "No. Its velocity is zero relative to the car but approximately the train's velocity relative to Earth."
+        },
+        {
+          "question": "Frame S′ moves at 6 m/s along +x relative to S and origins coincide at t = 0. An event has x′ = −2 m at t = 4 s. Find x in S.",
+          "hint": "Use x = x′ + Vt.",
+          "answer": "x = −2 m + 6 m/s × 4 s = 22 m."
+        }
+      ]
+    },
+    "2.2": {
+      "question": "Why do endpoints determine displacement but not reveal the distance traveled between them?",
+      "overview": [
+        "A body's position at a selected time is given by a position vector from the origin. The sequence of positions forms a trajectory, and its length over a time interval is the scalar distance traveled.",
+        "Displacement is final minus initial position vector. It is independent of path shape, so motions with the same endpoints have the same displacement while covering very different distances."
+      ],
+      "conceptExplanations": [
+        "The position vector r(t) depends on the chosen origin and coordinates but uniquely locates the body in that frame. Its components are the body's coordinates.",
+        "A trajectory is a geometrical curve, while distance s is accumulated length along it. Distance never decreases and depends on every intermediate segment.",
+        "Displacement Δr = r₂ − r₁ points directly from the initial to the final point. It is zero after returning to the starting point regardless of the route traveled.",
+        "The inequality |Δr| ≤ s always holds. Equality occurs for motion along a straight segment without reversal; detours and returns increase distance."
+      ],
+      "boundary": "Distance as curve length assumes a sufficiently regular path and a chosen spatial geometry; at finite measurement precision, fine-scale roughness depends on resolution.",
+      "example": {
+        "title": "A semicircle instead of a diameter",
+        "problem": "An object follows the upper semicircle of radius 10 m from (10, 0) m to (−10, 0) m. Find distance and displacement.",
+        "steps": [
+          "The semicircle length is half of 2πR: s = πR = 10π m.",
+          "Initial position is r₁ = (10, 0) m and final position is r₂ = (−10, 0) m.",
+          "Displacement is Δr = r₂ − r₁ = (−20, 0) m.",
+          "Its magnitude is 20 m, less than distance 10π m ≈ 31.4 m."
+        ],
+        "answer": "Distance is 10π m ≈ 31.4 m, while displacement is (−20, 0) m with magnitude 20 m.",
+        "check": "The shortest separation of the endpoints is the 20 m diameter, so the arc cannot be shorter than displacement magnitude."
+      },
+      "pitfall": "Distance traveled cannot carry a minus sign: it is accumulated length; a sign belongs to a displacement component along a chosen axis.",
+      "practice": [
+        {
+          "question": "A runner completes one 400 m lap and returns to the start. What are distance and displacement?",
+          "hint": "Only endpoints matter for displacement.",
+          "answer": "Distance is 400 m, while the displacement vector and its magnitude are zero."
+        },
+        {
+          "question": "An object moves 3 m east and 4 m north. Find distance and displacement magnitude.",
+          "hint": "Distance adds segments; displacement joins start to finish.",
+          "answer": "Distance is 7 m. Displacement has components (3, 4) m and magnitude 5 m."
+        }
+      ]
+    },
+    "2.3": {
+      "question": "Which velocity describes an entire interval of motion, and which describes the body at one instant?",
+      "overview": [
+        "Average speed is total distance divided by duration and carries no direction. Average velocity uses displacement, so it can be zero even after a large distance has been traveled.",
+        "Instantaneous velocity is the limit over ever shorter intervals, the time derivative of position. It is tangent to the trajectory and points along the motion, while its magnitude is instantaneous speed."
+      ],
+      "conceptExplanations": [
+        "The quantity s/Δt averages the rate at which distance accumulates and is nonnegative. It cannot recover direction or final position.",
+        "The vector Δr/Δt joins the endpoints of the selected interval. Its magnitude cannot exceed average speed because |Δr| ≤ s.",
+        "The limit of Δr/Δt as Δt → 0 is dr/dt and geometrically gives the tangent slope of a position graph. It describes local motion, not the preceding route.",
+        "On a smooth curve, velocity is tangent to the path. Its direction changes in a turn even when speed remains constant."
+      ],
+      "boundary": "Instantaneous velocity is defined where the trajectory is differentiable; an ideal instantaneous corner implies unbounded acceleration and requires a more detailed transition model.",
+      "example": {
+        "title": "Average velocities on an out-and-back route",
+        "problem": "An object moves 100 m east and then 60 m west in a total time of 80 s. Find average speed and average velocity.",
+        "steps": [
+          "Total distance is s = 100 + 60 = 160 m.",
+          "Average speed is s/Δt = 160/80 = 2.0 m/s.",
+          "Choose east as +x; displacement is Δx = 100 − 60 = 40 m.",
+          "Average velocity has component 40/80 = +0.50 m/s."
+        ],
+        "answer": "Average speed is 2.0 m/s and average velocity is 0.50 m/s east.",
+        "check": "Average velocity magnitude is smaller than average speed because part of the route was retraced."
+      },
+      "pitfall": "Segment speeds generally cannot be combined by a simple arithmetic mean: their weights are segment times, and equal distances usually take unequal times.",
+      "practice": [
+        {
+          "question": "Can instantaneous velocity be nonzero when average velocity over a full interval is zero?",
+          "hint": "Imagine completing a full lap and returning to the start.",
+          "answer": "Yes. Displacement and average velocity over a full lap are zero, while instantaneous velocity is nonzero and tangent to the circle at ordinary points of the motion."
+        },
+        {
+          "question": "Position is x(t) = 2t² + 1 m. Find instantaneous velocity at t = 3 s.",
+          "hint": "Differentiate x with respect to t.",
+          "answer": "v(t) = 4t m/s, so v(3 s) = 12 m/s along +x."
+        }
+      ]
+    },
+    "2.4": {
+      "question": "How does a change in the velocity vector reveal whether a body speeds up, slows down, or merely turns?",
+      "overview": [
+        "Acceleration is the derivative of vector velocity, so it responds to a change in either magnitude or direction. Uniform circular motion has nonzero inward acceleration even though speed is constant.",
+        "The graphs x(t), v(t), and a(t) are connected by derivatives and integrals. The sign of acceleration alone does not mean speeding up: speed grows when velocity and acceleration align and falls when they oppose."
+      ],
+      "conceptExplanations": [
+        "Average acceleration is Δv/Δt and instantaneous acceleration is dv/dt. Because vectors are subtracted, equal speed magnitudes in different directions still produce a nonzero change.",
+        "In one dimension a body speeds up when va > 0 and slows when va < 0. In several dimensions a perpendicular change can bend the path without changing speed.",
+        "The slope of x(t) is v and the slope of v(t) is a; signed area under v(t) is displacement and under a(t) is velocity change. An extremum of x often has v = 0 but need not imply rest over a finite interval.",
+        "With constant acceleration, velocity is linear in time and position is quadratic. The equations require one inertial frame and consistent initial conditions.",
+        "For variable acceleration, motion is obtained by integration or time stepping. The step must be short compared with the acceleration's change timescale and convergence must be checked."
+      ],
+      "boundary": "Constant-acceleration equations fail when acceleration changes appreciably with time, position, or velocity; a piecewise-constant approximation needs an error check at step boundaries.",
+      "example": {
+        "title": "A reversal on a velocity graph",
+        "problem": "Along a chosen axis, v(t) = 4 − 2t m/s from 0 to 3 s. Find acceleration, displacement, and distance traveled.",
+        "steps": [
+          "Velocity has constant derivative a = −2 m/s².",
+          "Velocity reaches zero at t = 2 s; afterward the body moves in the negative direction.",
+          "Displacement is ∫₀³(4 − 2t)dt = 12 − 9 = 3 m.",
+          "Distance is unsigned area: 4 m before the stop plus 1 m after reversal, totaling 5 m."
+        ],
+        "answer": "Acceleration is −2 m/s², displacement is +3 m, and distance is 5 m; the body first slows and then speeds up along −x.",
+        "check": "Final velocity −2 m/s confirms that the last segment subtracts from displacement but adds to distance."
+      },
+      "pitfall": "Negative acceleration does not always mean slowing down: if velocity is also negative, their alignment increases speed.",
+      "practice": [
+        {
+          "question": "A car travels around a circle at a constant 15 m/s. Does it accelerate?",
+          "hint": "Velocity is a vector, not only its magnitude.",
+          "answer": "Yes. Velocity direction changes continuously, so the car has inward normal acceleration even though speed is constant."
+        },
+        {
+          "question": "An object moves in a circle of radius 20 m at 10 m/s. Find normal acceleration.",
+          "hint": "Use aₙ = v²/R.",
+          "answer": "aₙ = (10 m/s)² / 20 m = 5.0 m/s² toward the center."
+        }
+      ]
+    },
+    "2.5": {
+      "question": "Why does horizontal motion not change the fall time of a projectile in the ideal model?",
+      "overview": [
+        "Near Earth's surface over modest heights, gravity can be treated as uniform: acceleration points vertically downward and is approximately g. Without air drag, horizontal velocity remains constant while vertical velocity evolves independently under constant acceleration.",
+        "A common time parameter joins the components into a parabolic trajectory. Range, height, and flight time follow from initial speed, angle, and height difference; mass cancels because gravitational force and inertia contain the same mass."
+      ],
+      "conceptExplanations": [
+        "In a local frame with +y upward, aᵧ = −g. The value of g varies slightly with latitude and altitude, but 9.81 m/s² is normally sufficient for near-surface exercises.",
+        "The equations x = x₀ + v₀ₓt and y = y₀ + v₀ᵧt − gt²/2 share t, but the horizontal equation contains no vertical quantity. That is component independence in this model.",
+        "A horizontal launch has v₀ᵧ = 0, while an angled launch has v₀ₓ = v₀cos θ and v₀ᵧ = v₀sin θ. After decomposition, the same component equations apply.",
+        "For equal launch and landing heights, flight time is 2v₀sin θ/g, maximum height above launch is v₀²sin²θ/(2g), and range is v₀²sin 2θ/g.",
+        "Drag depends on velocity relative to air and usually couples the components. It shortens range, destroys ascent-descent symmetry, and makes the trajectory nonparabolic."
+      ],
+      "boundary": "A parabolic path requires uniform g, no drag, locally flat geometry, and constant mass; long, fast, or aerodynamically important flights need a numerical model including curvature, Earth rotation, and drag.",
+      "example": {
+        "title": "Angled launch with equal endpoint heights",
+        "problem": "A projectile is launched at 20 m/s and 30° above horizontal. Find flight time, range, and maximum height for g = 9.81 m/s² with no air drag.",
+        "steps": [
+          "Resolve velocity: v₀ₓ = 20cos30° ≈ 17.32 m/s and v₀ᵧ = 20sin30° = 10.0 m/s.",
+          "Return to launch height gives t_f = 2v₀ᵧ/g ≈ 2.04 s.",
+          "Range is R = v₀ₓt_f ≈ 17.32 × 2.04 ≈ 35.3 m.",
+          "At the apex vᵧ = 0, so H = v₀ᵧ²/(2g) ≈ 5.10 m."
+        ],
+        "answer": "Flight time is about 2.04 s, range 35.3 m, and maximum height above launch 5.10 m.",
+        "check": "Ascent lasts v₀ᵧ/g ≈ 1.02 s, exactly half the full time in this symmetric model."
+      },
+      "pitfall": "The range equation R = v₀²sin 2θ/g assumes equal launch and landing heights; it cannot be used for a cliff launch without solving the vertical equation.",
+      "practice": [
+        {
+          "question": "Two bodies of different mass are released together from one height in vacuum. Which lands first?",
+          "hint": "Apply the second law with gravitational force mg.",
+          "answer": "They land together under equal initial conditions: ma = mg gives a = g independently of mass."
+        },
+        {
+          "question": "A body is launched horizontally at 10 m/s from a height of 20 m. Estimate flight time and range for g = 9.81 m/s².",
+          "hint": "First solve 0 = 20 − gt²/2, then use x = v₀ₓt.",
+          "answer": "t = √(40/9.81) ≈ 2.02 s and R ≈ 10 × 2.02 = 20.2 m without air drag."
+        }
+      ]
+    },
+    "2.6": {
+      "question": "How is motion measured inside a moving frame related to the path seen from Earth and to turning along a curve?",
+      "overview": [
+        "In classical mechanics, a body's velocity relative to Earth is the vector sum of its velocity relative to a moving medium and the medium's velocity. Vectors rather than magnitudes explain drift of boats in currents, aircraft in wind, and the apparent direction of rain.",
+        "Curved motion can be decomposed into a change of speed along the tangent and a change of direction toward the center of curvature. For a circle, angular and linear quantities are linked by radius, and normal acceleration remains even at constant speed."
+      ],
+      "conceptExplanations": [
+        "Galilean velocity addition is v_A/C = v_A/B + v_B/C. All three vectors must refer to the same event and consistently aligned, nonrotating axes.",
+        "To cancel a cross-current or crosswind, choose the heading so that the transverse component of velocity through the medium cancels the medium velocity. If the required component exceeds available speed, the exact course is impossible.",
+        "Rotation angle is measured in radians; angular velocity is ω = dφ/dt and angular acceleration α = dω/dt. A point at radius R has speed v = ωR.",
+        "Tangential acceleration a_t = dv/dt changes speed, while normal acceleration a_n = v²/R points to the local center of curvature and turns velocity.",
+        "For uniform circular motion, period T = 2π/ω, speed v = 2πR/T, and acceleration is v²/R. The coordinate components vary sinusoidally."
+      ],
+      "boundary": "Simple velocity addition assumes speeds much smaller than c and frames without relative rotation; in an accelerating medium or variable current, frame velocity depends on time and position.",
+      "example": {
+        "title": "A boat crossing a river",
+        "problem": "A boat points due north and moves at 4 m/s relative to water; the current is 3 m/s east. The river is 200 m wide. Find shore-relative velocity, crossing time, and drift.",
+        "steps": [
+          "Add components: vshore = (3 east, 4 north) m/s.",
+          "Magnitude is √(3² + 4²) = 5 m/s and direction is arctan(3/4) ≈ 36.9° east of north.",
+          "The 4 m/s northward component gives crossing time 200/4 = 50 s.",
+          "During that time the current produces 3 × 50 = 150 m eastward drift."
+        ],
+        "answer": "Relative to shore the boat moves at 5 m/s, 36.9° east of north, crosses in 50 s, and drifts 150 m downstream.",
+        "check": "The actual straight path is √(200² + 150²) = 250 m long; at 5 m/s it indeed takes 50 s."
+      },
+      "pitfall": "Adding speed magnitudes 4 + 3 would give 7 m/s, but perpendicular velocity vectors combine by the Pythagorean theorem and give 5 m/s.",
+      "practice": [
+        {
+          "question": "Why does rain appear slanted to a passenger in a uniformly moving car when drops fall vertically relative to Earth?",
+          "hint": "Subtract the car velocity from the drop velocity.",
+          "answer": "Relative rain velocity is vrain/car = vrain/Earth − vcar/Earth and therefore has a horizontal component opposite the car's motion."
+        },
+        {
+          "question": "A point moves in a circle of radius 30 m at 12 m/s. Find angular velocity and normal acceleration.",
+          "hint": "Use ω = v/R and aₙ = v²/R.",
+          "answer": "ω = 12/30 = 0.40 rad/s and aₙ = 12²/30 = 4.8 m/s² toward the center."
+        }
+      ]
+    }
+  }
+}

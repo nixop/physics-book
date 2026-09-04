@@ -1,0 +1,241 @@
+{
+  "chapter": 0,
+  "ru": {
+    "0.1": {
+      "question": "Как превратить наблюдение реального явления в модель, которая делает проверяемые предсказания, не выдавая упрощение за саму реальность?",
+      "overview": [
+        "Физическое исследование начинается с выбора: какие свойства системы важны для поставленного вопроса, а какими можно пренебречь. Наблюдение даёт исходные факты, идеализация выделяет существенное, модель связывает величины, а эксперимент проверяет полученное предсказание.",
+        "Один объект допускает несколько моделей. Летящий мяч можно считать материальной точкой при расчёте дальности, вращающимся твёрдым телом при анализе закрутки и деформируемой оболочкой при ударе. Модель оценивают не по реалистичности деталей, а по точности ответа в заранее указанной области условий."
+      ],
+      "conceptExplanations": [
+        "Эти этапы образуют проверяемый цикл: данные подсказывают идеализацию, модель порождает численное или качественное предсказание, а новый опыт способен это предсказание опровергнуть или уточнить.",
+        "Полезное описание намеренно отбрасывает детали, которые слабо влияют на выбранный результат. Поэтому простая модель может быть точнее для конкретной задачи, чем сложная, но плохо определённая имитация.",
+        "Приближение сопровождают оценкой малого параметра, например отношения размера тела к длине траектории. Область применимости указывает диапазон, где отброшенные эффекты меньше требуемой точности.",
+        "Измеренный факт относится к конкретной процедуре и неопределённости; гипотеза является проверяемым предположением; модель задаёт представление системы; закон компактно выражает устойчивую связь величин в оговорённых условиях."
+      ],
+      "boundary": "Модель нельзя переносить за пределы проверенных масштабов без новой оценки ошибок: точечное тело перестаёт быть достаточным при существенных размерах или вращении, а классическая механика — при релятивистских скоростях или квантовых масштабах.",
+      "example": {
+        "title": "Модель периода маятника",
+        "problem": "Нужно предсказать, как изменится период небольших колебаний груза на нити при увеличении длины нити с 0,40 до 0,90 м. Как построить и проверить модель?",
+        "steps": [
+          "Выберите систему: груз рассматривайте как материальную точку, нить — как невесомую и нерастяжимую, сопротивлением воздуха пренебрегите.",
+          "Для малых углов примите модель T = 2π√(L/g), где g одинаково в обеих сериях опыта.",
+          "Предскажите отношение периодов: T₂/T₁ = √(0,90/0,40) = 1,5.",
+          "Измерьте время не одного, а, например, десяти колебаний для каждой длины, повторите серии и сравните отношение средних периодов с 1,5."
+        ],
+        "answer": "Модель предсказывает увеличение периода в 1,5 раза. Совпадение в пределах неопределённости поддерживает модель только для использованных длин и малых амплитуд.",
+        "check": "При L → 0 формула даёт T → 0, но раньше нарушатся модели точечного груза и нити; этот предел показывает, почему формулу нельзя считать универсальной."
+      },
+      "pitfall": "Хорошее совпадение одной точки с расчётом не доказывает истинность модели: разные модели могут совпасть в одной точке и разойтись при изменении параметра.",
+      "practice": [
+        {
+          "question": "Фраза «траектория мяча — парабола» является наблюдением, законом или утверждением модели?",
+          "hint": "Спроси, какие эффекты пришлось отбросить, чтобы получить точную параболу.",
+          "answer": "Это утверждение модели движения в однородном поле без сопротивления воздуха при пренебрежимо малой кривизне Земли. Наблюдаемая траектория лишь приближённо поддерживает эту модель."
+        },
+        {
+          "question": "Модель предсказывает y = ax². При удвоении x измеренное y выросло с 3,0 до 11,8 единицы. Согласуется ли отношение с моделью на уровне грубой оценки?",
+          "hint": "Для квадратичной зависимости сравни y₂/y₁ с 2².",
+          "answer": "y₂/y₁ ≈ 11,8/3,0 ≈ 3,93, что близко к предсказанному 4. Для строгого вывода всё равно нужны неопределённости и дополнительные точки."
+        }
+      ]
+    },
+    "0.2": {
+      "question": "Какие решения в постановке опыта позволяют связать изменение результата именно с исследуемой причиной?",
+      "overview": [
+        "Эксперимент — это не просто наблюдение результата, а заранее определённая процедура. Исследователь задаёт границы системы, выбирает изменяемый фактор, фиксирует измеряемую величину и удерживает остальные существенные условия постоянными либо учитывает их в модели.",
+        "Надёжность результата опирается на серии измерений, прослеживаемую калибровку и прозрачный протокол. Повторяемость проверяет стабильность результата при той же установке, а воспроизводимость — получение совместимого результата другим методом, оператором или лабораторией."
+      ],
+      "conceptExplanations": [
+        "Граница системы определяет, какие обмены с окружением считать внешними. Входные параметры задают условия опыта, а измеряемая величина должна иметь операционное определение: чем и по какой процедуре её получают.",
+        "Если вместе с выбранным параметром меняется ещё один значимый фактор, их эффекты нельзя разделить. Контроль означает фиксацию, измерение или независимое варьирование таких факторов, а не предположение, что они несущественны.",
+        "Повторяемость обнаруживает случайный разброс и дрейф одной установки. Воспроизводимость сильнее: она проверяет, не зависит ли вывод от скрытых особенностей конкретного прибора или анализа.",
+        "Одна согласующаяся точка может возникнуть случайно или подходить нескольким зависимостям. Серия по диапазону параметра позволяет проверить форму зависимости, остатки и систематические отклонения."
+      ],
+      "boundary": "Контролируемый лабораторный вывод относится к выбранной популяции объектов, диапазону параметров и измерительной процедуре; изменение материала, масштаба или окружающих условий требует отдельной проверки.",
+      "example": {
+        "title": "Проверка зависимости периода пружинного маятника от массы",
+        "problem": "Как проверить предсказание T = 2π√(m/k), не перепутав влияние массы с изменением амплитуды?",
+        "steps": [
+          "Используйте одну пружину, измеряйте одну и ту же координату и задавайте одинаковую малую начальную амплитуду для каждой массы.",
+          "Выберите несколько масс, оставаясь в упругом диапазоне пружины, и для каждой измерьте время десяти полных колебаний в нескольких повторениях.",
+          "Разделите время серии на десять, оцените средний период и разброс, затем постройте график T² от m.",
+          "Проверьте, совместим ли график с прямой и нет ли структуры в остатках; наклон должен быть близок к 4π²/k."
+        ],
+        "answer": "Линейность T²(m) при контролируемой амплитуде поддерживает корневую зависимость. Ненулевое пересечение может указывать на эффективную массу пружины или систематическую задержку измерения.",
+        "check": "Единица наклона T²/m равна с²/кг, как и единица 1/k для k в Н/м = кг/с²."
+      },
+      "pitfall": "Повторить одно измерение много раз недостаточно, если прибор смещён: повторы уменьшают оценку случайного разброса, но не устраняют систематический эффект.",
+      "practice": [
+        {
+          "question": "При проверке сопротивления провода от температуры одновременно меняются температура и длина провода из-за теплового расширения. Что следует сделать?",
+          "hint": "Необязательно полностью устранить второй эффект; его можно измерить или оценить.",
+          "answer": "Нужно контролировать геометрию или включить изменение длины и площади сечения в модель и оценку неопределённости. Иначе наблюдаемый эффект нельзя приписать только изменению удельного сопротивления."
+        },
+        {
+          "question": "Время десяти колебаний измерили как 12,4; 12,6; 12,5 с. Найди оценку среднего периода одного колебания.",
+          "hint": "Сначала усредни времена серий, затем раздели на число колебаний.",
+          "answer": "Среднее время десяти колебаний равно 12,5 с, поэтому средний период равен 1,25 с. Это ещё не полная запись результата: нужна оценка неопределённости и разрешения таймера."
+        }
+      ]
+    },
+    "0.3": {
+      "question": "Как работать с интерактивной моделью так, чтобы движение ползунка превращалось в физический вывод, а не в просмотр анимации?",
+      "overview": [
+        "Интерактив полезен, когда работа с ним устроена как небольшой эксперимент. До запуска сформулируйте ожидаемое направление изменения, затем варьируйте один параметр, считывайте численный или графический результат и объясняйте его через модель.",
+        "Экранная модель не заменяет реальную установку: она точно исполняет заложенные уравнения и допущения. Поэтому журнал должен хранить не только значения, но и вопрос, неизменные условия, единицы, наблюдение, объяснение и найденную границу применимости."
+      ],
+      "conceptExplanations": [
+        "Предсказание до запуска защищает от подгонки объяснения под увиденное. Измерение превращает впечатление в данные, а завершающее объяснение связывает знак, масштаб и форму эффекта с физической причиной.",
+        "Ползунок обычно задаёт входной параметр, график показывает зависимость, а виртуальный прибор — конкретное наблюдаемое значение. Перед сравнением выясните диапазон, единицы, масштаб осей и что модель держит постоянным.",
+        "Полезная запись содержит таблицу входов и выходов, снимок условий или версию модели и короткий вывод. Так результат можно воспроизвести и отличить данные от последующей интерпретации.",
+        "Интуитивный слой отвечает на вопрос о направлении эффекта, основной маршрут связывает величины и графики, а математическое углубление выводит зависимость и оценивает пределы; переходить между слоями можно без потери исходного вопроса."
+      ],
+      "boundary": "Вывод из симуляции подтверждает следствия реализованных уравнений, но не их соответствие природе; численные параметры, граничные условия и неучтённые эффекты нужно отдельно сопоставлять с реальным экспериментом.",
+      "example": {
+        "title": "Исследование зависимости без перебора наугад",
+        "problem": "В модели период T зависит от длины L. Как по пяти запускам отличить линейную зависимость T ∝ L от корневой T ∝ √L?",
+        "steps": [
+          "Запишите две конкурирующие гипотезы и предскажите: при увеличении L в четыре раза T вырастет в четыре или в два раза.",
+          "Выберите пять значений L по всему доступному диапазону, не меняя остальные параметры, и сохраните пары L, T с единицами.",
+          "Сравните отношения T₂/T₁ для кратных длин, затем постройте T от L и T² от L.",
+          "Выберите зависимость, которая даёт прямую без систематической структуры остатков, и проверьте крайние точки диапазона."
+        ],
+        "answer": "Для модели простого маятника при малых углах прямая получается на графике T²(L), а четырёхкратное увеличение L удваивает T.",
+        "check": "Отношение T²/L должно оставаться постоянным и иметь единицу с²/м; один красивый график без подписанных осей этого не показывает."
+      },
+      "pitfall": "Одновременное изменение нескольких ползунков уничтожает причинное сравнение: даже эффект правильного знака нельзя уверенно связать с одним параметром.",
+      "practice": [
+        {
+          "question": "График изменился после перемещения ползунка. Какие три вещи нужно установить до физического объяснения?",
+          "hint": "Посмотри на вход, выход и неизменные условия.",
+          "answer": "Нужно назвать изменённый параметр и его единицу, считываемую величину и её шкалу, а также параметры и допущения, которые оставались фиксированными."
+        },
+        {
+          "question": "При x = 1, 2, 4 модель дала y = 3, 12, 48. Какая степенная зависимость согласуется с данными?",
+          "hint": "Проверь, во сколько раз меняется y при удвоении x.",
+          "answer": "При каждом удвоении x величина y растёт в четыре раза, поэтому данные согласуются с y = 3x². Следует проверить дополнительные точки и не считать это доказательством вне исследованного диапазона."
+        }
+      ]
+    }
+  },
+  "en": {
+    "0.1": {
+      "question": "How can an observation of a real phenomenon become a model that makes testable predictions without mistaking the simplification for reality itself?",
+      "overview": [
+        "A physical investigation begins with a choice: which properties matter to the question and which can be neglected. Observation supplies the initial facts, idealization isolates what is essential, a model relates quantities, and an experiment tests the resulting prediction.",
+        "One object can support several models. A flying ball may be a point particle when range is calculated, a rotating rigid body when spin matters, and a deformable shell during impact. A model is judged by the accuracy of its answer within a stated domain, not by the number of realistic details it contains."
+      ],
+      "conceptExplanations": [
+        "These stages form a testable cycle: data motivate an idealization, the model produces a quantitative or qualitative prediction, and a new experiment can reject or refine that prediction.",
+        "A useful description deliberately removes details that have little influence on the chosen outcome. A simple model can therefore answer a focused question more reliably than a complicated but poorly specified simulation.",
+        "An approximation should be accompanied by a small parameter, such as the ratio of an object's size to its travel distance. Its domain states where omitted effects remain below the required accuracy.",
+        "A measured fact belongs to a particular procedure and uncertainty; a hypothesis is a testable proposal; a model represents a system; a law expresses a persistent relation among quantities under stated conditions."
+      ],
+      "boundary": "A model must not be extrapolated beyond tested scales without a new error estimate: a point-particle model fails when size or rotation matters, and classical mechanics fails at relativistic speeds or quantum scales.",
+      "example": {
+        "title": "A model for a pendulum period",
+        "problem": "Predict how the period of small oscillations changes when a pendulum length increases from 0.40 to 0.90 m. How should the model be built and tested?",
+        "steps": [
+          "Define the system: treat the bob as a point particle, the string as massless and inextensible, and neglect air drag.",
+          "For small angles, adopt T = 2π√(L/g), with the same g in both measurement series.",
+          "Predict the period ratio: T₂/T₁ = √(0.90/0.40) = 1.5.",
+          "Measure the time for, say, ten oscillations at each length, repeat each series, and compare the ratio of mean periods with 1.5."
+        ],
+        "answer": "The model predicts a period 1.5 times as large. Agreement within uncertainty supports the model only for the tested lengths and small amplitudes.",
+        "check": "The formula gives T → 0 as L → 0, but the point-bob and string models fail first; this limiting case shows why the equation is not universal."
+      },
+      "pitfall": "Agreement at one point does not prove a model true: several models may cross at that point and make different predictions when a parameter changes.",
+      "practice": [
+        {
+          "question": "Is the statement 'the ball follows a parabola' an observation, a law, or a model claim?",
+          "hint": "Ask which effects must be omitted to obtain an exact parabola.",
+          "answer": "It is a model claim for motion in a uniform field with no air drag and negligible Earth curvature. An observed path can only support this model approximately."
+        },
+        {
+          "question": "A model predicts y = ax². When x doubles, measured y rises from 3.0 to 11.8 units. Is the ratio broadly consistent with the model?",
+          "hint": "For a quadratic relation, compare y₂/y₁ with 2².",
+          "answer": "y₂/y₁ ≈ 11.8/3.0 ≈ 3.93, close to the predicted value 4. A rigorous conclusion still requires uncertainties and additional points."
+        }
+      ]
+    },
+    "0.2": {
+      "question": "Which choices in an experimental design let us attribute a change in the result to the cause being investigated?",
+      "overview": [
+        "An experiment is not merely an observed outcome but a predefined procedure. The investigator sets the system boundary, chooses the factor to vary, defines the measured quantity, and either holds other important conditions fixed or accounts for them in the model.",
+        "Reliable results depend on measurement series, traceable calibration, and a transparent protocol. Repeatability tests stability with the same setup, whereas reproducibility asks whether a compatible result is obtained with another method, operator, or laboratory."
+      ],
+      "conceptExplanations": [
+        "The system boundary determines which exchanges are external. Inputs specify the experimental conditions, while every measured quantity needs an operational definition: the instrument and procedure used to obtain it.",
+        "If another important factor changes together with the chosen input, their effects cannot be separated. Control means fixing, measuring, or independently varying such factors rather than merely assuming they are irrelevant.",
+        "Repeatability exposes random scatter and drift within one setup. Reproducibility is a stronger challenge because it tests for hidden dependence on a particular instrument or analysis pipeline.",
+        "One agreeing point may occur by chance or fit several different relations. A series spanning the parameter range can test the shape of the relation, its residuals, and systematic departures."
+      ],
+      "boundary": "A controlled laboratory conclusion applies to the selected objects, parameter range, and measurement procedure; changing material, scale, or environmental conditions requires a separate test.",
+      "example": {
+        "title": "Testing the mass dependence of a spring oscillator",
+        "problem": "How can T = 2π√(m/k) be tested without confusing a mass effect with a changing amplitude?",
+        "steps": [
+          "Use the same spring and coordinate measurement, and set the same small initial amplitude for every mass.",
+          "Choose several masses within the spring's elastic range and measure ten complete oscillations in repeated trials for each mass.",
+          "Divide each series time by ten, estimate the mean period and spread, and plot T² against m.",
+          "Check whether a straight line is consistent with the data and whether residuals show structure; its slope should be close to 4π²/k."
+        ],
+        "answer": "A linear T²(m) relation at controlled amplitude supports the square-root model. A nonzero intercept may reveal the spring's effective mass or a systematic timing delay.",
+        "check": "The unit of the slope T²/m is s²/kg, the same as the unit of 1/k when k is in N/m = kg/s²."
+      },
+      "pitfall": "Repeating one reading many times is insufficient when an instrument is biased: repetition reduces estimated random scatter but does not remove a systematic effect.",
+      "practice": [
+        {
+          "question": "While testing a wire's resistance against temperature, the wire also expands. What should the experimenter do?",
+          "hint": "The second effect need not be eliminated completely; it can be measured or estimated.",
+          "answer": "Control the geometry or include the changes in length and cross-sectional area in the model and uncertainty budget. Otherwise the observed change cannot be assigned solely to resistivity."
+        },
+        {
+          "question": "The measured times for ten oscillations are 12.4, 12.6, and 12.5 s. Estimate the mean period of one oscillation.",
+          "hint": "Average the series times first, then divide by the number of oscillations.",
+          "answer": "The mean time for ten oscillations is 12.5 s, so the mean period is 1.25 s. A complete reported result would also include uncertainty and timer resolution."
+        }
+      ]
+    },
+    "0.3": {
+      "question": "How should an interactive model be used so that moving a slider produces a physical conclusion rather than merely an animation?",
+      "overview": [
+        "An interactive becomes useful when it is treated as a small experiment. State the expected direction of change before running it, vary one parameter, read a numerical or graphical result, and explain that result through the model.",
+        "An on-screen model does not replace a real apparatus: it executes its encoded equations and assumptions exactly. A notebook should therefore preserve not only values but also the question, fixed conditions, units, observation, explanation, and discovered limit of applicability."
+      ],
+      "conceptExplanations": [
+        "A prediction made before running the model prevents the explanation from being fitted to what was seen. Measurement turns an impression into data, and the final explanation connects the effect's sign, scale, and shape to a physical cause.",
+        "A slider usually controls an input, a graph displays a relation, and a virtual instrument reports an observable value. Before comparing runs, identify the ranges, units, axis scales, and quantities held fixed.",
+        "A useful record contains a table of inputs and outputs, a snapshot of conditions or model version, and a short conclusion. This makes the result reproducible and keeps data separate from later interpretation.",
+        "The intuitive layer asks for the direction of an effect, the core path relates quantities and graphs, and the mathematical layer derives the dependence and estimates its limits; all three can preserve the same guiding question."
+      ],
+      "boundary": "A simulation result verifies consequences of the implemented equations, not their agreement with nature; numerical parameters, boundary conditions, and omitted effects must be compared separately with a real experiment.",
+      "example": {
+        "title": "Investigating a relation without random trial and error",
+        "problem": "A model says that period T depends on length L. How can five runs distinguish T ∝ L from T ∝ √L?",
+        "steps": [
+          "Write down both competing hypotheses and predict whether quadrupling L should multiply T by four or by two.",
+          "Choose five L values across the available range, hold all other inputs fixed, and record L and T with units.",
+          "Compare T₂/T₁ for simple length ratios, then plot T against L and T² against L.",
+          "Select the relation that produces a straight line without systematic residual structure, and inspect the endpoints of the range."
+        ],
+        "answer": "For the small-angle simple-pendulum model, T² plotted against L is linear, and quadrupling L doubles T.",
+        "check": "The ratio T²/L should stay constant and have unit s²/m; an attractive graph without labeled axes does not establish this."
+      },
+      "pitfall": "Changing several sliders at once destroys the causal comparison: even an effect with the expected sign cannot be attributed confidently to one input.",
+      "practice": [
+        {
+          "question": "A graph changes after a slider is moved. Which three facts must be established before giving a physical explanation?",
+          "hint": "Look for the input, the output, and the fixed conditions.",
+          "answer": "Name the changed parameter and its unit, the reported quantity and scale, and the parameters and assumptions that remained fixed."
+        },
+        {
+          "question": "At x = 1, 2, and 4 a model returns y = 3, 12, and 48. Which power-law relation is consistent with these data?",
+          "hint": "Check how y changes whenever x doubles.",
+          "answer": "Every doubling of x multiplies y by four, so the data are consistent with y = 3x². Additional points are needed, and this does not justify extrapolation outside the tested range."
+        }
+      ]
+    }
+  }
+}

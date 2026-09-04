@@ -1,0 +1,399 @@
+{
+  "chapter": 5,
+  "ru": {
+    "5.1": {
+      "question": "Как один ньютоновский закон связывает взаимное притяжение тел, поле в пространстве и ускорение у поверхности планеты?",
+      "overview": [
+        "Точечная масса M создаёт гравитационное поле g = −GMr/r³, направленное к источнику. Другая масса m испытывает силу F = mg; её собственная масса сокращается в ускорении свободного падения, если другие силы отсутствуют.",
+        "Поля нескольких источников складываются векторно, а потенциалы — скалярно. При выборе нуля на бесконечности потенциал точечной массы φ = −GM/r, потенциальная энергия пары U = mφ, и поле восстанавливается как g = −∇φ."
+      ],
+      "conceptExplanations": [
+        "Модуль силы между точечными массами равен Gm₁m₂/r², а силы направлены вдоль соединяющей прямой и образуют пару третьего закона. Для сферически симметричного тела снаружи работает та же формула с массой в центре.",
+        "Принцип суперпозиции суммирует поле каждого источника в одной точке с направлением. Он применим в ньютоновской теории, потому что уравнение поля линейно по плотности массы.",
+        "Потенциал — энергия на единицу пробной массы и обычно отрицателен при нуле на бесконечности. Разность потенциалов определяет работу независимо от пути в стационарном гравитационном поле.",
+        "На поверхности сферической планеты g = GM/R². На небольшой высоте по сравнению с R изменение g мало, поэтому поле приближают постоянным и используют U ≈ mgh."
+      ],
+      "boundary": "Ньютоновская формула точна для точечных или неперекрывающихся сферически симметричных тел в слабом поле и при малых скоростях; внутри несферического тела поле требует интегрирования плотности, а сильная гравитация — общей теории относительности.",
+      "example": {
+        "title": "Ускорение на поверхности Земли из M и R",
+        "problem": "Оцените g для сферической Земли с M = 5,972×10²⁴ кг и R = 6,371×10⁶ м, используя G = 6,6743×10⁻¹¹ м³/(кг·с²).",
+        "steps": [
+          "Используйте g = GM/R² для точки на поверхности сферически симметричной массы.",
+          "Числитель GM ≈ 3,986×10¹⁴ м³/с².",
+          "Знаменатель R² ≈ 4,059×10¹³ м².",
+          "Деление даёт g ≈ 9,82 м/с²."
+        ],
+        "answer": "Сферическая модель даёт g ≈ 9,82 м/с², близкое к стандартному 9,80665 м/с²; местное значение меняется из-за вращения, широты, высоты и распределения массы.",
+        "check": "Размерность GM/R² равна (м³/(кг·с²))×кг/м² = м/с²."
+      },
+      "pitfall": "Отрицательный потенциал при нуле на бесконечности не означает отрицательную силу: направление поля определяется градиентом, а знак U показывает связанность относительно выбранного нуля.",
+      "practice": [
+        {
+          "question": "Почему две разные пробные массы получают одинаковое ускорение в одном гравитационном поле?",
+          "hint": "Подставь F = mg в ma = F.",
+          "answer": "Инертная масса в ma и гравитационная масса в mg сокращаются, давая a = g, если сопротивлением и другими силами можно пренебречь."
+        },
+        {
+          "question": "Во сколько раз поле сферической планеты слабее на расстоянии 2R от её центра, чем на поверхности R?",
+          "hint": "Поле вне сферы убывает как 1/r².",
+          "answer": "g(2R)/g(R) = R²/(2R)² = 1/4, то есть поле в четыре раза слабее."
+        }
+      ]
+    },
+    "5.2": {
+      "question": "Почему планета движется быстрее вблизи звезды и как размер эллипса задаёт период обращения?",
+      "overview": [
+        "Изолированная ньютоновская задача двух тел сводится к движению относительного радиус-вектора в центральном поле. Связанная траектория является эллипсом с центром притяжения в фокусе; окружность — его частный случай.",
+        "Центральная сила имеет нулевой момент, поэтому угловой момент и секторная скорость постоянны: радиус-вектор заметает равные площади за равные времена. Третий закон связывает период с большой полуосью относительной орбиты: T² = 4π²a³/[G(M+m)]."
+      ],
+      "conceptExplanations": [
+        "При отрицательной полной энергии относительная орбита — эллипс; при нулевой — парабола, при положительной — гипербола. Обе массы на самом деле движутся вокруг общего центра масс.",
+        "Площадь малого сектора равна половине модуля r×v, умноженной на dt. Постоянство углового момента делает эту скорость заметания постоянной и заставляет тело двигаться быстрее у периапсиса.",
+        "Полуось a относится к относительному расстоянию между телами. Сумма масс M+m важна, когда масса спутника не пренебрежимо мала относительно центрального тела.",
+        "Тангенциальная скорость не даёт телу упасть прямо к центру: гравитация непрерывно искривляет траекторию, превращая свободное падение в орбитальное движение."
+      ],
+      "boundary": "Законы Кеплера в этой точной форме предполагают изолированную ньютоновскую задачу двух точечных или сферических тел; возмущения других тел, несферичность, сопротивление и релятивистские поправки вызывают прецессию и изменение элементов орбиты.",
+      "example": {
+        "title": "Период земной орбиты",
+        "problem": "Оцените период почти круговой орбиты Земли при a = 1,496×10¹¹ м и GM☉ = 1,3271244×10²⁰ м³/с², пренебрегая массой Земли в знаменателе.",
+        "steps": [
+          "Запишите T = 2π√(a³/GM☉).",
+          "Вычислите a³ ≈ 3,349×10³³ м³.",
+          "Отношение a³/GM☉ ≈ 2,524×10¹³ с²; его корень около 5,024×10⁶ с.",
+          "Умножение на 2π даёт T ≈ 3,157×10⁷ с ≈ 365,3 суток."
+        ],
+        "answer": "Период около 365,3 суток, что согласуется с земным годом в рамках округления и двухтельного приближения.",
+        "check": "Размерность a³/(GM) равна с², а квадратный корень даёт время."
+      },
+      "pitfall": "Звезда находится в фокусе эллипса, а не в его геометрическом центре; размещение её в центре разрушает связь скорости с площадным законом.",
+      "practice": [
+        {
+          "question": "Где на эллиптической орбите скорость больше — у периапсиса или апоапсиса?",
+          "hint": "За одинаковое время площадь сектора одинакова, но радиус различается.",
+          "answer": "У периапсиса: меньший радиус должен компенсироваться большей поперечной скоростью, чтобы секторная скорость оставалась постоянной."
+        },
+        {
+          "question": "Большая полуось орбиты увеличилась в 4 раза при той же центральной массе. Во сколько раз изменится период?",
+          "hint": "Используй T ∝ a³ᐟ².",
+          "answer": "Период увеличится в 4³ᐟ² = 8 раз."
+        }
+      ]
+    },
+    "5.3": {
+      "question": "Как знак орбитальной энергии разделяет связанные и уходящие траектории и что короткий импульс делает с орбитой?",
+      "overview": [
+        "Удельная механическая энергия в ньютоновском поле равна ε = v²/2 − μ/r, где μ = GM. Для связанной эллиптической орбиты ε < 0 и ε = −μ/(2a); нулевая энергия задаёт параболический предел ухода, положительная — гиперболическую траекторию.",
+        "Круговая скорость на радиусе r равна √(μ/r), а скорость ухода без последующей тяги — √(2μ/r). Короткий импульс мгновенно меняет скорость, но не положение; его направление определяет новые энергию, угловой момент и противоположную точку орбиты."
+      ],
+      "conceptExplanations": [
+        "Круговая орбита имеет постоянный радиус и скорость, эллиптическая обменивает кинетическую и потенциальную энергию при неизменной сумме. Формула vis-viva v² = μ(2/r − 1/a) описывает обе.",
+        "Первая космическая скорость в идеализированном смысле — круговая у поверхности, вторая — скорость ухода с поверхности. Они зависят от планеты и не являются универсальными константами.",
+        "Отрицательная ε означает конечный апоцентр, ε = 0 — уход с нулевой скоростью на бесконечности, ε > 0 — ненулевая остаточная скорость. Фактическая траектория может пересечь поверхность раньше.",
+        "Проградный импульс на круговой орбите обычно поднимает апоцентр, оставляя точку манёвра перицентром новой орбиты; ретроградный снижает противоположную часть. Радиальный импульс также меняет ориентацию эллипса."
+      ],
+      "boundary": "Поверхностные космические скорости пренебрегают атмосферой, вращением, рельефом и конечной длительностью тяги; формулы с одной μ предполагают сферическое центральное тело и отсутствие существенных возмущений.",
+      "example": {
+        "title": "Круговая скорость и скорость ухода у Земли",
+        "problem": "Оцените обе скорости на радиусе Земли R = 6,371×10⁶ м при μ = 3,986×10¹⁴ м³/с², игнорируя атмосферу и вращение.",
+        "steps": [
+          "Круговая скорость v_c = √(μ/R).",
+          "Подстановка даёт v_c ≈ √(6,257×10⁷) ≈ 7,91 км/с.",
+          "Скорость ухода v_esc = √(2μ/R) = √2 v_c.",
+          "Получите v_esc ≈ 11,19 км/с."
+        ],
+        "answer": "Идеальные значения у поверхности: круговая скорость около 7,91 км/с, скорость ухода около 11,19 км/с.",
+        "check": "Отношение v_esc/v_c = √2 ≈ 1,414 независимо от M и r в одной и той же точке ньютоновского поля."
+      },
+      "pitfall": "Скорость ниже скорости ухода не гарантирует орбиту: при неподходящем направлении траектория может пересечь планету, а атмосфера дополнительно рассеивает энергию.",
+      "practice": [
+        {
+          "question": "Что произойдёт с дальней точкой круговой орбиты после короткого проградного импульса?",
+          "hint": "В точке импульса возрастает энергия и тангенциальная скорость, а положение ещё не меняется.",
+          "answer": "Точка импульса становится перицентром новой эллиптической орбиты, а противоположный апоцентр поднимается, если импульс не достиг скорости ухода."
+        },
+        {
+          "question": "Найди круговую скорость на r = 7,0×10⁶ м от центра Земли при μ = 3,986×10¹⁴ м³/с².",
+          "hint": "Используй v_c = √(μ/r).",
+          "answer": "v_c = √(3,986×10¹⁴ / 7,0×10⁶) ≈ 7546 м/с ≈ 7,55 км/с."
+        }
+      ]
+    },
+    "5.4": {
+      "question": "Почему протяжённое тело испытывает приливы даже в почти свободном падении и как вращение создаёт особые равновесные точки?",
+      "overview": [
+        "Приливный эффект вызывается не самим значением гравитационного поля, а его различием между частями протяжённого тела. В системе, падающей вместе с центром, общий компонент ускорения исчезает, но градиент поля растягивает тело вдоль направления к источнику и сжимает поперёк.",
+        "Приливные моменты могут синхронизировать вращение со средним орбитальным движением. В системе, вращающейся вместе с двумя основными телами, гравитационные и инерционные члены образуют пять точек Лагранжа, где малое третье тело может сохранять постоянное положение в идеальной ограниченной задаче."
+      ],
+      "conceptExplanations": [
+        "Поле точечной массы меняется примерно как 1/r², поэтому ближняя и дальняя стороны получают разные ускорения. Для размера R ≪ r продольная разность масштаба порядка 2GMR/r³.",
+        "Приливная сила — остаток после вычитания ускорения центра масс. Она зависит от размера и ориентации тела и может деформировать океаны, спутники и звёзды.",
+        "Синхронное вращение означает равенство периода вращения периоду обращения; при малом эксцентриситете и наклоне одно полушарие остаётся обращённым к партнёру. Состояние поддерживается приливной диссипацией и захватом.",
+        "Предел Роша оценивает расстояние, внутри которого приливное растяжение может преодолеть самогравитацию спутника. Коэффициент зависит от плотностей, жёсткости, вращения и модели жидкого или твёрдого тела.",
+        "L₁, L₂ и L₃ коллинеарны и обычно неустойчивы без коррекций; L₄ и L₅ образуют равносторонние конфигурации и могут быть устойчивы при достаточно малом отношении масс в круговой ограниченной задаче."
+      ],
+      "boundary": "Оценка прилива 2GMR/r³ требует R ≪ r и точечного источника, а простые предел Роша и точки Лагранжа относятся к идеализированным круговым, плоским и ограниченным моделям без дополнительных тел и негравитационных сил.",
+      "example": {
+        "title": "Масштаб лунного приливного ускорения на Земле",
+        "problem": "Оцените разность лунного ускорения между центром и ближним краем Земли по формуле 2μₘRₑ/r³, где μₘ = 4,9049×10¹² м³/с², Rₑ = 6,371×10⁶ м, r = 3,844×10⁸ м.",
+        "steps": [
+          "Используйте линейное по R приближение градиента поля, поскольку Rₑ/r ≈ 0,0166 ≪ 1.",
+          "Числитель 2μₘRₑ ≈ 6,250×10¹⁹ м⁴/с².",
+          "Знаменатель r³ ≈ 5,682×10²⁵ м³.",
+          "Отношение даёт приблизительно 1,10×10⁻⁶ м/с²."
+        ],
+        "answer": "Характерное продольное приливное ускорение от центра к ближней стороне около 1,1 мкм/с², намного меньше g, но систематично действует на всю Землю.",
+        "check": "Прилив убывает как 1/r³, быстрее самого поля 1/r², что объясняет сильную чувствительность к расстоянию."
+      },
+      "pitfall": "Приливы нельзя объяснять только тем, что ближнюю сторону притягивает сильнее: нужно вычесть ускорение центра и учесть противоположное относительное растяжение дальней стороны.",
+      "practice": [
+        {
+          "question": "Означает ли синхронное вращение, что спутник не вращается вокруг своей оси?",
+          "hint": "Проследи ориентацию спутника относительно далёких звёзд за один оборот.",
+          "answer": "Нет. Он делает один оборот вокруг своей оси за один орбитальный период, поэтому одно полушарие остаётся обращённым к планете."
+        },
+        {
+          "question": "Во сколько раз уменьшится приливный эффект точечного источника, если расстояние увеличить вдвое при том же размере тела?",
+          "hint": "Приливный масштаб пропорционален 1/r³.",
+          "answer": "Он уменьшится в 2³ = 8 раз."
+        }
+      ]
+    },
+    "5.5": {
+      "question": "Почему добавление третьего гравитирующего тела качественно усложняет прогноз и как проверить надёжность численной орбиты?",
+      "overview": [
+        "В задаче двух тел движение центра масс отделяется, а относительное движение имеет достаточно интегралов сохранения для аналитического описания коническими сечениями. При трёх и более взаимно влияющих телах ускорение каждого зависит от всех меняющихся расстояний, и общего решения в элементарной замкнутой форме нет.",
+        "Многотельные траектории могут быть регулярными, резонансными, квазипериодическими или хаотическими. Численный интегратор пошагово обновляет положения и скорости; качество проверяют сходимостью при уменьшении шага и дрейфом энергии, импульса и углового момента."
+      ],
+      "conceptExplanations": [
+        "Для двух тел внутренние силы центральны, центр масс движется равномерно, а относительная координата эквивалентна одной частице с приведённой массой. Это разделение делает задачу интегрируемой.",
+        "Третье массивное тело одновременно возмущает обе прежние орбиты, которые затем меняют его движение. Такая нелинейная обратная связь не сводится к независимому сложению двух неподвижных двухтельных решений.",
+        "Некоторые конфигурации защищены резонансами и сохраняются долго, другие медленно обмениваются энергией, а хаотические экспоненциально усиливают малую разницу начальных условий. Хаос не означает отсутствие детерминированных уравнений.",
+        "Интеграторы различаются точностью и сохранением геометрической структуры. Для долгих гравитационных расчётов симплектические методы часто лучше ограничивают дрейф энергии, а близкие сближения требуют малого адаптивного шага или регуляризации."
+      ],
+      "boundary": "Точность численного прогноза ограничена неопределённостью начальных условий, моделью тел и накопленной ошибкой; совпадение одного запуска не гарантирует долгосрочную траекторию в хаотическом режиме.",
+      "example": {
+        "title": "Центр масс как тест трёхтельного расчёта",
+        "problem": "Три тела массами 1, 2 и 3 кг имеют координаты x = 0, 2 и 5 м и скорости vₓ = 1, 0 и −1 м/с. Внешних сил нет. Где должен находиться центр масс через 6 с независимо от внутренних сил?",
+        "steps": [
+          "Полная масса M = 1 + 2 + 3 = 6 кг.",
+          "Начальная координата X_cm = (1×0 + 2×2 + 3×5)/6 = 19/6 м.",
+          "Полный импульс Pₓ = 1×1 + 2×0 + 3×(−1) = −2 кг·м/с, поэтому V_cm = −2/6 = −1/3 м/с.",
+          "Без внешней силы X_cm(6) = 19/6 + (−1/3)×6 = 7/6 м ≈ 1,17 м."
+        ],
+        "answer": "Через 6 с центр масс должен быть в x = 7/6 м ≈ 1,17 м; заметное отклонение численной модели укажет на ошибку интегрирования или сил.",
+        "check": "Внутренние гравитационные силы попарно сокращаются в уравнении полного импульса, хотя отдельные траектории могут быть сложными."
+      },
+      "pitfall": "Малое изменение траектории при одном шаге не доказывает долгосрочную точность: фазовая ошибка и нарушение инвариантов могут накапливаться тысячи оборотов.",
+      "practice": [
+        {
+          "question": "Почему хаотическая орбита не является случайной в том же смысле, что бросок независимой монеты?",
+          "hint": "Раздели детерминированность закона и практическую предсказуемость.",
+          "answer": "Она подчиняется детерминированным уравнениям, но экспоненциально усиливает малые различия начальных условий, поэтому конечная точность данных задаёт ограниченный горизонт прогноза."
+        },
+        {
+          "question": "У изолированной системы тел полный импульс 12 кг·м/с, полная масса 30 кг. Как движется центр масс?",
+          "hint": "Используй V_cm = P/M.",
+          "answer": "Центр масс движется равномерно со скоростью 12/30 = 0,40 м/с в направлении полного импульса."
+        }
+      ]
+    }
+  },
+  "en": {
+    "5.1": {
+      "question": "How does one Newtonian law connect mutual attraction, a field in space, and acceleration near a planet's surface?",
+      "overview": [
+        "A point mass M creates gravitational field g = −GMr/r³ directed toward the source. Another mass m experiences F = mg; its own mass cancels from free-fall acceleration when no other forces act.",
+        "Fields from several sources add vectorially, while potentials add as scalars. With zero at infinity, point-mass potential is φ = −GM/r, pair potential energy is U = mφ, and the field is recovered through g = −∇φ."
+      ],
+      "conceptExplanations": [
+        "Force magnitude between point masses is Gm₁m₂/r², and forces lie along their connecting line as a third-law pair. Outside a spherically symmetric body, the same equation applies with mass at the center.",
+        "Superposition adds each source field at one point with direction. It works in Newtonian theory because the field equation is linear in mass density.",
+        "Potential is energy per unit test mass and is normally negative when zero is at infinity. A potential difference determines path-independent work in a stationary gravitational field.",
+        "At the surface of a spherical planet g = GM/R². Over height small relative to R, g changes little, so a constant field and U ≈ mgh are useful approximations."
+      ],
+      "boundary": "The Newtonian expression is accurate for pointlike or nonoverlapping spherical bodies in weak fields at low speeds; a nonspherical interior requires density integration, while strong gravity requires general relativity.",
+      "example": {
+        "title": "Surface gravity from Earth's M and R",
+        "problem": "Estimate g for spherical Earth with M = 5.972×10²⁴ kg and R = 6.371×10⁶ m, using G = 6.6743×10⁻¹¹ m³/(kg·s²).",
+        "steps": [
+          "Use g = GM/R² at the surface of a spherical mass.",
+          "The numerator GM ≈ 3.986×10¹⁴ m³/s².",
+          "The denominator R² ≈ 4.059×10¹³ m².",
+          "Their ratio gives g ≈ 9.82 m/s²."
+        ],
+        "answer": "The spherical model gives g ≈ 9.82 m/s², close to standard 9.80665 m/s²; local values vary with rotation, latitude, altitude, and mass distribution.",
+        "check": "Dimensions of GM/R² are (m³/(kg·s²))×kg/m² = m/s²."
+      },
+      "pitfall": "A negative potential with zero at infinity does not imply a negative force; field direction comes from the gradient, while the sign of U describes binding relative to the chosen zero.",
+      "practice": [
+        {
+          "question": "Why do two different test masses have the same acceleration in one gravitational field?",
+          "hint": "Insert F = mg into ma = F.",
+          "answer": "Inertial mass in ma and gravitational mass in mg cancel to give a = g when drag and other forces are negligible."
+        },
+        {
+          "question": "How much weaker is a spherical planet's field at distance 2R from its center than at surface R?",
+          "hint": "Outside the sphere the field falls as 1/r².",
+          "answer": "g(2R)/g(R) = R²/(2R)² = 1/4, so it is four times weaker."
+        }
+      ]
+    },
+    "5.2": {
+      "question": "Why does a planet move faster near its star, and how does ellipse size determine orbital period?",
+      "overview": [
+        "An isolated Newtonian two-body problem reduces to motion of the relative position vector in a central field. A bound path is an ellipse with the attraction center at a focus; a circle is its special case.",
+        "A central force has zero torque, so angular momentum and areal velocity are constant: the radius vector sweeps equal areas in equal times. The third law connects period to the relative orbit semimajor axis: T² = 4π²a³/[G(M+m)]."
+      ],
+      "conceptExplanations": [
+        "With negative total energy the relative orbit is an ellipse; with zero energy it is parabolic, and with positive energy hyperbolic. Both masses actually move about their common center of mass.",
+        "A small sector area is one half the magnitude of r×v times dt. Angular-momentum conservation keeps this sweep rate constant and requires faster motion at periapsis.",
+        "The semimajor axis a belongs to relative separation. The sum M+m matters when the orbiting body's mass is not negligible relative to the central body.",
+        "Tangential velocity prevents a direct fall toward the center: gravity continuously bends the trajectory and turns free fall into orbital motion."
+      ],
+      "boundary": "Kepler's laws in this exact form assume an isolated Newtonian problem of two pointlike or spherical bodies; other-body perturbations, nonsphericity, drag, and relativistic corrections produce precession and evolving elements.",
+      "example": {
+        "title": "Period of Earth's orbit",
+        "problem": "Estimate Earth's nearly circular period for a = 1.496×10¹¹ m and GM☉ = 1.3271244×10²⁰ m³/s², neglecting Earth mass in the denominator.",
+        "steps": [
+          "Write T = 2π√(a³/GM☉).",
+          "Calculate a³ ≈ 3.349×10³³ m³.",
+          "The ratio a³/GM☉ ≈ 2.524×10¹³ s² and its square root is about 5.024×10⁶ s.",
+          "Multiplying by 2π gives T ≈ 3.157×10⁷ s ≈ 365.3 days."
+        ],
+        "answer": "The period is about 365.3 days, consistent with an Earth year within rounding and the two-body approximation.",
+        "check": "a³/(GM) has dimension s², so its square root is a time."
+      },
+      "pitfall": "The star occupies an ellipse focus, not its geometric center; placing it at the center destroys the speed relation implied by equal areas.",
+      "practice": [
+        {
+          "question": "Where is speed greater on an elliptical orbit, at periapsis or apoapsis?",
+          "hint": "Equal sectors are swept in equal times while radius differs.",
+          "answer": "At periapsis: a smaller radius requires greater transverse speed to keep areal velocity constant."
+        },
+        {
+          "question": "Semimajor axis increases by a factor of 4 around the same central mass. How does period change?",
+          "hint": "Use T ∝ a³ᐟ².",
+          "answer": "Period increases by 4³ᐟ² = 8."
+        }
+      ]
+    },
+    "5.3": {
+      "question": "How does the sign of orbital energy separate bound and escaping paths, and what does a brief impulse do to an orbit?",
+      "overview": [
+        "Specific mechanical energy in a Newtonian field is ε = v²/2 − μ/r, where μ = GM. A bound ellipse has ε < 0 and ε = −μ/(2a); zero energy is the parabolic escape boundary and positive energy gives a hyperbola.",
+        "Circular speed at radius r is √(μ/r), while no-further-thrust escape speed is √(2μ/r). A brief impulse changes velocity but not instantaneous position; its direction sets new energy, angular momentum, and the opposite apsis."
+      ],
+      "conceptExplanations": [
+        "A circular orbit has constant radius and speed, while an ellipse exchanges kinetic and potential energy at fixed total. The vis-viva equation v² = μ(2/r − 1/a) covers both.",
+        "First cosmic speed in idealized usage is circular speed at the surface, and second cosmic speed is surface escape speed. They depend on the planet and are not universal constants.",
+        "Negative ε gives a finite apoapsis, ε = 0 reaches infinity with zero residual speed, and ε > 0 retains excess speed. The actual path may intersect the surface first.",
+        "A prograde impulse on a circular orbit normally raises apoapsis and leaves the burn point as new periapsis; a retrograde impulse lowers the opposite side. A radial impulse also rotates the ellipse."
+      ],
+      "boundary": "Surface cosmic speeds omit atmosphere, rotation, terrain, and finite burn time; one-μ equations assume a spherical central body with no important perturbations.",
+      "example": {
+        "title": "Circular and escape speeds near Earth",
+        "problem": "Estimate both speeds at Earth radius R = 6.371×10⁶ m with μ = 3.986×10¹⁴ m³/s², ignoring atmosphere and rotation.",
+        "steps": [
+          "Circular speed is v_c = √(μ/R).",
+          "Substitution gives v_c ≈ √(6.257×10⁷) ≈ 7.91 km/s.",
+          "Escape speed is v_esc = √(2μ/R) = √2 v_c.",
+          "Thus v_esc ≈ 11.19 km/s."
+        ],
+        "answer": "Ideal surface values are about 7.91 km/s circular speed and 11.19 km/s escape speed.",
+        "check": "The ratio v_esc/v_c = √2 ≈ 1.414 is independent of M and r at the same point in a Newtonian field."
+      },
+      "pitfall": "A speed below escape speed does not guarantee an orbit: an unsuitable direction may make the path intersect the planet, and an atmosphere dissipates energy.",
+      "practice": [
+        {
+          "question": "What happens to the far side of a circular orbit after a brief prograde impulse?",
+          "hint": "At the burn point energy and tangential speed rise while position has not changed yet.",
+          "answer": "The burn point becomes periapsis of a new ellipse and the opposite apoapsis rises, provided escape speed is not reached."
+        },
+        {
+          "question": "Find circular speed at r = 7.0×10⁶ m from Earth's center for μ = 3.986×10¹⁴ m³/s².",
+          "hint": "Use v_c = √(μ/r).",
+          "answer": "v_c = √(3.986×10¹⁴ / 7.0×10⁶) ≈ 7546 m/s ≈ 7.55 km/s."
+        }
+      ]
+    },
+    "5.4": {
+      "question": "Why does an extended body experience tides while nearly in free fall, and how does rotation create special equilibrium points?",
+      "overview": [
+        "A tide is caused not by gravitational field alone but by its difference across an extended body. In a frame falling with the center, common acceleration disappears while the field gradient stretches the body along the source direction and compresses it transversely.",
+        "Tidal torques can synchronize spin with mean orbital motion. In a frame rotating with two primary bodies, gravitational and inertial terms produce five Lagrange points where a small third body can remain fixed in the ideal restricted problem."
+      ],
+      "conceptExplanations": [
+        "A point-mass field changes approximately as 1/r², so near and far sides have different accelerations. For body size R ≪ r, the longitudinal difference has scale 2GMR/r³.",
+        "Tidal force is what remains after center-of-mass acceleration is subtracted. It depends on body size and orientation and can deform oceans, satellites, and stars.",
+        "Synchronous rotation means spin period equals orbital period; at low eccentricity and obliquity one hemisphere remains toward the partner. Tidal dissipation and capture maintain the state.",
+        "The Roche limit estimates where tidal stretching can overcome a satellite's self-gravity. Its coefficient depends on densities, rigidity, rotation, and whether the body is treated as fluid or rigid.",
+        "L₁, L₂, and L₃ are collinear and generally unstable without corrections; L₄ and L₅ form equilateral configurations and can be stable at a sufficiently small mass ratio in the circular restricted problem."
+      ],
+      "boundary": "The tidal estimate 2GMR/r³ requires R ≪ r and a point source, while elementary Roche limits and Lagrange points belong to ideal circular, planar, restricted models without extra bodies or nongravitational forces.",
+      "example": {
+        "title": "Scale of lunar tidal acceleration across Earth",
+        "problem": "Estimate the Moon's acceleration difference from Earth's center to near edge using 2μₘRₑ/r³, with μₘ = 4.9049×10¹² m³/s², Rₑ = 6.371×10⁶ m, and r = 3.844×10⁸ m.",
+        "steps": [
+          "Use the first-order field-gradient estimate because Rₑ/r ≈ 0.0166 ≪ 1.",
+          "The numerator 2μₘRₑ ≈ 6.250×10¹⁹ m⁴/s².",
+          "The denominator r³ ≈ 5.682×10²⁵ m³.",
+          "Their ratio is about 1.10×10⁻⁶ m/s²."
+        ],
+        "answer": "The characteristic longitudinal tidal acceleration from center to near side is about 1.1 μm/s², far below g but acting coherently across Earth.",
+        "check": "Tides fall as 1/r³, faster than field strength 1/r², explaining their strong distance sensitivity."
+      },
+      "pitfall": "Tides are not explained only by stronger attraction on the near side; subtract center acceleration and include relative stretching of the far side in the opposite direction.",
+      "practice": [
+        {
+          "question": "Does synchronous rotation mean a satellite does not rotate about its own axis?",
+          "hint": "Track its orientation relative to distant stars over one orbit.",
+          "answer": "No. It turns once about its axis per orbital period, which keeps one hemisphere facing the planet."
+        },
+        {
+          "question": "By what factor does a point-source tide decrease when distance doubles at fixed body size?",
+          "hint": "The tidal scale is proportional to 1/r³.",
+          "answer": "It decreases by 2³ = 8."
+        }
+      ]
+    },
+    "5.5": {
+      "question": "Why does adding a third gravitating body qualitatively complicate prediction, and how can a numerical orbit be validated?",
+      "overview": [
+        "In the two-body problem, center-of-mass motion separates and relative motion has enough conserved quantities for an analytic conic-section description. With three or more mutually interacting bodies, every acceleration depends on all changing separations, and no general elementary closed-form solution exists.",
+        "Many-body paths may be regular, resonant, quasiperiodic, or chaotic. A numerical integrator advances positions and velocities step by step; quality is checked through convergence under step reduction and drift in energy, momentum, and angular momentum."
+      ],
+      "conceptExplanations": [
+        "For two bodies, internal forces are central, the center of mass moves uniformly, and the relative coordinate is equivalent to one particle with reduced mass. This separation makes the problem integrable.",
+        "A third massive body perturbs both original orbits, which then alter its motion in return. This nonlinear feedback cannot be reduced to two independent fixed two-body solutions.",
+        "Some configurations are protected by resonances and persist, others exchange energy slowly, while chaotic ones exponentially amplify small initial differences. Chaos does not mean absence of deterministic equations.",
+        "Integrators differ in accuracy and preservation of geometric structure. Symplectic methods often control long-term energy drift, while close encounters need a small adaptive step or regularization."
+      ],
+      "boundary": "Numerical predictability is limited by initial-condition uncertainty, the body model, and accumulated error; agreement of one run does not guarantee a long-term trajectory in a chaotic regime.",
+      "example": {
+        "title": "Center of mass as a three-body integration check",
+        "problem": "Three bodies of mass 1, 2, and 3 kg have x = 0, 2, and 5 m and velocities vₓ = 1, 0, and −1 m/s. No external force acts. Where must their center of mass be after 6 s regardless of internal forces?",
+        "steps": [
+          "Total mass is M = 1 + 2 + 3 = 6 kg.",
+          "Initial X_cm = (1×0 + 2×2 + 3×5)/6 = 19/6 m.",
+          "Total Pₓ = 1×1 + 2×0 + 3×(−1) = −2 kg·m/s, so V_cm = −2/6 = −1/3 m/s.",
+          "With no external force, X_cm(6) = 19/6 + (−1/3)×6 = 7/6 m ≈ 1.17 m."
+        ],
+        "answer": "After 6 s the center of mass must be at x = 7/6 m ≈ 1.17 m; a significant numerical deviation reveals an integration or force error.",
+        "check": "Internal gravitational forces cancel pairwise in the total momentum equation even when individual paths are complicated."
+      },
+      "pitfall": "A small trajectory change over one step does not establish long-term accuracy; phase error and invariant drift can accumulate over thousands of orbits.",
+      "practice": [
+        {
+          "question": "Why is a chaotic orbit not random in the same sense as an independent coin toss?",
+          "hint": "Separate determinism of the law from practical predictability.",
+          "answer": "It obeys deterministic equations but exponentially amplifies small initial differences, so finite input precision creates a limited prediction horizon."
+        },
+        {
+          "question": "An isolated system has total momentum 12 kg·m/s and total mass 30 kg. How does its center of mass move?",
+          "hint": "Use V_cm = P/M.",
+          "answer": "The center of mass moves uniformly at 12/30 = 0.40 m/s in the total-momentum direction."
+        }
+      ]
+    }
+  }
+}

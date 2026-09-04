@@ -82,8 +82,11 @@ export const formulas: FormulaEntry[] = [
     "conditions": "An inertial frame and a material system of fixed composition; the ma form additionally requires constant mass and nonrelativistic motion. For an open system such as a rocket, momentum flux must be included separately.",
     "units": "F: N; p: kg·m/s; m: kg; a: m/s²",
     "relatedTopics": [
+      "3.1",
       "3.2",
-      "3.3"
+      "3.3",
+      "3.5",
+      "3.7"
     ]
   },
   {
@@ -111,6 +114,20 @@ export const formulas: FormulaEntry[] = [
     "relatedTopics": [
       "4.1",
       "4.2"
+    ]
+  },
+  {
+    "id": "rotational-kinetic-energy",
+    "chapter": 4,
+    "title": "Rigid-Body Kinetic Energy and Rolling",
+    "latex": "K=\\frac12Mv_{\\mathrm{cm}}^2+\\frac12I_{\\mathrm{cm}}\\omega^2,\\qquad v_{\\mathrm{cm}}=\\omega R",
+    "plain": "K = Mv_cm²/2 + I_cmω²/2; v_cm = ωR for rolling without slipping",
+    "meaning": "Splits the kinetic energy of a rigid body in planar motion into translation of its center of mass and rotation about it; the no-slip condition relates the two speeds.",
+    "conditions": "A perfectly rigid body undergoes planar motion, with a principal axis through its center of mass. The relation v_cm = ωR applies to a round body of radius R rolling without slipping on a stationary surface; conservation of mechanical energy separately requires no dissipative work.",
+    "units": "K: J; M: kg; v_cm: m/s; I_cm: kg·m²; ω: rad/s; R: m",
+    "relatedTopics": [
+      "4.2",
+      "4.7"
     ]
   },
   {
@@ -169,6 +186,20 @@ export const formulas: FormulaEntry[] = [
     ]
   },
   {
+    "id": "vis-viva-orbital-energy",
+    "chapter": 5,
+    "title": "Orbital Energy and the Vis-Viva Equation",
+    "latex": "\\varepsilon=\\frac{v^2}{2}-\\frac{\\mu}{r}=-\\frac{\\mu}{2a},\\qquad v^2=\\mu\\left(\\frac{2}{r}-\\frac{1}{a}\\right),\\qquad\\mu=G(M+m)",
+    "plain": "ε = v²/2 − μ/r = −μ/(2a); v² = μ(2/r − 1/a); μ = G(M + m)",
+    "meaning": "Relates specific relative-motion energy, speed, and position on a Keplerian orbit to the semimajor axis of its conic section.",
+    "conditions": "An isolated Newtonian two-body system of pointlike or nonoverlapping spherically symmetric bodies; r and v are relative separation and speed, and ε is energy per unit reduced mass. For an ellipse a > 0, for a parabola a tends to infinity, and for a hyperbola the convention a < 0 is used; drag, perturbations, and relativistic corrections are small.",
+    "units": "ε: J/kg = m²/s²; v: m/s; μ: m³/s²; r and a: m; M and m: kg",
+    "relatedTopics": [
+      "5.2",
+      "5.3"
+    ]
+  },
+  {
     "id": "linear-elasticity",
     "chapter": 6,
     "title": "Hooke's Law for Uniaxial Deformation",
@@ -196,6 +227,20 @@ export const formulas: FormulaEntry[] = [
     ]
   },
   {
+    "id": "simple-pendulum-small-angle",
+    "chapter": 7,
+    "title": "Small-Angle Period of a Simple Pendulum",
+    "latex": "T=2\\pi\\sqrt{\\frac{L}{g}},\\qquad\\omega_0=\\sqrt{\\frac{g}{L}}",
+    "plain": "T = 2π sqrt(L/g); ω₀ = sqrt(g/L)",
+    "meaning": "Gives the period and natural angular frequency of small oscillations of an ideal simple pendulum.",
+    "conditions": "The bob is a point particle, and the string of length L is massless, inextensible, and attached to a frictionless pivot; g is uniform, drag is absent, and amplitude |θ₀| is small enough in radians that sin θ ≈ θ. Amplitude independence of the period holds only to this approximation.",
+    "units": "T: s; L: m; g: m/s²; ω₀: rad/s; θ₀: rad (dimensionless)",
+    "relatedTopics": [
+      "0.1",
+      "7.1"
+    ]
+  },
+  {
     "id": "harmonic-oscillator",
     "chapter": 7,
     "title": "Harmonic Oscillator",
@@ -205,6 +250,7 @@ export const formulas: FormulaEntry[] = [
     "conditions": "There is no damping or external driving; the force is linear in displacement, and the parameters m and k are constant.",
     "units": "m: kg; k: N/m; x and A: m; ω₀: rad/s; φ: dimensionless",
     "relatedTopics": [
+      "0.2",
       "7.1",
       "7.2"
     ]

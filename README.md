@@ -10,11 +10,12 @@ POLE (FIELD in the English interface) is a bilingual, browser-based physics refe
 
 The project currently includes:
 
-- 17 physics sections and 108 topic cards in Russian and English;
+- 17 physics sections and 108 full topic lessons in Russian and English;
+- topic-specific explanations, model limits, worked examples, common mistakes, and practice with revealed hints and answers;
 - locale-aware routes under `#/ru/...` and `#/en/...`;
 - seven working SVG models covering data, motion, waves, fields, spacetime, quantum interference, and orbital motion;
 - editorial briefs for the remaining planned interactive experiments;
-- 43 formulas with physical interpretations and applicability notes;
+- 46 formulas with physical interpretations and applicability notes;
 - 18 physical constants checked against CODATA 2022 / NIST;
 - full-text search across titles, summaries, and experiment briefs;
 - bookmarks, reading progress, and light/dark themes stored locally in the browser;
@@ -52,8 +53,9 @@ For a local preview of the production build, run `npm run preview` after `npm ru
 
 ```text
 physics-book/
-├── content/                                      # reviewed formulas and constants
-│   └── en/                                       # English content translations
+├── content/                                      # reviewed formulas, constants, and lesson content
+│   ├── en/                                       # English outline translations
+│   └── lessons/                                  # complete bilingual lessons by chapter
 ├── scripts/
 │   ├── build-content.mjs                         # parser and content/vault generator
 │   ├── run-visual.mjs                            # browser-check launcher
@@ -77,7 +79,7 @@ The web application is built with React, TypeScript, Vite, KaTeX, and Lucide ico
 
 ## Content generation and file safety
 
-`scripts/build-content.mjs` combines the normalized book data with reviewed reference data and synchronizes the generated TypeScript datasets, managed Obsidian notes, and downloadable ZIP archives. Treat the following outputs as generated files:
+`scripts/build-content.mjs` combines the normalized book structure with reviewed lesson and reference data, validates complete RU/EN coverage, and synchronizes the generated TypeScript datasets, managed Obsidian notes, and downloadable ZIP archives. Treat the following outputs as generated files:
 
 - `src/data/*.generated.ts`;
 - managed notes inside `vault/` and `vault-en/`;
@@ -88,7 +90,7 @@ Manual edits to generated cards may be overwritten the next time content is sync
 
 ## Obsidian vaults
 
-The web book and the two vaults share the same topic structure. Vault notes are deliberately shorter and contain no interactive elements, making them suitable for offline review, linking, and personal annotations.
+The web book and the two vaults share the same topic structure. Vault notes retain concise explanations, examples, model limits, and self-checks while omitting interactive widgets, making them suitable for offline review, linking, and personal annotations.
 
 - `vault/` contains the Russian knowledge base.
 - `vault-en/` contains the English knowledge base.

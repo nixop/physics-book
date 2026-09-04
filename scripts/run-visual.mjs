@@ -2,7 +2,9 @@ import { spawn } from 'node:child_process';
 import { resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
-const baseUrl = process.env.VISUAL_BASE_URL ?? 'http://127.0.0.1:4173/';
+const configuredBaseUrl = process.env.VISUAL_BASE_URL;
+const previewPort = '4397';
+const baseUrl = configuredBaseUrl ?? `http://127.0.0.1:${previewPort}/`;
 let preview = null;
 
 const available = async () => {
@@ -16,8 +18,10 @@ const run = (command, args, options = {}) => new Promise((resolveRun, rejectRun)
 });
 
 try {
-  if (!(await available())) {
-    preview = spawn(process.execPath, [resolve(root, 'node_modules', 'vite', 'bin', 'vite.js'), 'preview', '--host', '127.0.0.1'], {
+  if (configuredBaseUrl) {
+    if (!(await available())) throw new Error(`Сервер ${baseUrl} недоступен`);
+  } else {
+    preview = spawn(process.execPath, [resolve(root, 'node_modules', 'vite', 'bin', 'vite.js'), 'preview', '--host', '127.0.0.1', '--port', previewPort, '--strictPort'], {
       cwd: root,
       stdio: 'ignore',
       windowsHide: true,

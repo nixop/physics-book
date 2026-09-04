@@ -1,0 +1,547 @@
+{
+  "chapter": 7,
+  "ru": {
+    "7.1": {
+      "question": "Почему самые разные системы возле устойчивого равновесия часто колеблются почти синусоидально?",
+      "overview": [
+        "В устойчивом равновесии малая попытка сместить систему вызывает силу, направленную обратно. Если потенциальная энергия гладкая, её первый ненулевой вклад возле минимума обычно квадратичен, поэтому возвращающая сила линейна по смещению. Уравнение m x_ddot + kx = 0 тогда имеет синусоидальные решения.",
+        "Амплитуда и начальная фаза задаются начальным состоянием, а собственная угловая частота omega0 = sqrt(k/m) — параметрами системы. Одинаковая математическая форма описывает пружину, малые колебания маятника и многие электрические или акустические системы, но только пока нелинейность и потери несущественны."
+      ],
+      "conceptExplanations": [
+        "Устойчивое равновесие соответствует локальному минимуму потенциальной энергии: после малого отклонения система получает ускорение в сторону точки равновесия.",
+        "Амплитуда задаёт максимальное отклонение, период T — время повтора, f = 1/T, omega = 2 pi f, а фаза определяет положение внутри цикла.",
+        "Для идеальной пружины F = -kx, поэтому масса и жёсткость полностью задают omega0; выход за линейный участок закона Гука создаёт гармоники и зависимость периода от амплитуды.",
+        "Для маятника точное уравнение содержит sin(theta); замена sin(theta) на theta допустима лишь для малого угла в радианах и делает уравнение линейным.",
+        "Координата точки, равномерно движущейся по окружности, равна A cos(omega t + phi) по выбранной оси, что геометрически объясняет синус и косинус в решении."
+      ],
+      "boundary": "Модель идеального гармонического осциллятора требует линейной возвращающей силы, постоянных параметров и пренебрежимо малых потерь; при больших углах маятника, нелинейной пружине или сухом трении форма и период меняются.",
+      "example": {
+        "title": "Частота груза на пружине",
+        "problem": "Груз массой 0.50 кг прикреплён к пружине жёсткостью 200 Н/м. Потерями пренебречь. Найти собственную угловую частоту, период и частоту.",
+        "steps": [
+          "Вычислим omega0 = sqrt(k/m) = sqrt(200/0.50) = 20 рад/с.",
+          "Период T = 2 pi/omega0 = 0.314 с.",
+          "Частота f = 1/T = 3.18 Гц."
+        ],
+        "answer": "omega0 = 20 рад/с, T = 0.314 с, f = 3.18 Гц.",
+        "check": "k/m имеет размерность 1/с²; увеличение массы должно уменьшать частоту, что и следует из корня."
+      },
+      "pitfall": "Малый угол — не просто малое число градусов: в приближении sin(theta) примерно theta угол обязательно выражен в радианах.",
+      "practice": [
+        {
+          "question": "Изменится ли период идеального пружинного осциллятора, если удвоить амплитуду в линейной области?",
+          "hint": "Посмотрите, входит ли A в omega0 = sqrt(k/m).",
+          "answer": "Нет. В идеальной линейной модели период не зависит от амплитуды; заметная зависимость указывает на нелинейность или иной нарушенный допуск."
+        },
+        {
+          "question": "Во сколько раз изменится период, если массу увеличить в 4 раза при прежней пружине?",
+          "hint": "T пропорционален sqrt(m/k).",
+          "answer": "Период увеличится в sqrt(4) = 2 раза."
+        }
+      ]
+    },
+    "7.2": {
+      "question": "Что фазовая траектория сообщает о состоянии осциллятора такого, чего не видно на одном кадре движения?",
+      "overview": [
+        "Для одномерного осциллятора одной координаты недостаточно: в той же точке тело может двигаться вправо или влево. Пара (x,v) задаёт мгновенное состояние и определяет дальнейшее движение при известном законе. График v от x называется фазовой траекторией.",
+        "У идеального гармонического осциллятора энергия E = mv²/2 + kx²/2 постоянна, поэтому фазовая траектория — замкнутый эллипс. Потери стягивают траекторию к равновесию, внешняя сила может поддерживать предельный цикл, а разные области фазового пространства показывают качественно разные режимы без просмотра длинной анимации."
+      ],
+      "conceptExplanations": [
+        "В крайних положениях скорость и кинетическая энергия равны нулю, а потенциальная максимальна; в равновесии при проходе скорость и кинетическая энергия максимальны.",
+        "Знак скорости различает два состояния с одинаковой координатой, поэтому пара (x,v) устраняет неоднозначность одного снимка положения.",
+        "Каждая точка фазовой кривой соответствует состоянию, а направление вдоль неё задаётся временем; пересечение двух траекторий невозможно для детерминированного автономного уравнения с единственным решением.",
+        "Фазовый портрет сразу показывает равновесия, устойчивость, замкнутые колебания, затухание и области разных движений, даже если временные графики выглядят сложно."
+      ],
+      "boundary": "Двумерная плоскость (x,v) полностью описывает только систему с одной координатой и уравнением второго порядка; вынужденная система требует также фазы внешнего воздействия, а многомерная система — дополнительных координат и импульсов.",
+      "example": {
+        "title": "Скорость из фазового эллипса",
+        "problem": "Осциллятор имеет амплитуду A = 0.080 м и omega0 = 5.0 рад/с. Каков модуль скорости при x = 0.048 м? Потерями пренебречь.",
+        "steps": [
+          "Для x = A cos(phi) и v = -A omega0 sin(phi) получаем (x/A)² + (v/(A omega0))² = 1.",
+          "Отсюда |v| = omega0 sqrt(A² - x²).",
+          "Подстановка даёт |v| = 5.0 sqrt(0.080² - 0.048²) = 0.32 м/с."
+        ],
+        "answer": "Модуль скорости равен 0.32 м/с; знак зависит от направления движения по фазовой траектории.",
+        "check": "При x = 0 скорость была бы A omega0 = 0.40 м/с, поэтому полученное значение меньше максимального."
+      },
+      "pitfall": "Фазовая траектория — не путь тела в обычном пространстве: её оси имеют разные физические величины, например метры и метры в секунду.",
+      "practice": [
+        {
+          "question": "Как на фазовом портрете отличить идеальные колебания от затухающих?",
+          "hint": "Проследите, сохраняется ли размер замкнутой кривой со временем.",
+          "answer": "Идеальный осциллятор движется по замкнутой кривой постоянного размера, а затухающий описывает спираль к устойчивому равновесию."
+        },
+        {
+          "question": "Для A = 0.10 м и omega0 = 4 рад/с найдите максимальную скорость.",
+          "hint": "Максимум скорости достигается при x = 0.",
+          "answer": "v_max = A omega0 = 0.40 м/с."
+        }
+      ]
+    },
+    "7.3": {
+      "question": "Почему слабое периодическое воздействие иногда создаёт большую амплитуду, а иногда почти не раскачивает систему?",
+      "overview": [
+        "Сопротивление среды или внутреннее трение отводит механическую энергию, поэтому свободные колебания затухают. Периодическая внешняя сила одновременно возвращает энергию. После переходного процесса устанавливается режим на частоте воздействия, а его амплитуда и отставание по фазе зависят от частоты и затухания.",
+        "Возле собственной частоты передача энергии за цикл наиболее эффективна и возникает резонанс. Затухание ограничивает максимум и расширяет резонансную кривую. Добротность Q количественно характеризует узость резонанса и отношение запасённой энергии к потерям за цикл; изменение параметра системы во времени может вызвать отдельный параметрический резонанс."
+      ],
+      "conceptExplanations": [
+        "Диссипативная сила совершает отрицательную работу в среднем, переводя упорядоченную энергию движения во внутреннюю энергию системы и среды.",
+        "В установившемся линейном режиме осциллятор движется с частотой внешней силы, хотя его амплитуда определяется близостью этой частоты к собственной.",
+        "Резонанс — частотно-селективный отклик, а не неограниченный рост всегда: при конечном затухании амплитуда остаётся конечной и положение максимума немного зависит от критерия измерения.",
+        "Для слабозатухающего одиночного резонанса Q примерно равна f0/Delta f, где Delta f — ширина полосы между точками половинной мощности.",
+        "При параметрическом возбуждении периодически меняется параметр, например длина маятника или жёсткость; сильный отклик возможен при частоте модуляции, близкой к 2ω₀ — удвоенной собственной частоте осциллятора."
+      ],
+      "boundary": "Формулы одиночной резонансной кривой и Q = f0/Delta f требуют линейного осциллятора, слабого затухания, синусоидальной стационарной силы и установившегося режима; нелинейность может сдвигать резонанс, давать скачки и несколько устойчивых ответов.",
+      "example": {
+        "title": "Добротность по полосе резонанса",
+        "problem": "Резонатор имеет максимум мощности при 50 Гц, а точки половинной мощности находятся при 47 и 53 Гц. Оценить добротность.",
+        "steps": [
+          "Ширина полосы Delta f = 53 - 47 = 6 Гц.",
+          "Для слабого затухания используем Q = f0/Delta f.",
+          "Получаем Q = 50/6 = 8.3."
+        ],
+        "answer": "Добротность резонатора Q ≈ 8,3; это соответствует сравнительно широкому резонансному пику.",
+        "check": "Q безразмерна; сравнительно небольшое значение соответствует заметно широкой резонансной полосе."
+      },
+      "pitfall": "Резонанс не означает совпадение любых двух частот: должны существовать связь с соответствующей модой и ненулевая передача энергии, а потери определяют результат.",
+      "practice": [
+        {
+          "question": "Почему увеличение затухания уменьшает и расширяет резонансный пик?",
+          "hint": "Сравните энергию, полученную от силы за цикл, с энергией, потерянной за цикл.",
+          "answer": "Большие потери не дают энергии накапливаться до высокой амплитуды и делают отклик менее избирательным по частоте, поэтому максимум ниже, а полоса шире."
+        },
+        {
+          "question": "У резонатора f0 = 1.2 кГц и Q = 60. Оцените ширину полосы половинной мощности.",
+          "hint": "Переставьте Q = f0/Delta f.",
+          "answer": "Delta f = 1200/60 = 20 Гц."
+        }
+      ]
+    },
+    "7.4": {
+      "question": "Как локальное взаимодействие соседних частей среды переносит возмущение и энергию на расстояние без общего переноса вещества?",
+      "overview": [
+        "Волна возникает, когда локальное отклонение вызывает силы или потоки, воздействующие на соседнюю область, а инерция задерживает её ответ. Частицы среды обычно колеблются около своих положений, тогда как фаза и энергия возмущения распространяются. Для гармонической бегущей волны одинаковая фаза повторяется через lambda и через период T.",
+        "Связь v_ph = f lambda следует из того, что за один период профиль проходит одну длину волны. Волновое уравнение связывает вторую производную по времени с кривизной профиля по координате. На границе условия непрерывности порождают отражённую и прошедшую волны; изменение скорости изменяет длину волны при сохранении частоты стационарного источника."
+      ],
+      "conceptExplanations": [
+        "Материальные элементы могут иметь нулевое среднее смещение за цикл, хотя через поверхность проходит энергия; перенос массы и распространение волнового рисунка — разные процессы.",
+        "В продольной волне смещение параллельно направлению распространения, а в поперечной — перпендикулярно; классификация относится к вектору возмущения.",
+        "Частоту задаёт число циклов в секунду, lambda — пространственный период, а фазовая скорость показывает движение точки постоянной фазы.",
+        "Для натянутой струны кривизна создаёт поперечную результирующую силы, а масса элемента даёт инерцию; их баланс приводит к уравнению y_tt = v² y_xx.",
+        "При отражении и преломлении частота на неподвижной границе сохраняется, но амплитуда, фаза, направление и длина волны могут измениться."
+      ],
+      "boundary": "Соотношение v_ph = f lambda относится к монохроматической бегущей волне в выбранной системе отсчёта; простое линейное волновое уравнение требует малых возмущений и заданных параметров среды, а в диспергирующей среде скорость зависит от частоты.",
+      "example": {
+        "title": "Длина волны и время распространения",
+        "problem": "Гармоническая волна частотой 120 Гц распространяется в недиспергирующей среде со скоростью 15 м/с. Найти длину волны и время, за которое возмущение проходит 20 м.",
+        "steps": [
+          "Из v = f lambda получаем lambda = v/f = 15/120 = 0.125 м.",
+          "В недиспергирующей модели скорость сигнала совпадает с фазовой скоростью, поэтому t = L/v = 20/15 = 1.33 с.",
+          "Различаем период установившейся волны T = 1/f = 8.33 мс и время распространения возмущения до удалённой точки."
+        ],
+        "answer": "lambda = 0.125 м, время прохождения 20 м равно 1.33 с.",
+        "check": "f lambda имеет единицы м/с; за один период 8.33 мс волна проходит 0.125 м."
+      },
+      "pitfall": "Скорость частиц среды обычно не равна скорости волны: первая является временной производной локального смещения, вторая описывает перемещение фазы или огибающей.",
+      "practice": [
+        {
+          "question": "Что происходит с частотой и длиной волны при переходе через неподвижную границу в среду с меньшей скоростью?",
+          "hint": "Фаза по обе стороны границы должна совпадать во времени.",
+          "answer": "Частота сохраняется, а длина волны уменьшается пропорционально фазовой скорости."
+        },
+        {
+          "question": "Волна имеет lambda = 0.80 м и f = 2.5 Гц. Найдите фазовую скорость.",
+          "hint": "Используйте v = f lambda.",
+          "answer": "v = 2.0 м/с."
+        }
+      ]
+    },
+    "7.5": {
+      "question": "Как линейное сложение волн создаёт неподвижные узлы и дискретный набор резонансных частот?",
+      "overview": [
+        "В линейной среде сумма двух решений волнового уравнения также является решением. Поэтому смещения складываются с учётом знака и фазы: одинаковые фазы усиливают результат, противоположные могут его погасить. Интерференция перераспределяет амплитуду в пространстве, но не уничтожает энергию всей замкнутой системы.",
+        "Две встречные гармонические волны одинаковой частоты и амплитуды образуют стоячую волну. Её узлы остаются неподвижными, а между ними колеблются пучности. Граничные условия допускают лишь те длины волн, которые геометрически укладываются в систему, поэтому струна, столб воздуха или резонатор имеют дискретные собственные моды."
+      ],
+      "conceptExplanations": [
+        "Принцип суперпозиции действует, когда отклик среды линеен: результирующее смещение равно алгебраической сумме отдельных смещений в тот же момент и точке.",
+        "Конструктивность и деструктивность определяются разностью фаз; полное гашение требует равных амплитуд и противоположных фаз именно в рассматриваемой точке.",
+        "В стоячей волне средний поток энергии может быть нулевым, хотя каждый участок между узлами обменивается кинетической и потенциальной энергией.",
+        "Закреплённый конец струны требует нулевого смещения, поэтому L = n lambda/2 и f_n = n v/(2L); иной тип границы даёт другой набор мод."
+      ],
+      "boundary": "Линейная суперпозиция и формула мод идеальной струны требуют малых поперечных смещений, постоянных натяжения и линейной плотности, неподвижных идеальных границ и слабых потерь; жёсткость струны и конечное крепление сдвигают частоты.",
+      "example": {
+        "title": "Моды натянутой струны",
+        "problem": "Струна длиной 0.65 м закреплена с двух концов, натянута силой 80 Н и имеет линейную плотность 5.0e-3 кг/м. Найти первую и третью собственные частоты.",
+        "steps": [
+          "Скорость поперечной волны v = sqrt(T/mu) = sqrt(80/0.005) = 126.5 м/с.",
+          "Основная частота f1 = v/(2L) = 126.5/1.30 = 97.3 Гц.",
+          "Для идеальной струны fn = n f1, поэтому f3 = 292 Гц."
+        ],
+        "answer": "f1 примерно 97 Гц, f3 примерно 292 Гц.",
+        "check": "У третьей моды на длине струны укладываются три полуволны; увеличение натяжения повышает все частоты как sqrt(T)."
+      },
+      "pitfall": "Деструктивная интерференция в одной точке не означает исчезновение энергии: в другом месте или в другой форме она остаётся, если нет поглощения.",
+      "practice": [
+        {
+          "question": "Почему у закреплённого конца струны расположен узел?",
+          "hint": "Какое кинематическое граничное условие задаёт крепление?",
+          "answer": "Крепление запрещает поперечное смещение конца, поэтому суммарная падающая и отражённая волны должны там всегда давать ноль."
+        },
+        {
+          "question": "Как изменится f1 идеальной струны, если натяжение увеличить в 9 раз?",
+          "hint": "f1 пропорциональна sqrt(T).",
+          "answer": "Основная частота возрастёт в 3 раза."
+        }
+      ]
+    },
+    "7.6": {
+      "question": "Как спектр гармоник объясняет форму сигнала и почему волновой пакет меняет форму в диспергирующей среде?",
+      "overview": [
+        "Преобразование Фурье представляет подходящий сигнал как сумму синусоид с разными частотами, амплитудами и фазами. Временное описание показывает, когда меняется сигнал, а спектр — какие частотные масштабы его составляют. Короткий импульс неизбежно занимает широкий диапазон частот.",
+        "Если дисперсионное соотношение omega(k) нелинейно, гармоники распространяются с разными фазовыми скоростями. Фаза отдельной компоненты движется со скоростью v_ph = omega/k, а максимум узкополосной огибающей — примерно с групповой скоростью v_g = d omega/dk. Различие скоростей внутри полосы приводит к расплыванию пакета."
+      ],
+      "conceptExplanations": [
+        "Гармоники образуют базис для линейного анализа: их суммы воспроизводят как периодические формы, так и локализованные импульсы при подходящем непрерывном спектре.",
+        "Спектр содержит амплитуду и фазу каждой частоты; один лишь модуль спектра не всегда позволяет восстановить временную форму.",
+        "Фазовая скорость относится к гребню одной гармоники, групповая — к медленно меняющейся огибающей узкой группы частот; ни одну нельзя без проверки отождествлять со скоростью информации.",
+        "Кривизна omega(k) означает, что разные части спектра накапливают разные фазы, поэтому длительность и форма пакета меняются даже без поглощения."
+      ],
+      "boundary": "Интерпретация v_g = d omega/dk как скорости пакета требует узкого спектра и слабого изменения среды; возле сильного поглощения или резонанса групповая скорость может не совпадать со скоростью переноса энергии или фронта сигнала.",
+      "example": {
+        "title": "Фазовая и групповая скорости",
+        "problem": "В условной среде дисперсия задаётся omega = a k², где a = 0.50 м²/с. Найти фазовую и групповую скорости при k0 = 4.0 1/м.",
+        "steps": [
+          "Фазовая скорость v_ph = omega/k = a k.",
+          "При k0 = 4.0 1/м получаем v_ph = 0.50 x 4.0 = 2.0 м/с.",
+          "Групповая скорость v_g = d omega/dk = 2ak = 4.0 м/с."
+        ],
+        "answer": "v_ph = 2.0 м/с, v_g = 4.0 м/с.",
+        "check": "a k имеет единицы м/с; неравенство скоростей подтверждает дисперсию."
+      },
+      "pitfall": "Высокая спектральная амплитуда не говорит, когда соответствующая компонента появилась: временная локализация требует фаз и анализа окна наблюдения.",
+      "practice": [
+        {
+          "question": "Почему очень короткий импульс нельзя составить из одной частоты?",
+          "hint": "Одна гармоника существует на всём времени и имеет строго периодическую форму.",
+          "answer": "Локализация возникает из интерференции многих частот; чем короче характерное время импульса, тем шире необходимая полоса."
+        },
+        {
+          "question": "Для nondispersive relation omega = c k найдите v_ph и v_g.",
+          "hint": "Разделите omega на k и возьмите производную по k.",
+          "answer": "Обе скорости равны c, поэтому идеальный пакет не расплывается из-за дисперсии."
+        }
+      ]
+    },
+    "7.7": {
+      "question": "Как колебания давления становятся воспринимаемым звуком и почему источник, помещение и движение меняют услышанный сигнал?",
+      "overview": [
+        "Звук в жидкости или газе — преимущественно продольная волна чередующихся сжатий и разрежений. Давление и скорость частиц колеблются около равновесных значений, а средняя интенсивность описывает поток энергии. Частота сильно влияет на воспринимаемую высоту, но громкость зависит от уровня, спектра и чувствительности слуха.",
+        "Тембр определяется набором гармоник и временной огибающей. Инструменты возбуждают собственные моды струн, мембран или воздушных столбов, а помещение добавляет отражения и реверберацию. Относительное движение меняет частоту прихода фронтов по эффекту Доплера; сверхзвуковой источник формирует ударный конус."
+      ],
+      "conceptExplanations": [
+        "Акустическое давление — малое отклонение от фонового давления; в линейной плоской волне оно связано со скоростью частиц через акустический импеданс среды.",
+        "Высота прежде всего коррелирует с частотой, громкость — с воспринимаемым уровнем, а тембр позволяет различать одинаковые ноты по спектру и атаке.",
+        "Граничные условия выбирают резонансы инструмента, но реальный звук включает возбуждение, связь с корпусом, излучение и затухание каждой моды.",
+        "Реверберация — статистически затухающий хвост множества отражений; слишком малое время делает звук сухим, слишком большое ухудшает разборчивость речи.",
+        "Доплеровский сдвиг зависит от скоростей источника и наблюдателя относительно среды; ударная волна возникает, когда источник обгоняет собственные звуковые возмущения."
+      ],
+      "boundary": "Классические формулы Доплера для звука требуют заданной неподвижной среды и скоростей меньше или отдельно рассмотренных относительно скорости звука; сильные ударные волны, ветер с градиентом и нелинейная акустика требуют расширенной модели.",
+      "example": {
+        "title": "Доплеровский сдвиг движущегося источника",
+        "problem": "Источник тона 680 Гц движется прямо к неподвижному наблюдателю со скоростью 20 м/с в неподвижном воздухе. Скорость звука 343 м/с. Найти принятую частоту.",
+        "steps": [
+          "За один период источник приближается и сокращает переднюю длину волны до lambda_front = (c - v_s)/f.",
+          "Наблюдатель получает фронты со скоростью c, поэтому f_obs = c/lambda_front = f c/(c - v_s).",
+          "Подстановка даёт f_obs = 680 x 343/323 = 722 Гц."
+        ],
+        "answer": "Наблюдаемая частота примерно 722 Гц.",
+        "check": "При приближении частота должна возрасти; при v_s = 0 выражение возвращает 680 Гц."
+      },
+      "pitfall": "Децибел — логарифмический уровень, а не единица интенсивности; увеличение уровня на одинаковое число децибел означает умножение отношения интенсивностей.",
+      "practice": [
+        {
+          "question": "Почему одна и та же нота флейты и скрипки звучит по-разному?",
+          "hint": "Сравните основную частоту, обертоны и временную огибающую.",
+          "answer": "Основная высота может совпадать, но относительные амплитуды и фазы гармоник, атака и затухание различаются, создавая разный тембр."
+        },
+        {
+          "question": "Эхо вернулось через 0.80 с при c = 340 м/с. Каково расстояние до отражающей стены?",
+          "hint": "За измеренное время звук проходит путь туда и обратно.",
+          "answer": "d = ct/2 = 340 x 0.80/2 = 136 м."
+        }
+      ]
+    }
+  },
+  "en": {
+    "7.1": {
+      "question": "Why do many different systems oscillate almost sinusoidally near stable equilibrium?",
+      "overview": [
+        "At stable equilibrium, a small displacement produces a force directed back toward equilibrium. If potential energy is smooth, its first nonzero term near a minimum is usually quadratic, making the restoring force linear in displacement. The equation m x_ddot + kx = 0 then has sinusoidal solutions.",
+        "Amplitude and initial phase are fixed by the initial state, while the natural angular frequency omega0 = sqrt(k/m) is fixed by system parameters. The same mathematical form describes a spring, a small-angle pendulum, and many electrical or acoustic systems, but only while nonlinearity and loss remain negligible."
+      ],
+      "conceptExplanations": [
+        "Stable equilibrium corresponds to a local minimum of potential energy: after a small displacement, the system accelerates back toward the equilibrium point.",
+        "Amplitude is the maximum displacement, period T is the repeat time, f = 1/T, omega = 2 pi f, and phase specifies the location within a cycle.",
+        "For an ideal spring F = -kx, so mass and stiffness determine omega0; leaving the linear Hooke-law range creates harmonics and an amplitude-dependent period.",
+        "The exact pendulum equation contains sin(theta); replacing it by theta is valid only for a small angle expressed in radians and makes the equation linear.",
+        "A point moving uniformly around a circle has coordinate A cos(omega t + phi) on a selected axis, geometrically explaining the sine and cosine solution."
+      ],
+      "boundary": "The ideal harmonic-oscillator model requires a linear restoring force, constant parameters, and negligible loss; large pendulum angles, a nonlinear spring, or dry friction change both waveform and period.",
+      "example": {
+        "title": "Frequency of a mass on a spring",
+        "problem": "A 0.50 kg mass is attached to a spring of stiffness 200 N/m. Neglect loss. Find its natural angular frequency, period, and frequency.",
+        "steps": [
+          "Calculate omega0 = sqrt(k/m) = sqrt(200/0.50) = 20 rad/s.",
+          "The period is T = 2 pi/omega0 = 0.314 s.",
+          "The frequency is f = 1/T = 3.18 Hz."
+        ],
+        "answer": "omega0 = 20 rad/s, T = 0.314 s, and f = 3.18 Hz.",
+        "check": "k/m has units of 1/s^2; increasing mass must reduce frequency, as the square root predicts."
+      },
+      "pitfall": "A small angle is not merely a small number of degrees: theta must be in radians when using sin(theta) approximately equal to theta.",
+      "practice": [
+        {
+          "question": "Does the period of an ideal spring oscillator change if amplitude is doubled within the linear range?",
+          "hint": "Check whether A appears in omega0 = sqrt(k/m).",
+          "answer": "No. The ideal linear period is amplitude-independent; a measured dependence indicates nonlinearity or another violated assumption."
+        },
+        {
+          "question": "By what factor does period change if mass is quadrupled while the spring is unchanged?",
+          "hint": "T is proportional to sqrt(m/k).",
+          "answer": "The period increases by sqrt(4) = 2."
+        }
+      ]
+    },
+    "7.2": {
+      "question": "What does a phase trajectory reveal about oscillator state that a single animation frame cannot?",
+      "overview": [
+        "One coordinate is insufficient for a one-dimensional oscillator: at the same position the body may move right or left. The pair (x,v) specifies its instantaneous state and fixes subsequent motion when the law is known. A plot of v against x is a phase trajectory.",
+        "For an ideal harmonic oscillator, E = mv^2/2 + kx^2/2 is constant, so the phase trajectory is a closed ellipse. Loss contracts the trajectory toward equilibrium, driving can sustain a limit cycle, and different regions of phase space reveal qualitatively distinct regimes without watching a long animation."
+      ],
+      "conceptExplanations": [
+        "At turning points, speed and kinetic energy vanish while potential energy is maximal; at the equilibrium crossing, speed and kinetic energy are maximal.",
+        "The sign of velocity distinguishes two states with the same coordinate, so the pair (x,v) removes the ambiguity of a position snapshot.",
+        "Each point on the phase curve is a state and time sets its direction; two trajectories cannot cross for a deterministic autonomous equation with a unique solution.",
+        "A phase portrait immediately displays equilibria, stability, closed oscillation, decay, and regions of different motion even when time traces look complicated."
+      ],
+      "boundary": "The two-dimensional plane (x,v) is complete only for one coordinate governed by a second-order equation; a driven system also needs driving phase, and a multidimensional system needs additional coordinates and momenta.",
+      "example": {
+        "title": "Speed from a phase ellipse",
+        "problem": "An oscillator has amplitude A = 0.080 m and omega0 = 5.0 rad/s. What is its speed magnitude at x = 0.048 m? Neglect loss.",
+        "steps": [
+          "From x = A cos(phi) and v = -A omega0 sin(phi), obtain (x/A)^2 + (v/(A omega0))^2 = 1.",
+          "Therefore |v| = omega0 sqrt(A^2 - x^2).",
+          "Substitution gives |v| = 5.0 sqrt(0.080^2 - 0.048^2) = 0.32 m/s."
+        ],
+        "answer": "The speed magnitude is 0.32 m/s; its sign depends on direction around the phase trajectory.",
+        "check": "At x = 0 the speed would be A omega0 = 0.40 m/s, so this result is correctly below the maximum."
+      },
+      "pitfall": "A phase trajectory is not the body's path in ordinary space: its axes carry different quantities, such as metres and metres per second.",
+      "practice": [
+        {
+          "question": "How can a phase portrait distinguish ideal oscillation from damped oscillation?",
+          "hint": "Track whether the closed curve keeps the same size with time.",
+          "answer": "An ideal oscillator follows a closed curve of constant size, while a damped oscillator spirals toward stable equilibrium."
+        },
+        {
+          "question": "For A = 0.10 m and omega0 = 4 rad/s, find the maximum speed.",
+          "hint": "Maximum speed occurs at x = 0.",
+          "answer": "v_max = A omega0 = 0.40 m/s."
+        }
+      ]
+    },
+    "7.3": {
+      "question": "Why can a weak periodic drive produce a large response at one frequency and almost no response at another?",
+      "overview": [
+        "Drag or internal friction removes mechanical energy, so free oscillation decays. A periodic external force returns energy. After transients disappear, the system responds at the driving frequency, with an amplitude and phase lag that depend on frequency and damping.",
+        "Near the natural frequency, energy transfer per cycle is especially effective and resonance occurs. Damping limits the peak and broadens the resonance curve. The quality factor Q measures resonance sharpness and the ratio of stored energy to loss per cycle; periodically changing a system parameter can instead produce parametric resonance."
+      ],
+      "conceptExplanations": [
+        "A dissipative force does negative work on average, converting organized mechanical motion into internal energy of the system and surroundings.",
+        "In steady linear response, the oscillator moves at the drive frequency even though its amplitude is controlled by proximity to a natural frequency.",
+        "Resonance is a frequency-selective response, not always unlimited growth: finite damping gives a finite amplitude, and the precise peak frequency depends slightly on what is measured.",
+        "For a weakly damped isolated resonance, Q is approximately f0/Delta f, where Delta f is the full width between half-power points.",
+        "Parametric excitation varies a parameter such as pendulum length or stiffness; a strong response can occur when the modulation is near twice the natural frequency."
+      ],
+      "boundary": "A single resonance curve and Q = f0/Delta f assume a linear oscillator, weak damping, sinusoidal stationary drive, and steady state; nonlinearity may shift the resonance, create jumps, and permit multiple stable responses.",
+      "example": {
+        "title": "Quality factor from resonance width",
+        "problem": "A resonator has its power maximum at 50 Hz, with half-power points at 47 and 53 Hz. Estimate its quality factor.",
+        "steps": [
+          "The bandwidth is Delta f = 53 - 47 = 6 Hz.",
+          "For weak damping, use Q = f0/Delta f.",
+          "Thus Q = 50/6 = 8.3."
+        ],
+        "answer": "The estimated quality factor is Q ≈ 8.3, corresponding to a comparatively broad resonance peak.",
+        "check": "Q is dimensionless; this moderate value is consistent with a visibly broad resonance."
+      },
+      "pitfall": "Resonance is not merely equality of any two frequencies: the drive must couple to the relevant mode and transfer energy, while loss controls the outcome.",
+      "practice": [
+        {
+          "question": "Why does stronger damping lower and broaden a resonance peak?",
+          "hint": "Compare energy supplied and energy lost during each cycle.",
+          "answer": "Greater loss prevents energy from accumulating to a large amplitude and reduces frequency selectivity, so the peak is lower and the bandwidth wider."
+        },
+        {
+          "question": "A resonator has f0 = 1.2 kHz and Q = 60. Estimate its half-power bandwidth.",
+          "hint": "Rearrange Q = f0/Delta f.",
+          "answer": "Delta f = 1200/60 = 20 Hz."
+        }
+      ]
+    },
+    "7.4": {
+      "question": "How does local interaction between neighboring parts of a medium carry a disturbance and energy without transporting matter as a whole?",
+      "overview": [
+        "A wave forms when a local displacement creates forces or fluxes that affect a neighboring region while inertia delays its response. Material elements usually oscillate around their positions as disturbance phase and energy propagate. For a harmonic traveling wave, the same phase repeats after wavelength lambda in space and period T in time.",
+        "The relation v_ph = f lambda follows because the profile advances one wavelength during one period. The wave equation connects the second time derivative to spatial curvature. At a boundary, continuity conditions create reflected and transmitted waves; a speed change alters wavelength while frequency from a stationary source remains fixed."
+      ],
+      "conceptExplanations": [
+        "Material elements may have zero mean displacement over a cycle while energy crosses a surface; mass transport and propagation of a wave pattern are different processes.",
+        "In a longitudinal wave displacement is parallel to propagation, while in a transverse wave it is perpendicular; the classification concerns the disturbance vector.",
+        "Frequency counts cycles per second, lambda is the spatial period, and phase velocity tracks a point of constant phase.",
+        "For a stretched string, curvature produces a transverse resultant force and element mass supplies inertia; their balance gives y_tt = v^2 y_xx.",
+        "At reflection and refraction from a stationary boundary, frequency is conserved while amplitude, phase, direction, and wavelength may change."
+      ],
+      "boundary": "The relation v_ph = f lambda describes a monochromatic traveling wave in a specified frame; the simple linear wave equation requires small disturbances and fixed medium parameters, while a dispersive medium has frequency-dependent speed.",
+      "example": {
+        "title": "Wavelength and propagation time",
+        "problem": "A harmonic wave of frequency 120 Hz travels through a nondispersive medium at 15 m/s. Find its wavelength and the time for a disturbance to travel 20 m.",
+        "steps": [
+          "From v = f lambda, lambda = v/f = 15/120 = 0.125 m.",
+          "In this nondispersive model the signal and phase speeds coincide, so t = L/v = 20/15 = 1.33 s.",
+          "Distinguish the established-wave period T = 1/f = 8.33 ms from propagation time to the distant point."
+        ],
+        "answer": "lambda = 0.125 m and the travel time over 20 m is 1.33 s.",
+        "check": "f lambda has units m/s; in one 8.33 ms period the wave moves 0.125 m."
+      },
+      "pitfall": "Particle speed in the medium is generally not wave speed: the former is the time derivative of local displacement, while the latter tracks phase or an envelope.",
+      "practice": [
+        {
+          "question": "What happens to frequency and wavelength when a wave crosses a stationary boundary into a slower medium?",
+          "hint": "Phase on both sides of the boundary must remain synchronized in time.",
+          "answer": "Frequency remains fixed and wavelength decreases in proportion to phase speed."
+        },
+        {
+          "question": "A wave has lambda = 0.80 m and f = 2.5 Hz. Find phase speed.",
+          "hint": "Use v = f lambda.",
+          "answer": "v = 2.0 m/s."
+        }
+      ]
+    },
+    "7.5": {
+      "question": "How does linear wave addition create stationary nodes and a discrete set of resonant frequencies?",
+      "overview": [
+        "In a linear medium, the sum of two wave-equation solutions is also a solution. Displacements therefore add with their signs and phases: equal phases reinforce, while opposite phases can cancel. Interference redistributes amplitude in space but does not destroy the energy of the entire closed system.",
+        "Two opposing harmonic waves of equal frequency and amplitude form a standing wave. Its nodes remain fixed while antinodes oscillate between them. Boundary conditions admit only wavelengths that fit the system geometry, so a string, air column, or resonator has discrete normal modes."
+      ],
+      "conceptExplanations": [
+        "Superposition applies when the medium response is linear: total displacement is the algebraic sum of separate displacements at the same point and time.",
+        "Constructive and destructive behavior is set by phase difference; complete cancellation requires equal amplitudes and opposite phases at the point considered.",
+        "A standing wave can have zero average energy flux although each segment between nodes exchanges kinetic and potential energy.",
+        "A fixed string end requires zero displacement, so L = n lambda/2 and f_n = n v/(2L); another boundary type gives a different mode set."
+      ],
+      "boundary": "Linear superposition and ideal-string mode formulas require small transverse displacement, constant tension and linear density, fixed ideal boundaries, and weak loss; string stiffness and compliant supports shift the frequencies.",
+      "example": {
+        "title": "Modes of a stretched string",
+        "problem": "A 0.65 m string is fixed at both ends, held at tension 80 N, and has linear density 5.0e-3 kg/m. Find its first and third natural frequencies.",
+        "steps": [
+          "The transverse wave speed is v = sqrt(T/mu) = sqrt(80/0.005) = 126.5 m/s.",
+          "The fundamental is f1 = v/(2L) = 126.5/1.30 = 97.3 Hz.",
+          "For an ideal string, fn = n f1, so f3 = 292 Hz."
+        ],
+        "answer": "f1 is about 97 Hz and f3 is about 292 Hz.",
+        "check": "Three half-wavelengths fit along the string in the third mode; increasing tension raises every frequency as sqrt(T)."
+      },
+      "pitfall": "Destructive interference at one point does not mean energy vanished: it remains elsewhere or in another form if no absorption occurs.",
+      "practice": [
+        {
+          "question": "Why is a fixed string end a node?",
+          "hint": "What kinematic boundary condition does the support impose?",
+          "answer": "The support forbids transverse displacement, so incident and reflected waves must always sum to zero there."
+        },
+        {
+          "question": "How does f1 change if ideal-string tension is increased by a factor of 9?",
+          "hint": "f1 is proportional to sqrt(T).",
+          "answer": "The fundamental frequency increases by a factor of 3."
+        }
+      ]
+    },
+    "7.6": {
+      "question": "How does a harmonic spectrum explain signal shape, and why does a wave packet change shape in a dispersive medium?",
+      "overview": [
+        "A Fourier transform represents a suitable signal as a sum of sinusoids with different frequencies, amplitudes, and phases. A time representation shows when a signal changes, whereas a spectrum shows its frequency scales. A short pulse necessarily occupies a broad frequency range.",
+        "If the dispersion relation omega(k) is nonlinear, harmonic components propagate with different phase velocities. The phase of one component moves at v_ph = omega/k, while the maximum of a narrowband envelope moves approximately at v_g = d omega/dk. Variation of velocity across the band makes the packet spread."
+      ],
+      "conceptExplanations": [
+        "Harmonics form a basis for linear analysis: their sums reproduce periodic waveforms and, with a suitable continuous spectrum, localized pulses.",
+        "A spectrum contains amplitude and phase at each frequency; its magnitude alone is not generally enough to reconstruct the time waveform.",
+        "Phase velocity tracks a crest of one harmonic and group velocity tracks the slow envelope of a narrow frequency group; neither may be identified with information speed without checking conditions.",
+        "Curvature of omega(k) makes different spectrum components accumulate different phases, changing packet duration and shape even without absorption."
+      ],
+      "boundary": "Interpreting v_g = d omega/dk as packet speed requires a narrow spectrum and slowly varying medium; near strong absorption or resonance, group velocity need not equal energy or signal-front velocity.",
+      "example": {
+        "title": "Phase and group velocities",
+        "problem": "In a model medium, dispersion is omega = a k^2 with a = 0.50 m^2/s. Find phase and group velocities at k0 = 4.0 1/m.",
+        "steps": [
+          "Phase velocity is v_ph = omega/k = a k.",
+          "At k0 = 4.0 1/m, v_ph = 0.50 x 4.0 = 2.0 m/s.",
+          "Group velocity is v_g = d omega/dk = 2ak = 4.0 m/s."
+        ],
+        "answer": "v_ph = 2.0 m/s and v_g = 4.0 m/s.",
+        "check": "a k has units m/s, and unequal velocities confirm dispersion."
+      },
+      "pitfall": "A large spectral amplitude does not reveal when that component occurred; time localization also requires phase and a specified observation window.",
+      "practice": [
+        {
+          "question": "Why can a very short pulse not be constructed from a single frequency?",
+          "hint": "One harmonic extends through all time and is strictly periodic.",
+          "answer": "Localization comes from interference among many frequencies; the shorter the pulse scale, the broader the required bandwidth."
+        },
+        {
+          "question": "For the nondispersive relation omega = c k, find v_ph and v_g.",
+          "hint": "Divide omega by k and differentiate it with respect to k.",
+          "answer": "Both velocities equal c, so an ideal packet does not spread through dispersion."
+        }
+      ]
+    },
+    "7.7": {
+      "question": "How do pressure oscillations become perceived sound, and why do the source, room, and motion change what is heard?",
+      "overview": [
+        "Sound in a liquid or gas is mainly a longitudinal wave of alternating compression and rarefaction. Pressure and particle velocity oscillate around equilibrium values, while mean intensity describes energy flux. Frequency strongly affects perceived pitch, but loudness depends on level, spectrum, and hearing sensitivity.",
+        "Timbre is determined by harmonic content and temporal envelope. Instruments excite normal modes of strings, membranes, or air columns, while a room adds reflections and reverberation. Relative motion changes wavefront arrival frequency through the Doppler effect; a supersonic source forms a shock cone."
+      ],
+      "conceptExplanations": [
+        "Acoustic pressure is a small departure from background pressure; in a linear plane wave it is related to particle velocity by the medium's acoustic impedance.",
+        "Pitch correlates mainly with frequency, loudness with perceived level, and timbre distinguishes equal notes through spectrum and attack.",
+        "Boundary conditions select instrument resonances, but the real sound also includes excitation, coupling to a body, radiation, and mode-dependent damping.",
+        "Reverberation is the statistically decaying tail of many reflections; too little makes sound dry, while too much reduces speech intelligibility.",
+        "Doppler shift depends on source and observer velocities relative to the medium; a shock wave forms when a source overtakes its own acoustic disturbances."
+      ],
+      "boundary": "Classical sound-Doppler formulas require a specified stationary medium and subsonic velocities unless shocks are treated separately; strong shock waves, wind gradients, and nonlinear acoustics require an extended model.",
+      "example": {
+        "title": "Doppler shift from a moving source",
+        "problem": "A 680 Hz tone source moves directly toward a stationary observer at 20 m/s through still air. Sound speed is 343 m/s. Find the received frequency.",
+        "steps": [
+          "During one period the source advances, shortening the forward wavelength to lambda_front = (c - v_s)/f.",
+          "The observer receives fronts at speed c, so f_obs = c/lambda_front = f c/(c - v_s).",
+          "Substitution gives f_obs = 680 x 343/323 = 722 Hz."
+        ],
+        "answer": "The received frequency is approximately 722 Hz.",
+        "check": "Approach must raise frequency, and setting v_s = 0 returns 680 Hz."
+      },
+      "pitfall": "A decibel is a logarithmic level, not a unit of intensity; equal additions in decibels multiply an intensity ratio.",
+      "practice": [
+        {
+          "question": "Why do a flute and a violin sound different on the same note?",
+          "hint": "Compare the fundamental, overtones, and temporal envelope.",
+          "answer": "Their fundamental pitch may agree, but harmonic amplitudes and phases, attack, and decay differ, producing distinct timbre."
+        },
+        {
+          "question": "An echo returns after 0.80 s with c = 340 m/s. How far away is the reflecting wall?",
+          "hint": "During the measured time, sound travels to the wall and back.",
+          "answer": "d = ct/2 = 340 x 0.80/2 = 136 m."
+        }
+      ]
+    }
+  }
+}

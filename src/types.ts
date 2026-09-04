@@ -18,6 +18,29 @@ export interface Topic {
   interactive: string;
 }
 
+export interface LessonPractice {
+  question: string;
+  hint: string;
+  answer: string;
+}
+
+export interface TopicLessonDetail {
+  topicId: string;
+  question: string;
+  overview: [string, string];
+  conceptExplanations: string[];
+  boundary: string;
+  example: {
+    title: string;
+    problem: string;
+    steps: string[];
+    answer: string;
+    check: string;
+  };
+  pitfall: string;
+  practice: [LessonPractice, LessonPractice];
+}
+
 export interface Chapter {
   number: number;
   slug: string;

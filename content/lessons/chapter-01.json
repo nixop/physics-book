@@ -1,0 +1,571 @@
+{
+  "chapter": 1,
+  "ru": {
+    "1.1": {
+      "question": "Почему физический результат нельзя записать одним числом и как единицы помогают обнаружить ошибку ещё до вычисления?",
+      "overview": [
+        "Физическая величина задаётся способом сравнения с принятой единицей. Запись 12 м сообщает не только численное значение, но и вид измеряемого свойства; при смене единицы число меняется, а сама длина остаётся той же.",
+        "Согласованная система единиц позволяет сопоставлять измерения и уравнения. Размерностный анализ проверяет допустимую структуру формулы, а оценка порядка величины показывает, правдоподобен ли ответ до детального расчёта."
+      ],
+      "conceptExplanations": [
+        "Число без единицы обычно не определяет результат: 5 м, 5 с и 5 кг описывают разные величины. Исключение составляют безразмерные отношения, но и для них следует указывать смысл, например коэффициент преломления.",
+        "СИ строится на семи основных единицах, а производные единицы выражаются через них. Приставки обозначают точные степени десяти: 1 мм = 10⁻³ м, а 1 МГц = 10⁶ Гц.",
+        "Размерность описывает тип величины независимо от выбранной единицы: скорость имеет размерность L T⁻¹, сила — M L T⁻². Складывать можно только величины одинаковой размерности.",
+        "Перевод выполняют умножением на равные единице коэффициенты, сохраняя единицы на каждом шаге. В корректном физическом равенстве обе части имеют одинаковую размерность, хотя этого условия недостаточно для истинности формулы.",
+        "Порядок величины — ближайшая характерная степень десяти. В оценке Ферми сложную задачу разбивают на несколько измеримых факторов, оценивают каждый и проверяют устойчивость итогового масштаба."
+      ],
+      "boundary": "Размерностная однородность является необходимым, но не достаточным условием: она не обнаружит безразмерный коэффициент, неверный знак или замену синуса на косинус, а аргументы экспоненты и логарифма должны быть безразмерными.",
+      "example": {
+        "title": "Скорость автомобиля в единицах СИ",
+        "problem": "Автомобиль движется со скоростью 90 км/ч и проходит 250 м. Найдите время движения и проверьте единицы результата.",
+        "steps": [
+          "Переведите скорость: 90 км/ч = 90 × 1000 м / 3600 с = 25 м/с.",
+          "Используйте определение равномерной скорости v = s/t, откуда t = s/v.",
+          "Подставьте согласованные единицы: t = 250 м / (25 м/с) = 10 с.",
+          "Проверьте размерность: L/(L T⁻¹) = T, поэтому результат действительно должен измеряться временем."
+        ],
+        "answer": "Время равно 10 с при предположении постоянной скорости 90 км/ч на всём участке.",
+        "check": "За одну секунду автомобиль проходит 25 м; четыре таких отрезка составляют 100 м, поэтому 250 м за 10 с имеет правильный масштаб."
+      },
+      "pitfall": "Нельзя подставлять километры в одну часть формулы и метры в другую, надеясь, что калькулятор исправит единицы; сначала приведите величины к согласованной системе.",
+      "practice": [
+        {
+          "question": "Можно ли сложить 3 м и 4 м/с?",
+          "hint": "Сравни размерности слагаемых.",
+          "answer": "Нет: длина имеет размерность L, а скорость — L T⁻¹. Их сумма не является определённой физической величиной."
+        },
+        {
+          "question": "Плотность равна 1,20 г/см³. Вырази её в кг/м³.",
+          "hint": "1 г = 10⁻³ кг, а 1 см³ = 10⁻⁶ м³.",
+          "answer": "1,20 г/см³ = 1,20 × 10⁻³ кг / 10⁻⁶ м³ = 1,20 × 10³ кг/м³ = 1200 кг/м³."
+        }
+      ]
+    },
+    "1.2": {
+      "question": "Как сообщить не только результат измерения, но и обоснованную степень доверия к нему?",
+      "overview": [
+        "Измерение связывает показание прибора с величиной через калибровку и модель. Точное значение обычно недоступно, поэтому современная запись результата включает оценку величины, единицу и неопределённость, полученную из статистики и известных источников влияния.",
+        "Неопределённость не означает ошибочность опыта: она задаёт диапазон значений, совместимых с имеющейся информацией. Увеличение числа повторов уменьшает вклад случайного разброса в среднее, но калибровочное смещение, методическую поправку и корреляции нужно оценивать отдельно."
+      ],
+      "conceptExplanations": [
+        "Цифровой шаг или цена деления ограничивает различимые показания и обычно входит в бюджет неопределённости. Однако разрешение не равно автоматически полной неопределённости: могут доминировать калибровка, шум или методика.",
+        "Погрешность определяют как измеренное значение минус опорное. Поскольку истинное значение неизвестно, известную оценку систематического эффекта обычно корректируют, а неопределённость самой поправки сохраняют.",
+        "Стандартная неопределённость выражает имеющуюся информацию в виде стандартного отклонения. Она относится не к набору возможных ошибок прибора вообще, а к конкретной измеряемой величине и модели измерения.",
+        "Случайный вклад можно оценить по повторным наблюдениям и неопределённости среднего. Систематический вклад не исчезает при усреднении и требует калибровочного сертификата, контрольного образца или физической модели.",
+        "Абсолютная неопределённость записывается в тех же единицах, что результат; относительная равна их отношению. Расширенную неопределённость U = ku сообщают вместе с коэффициентом охвата k и принятой вероятностью охвата.",
+        "Для функции нескольких входов малые неопределённости переносят через производные чувствительности. Если входы коррелированы, ковариационные члены могут как увеличить, так и уменьшить итоговую неопределённость."
+      ],
+      "boundary": "Статистические формулы для независимых одинаково распределённых повторов нельзя без проверки применять к дрейфующим, округлённым или коррелированным данным; при малой выборке также существенно допущение о распределении.",
+      "example": {
+        "title": "Совмещение разброса и разрешения",
+        "problem": "Диаметр измерен пять раз: 10,0; 10,1; 9,9; 10,0; 10,0 мм. Шаг цифрового прибора 0,1 мм. Оцените стандартную неопределённость среднего, считая округление равномерным и независимым от разброса.",
+        "steps": [
+          "Среднее равно 10,00 мм, а выборочное стандартное отклонение пяти показаний приблизительно 0,071 мм.",
+          "Стандартная неопределённость среднего по повторяемости равна 0,071/√5 ≈ 0,032 мм.",
+          "Для округления с шириной шага 0,1 мм стандартный вклад равен 0,1/√12 ≈ 0,029 мм.",
+          "Независимые вклады объедините квадратично: u = √(0,032² + 0,029²) ≈ 0,043 мм."
+        ],
+        "answer": "Результат можно записать как d = (10,00 ± 0,04) мм со стандартной неопределённостью; это не расширенный интервал охвата.",
+        "check": "Итоговый вклад больше каждого отдельного, но меньше их арифметической суммы, как и должно быть при квадратичном объединении независимых компонентов."
+      },
+      "pitfall": "Запись ± без указания, является ли это стандартной неопределённостью, доверительным интервалом, пределом допуска или разрешением, неоднозначна и непригодна для сравнения результатов.",
+      "practice": [
+        {
+          "question": "После ста повторов среднее стабилизировалось, но контрольный эталон показывает постоянное смещение +0,4 °C. Устранит ли ещё тысяча повторов проблему?",
+          "hint": "Раздели случайный разброс и систематический эффект.",
+          "answer": "Нет. Повторы уменьшают неопределённость среднего от случайного разброса, но постоянное смещение нужно скорректировать по калибровке и учесть неопределённость поправки."
+        },
+        {
+          "question": "Независимые величины x = 2,00 ± 0,02 и y = 3,0 ± 0,1 заданы стандартными неопределённостями. Оцени z = xy.",
+          "hint": "Для произведения сложи квадраты относительных неопределённостей.",
+          "answer": "z = 6,0, а uᵣ(z) ≈ √((0,02/2,00)² + (0,1/3,0)²) ≈ 0,035. Поэтому u(z) ≈ 0,21 и разумная запись: z = 6,0 ± 0,2."
+        }
+      ]
+    },
+    "1.3": {
+      "question": "Как по конечной и шумной серии данных выбрать модель, не скрыв неудобные наблюдения?",
+      "overview": [
+        "Сырые данные становятся физическим результатом после описания процедуры, визуализации распределения и сравнения с моделью. Среднее характеризует центр только вместе с мерой разброса, а график остатков показывает то, что может скрыть один коэффициент качества.",
+        "Подбор модели оценивает параметры при заданных предположениях о шуме. Он не превращает корреляцию в причинность: причинный вывод требует механизма, временного порядка и дизайна, исключающего правдоподобные смешивающие факторы."
+      ],
+      "conceptExplanations": [
+        "Среднее суммирует уровень серии, а стандартное отклонение характеризует разброс отдельных наблюдений. Стандартная неопределённость среднего уменьшается примерно как 1/√n только для независимых стабильных измерений.",
+        "Гистограмма зависит от ширины интервалов и показывает эмпирическую форму распределения. Нормальное распределение часто возникает для суммы малых независимых вкладов, но не является обязательным законом любых данных.",
+        "Наблюдение исключают только по заранее заданному физическому или процедурному критерию, например подтверждённому сбою датчика. Удаление точки лишь потому, что она портит график, смещает результат.",
+        "Остаток равен наблюдению минус предсказание. Случайное облако совместимых с шумом остатков поддерживает форму модели, а изгиб, тренд или изменение ширины указывают на пропущенную зависимость или неверную модель шума.",
+        "Две величины могут меняться вместе из-за третьего фактора, общего тренда или отбора данных. Даже сильный коэффициент корреляции сам по себе не устанавливает направление причинной связи."
+      ],
+      "boundary": "Обычная линейная регрессия предполагает корректную форму модели и подходящее описание ошибок; выбросы, неодинаковая дисперсия, ошибки по оси x и временная автокорреляция требуют других методов или явного моделирования.",
+      "example": {
+        "title": "Проверка прямой по остаткам",
+        "problem": "Для x = 0, 1, 2, 3 получены y = 1,1; 3,0; 4,9; 7,2. Достаточна ли пробная модель y = 1 + 2x при точности порядка 0,2?",
+        "steps": [
+          "Вычислите предсказания модели: 1,0; 3,0; 5,0; 7,0.",
+          "Найдите остатки yнабл − yмод: +0,1; 0,0; −0,1; +0,2.",
+          "Сравните их масштаб с заявленной точностью 0,2 и нанесите остатки против x.",
+          "Проверьте, нет ли монотонного изгиба или роста разброса; четырёх точек недостаточно для тонкой проверки распределения."
+        ],
+        "answer": "Все остатки не превышают 0,2 и не показывают явного тренда, поэтому данные совместимы с пробной прямой на данной точности, но не выделяют её как единственно возможную модель.",
+        "check": "Средний остаток равен 0,05, то есть мал относительно масштаба 0,2; это не заменяет анализа неопределённостей параметров."
+      },
+      "pitfall": "Высокий R² не доказывает правильность закона: он может быть высоким для общего временного тренда, а систематический рисунок остатков при этом выдаст несостоятельность модели.",
+      "practice": [
+        {
+          "question": "Одна точка лежит далеко от остальных, но в журнале нет записи о сбое. Можно ли удалить её до подбора модели?",
+          "hint": "Отличай статистическую необычность от установленной причины ошибки.",
+          "answer": "Автоматически удалять нельзя. Нужно проверить первичные записи и устойчивость вывода с этой точкой и без неё, применить заранее обоснованный критерий и прозрачно сообщить решение."
+        },
+        {
+          "question": "Найди среднее измерений 4,8; 5,0; 5,2; 5,0 и сумму их отклонений от среднего.",
+          "hint": "Сначала сложи четыре значения; отклонения от арифметического среднего имеют особое свойство.",
+          "answer": "Среднее равно 5,0. Отклонения −0,2; 0; +0,2; 0 дают сумму 0, как и должно быть для арифметического среднего."
+        }
+      ]
+    },
+    "1.4": {
+      "question": "Как извлечь из формы и масштаба графика физическое изменение, а не только координаты отдельных точек?",
+      "overview": [
+        "Функция задаёт правило соответствия между независимой переменной и результатом при фиксированных остальных условиях. График делает видимыми знак, скорость изменения, экстремумы и характерный масштаб, но его смысл определяется подписями осей и физической постановкой.",
+        "Наклон и площадь получают единицы из осей. Наклон координаты по времени является скоростью, а площадь под графиком скорости по времени — перемещением; те же геометрические операции на других осях обозначают уже другие величины."
+      ],
+      "conceptExplanations": [
+        "Независимую переменную выбирают или используют как аргумент, а зависимую измеряют либо вычисляют. Это не всегда означает причинность: на наблюдательном графике обе величины могут зависеть от третьей.",
+        "Для y ∝ x отношение y/x постоянно, для y ∝ 1/x постоянно xy, для y ∝ x² — y/x². Экспоненциальная зависимость отличается постоянным относительным, а не абсолютным изменением за равные интервалы.",
+        "Логарифмическая ось кодирует равные отношения равными расстояниями. Прямая на полулогарифмическом графике указывает на экспоненту, а на двойном логарифмическом — на степенной закон при положительных величинах.",
+        "Локальный наклон равен отношению малых изменений координат с единицами вертикальной оси на единицу горизонтальной. Знаковая площадь суммирует произведение этих единиц и учитывает участки ниже нуля со знаком минус.",
+        "До вычислений полезно определить, где величина растёт, меняет знак или достигает экстремума. Такой качественный прогноз обнаруживает ошибочную подстановку и неверно выбранный масштаб."
+      ],
+      "boundary": "Вид линии зависит от масштаба и диапазона осей; соединение редких точек не доказывает поведение между ними, а наклон и площадь имеют физический смысл только для конкретно определённых величин.",
+      "example": {
+        "title": "Чтение графика скорости",
+        "problem": "Скорость тела описана прямой v(t) = 2 + 3t в СИ от 0 до 4 с. Что сообщают наклон и площадь под графиком?",
+        "steps": [
+          "Наклон прямой Δv/Δt равен 3 (м/с)/с = 3 м/с², то есть постоянному ускорению.",
+          "Начальная скорость — пересечение с осью v: 2 м/с.",
+          "Перемещение равно площади трапеции: средняя высота (2 + 14)/2 м/с умножается на 4 с.",
+          "Получите Δx = 32 м и проверьте то же интегралом ∫₀⁴(2 + 3t)dt."
+        ],
+        "answer": "Ускорение равно 3 м/с², а перемещение за 4 с — 32 м при движении вдоль положительного направления оси.",
+        "check": "Средняя скорость 8 м/с лежит между начальной 2 и конечной 14 м/с, поэтому 32 м имеет разумный масштаб."
+      },
+      "pitfall": "Крутизну нельзя сравнивать на глаз между графиками с разными масштабами: один и тот же наклон в единицах может выглядеть почти горизонтальным или почти вертикальным.",
+      "practice": [
+        {
+          "question": "Почему прямая линия на графике ln y от x указывает на экспоненциальную зависимость y(x)?",
+          "hint": "Запиши уравнение прямой для ln y и возведи обе части в экспоненту.",
+          "answer": "Если ln y = a + bx, то y = eᵃeᵇˣ. Наклон b задаёт постоянную относительную скорость изменения, а eᵃ — начальный множитель."
+        },
+        {
+          "question": "Скорость линейно падает от 12 м/с до 0 за 6 с и остаётся неотрицательной. Найди перемещение.",
+          "hint": "Под графиком v(t) получается треугольник.",
+          "answer": "Площадь треугольника равна ½ × 6 с × 12 м/с = 36 м."
+        }
+      ]
+    },
+    "1.5": {
+      "question": "Когда для описания величины достаточно одного числа, а когда без направления предсказание становится неоднозначным?",
+      "overview": [
+        "Скаляр определяется численным значением с единицей и не меняется при повороте координат, тогда как вектор дополнительно задаёт геометрическое направление. Температура и масса — скаляры; перемещение, скорость и сила — векторы.",
+        "Вектор можно изобразить направленным отрезком и переносить параллельно самому себе, если он свободный. Геометрические правила сложения и умножения на число не зависят от выбранных координат, хотя компоненты вектора при повороте осей изменяются."
+      ],
+      "conceptExplanations": [
+        "Одно и то же положительное значение скорости движения не сообщает, куда движется объект. Векторная скорость устраняет эту неоднозначность, а скалярная путевая скорость хранит только модуль.",
+        "Модуль является неотрицательным скаляром с той же единицей, а направление задают углом, единичным вектором или компонентами относительно явно выбранных осей.",
+        "Два свободных вектора равны, если совпадают их модули и направления. Точки приложения при этом не учитываются; для связанного вектора, например силы на твёрдом теле, точка приложения может влиять на вращение.",
+        "Сумма строится по правилу треугольника или параллелограмма и описывает последовательное совместное действие. Разность a − b равна сумме a и вектора −b.",
+        "Умножение на положительное число меняет модуль, на отрицательное — ещё и обращает направление, а умножение на ноль даёт нулевой вектор без определённого направления."
+      ],
+      "boundary": "Не всякая величина с несколькими компонентами является обычным вектором: напряжение описывается тензором, а конечные повороты в трёх измерениях не складываются как свободные векторы.",
+      "example": {
+        "title": "Результат двух перемещений",
+        "problem": "Тело сместилось на a = (3, 4) м, затем на b = (−1, 2) м. Найдите итоговый вектор, его модуль и направление относительно +x.",
+        "steps": [
+          "Сложите соответствующие компоненты: a + b = (3 − 1, 4 + 2) м = (2, 6) м.",
+          "Найдите модуль: |a + b| = √(2² + 6²) = √40 м ≈ 6,32 м.",
+          "Угол удовлетворяет tan θ = 6/2 = 3; обе компоненты положительны, значит вектор лежит в первой четверти.",
+          "Получите θ ≈ 71,6° от положительного направления оси x."
+        ],
+        "answer": "Итоговое перемещение равно (2, 6) м, его модуль приблизительно 6,32 м, направление — 71,6° от +x.",
+        "check": "Модуль суммы не превышает |a| + |b| = 5 + √5 ≈ 7,24 м, что согласуется с неравенством треугольника."
+      },
+      "pitfall": "Складывать модули вместо векторов можно только для сонаправленных величин; при других направлениях это завышает или занижает результат.",
+      "practice": [
+        {
+          "question": "Работа силы — скаляр или вектор, хотя сила и перемещение являются векторами?",
+          "hint": "Вспомни, какой тип результата даёт скалярное произведение.",
+          "answer": "Работа — скаляр: W = F · s. Её знак зависит от взаимного направления силы и перемещения, но сама работа не имеет пространственного направления."
+        },
+        {
+          "question": "Найди сумму векторов (5, −2) Н и (−3, 7) Н и её модуль.",
+          "hint": "Сложи компоненты, затем примени теорему Пифагора.",
+          "answer": "Сумма равна (2, 5) Н, а её модуль √(2² + 5²) = √29 Н ≈ 5,39 Н."
+        }
+      ]
+    },
+    "1.6": {
+      "question": "Как выбранные оси превращают геометрический вектор в вычислимые компоненты и что измеряют его скалярное и векторное произведения?",
+      "overview": [
+        "Проекция отвечает, какая часть вектора направлена вдоль заданной оси. Набор компонентов в ортонормированном базисе полностью восстанавливает вектор и позволяет свести векторное уравнение к независимым скалярным уравнениям по осям.",
+        "Произведения векторов кодируют разные геометрические свойства. Скалярное произведение выделяет сонаправленность и появляется в работе, а векторное произведение измеряет ориентированную площадь и появляется в моменте силы и угловом моменте."
+      ],
+      "conceptExplanations": [
+        "Ортогональная проекция aₓ = |a|cos θ является знаковым числом. Она равна длине тени с плюсом или минусом в зависимости от направления относительно положительной полуоси.",
+        "Перпендикулярный оси вектор имеет нулевую проекцию, хотя его модуль ненулевой. Отрицательная проекция означает противоположное направление, а не отрицательную длину.",
+        "В двух измерениях нужны две независимые координаты, в трёх — три. Выбор осей произволен, но ортонормированный базис часто упрощает длины и произведения.",
+        "Вектор равен сумме компонентов, умноженных на базисные векторы: a = aₓeₓ + aᵧeᵧ + a_z e_z. При смене базиса числа меняются согласованно, геометрический вектор — нет.",
+        "a · b = |a||b|cos θ положительно для острого угла, равно нулю для перпендикулярных векторов и отрицательно для тупого угла. В ортонормированном базисе это сумма попарных произведений компонентов.",
+        "|a × b| = |a||b|sin θ равен площади параллелограмма, а направление задаётся правилом правой руки. Перестановка множителей меняет знак результата."
+      ],
+      "boundary": "Компонентные формулы для длины и скалярного произведения в виде простых сумм предполагают ортонормированный евклидов базис; в криволинейных или косоугольных координатах нужна метрика и меняющиеся базисные векторы.",
+      "example": {
+        "title": "Работа и момент одной силы",
+        "problem": "Сила F = (3, 4, 0) Н действует при перемещении s = (2, 0, 0) м; точка приложения имеет r = (2, 0, 0) м относительно начала. Найдите работу и момент силы.",
+        "steps": [
+          "Работа равна скалярному произведению: W = F · s = 3×2 + 4×0 = 6 Дж.",
+          "Компонента 4 Н перпендикулярна перемещению и работы на этом перемещении не совершает.",
+          "Момент равен τ = r × F; ненулевой компонент τ_z = rₓFᵧ − rᵧFₓ = 2×4 = 8 Н·м.",
+          "Правило правой руки даёт направление +z."
+        ],
+        "answer": "Работа силы равна 6 Дж, а момент относительно начала — (0, 0, 8) Н·м.",
+        "check": "Единицы различны: скалярная работа и модуль момента обе имеют размер Н·м, но момент является векторной характеристикой вращательного действия и не измеряется в джоулях."
+      },
+      "pitfall": "Нельзя смешивать проекцию и модуль: компонент может быть отрицательным, тогда как модуль вектора по определению неотрицателен.",
+      "practice": [
+        {
+          "question": "Что означает равенство a · b = 0 для двух ненулевых евклидовых векторов?",
+          "hint": "Посмотри на cos θ в определении произведения.",
+          "answer": "Векторы перпендикулярны, потому что при ненулевых модулях cos θ = 0."
+        },
+        {
+          "question": "Вычисли (2, −1, 3) · (4, 5, 0).",
+          "hint": "Перемножь одноимённые компоненты и сложи.",
+          "answer": "2×4 + (−1)×5 + 3×0 = 3. Единица результата равна произведению единиц исходных величин."
+        }
+      ]
+    },
+    "1.7": {
+      "question": "Как локальное правило изменения превращается в предсказание состояния системы через конечное время?",
+      "overview": [
+        "Производная описывает предел отношения малого изменения величины к малому изменению аргумента. Интеграл выполняет обратную задачу накопления: суммирует бесконечно малые вклады и требует начального значения для восстановления конкретной истории.",
+        "Большинство динамических законов задают не готовую траекторию, а скорость её изменения. Дифференциальное уравнение вместе с начальными и граничными условиями определяет эволюцию, а численный метод приближает её конечными шагами с контролем ошибки."
+      ],
+      "conceptExplanations": [
+        "Средняя скорость изменения относится к конечному интервалу, а производная — к выбранному мгновению. На графике она равна наклону касательной и имеет единицу зависимой величины, делённую на единицу аргумента.",
+        "Определённый интеграл учитывает знак вкладов и геометрически соответствует знаковой площади. Например, интеграл мощности по времени даёт переданную энергию.",
+        "Конечное приращение равно интегралу мгновенной скорости изменения. Для малого шага его приближают произведением производной на шаг, но ошибка накапливается при многократном применении.",
+        "Уравнение связывает неизвестную функцию с её производными. Одинаковое правило может давать разные решения при разных начальных состояниях, поэтому одного уравнения недостаточно.",
+        "Метод Эйлера заменяет кривую последовательностью касательных шагов. Уменьшение шага обычно повышает точность, но устойчивость и скорость сходимости зависят от уравнения и метода."
+      ],
+      "boundary": "Производная требует выбранного предельного процесса, а простое пошаговое интегрирование может стать неустойчивым; результат численного расчёта нужно проверять уменьшением шага, законами сохранения и известными пределами.",
+      "example": {
+        "title": "От ускорения к скорости и перемещению",
+        "problem": "Тело движется вдоль оси с a(t) = −2t м/с², v(0) = 10 м/с и x(0) = 0. Найдите скорость и перемещение к t = 3 с.",
+        "steps": [
+          "Проинтегрируйте ускорение: v(t) = v(0) + ∫₀ᵗ(−2τ)dτ = 10 − t².",
+          "При t = 3 с скорость равна 10 − 9 = 1 м/с.",
+          "Проинтегрируйте скорость: x(t) = ∫₀ᵗ(10 − τ²)dτ = 10t − t³/3.",
+          "При t = 3 с получите x = 30 − 9 = 21 м."
+        ],
+        "answer": "Через 3 с скорость равна 1 м/с, а перемещение — 21 м в положительном направлении.",
+        "check": "Скорость всё время положительна, но уменьшается от 10 до 1 м/с, поэтому перемещение должно лежать между 3 и 30 м; 21 м удовлетворяет этой оценке."
+      },
+      "pitfall": "Интегрирование производной даёт семейство функций: потерянная постоянная определяется начальным условием и может полностью изменить физическое решение.",
+      "practice": [
+        {
+          "question": "Почему уравнение dx/dt = 2 само по себе не задаёт единственную координату x(t)?",
+          "hint": "Какая информация теряется при дифференцировании постоянного сдвига?",
+          "answer": "Все функции x(t) = 2t + C имеют ту же производную. Нужно начальное условие, например x(0), чтобы определить C."
+        },
+        {
+          "question": "Для dv/dt = −0,5v и v₀ = 10 м/с выполни один шаг явного метода Эйлера длиной 0,2 с.",
+          "hint": "Используй v₁ = v₀ + Δt(−0,5v₀).",
+          "answer": "v₁ = 10 + 0,2×(−5) = 9,0 м/с. Точное значение 10e⁻⁰·¹ ≈ 9,05 м/с показывает ошибку одного конечного шага."
+        }
+      ]
+    }
+  },
+  "en": {
+    "1.1": {
+      "question": "Why can a physical result not be reported as a number alone, and how can units expose an error before calculation?",
+      "overview": [
+        "A physical quantity is defined through comparison with an accepted unit. The expression 12 m states both a numerical value and the kind of property measured; changing the unit changes the number but not the length itself.",
+        "A coherent unit system makes measurements and equations comparable. Dimensional analysis tests whether an equation has an admissible structure, while an order-of-magnitude estimate checks whether an answer is plausible before detailed calculation."
+      ],
+      "conceptExplanations": [
+        "A number without a unit usually does not define a result: 5 m, 5 s, and 5 kg describe different quantities. Dimensionless ratios are an exception, but their meaning, such as refractive index, should still be named.",
+        "SI is built from seven base units, and derived units are expressed through them. Prefixes denote exact powers of ten: 1 mm = 10⁻³ m and 1 MHz = 10⁶ Hz.",
+        "A dimension describes the type of quantity independently of the chosen unit: velocity has dimension L T⁻¹ and force M L T⁻². Only quantities of the same dimension can be added.",
+        "Unit conversion uses factors equal to one and retains units at every step. Both sides of a valid physical equality have the same dimensions, although this condition alone cannot prove the equation correct.",
+        "An order of magnitude is a nearby characteristic power of ten. A Fermi estimate decomposes a difficult question into measurable factors, estimates each one, and tests whether the final scale is robust."
+      ],
+      "boundary": "Dimensional homogeneity is necessary but insufficient: it cannot detect a missing dimensionless factor, a wrong sign, or replacing sine with cosine, and every exponential or logarithm requires a dimensionless argument.",
+      "example": {
+        "title": "Vehicle speed in SI units",
+        "problem": "A vehicle travels at 90 km/h over 250 m. Find the travel time and check the units of the result.",
+        "steps": [
+          "Convert the speed: 90 km/h = 90 × 1000 m / 3600 s = 25 m/s.",
+          "Use the definition of uniform speed v = s/t, hence t = s/v.",
+          "Substitute coherent units: t = 250 m / (25 m/s) = 10 s.",
+          "Check dimensions: L/(L T⁻¹) = T, so the result must indeed be a time."
+        ],
+        "answer": "The travel time is 10 s, assuming the speed remains 90 km/h over the entire segment.",
+        "check": "At 25 m/s the vehicle covers 100 m in four seconds, so 250 m in ten seconds has the expected scale."
+      },
+      "pitfall": "Do not insert kilometers in one part of an equation and meters in another and expect a calculator to repair the units; first convert all quantities to a coherent system.",
+      "practice": [
+        {
+          "question": "Can 3 m and 4 m/s be added?",
+          "hint": "Compare the dimensions of the two terms.",
+          "answer": "No. Length has dimension L and velocity has L T⁻¹, so their sum does not define a physical quantity."
+        },
+        {
+          "question": "A density is 1.20 g/cm³. Express it in kg/m³.",
+          "hint": "1 g = 10⁻³ kg, while 1 cm³ = 10⁻⁶ m³.",
+          "answer": "1.20 g/cm³ = 1.20 × 10⁻³ kg / 10⁻⁶ m³ = 1.20 × 10³ kg/m³ = 1200 kg/m³."
+        }
+      ]
+    },
+    "1.2": {
+      "question": "How can a measurement report both an estimated value and a justified degree of confidence in it?",
+      "overview": [
+        "Measurement links an instrument indication to a quantity through calibration and a measurement model. The exact value is usually unavailable, so a modern result includes an estimate, a unit, and uncertainty evaluated from statistics and known influence quantities.",
+        "Uncertainty does not mean that an experiment is defective; it describes values compatible with the available information. More repetitions reduce the random contribution to a mean, but calibration bias, method corrections, and correlations must be evaluated separately."
+      ],
+      "conceptExplanations": [
+        "A digital increment or scale division limits distinguishable indications and usually contributes to uncertainty. Resolution is not automatically the total uncertainty because calibration, noise, or method effects may dominate.",
+        "Measurement error is a measured value minus a reference value. Because the true value is unknown, an estimated systematic effect is normally corrected while uncertainty in that correction remains.",
+        "Standard uncertainty expresses the available information as a standard deviation. It belongs to a particular measurand and measurement model, not to a generic set of possible instrument errors.",
+        "A random contribution can be estimated from repeated observations and the uncertainty of their mean. A systematic contribution does not disappear through averaging and requires calibration, a reference material, or a physical model.",
+        "Absolute uncertainty uses the unit of the result, while relative uncertainty is their ratio. Expanded uncertainty U = ku is reported together with coverage factor k and the adopted coverage probability.",
+        "For a function of several inputs, small uncertainties propagate through sensitivity derivatives. If inputs are correlated, covariance terms can either increase or decrease the combined uncertainty."
+      ],
+      "boundary": "Statistical formulas for independent, identically distributed repetitions cannot be applied uncritically to drifting, rounded, or correlated data; distribution assumptions also matter for a small sample.",
+      "example": {
+        "title": "Combining scatter and resolution",
+        "problem": "A diameter is measured five times as 10.0, 10.1, 9.9, 10.0, and 10.0 mm. A digital instrument has a 0.1 mm increment. Estimate standard uncertainty of the mean, treating rounding as uniform and independent of the observed scatter.",
+        "steps": [
+          "The mean is 10.00 mm and the sample standard deviation of the five indications is about 0.071 mm.",
+          "The repeatability standard uncertainty of the mean is 0.071/√5 ≈ 0.032 mm.",
+          "For rounding over a 0.1 mm interval, the standard contribution is 0.1/√12 ≈ 0.029 mm.",
+          "Combine independent contributions in quadrature: u = √(0.032² + 0.029²) ≈ 0.043 mm."
+        ],
+        "answer": "The result may be written d = (10.00 ± 0.04) mm with standard uncertainty; this is not an expanded coverage interval.",
+        "check": "The combined contribution is larger than either component but smaller than their arithmetic sum, as expected for independent components combined in quadrature."
+      },
+      "pitfall": "A ± value without stating whether it is standard uncertainty, a confidence interval, a tolerance limit, or instrument resolution is ambiguous and cannot support a sound comparison.",
+      "practice": [
+        {
+          "question": "After one hundred repetitions the mean is stable, but a reference reveals a constant +0.4 °C bias. Will another thousand repetitions solve the problem?",
+          "hint": "Separate random scatter from a systematic effect.",
+          "answer": "No. Repetition reduces the random contribution to uncertainty of the mean, but the constant bias must be corrected using calibration and uncertainty of that correction retained."
+        },
+        {
+          "question": "Independent quantities x = 2.00 ± 0.02 and y = 3.0 ± 0.1 have standard uncertainties. Estimate z = xy.",
+          "hint": "For a product, add squared relative uncertainties.",
+          "answer": "z = 6.0 and uᵣ(z) ≈ √((0.02/2.00)² + (0.1/3.0)²) ≈ 0.035. Thus u(z) ≈ 0.21 and a sensible report is z = 6.0 ± 0.2."
+        }
+      ]
+    },
+    "1.3": {
+      "question": "How can a finite, noisy data set be used to choose a model without hiding inconvenient observations?",
+      "overview": [
+        "Raw data become a physical result after the procedure is documented, the distribution is visualized, and predictions are compared with observations. A mean describes a center only alongside a measure of spread, while a residual plot can reveal failures hidden by a single goodness metric.",
+        "Model fitting estimates parameters under assumptions about the noise. It does not turn correlation into causation: a causal conclusion also requires a mechanism, temporal ordering, and a design that excludes plausible confounding factors."
+      ],
+      "conceptExplanations": [
+        "The mean summarizes the level of a series and standard deviation describes scatter of individual observations. Standard uncertainty of the mean decreases approximately as 1/√n only for independent, stable measurements.",
+        "A histogram depends on bin width and displays an empirical distribution shape. A normal distribution often arises from a sum of small independent contributions, but it is not a universal law for all data.",
+        "An observation should be excluded only by a predefined physical or procedural criterion, such as a confirmed sensor failure. Removing a point merely because it damages the plot biases the result.",
+        "A residual is observation minus prediction. A random cloud consistent with noise supports the model shape, whereas curvature, trend, or changing width indicates an omitted dependence or an unsuitable noise model.",
+        "Two quantities can move together because of a third factor, a shared trend, or data selection. Even a strong correlation coefficient does not establish the direction of causation."
+      ],
+      "boundary": "Ordinary linear regression assumes a correct model form and a suitable description of errors; outliers, unequal variance, uncertainty in x, and temporal autocorrelation require another method or explicit modeling.",
+      "example": {
+        "title": "Testing a straight line with residuals",
+        "problem": "For x = 0, 1, 2, 3, observations are y = 1.1, 3.0, 4.9, 7.2. Is the trial model y = 1 + 2x adequate at a precision scale of about 0.2?",
+        "steps": [
+          "Calculate model predictions: 1.0, 3.0, 5.0, and 7.0.",
+          "Find residuals yobs − ymodel: +0.1, 0.0, −0.1, and +0.2.",
+          "Compare their scale with the stated 0.2 precision and plot residuals against x.",
+          "Look for monotonic curvature or increasing scatter; four points are insufficient for a sensitive distribution test."
+        ],
+        "answer": "All residuals are no larger than 0.2 and show no obvious trend, so the data are compatible with the trial line at this precision, but do not identify it as the only possible model.",
+        "check": "The mean residual is 0.05, small on the 0.2 scale; this does not replace evaluation of parameter uncertainties."
+      },
+      "pitfall": "A high R² does not prove a physical law: a common time trend can produce it, while a systematic residual pattern still exposes model failure.",
+      "practice": [
+        {
+          "question": "One point is far from all others, but the notebook records no malfunction. May it be deleted before fitting?",
+          "hint": "Distinguish statistical surprise from an established cause of error.",
+          "answer": "Not automatically. Inspect the primary record, test robustness with and without the point, apply a justified predeclared criterion, and report the decision transparently."
+        },
+        {
+          "question": "Find the mean of 4.8, 5.0, 5.2, and 5.0, then sum their deviations from the mean.",
+          "hint": "Add the four values first; deviations from an arithmetic mean have a special property.",
+          "answer": "The mean is 5.0. The deviations −0.2, 0, +0.2, and 0 sum to zero, as they must for an arithmetic mean."
+        }
+      ]
+    },
+    "1.4": {
+      "question": "How can the shape and scale of a graph reveal a physical change rather than only coordinates of separate points?",
+      "overview": [
+        "A function assigns an outcome to an independent variable while other conditions are fixed. A graph exposes sign, rate of change, extrema, and characteristic scales, but its meaning is determined by axis labels and the physical setup.",
+        "Slope and area acquire units from their axes. The slope of position against time is velocity, and the area under velocity against time is displacement; the same geometric operations on different axes represent different quantities."
+      ],
+      "conceptExplanations": [
+        "An independent variable is selected or used as an argument, while a dependent variable is measured or calculated. This does not always imply causation: in observational data both may depend on a third quantity.",
+        "For y ∝ x, y/x is constant; for y ∝ 1/x, xy is constant; and for y ∝ x², y/x² is constant. An exponential has a constant relative rather than absolute change over equal intervals.",
+        "A logarithmic axis maps equal ratios to equal distances. A straight line on a semilog plot indicates an exponential, while a straight line on a log-log plot indicates a power law for positive quantities.",
+        "Local slope is a ratio of small coordinate changes with units of the vertical quantity per horizontal quantity. Signed area accumulates their product and counts regions below zero negatively.",
+        "Before calculating, identify where a quantity rises, changes sign, or reaches an extremum. This qualitative prediction catches substitution errors and inappropriate scales."
+      ],
+      "boundary": "The apparent shape depends on axis range and scale; connecting sparse points does not establish behavior between them, and slope or area has physical meaning only for specifically defined quantities.",
+      "example": {
+        "title": "Reading a velocity graph",
+        "problem": "A body's velocity is v(t) = 2 + 3t in SI units from 0 to 4 s. What do the slope and area under the graph represent?",
+        "steps": [
+          "The line's slope Δv/Δt is 3 (m/s)/s = 3 m/s², the constant acceleration.",
+          "The vertical intercept gives initial velocity 2 m/s.",
+          "Displacement is the trapezoid area: average height (2 + 14)/2 m/s multiplied by 4 s.",
+          "This gives Δx = 32 m, also obtained from ∫₀⁴(2 + 3t)dt."
+        ],
+        "answer": "Acceleration is 3 m/s² and displacement over four seconds is 32 m along the positive axis.",
+        "check": "The average velocity 8 m/s lies between the initial 2 and final 14 m/s, so 32 m has a sensible scale."
+      },
+      "pitfall": "Visual steepness cannot be compared across graphs with different scales: the same numerical slope can look almost horizontal or almost vertical.",
+      "practice": [
+        {
+          "question": "Why does a straight line on a plot of ln y against x indicate an exponential y(x)?",
+          "hint": "Write the straight-line equation for ln y and exponentiate it.",
+          "answer": "If ln y = a + bx, then y = eᵃeᵇˣ. The slope b is a constant relative rate and eᵃ is the initial factor."
+        },
+        {
+          "question": "Velocity falls linearly from 12 m/s to zero over 6 s and remains nonnegative. Find the displacement.",
+          "hint": "The region under v(t) is a triangle.",
+          "answer": "The triangular area is ½ × 6 s × 12 m/s = 36 m."
+        }
+      ]
+    },
+    "1.5": {
+      "question": "When is one number sufficient to describe a quantity, and when does omitting direction make a prediction ambiguous?",
+      "overview": [
+        "A scalar is specified by a value with a unit and remains unchanged when coordinates are rotated, whereas a vector also carries a geometrical direction. Temperature and mass are scalars; displacement, velocity, and force are vectors.",
+        "A vector can be drawn as an arrow and translated parallel to itself when it is free. Geometrical rules for addition and scalar multiplication do not depend on coordinates, although components change when axes rotate."
+      ],
+      "conceptExplanations": [
+        "The same positive speed does not say where an object moves. Velocity resolves this ambiguity as a vector, whereas scalar speed retains only its magnitude.",
+        "Magnitude is a nonnegative scalar with the same unit as the vector. Direction may be given by an angle, a unit vector, or components relative to explicitly chosen axes.",
+        "Two free vectors are equal when their magnitudes and directions agree. Their locations are irrelevant; for a bound vector such as a force on a rigid body, the point of application can affect rotation.",
+        "A sum follows the triangle or parallelogram rule and represents sequential or combined action. The difference a − b is the sum of a and the reversed vector −b.",
+        "Multiplication by a positive scalar changes magnitude, by a negative scalar also reverses direction, and multiplication by zero gives a zero vector with no defined direction."
+      ],
+      "boundary": "Not every multicomponent quantity is an ordinary vector: stress is a tensor, and finite rotations in three dimensions do not add as free vectors.",
+      "example": {
+        "title": "Result of two displacements",
+        "problem": "An object moves by a = (3, 4) m and then by b = (−1, 2) m. Find the resultant vector, its magnitude, and its direction from +x.",
+        "steps": [
+          "Add corresponding components: a + b = (3 − 1, 4 + 2) m = (2, 6) m.",
+          "Find the magnitude: |a + b| = √(2² + 6²) = √40 m ≈ 6.32 m.",
+          "The angle satisfies tan θ = 6/2 = 3; both components are positive, so the vector is in the first quadrant.",
+          "Thus θ ≈ 71.6° measured from the positive x direction."
+        ],
+        "answer": "The resultant displacement is (2, 6) m, with magnitude about 6.32 m and direction 71.6° from +x.",
+        "check": "Its magnitude does not exceed |a| + |b| = 5 + √5 ≈ 7.24 m, consistent with the triangle inequality."
+      },
+      "pitfall": "Magnitudes may be added instead of vectors only when directions agree; in any other geometry this overestimates or underestimates the resultant.",
+      "practice": [
+        {
+          "question": "Is work a scalar or a vector even though force and displacement are vectors?",
+          "hint": "Recall the type of result produced by a dot product.",
+          "answer": "Work is a scalar: W = F · s. Its sign depends on the relative directions of force and displacement, but work itself has no spatial direction."
+        },
+        {
+          "question": "Find the sum of (5, −2) N and (−3, 7) N and its magnitude.",
+          "hint": "Add components, then use the Pythagorean theorem.",
+          "answer": "The sum is (2, 5) N and its magnitude is √(2² + 5²) = √29 N ≈ 5.39 N."
+        }
+      ]
+    },
+    "1.6": {
+      "question": "How do chosen axes turn a geometrical vector into computable components, and what do dot and cross products measure?",
+      "overview": [
+        "A projection asks how much of a vector points along a selected axis. Components in an orthonormal basis reconstruct the entire vector and turn one vector equation into independent scalar equations along the axes.",
+        "Vector products encode different geometry. The dot product measures alignment and appears in work, whereas the cross product measures oriented area and appears in torque and angular momentum."
+      ],
+      "conceptExplanations": [
+        "The orthogonal projection aₓ = |a|cos θ is a signed number. It is the length of a shadow with a plus or minus sign determined by direction relative to the positive half-axis.",
+        "A vector perpendicular to an axis has zero projection although its magnitude is nonzero. A negative projection means opposite direction, not a negative length.",
+        "Two dimensions require two independent coordinates and three dimensions require three. Axes are a choice, but an orthonormal basis often simplifies lengths and products.",
+        "A vector is the sum of components times basis vectors: a = aₓeₓ + aᵧeᵧ + a_z e_z. Under a basis change the numbers transform consistently while the geometrical vector does not change.",
+        "a · b = |a||b|cos θ is positive for an acute angle, zero for perpendicular vectors, and negative for an obtuse angle. In an orthonormal basis it is the sum of componentwise products.",
+        "|a × b| = |a||b|sin θ is the parallelogram area, with direction set by the right-hand rule. Interchanging the factors reverses the result."
+      ],
+      "boundary": "Simple component sums for length and dot product assume an orthonormal Euclidean basis; curvilinear or oblique coordinates require a metric and position-dependent basis vectors.",
+      "example": {
+        "title": "Work and torque from one force",
+        "problem": "A force F = (3, 4, 0) N acts through displacement s = (2, 0, 0) m; its point of application is r = (2, 0, 0) m from the origin. Find work and torque.",
+        "steps": [
+          "Work is the dot product: W = F · s = 3×2 + 4×0 = 6 J.",
+          "The 4 N component is perpendicular to displacement and does no work during this displacement.",
+          "Torque is τ = r × F; its nonzero component is τ_z = rₓFᵧ − rᵧFₓ = 2×4 = 8 N·m.",
+          "The right-hand rule gives the +z direction."
+        ],
+        "answer": "The work is 6 J and the torque about the origin is (0, 0, 8) N·m.",
+        "check": "The units need interpretation: work and torque magnitude both have dimension N·m, but torque is a rotational vector quantity and is not expressed in joules."
+      },
+      "pitfall": "Do not confuse a component with a magnitude: a component may be negative, whereas vector magnitude is nonnegative by definition.",
+      "practice": [
+        {
+          "question": "What does a · b = 0 imply for two nonzero Euclidean vectors?",
+          "hint": "Use cos θ in the definition of the product.",
+          "answer": "The vectors are perpendicular because nonzero magnitudes require cos θ = 0."
+        },
+        {
+          "question": "Calculate (2, −1, 3) · (4, 5, 0).",
+          "hint": "Multiply corresponding components and add.",
+          "answer": "2×4 + (−1)×5 + 3×0 = 3. Its unit is the product of the units of the input quantities."
+        }
+      ]
+    },
+    "1.7": {
+      "question": "How does a local rule of change become a prediction of a system's state after a finite time?",
+      "overview": [
+        "A derivative is the limiting ratio of a small change in a quantity to a small change in its argument. An integral performs the inverse accumulation: it sums infinitesimal contributions and needs an initial value to reconstruct a particular history.",
+        "Most dynamical laws specify a rate of change rather than a finished trajectory. A differential equation plus initial and boundary conditions defines evolution, while a numerical method approximates it with finite steps whose error must be controlled."
+      ],
+      "conceptExplanations": [
+        "An average rate refers to a finite interval, while a derivative belongs to an instant. On a graph it is the tangent slope and has the unit of the dependent quantity divided by the unit of its argument.",
+        "A definite integral includes the sign of contributions and is geometrically a signed area. For example, integrating power over time gives transferred energy.",
+        "A finite increment equals the integral of the instantaneous rate. Over a small step it can be approximated by derivative times step, but repeated local errors accumulate.",
+        "A differential equation relates an unknown function to its derivatives. The same rule can produce different solutions from different initial states, so the equation alone is insufficient.",
+        "Euler's method replaces a curve by successive tangent steps. A smaller step often improves accuracy, but stability and convergence rate depend on both the equation and method."
+      ],
+      "boundary": "A derivative requires a defined limiting process, and simple time stepping can become unstable; numerical results should be checked by reducing the step, monitoring conservation laws, and comparing known limits.",
+      "example": {
+        "title": "From acceleration to velocity and displacement",
+        "problem": "A body moves along an axis with a(t) = −2t m/s², v(0) = 10 m/s, and x(0) = 0. Find its velocity and displacement at t = 3 s.",
+        "steps": [
+          "Integrate acceleration: v(t) = v(0) + ∫₀ᵗ(−2τ)dτ = 10 − t².",
+          "At t = 3 s, velocity is 10 − 9 = 1 m/s.",
+          "Integrate velocity: x(t) = ∫₀ᵗ(10 − τ²)dτ = 10t − t³/3.",
+          "At t = 3 s, x = 30 − 9 = 21 m."
+        ],
+        "answer": "After 3 s the velocity is 1 m/s and displacement is 21 m in the positive direction.",
+        "check": "Velocity stays positive but decreases from 10 to 1 m/s, so displacement must lie between 3 and 30 m; 21 m passes this scale check."
+      },
+      "pitfall": "Integrating a derivative gives a family of functions: the missing constant is fixed by an initial condition and can completely change the physical solution.",
+      "practice": [
+        {
+          "question": "Why does dx/dt = 2 not uniquely specify x(t)?",
+          "hint": "What information about a constant offset disappears upon differentiation?",
+          "answer": "Every function x(t) = 2t + C has the same derivative. An initial condition such as x(0) is needed to determine C."
+        },
+        {
+          "question": "For dv/dt = −0.5v and v₀ = 10 m/s, perform one explicit Euler step of length 0.2 s.",
+          "hint": "Use v₁ = v₀ + Δt(−0.5v₀).",
+          "answer": "v₁ = 10 + 0.2×(−5) = 9.0 m/s. The exact value 10e⁻⁰·¹ ≈ 9.05 m/s displays the finite-step error."
+        }
+      ]
+    }
+  }
+}

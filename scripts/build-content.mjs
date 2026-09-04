@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { zipSync } from 'fflate';
@@ -8,6 +8,7 @@ const scriptDir = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(scriptDir, '..');
 const forceVault = process.argv.includes('--force-vault');
 const vaultOnly = process.argv.includes('--vault-only');
+const deterministicZipDate = new Date(1980, 0, 1, 0, 0, 0);
 
 const configuredSource = process.env.BOOK_SOURCE_PATH?.trim();
 const privateSourcePath = configuredSource ? resolve(rootDir, configuredSource) : null;
@@ -209,10 +210,114 @@ const englishChapters = chapters.map((chapter) => ({
 }));
 const englishFormulas = formulas.map((formula) => ({ ...formula, ...englishTranslations.formulas[formula.id] }));
 const englishConstants = constants.map((constant) => ({ ...constant, ...englishTranslations.constants[constant.id] }));
+
+const lessonContentDir = join(rootDir, 'content', 'lessons');
+if (!existsSync(lessonContentDir)) throw new Error('Не найден каталог content/lessons с полными материалами карточек');
+const expectedLessonFiles = chapters.map((chapter) => `chapter-${String(chapter.number).padStart(2, '0')}.json`);
+const actualLessonFiles = readdirSync(lessonContentDir).filter((name) => /^chapter-\d{2}\.json$/u.test(name)).sort();
+if (JSON.stringify(actualLessonFiles) !== JSON.stringify(expectedLessonFiles)) {
+  throw new Error(`Набор lesson-файлов должен точно покрывать главы 00–16; найдено: ${actualLessonFiles.join(', ')}`);
+}
+
+const rawLessonDetailsRu = {};
+const rawLessonDetailsEn = {};
+for (const fileName of actualLessonFiles) {
+  const payload = JSON.parse(readFileSync(join(lessonContentDir, fileName), 'utf8'));
+  const expectedChapter = Number(fileName.slice(8, 10));
+  if (payload.chapter !== expectedChapter) throw new Error(`${fileName}: поле chapter должно быть равно ${expectedChapter}`);
+  for (const locale of ['ru', 'en']) {
+    if (!payload[locale] || Array.isArray(payload[locale]) || typeof payload[locale] !== 'object') {
+      throw new Error(`${fileName}: отсутствует объект ${locale}`);
+    }
+    const target = locale === 'ru' ? rawLessonDetailsRu : rawLessonDetailsEn;
+    for (const [topicId, detail] of Object.entries(payload[locale])) {
+      if (target[topicId]) throw new Error(`Повторный lesson-detail ${locale}/${topicId}`);
+      target[topicId] = detail;
+    }
+  }
+}
+
+const wordCount = (value) => String(value).trim().split(/\s+/u).filter(Boolean).length;
+const requireText = (value, label, minimumWords) => {
+  if (typeof value !== 'string' || wordCount(value) < minimumWords) {
+    throw new Error(`${label}: требуется содержательный текст не короче ${minimumWords} слов`);
+  }
+};
+const validateLessonDetail = (detail, topic, locale) => {
+  const label = `${locale}/${topic.id}`;
+  if (!detail || Array.isArray(detail) || typeof detail !== 'object') throw new Error(`${label}: отсутствует lesson-detail`);
+  requireText(detail.question, `${label}.question`, 6);
+  if (!Array.isArray(detail.overview) || detail.overview.length !== 2) throw new Error(`${label}.overview: нужны ровно два абзаца`);
+  detail.overview.forEach((paragraph, index) => requireText(paragraph, `${label}.overview[${index}]`, 18));
+  if (!Array.isArray(detail.conceptExplanations) || detail.conceptExplanations.length !== topic.concepts.length) {
+    throw new Error(`${label}.conceptExplanations: ожидалось ${topic.concepts.length} объяснений`);
+  }
+  detail.conceptExplanations.forEach((explanation, index) => {
+    requireText(explanation, `${label}.conceptExplanations[${index}]`, 10);
+    if (explanation.trim() === topic.concepts[index].trim()) throw new Error(`${label}.conceptExplanations[${index}] повторяет тезис`);
+  });
+  requireText(detail.boundary, `${label}.boundary`, 10);
+  if (!detail.example || typeof detail.example !== 'object') throw new Error(`${label}.example: отсутствует разобранный пример`);
+  requireText(detail.example.title, `${label}.example.title`, 2);
+  requireText(detail.example.problem, `${label}.example.problem`, 8);
+  if (!Array.isArray(detail.example.steps) || detail.example.steps.length < 3 || detail.example.steps.length > 5) {
+    throw new Error(`${label}.example.steps: нужно от трёх до пяти шагов`);
+  }
+  detail.example.steps.forEach((step, index) => requireText(step, `${label}.example.steps[${index}]`, 3));
+  requireText(detail.example.answer, `${label}.example.answer`, 3);
+  requireText(detail.example.check, `${label}.example.check`, 4);
+  requireText(detail.pitfall, `${label}.pitfall`, 12);
+  if (!Array.isArray(detail.practice) || detail.practice.length !== 2) throw new Error(`${label}.practice: нужны ровно две задачи`);
+  detail.practice.forEach((item, index) => {
+    requireText(item?.question, `${label}.practice[${index}].question`, 6);
+    requireText(item?.hint, `${label}.practice[${index}].hint`, 2);
+    requireText(item?.answer, `${label}.practice[${index}].answer`, 3);
+  });
+  const serialized = JSON.stringify(detail);
+  if (/TODO|TBD|not implemented|не реализован/iu.test(serialized)) throw new Error(`${label}: найден редакционный placeholder`);
+  if (locale === 'en' && /[А-Яа-яЁё]/u.test(serialized)) throw new Error(`${label}: в английском lesson-detail есть кириллица`);
+};
+
+const lessonDetailsRu = {};
+const lessonDetailsEn = {};
+const countDetailWords = (value) => {
+  if (typeof value === 'string') return wordCount(value);
+  if (Array.isArray(value)) return value.reduce((sum, item) => sum + countDetailWords(item), 0);
+  if (value && typeof value === 'object') return Object.values(value).reduce((sum, item) => sum + countDetailWords(item), 0);
+  return 0;
+};
+const estimateLessonMinutes = (detail) => (
+  Math.ceil(countDetailWords(detail) / 160)
+  + detail.example.steps.length
+  + detail.practice.length * 3
+);
+const firstSentence = (paragraph) => paragraph.match(/^.*?[.!?](?=\s|$)/u)?.[0]?.trim() ?? paragraph.trim();
+for (const topic of parsedTopics) {
+  const englishTopic = englishChapters[topic.chapter].topics.find((item) => item.id === topic.id);
+  const detailRu = rawLessonDetailsRu[topic.id];
+  const detailEn = rawLessonDetailsEn[topic.id];
+  validateLessonDetail(detailRu, topic, 'ru');
+  validateLessonDetail(detailEn, englishTopic, 'en');
+  lessonDetailsRu[topic.id] = { topicId: topic.id, ...detailRu };
+  lessonDetailsEn[topic.id] = { topicId: topic.id, ...detailEn };
+  topic.minutes = estimateLessonMinutes(detailRu);
+  englishTopic.minutes = estimateLessonMinutes(detailEn);
+  topic.summary = firstSentence(detailRu.overview[0]);
+  englishTopic.summary = firstSentence(detailEn.overview[0]);
+}
+if (Object.keys(rawLessonDetailsRu).length !== topicCount || Object.keys(rawLessonDetailsEn).length !== topicCount) {
+  throw new Error(`Lesson-details должны покрывать ${topicCount} карточек в каждой локали`);
+}
+for (const [locale, details] of [['ru', lessonDetailsRu], ['en', lessonDetailsEn]]) {
+  if (new Set(Object.values(details).map((detail) => detail.question)).size !== topicCount) throw new Error(`${locale}: вопросы lesson-details должны быть уникальны`);
+  if (new Set(Object.values(details).map((detail) => detail.example.problem)).size !== topicCount) throw new Error(`${locale}: примеры lesson-details должны быть уникальны`);
+}
+
 const englishText = [
   ...englishChapters.flatMap((chapter) => [chapter.title, ...chapter.topics.flatMap((topic) => [topic.title, topic.interactive, ...topic.concepts])]),
   ...englishFormulas.flatMap((formula) => [formula.title, formula.plain, formula.meaning, formula.conditions, formula.units]),
   ...englishConstants.flatMap((constant) => [constant.name, constant.unit, constant.note]),
+  JSON.stringify(lessonDetailsEn),
 ].join(' ');
 if (/[А-Яа-яЁё]/u.test(englishText)) throw new Error('В английском контенте обнаружена кириллица');
 
@@ -235,6 +340,26 @@ const writeGeneratedTs = (name, typeName, exportName, data) => {
   );
 };
 
+const writeGeneratedRecordTs = (name, typeName, exportName, data) => {
+  const target = join(rootDir, 'src', 'data', name);
+  mkdirSync(dirname(target), { recursive: true });
+  writeFileSync(
+    target,
+    `// Сгенерировано scripts/build-content.mjs. Не редактировать вручную.\nimport type { ${typeName} } from '../types';\n\nexport const ${exportName}: Record<string, ${typeName}> = ${JSON.stringify(data, null, 2)};\n`,
+    'utf8',
+  );
+};
+
+const writeGeneratedStringArrayTs = (name, exportName, data) => {
+  const target = join(rootDir, 'src', 'data', name);
+  mkdirSync(dirname(target), { recursive: true });
+  writeFileSync(
+    target,
+    `// Сгенерировано scripts/build-content.mjs. Не редактировать вручную.\n\nexport const ${exportName}: readonly string[] = ${JSON.stringify(data, null, 2)};\n`,
+    'utf8',
+  );
+};
+
 if (!vaultOnly) {
   writeGeneratedTs('book.generated.ts', 'Chapter', 'book', chapters);
   writeGeneratedTs('book.en.generated.ts', 'Chapter', 'book', englishChapters);
@@ -243,6 +368,9 @@ if (!vaultOnly) {
   writeGeneratedTs('formulas.en.generated.ts', 'FormulaEntry', 'formulas', englishFormulas);
   writeGeneratedTs('constants.generated.ts', 'ConstantEntry', 'constants', constants);
   writeGeneratedTs('constants.en.generated.ts', 'ConstantEntry', 'constants', englishConstants);
+  writeGeneratedRecordTs('lessons.generated.ts', 'TopicLessonDetail', 'lessonDetails', lessonDetailsRu);
+  writeGeneratedRecordTs('lessons.en.generated.ts', 'TopicLessonDetail', 'lessonDetails', lessonDetailsEn);
+  writeGeneratedStringArrayTs('topic-ids.generated.ts', 'topicIds', parsedTopics.map((topic) => topic.id));
 }
 
 const safeName = (value) => value.replace(/[<>:"/\\|?*]/gu, '—').replace(/\s+/gu, ' ').trim();
@@ -317,7 +445,7 @@ tags:
 
 # Как работать с базой
 
-Начните с [[00 · Карта физики|карты физики]] или откройте нужный раздел. Каждая карточка отвечает на четыре вопроса: что наблюдаем, какой моделью описываем, что важно помнить и с какими темами это связано.
+Начните с [[00 · Карта физики|карты физики]] или откройте нужный раздел. Каждая карточка кратко объясняет явление, разбирает ключевые идеи и пример, отмечает границы модели и типичную ошибку, а затем предлагает самопроверку.
 
 > [!tip] Не заучивайте формулу отдельно
 > Сначала назовите величины и допущения, затем проверьте единицы и только после этого подставляйте числа.
@@ -325,8 +453,12 @@ tags:
 ## Условные элементы
 
 - **Коротко** — идея карточки в одном тезисе.
-- **Главное** — минимальный набор понятий.
+- **Суть** — компактное объяснение рабочей модели.
+- **Ключевые идеи** — тезисы вместе с пояснениями.
+- **Короткий пример** — постановка, ответ и проверка результата.
 - **Границы модели** — напоминание о допущениях.
+- **Частая ошибка** — неверный ход мысли, который стоит распознавать.
+- **Проверь себя** — две задачи со скрытыми ориентирами и ответами.
 - **Связи** — переходы к соседним знаниям.
 - \`#основа\`, \`#углубление\`, \`#продвинутый\` — уровень маршрута.
 
@@ -372,6 +504,7 @@ ${chapterNav}
 
 for (let index = 0; index < allTopics.length; index += 1) {
   const topic = allTopics[index];
+  const lessonDetail = lessonDetailsRu[topic.id];
   const chapter = chapters[topic.chapter];
   const directory = `${String(chapter.number).padStart(2, '0')} · ${safeName(chapter.title)}`;
   const previous = allTopics[index - 1];
@@ -400,7 +533,7 @@ chapter_title: ${yamlText(chapter.title)}
 order: ${topic.order}
 target_pages: ${topic.pages}
 level: ${yamlText(russianLevelLabels[topic.level])}
-status: outline
+status: ready
 previous_id: ${previous ? yamlText(previous.uid) : 'null'}
 next_id: ${next ? yamlText(next.uid) : 'null'}
 formula_ids:
@@ -412,23 +545,31 @@ ${tags.map((tag) => `  - ${tag}`).join('\n')}
 # ${topic.id}. ${topic.title}
 
 > [!abstract] Коротко
-> ${topic.summary}
+> ${lessonDetail.overview[0]}
 
-## Главное
+## Суть
 
-${topic.concepts.map((concept) => `- ${concept}`).join('\n')}
+${lessonDetail.overview[1]}
 
-## Рабочая модель
+## Ключевые идеи
 
-Выделите систему, назовите измеряемые величины и проверьте, какие допущения позволяют применить идеи этой карточки. Связывайте словесное описание со схемой, графиком и размерностью величин.
+${topic.concepts.map((concept, conceptIndex) => `- **${concept}** — ${lessonDetail.conceptExplanations[conceptIndex]}`).join('\n')}
+
+## Короткий пример
+
+- **Задача:** ${lessonDetail.example.problem}
+- **Ответ:** ${lessonDetail.example.answer}
+- **Проверка:** ${lessonDetail.example.check}
 
 > [!warning] Границы модели
-> Результат имеет смысл только пока выполнены принятые допущения. Проверьте предельный случай и сравните масштаб эффекта с погрешностью измерения.
+> ${lessonDetail.boundary}
+
+> [!danger] Частая ошибка
+> ${lessonDetail.pitfall}
 ${formulaLinks}
 ## Проверь себя
 
-- Как своими словами объяснить «${topic.title.toLocaleLowerCase('ru-RU')}» без подстановки чисел?
-- Какие величины нужно измерить и когда выбранная модель перестанет работать?
+${lessonDetail.practice.map((item, practiceIndex) => `${practiceIndex + 1}. ${item.question}\n\n> [!tip]- Ответ и ориентир\n> ${item.hint}\n> ${item.answer}`).join('\n\n')}
 
 ## Связи
 
@@ -492,7 +633,7 @@ for (const controlledPath of vaultManifest) {
   zipEntries[`pole-physics-vault/${controlledPath}`] = new Uint8Array(bytes.buffer, bytes.byteOffset, bytes.byteLength);
 }
 mkdirSync(join(rootDir, 'public'), { recursive: true });
-writeFileSync(join(rootDir, 'public', 'pole-physics-vault.zip'), zipSync(zipEntries, { level: 9 }));
+writeFileSync(join(rootDir, 'public', 'pole-physics-vault.zip'), zipSync(zipEntries, { level: 9, mtime: deterministicZipDate }));
 
 // English Obsidian vault is generated from the same stable IDs and translated data.
 const englishVaultDir = join(rootDir, 'vault-en');
@@ -573,7 +714,7 @@ tags:
 
 # How to Use This Vault
 
-Begin with the [[00 · Physics Map|physics map]] or open the section you need. Every card answers four questions: what is observed, which model describes it, what matters most, and how it connects to other topics.
+Begin with the [[00 · Physics Map|physics map]] or open the section you need. Every card briefly explains the phenomenon, unpacks its key ideas and an example, states model limits and a common mistake, and ends with self-check tasks.
 
 > [!tip] Do not memorize an equation in isolation
 > Name the quantities and assumptions first, check units, and only then substitute numbers.
@@ -581,8 +722,12 @@ Begin with the [[00 · Physics Map|physics map]] or open the section you need. E
 ## Card elements
 
 - **In brief** — the idea in one statement.
-- **Key ideas** — the minimum conceptual set.
+- **Core explanation** — a compact account of the working model.
+- **Key ideas** — statements paired with their explanations.
+- **Short example** — a problem, answer, and result check.
 - **Limits of the model** — assumptions to keep visible.
+- **Common mistake** — a misleading line of reasoning to recognize.
+- **Self-check** — two tasks with collapsible guides and answers.
 - **Connections** — transitions to neighboring knowledge.
 
 Keep personal notes in a separate folder: generated cards are synchronized by \`npm run content\`.
@@ -627,6 +772,7 @@ ${nav}
 
 for (let index = 0; index < englishTopics.length; index += 1) {
   const topic = englishTopics[index];
+  const lessonDetail = lessonDetailsEn[topic.id];
   const chapter = englishChapters[topic.chapter];
   const directory = `${String(chapter.number).padStart(2, '0')} · ${safeName(chapter.title)}`;
   const previous = englishTopics[index - 1];
@@ -655,7 +801,7 @@ chapter_title: ${yamlText(chapter.title)}
 order: ${topic.order}
 target_pages: ${topic.pages}
 level: ${yamlText(englishLevelLabels[topic.level])}
-status: outline
+status: ready
 previous_id: ${previous ? yamlText(previous.uid) : 'null'}
 next_id: ${next ? yamlText(next.uid) : 'null'}
 formula_ids:
@@ -667,23 +813,31 @@ ${tags.map((tag) => `  - ${tag}`).join('\n')}
 # ${topic.id}. ${topic.title}
 
 > [!abstract] In brief
-> ${topic.summary}
+> ${lessonDetail.overview[0]}
+
+## Core explanation
+
+${lessonDetail.overview[1]}
 
 ## Key ideas
 
-${topic.concepts.map((concept) => `- ${concept}`).join('\n')}
+${topic.concepts.map((concept, conceptIndex) => `- **${concept}** — ${lessonDetail.conceptExplanations[conceptIndex]}`).join('\n')}
 
-## Working model
+## Short example
 
-Define the system, name the measurable quantities, and check which assumptions allow these ideas to be applied. Connect the verbal description to a diagram, graph, and dimensional analysis.
+- **Problem:** ${lessonDetail.example.problem}
+- **Answer:** ${lessonDetail.example.answer}
+- **Check:** ${lessonDetail.example.check}
 
 > [!warning] Limits of the model
-> The result is meaningful only while the assumptions hold. Test a limiting case and compare the scale of the effect with measurement uncertainty.
+> ${lessonDetail.boundary}
+
+> [!danger] Common mistake
+> ${lessonDetail.pitfall}
 ${formulaLinks}
 ## Self-check
 
-- How would you explain “${topic.title.toLocaleLowerCase('en-US')}” without substituting numbers?
-- Which quantities must be measured, and when does the chosen model stop working?
+${lessonDetail.practice.map((item, practiceIndex) => `${practiceIndex + 1}. ${item.question}\n\n> [!tip]- Answer and guide\n> ${item.hint}\n> ${item.answer}`).join('\n\n')}
 
 ## Connections
 
@@ -741,7 +895,7 @@ for (const controlledPath of englishVaultManifest) {
   const bytes = readFileSync(join(englishVaultDir, controlledPath));
   englishZipEntries[`field-physics-vault/${controlledPath}`] = new Uint8Array(bytes.buffer, bytes.byteOffset, bytes.byteLength);
 }
-writeFileSync(join(rootDir, 'public', 'pole-physics-vault-en.zip'), zipSync(englishZipEntries, { level: 9 }));
+writeFileSync(join(rootDir, 'public', 'pole-physics-vault-en.zip'), zipSync(englishZipEntries, { level: 9, mtime: deterministicZipDate }));
 
 console.log(`Контент: ${chapters.length} глав, ${topicCount} карточек, ${formulas.length} формул, ${constants.length} констант.`);
 console.log(privateSourcePath

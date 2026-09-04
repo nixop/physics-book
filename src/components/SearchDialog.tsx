@@ -12,12 +12,21 @@ const frequent = ['2.3', '3.3', '4.4', '7.3', '9.8', '12.3', '13.3'];
 const normalize = (value: string) => value.toLocaleLowerCase().replaceAll('ё', 'е').replace(/[^\p{L}\p{N}.]+/gu, ' ').trim();
 
 export function SearchDialog({ open, onClose }: SearchDialogProps) {
-  const { locale, t, allTopics, book, groupLabel } = useLocale();
+  const { locale, t, allTopics, book, groupLabel, lessonSearchTextForTopic } = useLocale();
   const [query, setQuery] = useState('');
   const [active, setActive] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
+
+  const searchCorpus = useMemo(() => new Map(allTopics.map((topic) => {
+    const chapter = book[topic.chapter];
+    const title = normalize(`${topic.id} ${topic.title}`);
+    return [topic.id, {
+      title,
+      haystack: normalize(`${title} ${topic.summary} ${topic.concepts.join(' ')} ${topic.interactive} ${lessonSearchTextForTopic(topic.id)} ${chapter.title} ${groupLabel(chapter.group)}`),
+    }];
+  })), [allTopics, book, groupLabel, lessonSearchTextForTopic]);
 
   const results = useMemo(() => {
     const normalizedQuery = normalize(query);
@@ -25,9 +34,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     const terms = normalizedQuery.split(/\s+/u);
     return allTopics
       .map((topic) => {
-        const chapter = book[topic.chapter];
-        const title = normalize(`${topic.id} ${topic.title}`);
-        const haystack = normalize(`${title} ${topic.summary} ${topic.concepts.join(' ')} ${topic.interactive} ${chapter.title} ${groupLabel(chapter.group)}`);
+        const { title, haystack } = searchCorpus.get(topic.id)!;
         const matches = terms.every((term) => haystack.includes(term));
         const score = terms.reduce((sum, term) => sum + (title.startsWith(term) ? 8 : title.includes(term) ? 4 : haystack.includes(term) ? 1 : 0), 0);
         return { topic, matches, score };
@@ -36,7 +43,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
       .sort((a, b) => b.score - a.score)
       .slice(0, 9)
       .map((item) => item.topic);
-  }, [allTopics, book, groupLabel, query]);
+  }, [allTopics, query, searchCorpus]);
 
   useEffect(() => {
     if (!open) return;

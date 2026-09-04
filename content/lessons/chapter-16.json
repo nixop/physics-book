@@ -1,0 +1,323 @@
+{
+  "chapter": 16,
+  "ru": {
+    "16.1": {
+      "question": "Как нелинейная зависимость и замкнутая петля обратной связи создают пороги, насыщение и несколько возможных режимов?",
+      "overview": [
+        "Линейная модель сохраняет суммы и масштабы: отклик на ax₁ + bx₂ равен a откликов на x₁ плюс b откликов на x₂. Это мощное локальное приближение, но реальные системы часто содержат произведения, степени, ограничение ресурсов или зависящие от состояния коэффициенты, и тогда независимые воздействия уже нельзя просто складывать.",
+        "Обратная связь возвращает часть результата на вход. Отрицательная связь около рабочей точки обычно подавляет отклонение, положительная усиливает его; устойчивый конечный режим требует либо достаточно малого усиления петли, либо нелинейного насыщения, потерь или другой стабилизирующей физики."
+      ],
+      "conceptExplanations": [
+        "Для линейного оператора L выполняется L(ax + by) = aL(x) + bL(y). Аффинная зависимость с постоянным смещением не строго линейна, хотя её часто называют линейным трендом после выбора нуля.",
+        "В нелинейном уравнении сумма двух решений обычно не является решением. Частота может зависеть от амплитуды, малое изменение параметра — пересечь порог, а взаимодействие масштабов — породить новые частоты.",
+        "Знак связи определяется всей петлёй: если отклонение возвращается так, что уменьшает себя, связь отрицательная; если увеличивает — положительная. Одно и то же физическое звено может входить в петли разных знаков.",
+        "Устойчивость спрашивает, затухает ли малое возмущение, а насыщение ограничивает рост при больших амплитудах. Устойчивая локальная точка не гарантирует безопасность от большого толчка, который может вывести систему в другой бассейн."
+      ],
+      "boundary": "Линеаризация описывает достаточно малые возмущения около выбранного режима, если производные конечны и старшие члены действительно малы. Она может пропустить пороги, удалённые аттракторы и насыщение; положительная или отрицательная связь определяется знаком полного замкнутого усиления, а не названием одного компонента.",
+      "example": {
+        "title": "Устойчивость в логистической модели роста",
+        "problem": "Для dx/dt = rx(1 − x/K), где r > 0 и K > 0, найти стационарные состояния и определить их локальную устойчивость.",
+        "steps": [
+          "Стационарность требует rx(1 − x/K) = 0, поэтому x* = 0 или x* = K.",
+          "Производная правой части f′(x) = r(1 − 2x/K).",
+          "У x* = 0 имеем f′ = r > 0: малое положительное отклонение растёт, точка неустойчива.",
+          "У x* = K имеем f′ = −r < 0: отклонение затухает, точка локально устойчива."
+        ],
+        "answer": "Нулевое состояние неустойчиво для положительной популяции, а уровень насыщения K устойчив.",
+        "check": "При 0 < x < K производная dx/dt положительна, при x > K отрицательна, поэтому движение направлено к K с обеих сторон допустимой области."
+      },
+      "pitfall": "Положительная обратная связь не обязана означать бесконечный взрыв, а отрицательная — безусловную устойчивость. Задержка, слишком большое усиление и фазовый сдвиг могут превратить регулирующую петлю в колебательную или неустойчивую.",
+      "practice": [
+        {
+          "question": "Почему закон F = kx² нельзя считать линейным даже при постоянном k?",
+          "hint": "Проверь масштабирование входа x → 2x.",
+          "answer": "F(2x) = 4kx², а для линейного закона требовалось бы 2F(x). Принцип суперпозиции не выполняется."
+        },
+        {
+          "question": "В логистической модели r = 0,30 сут⁻¹, K = 100 и x = 20. Какова мгновенная скорость роста?",
+          "hint": "Подставь значения в rx(1 − x/K).",
+          "answer": "dx/dt = 0,30·20·(1 − 0,20) = 4,8 единицы в сутки."
+        }
+      ]
+    },
+    "16.2": {
+      "question": "Как геометрия траекторий в пространстве состояний показывает устойчивые режимы и их качественную перестройку при изменении параметра?",
+      "overview": [
+        "Состояние динамической системы — минимальный набор переменных, достаточный вместе с законом эволюции для предсказания следующего состояния. Каждому состоянию соответствует точка фазового пространства, а решение становится траекторией, поэтому устойчивость и переходы можно исследовать без графика каждой координаты по времени.",
+        "Неподвижная точка, предельный цикл или более сложное инвариантное множество становится аттрактором, если соседние траектории к нему приближаются. При плавном изменении параметра число или устойчивость таких режимов может измениться качественно; это событие называют бифуркацией."
+      ],
+      "conceptExplanations": [
+        "Для n уравнений первого порядка состояние обычно является вектором из n компонент. Координаты и скорости осциллятора, например, нужны вместе; одна координата не определяет направление дальнейшего движения.",
+        "В неподвижной точке вектор скорости равен нулю. Предельный цикл — изолированная замкнутая орбита, к которой могут сходиться другие траектории; не всякая замкнутая кривая является аттрактором.",
+        "До критического параметра система может возвращаться к одному режиму, а после — уходить к двум новым или к колебаниям. Плавность коэффициента не гарантирует плавность долгосрочного качественного ответа.",
+        "Бифуркацию определяют изменением топологии или устойчивости инвариантных режимов, а не просто быстрым численным ростом. Для её классификации важны симметрии, размерность и нелинейные члены."
+      ],
+      "boundary": "Фазовый портрет относится к конкретной автономной модели и набору переменных. Проекция высокой размерности может создавать ложные пересечения; шум размывает аттрактор, а конечный проход по параметру может не выявить гистерезис. Локальная нормальная форма верна только около бифуркации.",
+      "example": {
+        "title": "Сверхкритическая вилочная бифуркация",
+        "problem": "Исследовать стационарные состояния dx/dt = μx − x³ при переходе параметра μ через ноль.",
+        "steps": [
+          "Решаем x(μ − x²) = 0: всегда есть x* = 0, а при μ > 0 также x* = ±√μ.",
+          "Локальную устойчивость задаёт f′(x) = μ − 3x².",
+          "При μ < 0 у нуля f′ = μ < 0, поэтому он устойчив.",
+          "При μ > 0 ноль неустойчив, а в ±√μ имеем f′ = μ − 3μ = −2μ < 0: две новые точки устойчивы."
+        ],
+        "answer": "При μ = 0 одна устойчивая ветвь теряет устойчивость и рождаются две симметричные устойчивые ветви — сверхкритическая вилочная бифуркация.",
+        "check": "Новые решения существуют только для μ > 0 и непрерывно сходятся к нулю при μ→0+, как требует эта нормальная форма."
+      },
+      "pitfall": "Картинка, похожая на разветвление, ещё не доказывает бифуркацию. Нужно показать изменение устойчивых решений при параметре и исключить переходный процесс, шум и недостаточное время установления.",
+      "practice": [
+        {
+          "question": "Почему две траектории гладкой автономной системы не могут пересечься в полном фазовом пространстве?",
+          "hint": "В точке пересечения одно состояние получило бы два разных будущих направления.",
+          "answer": "Единственность решения задаёт один вектор скорости для каждого состояния. Видимое пересечение возможно лишь в проекции, при негладкости или неполном наборе переменных."
+        },
+        {
+          "question": "Для μ = 0,04 найди все стационарные точки модели μx − x³ и их устойчивость.",
+          "hint": "Используй x* = 0, ±√μ и знак μ − 3x*².",
+          "answer": "Точки 0 и ±0,20. Ноль неустойчив, обе точки ±0,20 устойчивы."
+        }
+      ]
+    },
+    "16.3": {
+      "question": "Как детерминированный закон может быть точным, но давать конечный горизонт практического предсказания?",
+      "overview": [
+        "В хаотическом режиме близкие начальные состояния расходятся в среднем экспоненциально: δ(t) ≈ δ₀e^(λt) при положительном старшем показателе Ляпунова и пока расстояние мало. Начальная ошибка никогда не равна нулю, поэтому время достижения допустимой ошибки растёт только логарифмически с точностью измерения.",
+        "Хаос возникает в нелинейных детерминированных системах, например в некоторых режимах логистического отображения и двойного маятника. Он отличается от внешнего шума происхождением, но по короткой конечной записи различить их непросто; долгосрочная траектория теряется, тогда как статистические свойства и короткие прогнозы могут оставаться устойчивыми."
+      ],
+      "conceptExplanations": [
+        "Чувствительность означает рост малого возмущения, а не то, что любые две точки сразу становятся несвязанными. После достижения размера аттрактора экспоненциальная формула насыщается и уже не описывает расстояние буквально.",
+        "Если допустима ошибка δmax, оценка горизонта t_h ≈ λ⁻¹ln(δmax/δ₀). Дополнительная цифра начальной точности добавляет примерно постоянное время, а не умножает горизонт во много раз.",
+        "Логистическое отображение xₙ₊₁ = rxₙ(1 − xₙ) меняет устойчивые режимы с r; хаос существует не при любом r. Двойной маятник также имеет регулярные режимы при малой энергии наряду с хаотическими областями.",
+        "Случайный процесс содержит стохастический элемент в модели, детерминированный хаос — однозначное правило эволюции. Наблюдаемый шум, округление и неизвестные переменные могут сделать их временные ряды похожими.",
+        "Фрактальная структура означает самоподобную или масштабно сложную геометрию с нецелой эффективной размерностью в идеальной модели. Реальные данные имеют конечный диапазон масштабов, поэтому слово «фрактал» требует количественной проверки."
+      ],
+      "boundary": "Показатель Ляпунова является асимптотической характеристикой заданного режима и метрики; короткая переходная запись может дать ложный знак. Формула экспоненциального роста действует для малых разделений до насыщения, а наличие положительного показателя в модели не доказывает хаос в эксперименте без проверки шума и размерности.",
+      "example": {
+        "title": "Оценка горизонта предсказуемости модели",
+        "problem": "Пусть ошибка начального состояния δ₀ = 10⁻⁶, допустимая ошибка δmax = 0,10, а старший показатель Ляпунова λ = 0,20 сут⁻¹. Оценить горизонт прогноза.",
+        "steps": [
+          "Приравниваем δmax = δ₀e^(λt_h).",
+          "t_h = λ⁻¹ln(δmax/δ₀).",
+          "Отношение равно 0,10/10⁻⁶ = 10⁵, а ln(10⁵) ≈ 11,51.",
+          "t_h ≈ 11,51/0,20 суток ≈ 57,6 суток."
+        ],
+        "answer": "В рамках заданной модели горизонт составляет около 58 суток.",
+        "check": "Это условный результат для указанных λ и порога, а не реальный предел прогноза погоды; после порога линейная формула расхождения не используется."
+      },
+      "pitfall": "«Эффект бабочки» не утверждает, что любое малое действие вызывает любое огромное событие. Он говорит о чувствительности конкретной траектории в хаотическом режиме и утрате детального прогноза, а не об отсутствии причинности.",
+      "practice": [
+        {
+          "question": "Почему хорошее совпадение хаотической модели с короткой траекторией не гарантирует точный далёкий прогноз?",
+          "hint": "Проследи, как малая ошибка параметров и начального состояния умножается во времени.",
+          "answer": "Положительный показатель Ляпунова экспоненциально усиливает неизбежные ошибки; модель может верно описывать механизм и статистику, но потерять фазу отдельной далёкой траектории."
+        },
+        {
+          "question": "При λ = 0,20 сут⁻¹ за какое время малая ошибка в линейном режиме удваивается?",
+          "hint": "Положи e^(λt₂) = 2.",
+          "answer": "t₂ = ln 2/0,20 ≈ 3,47 суток."
+        }
+      ]
+    },
+    "16.4": {
+      "question": "Как пройти путь от необработанной записи неизвестной системы до модели, которая выдерживает проверку на действительно новых данных?",
+      "overview": [
+        "Исследование начинается с сохранения исходных значений, единиц, времени, калибровки и условий опыта. Затем формулируют проверяемую гипотезу, заранее выбирают входы, отклики и диагностические графики и только после этого оценивают параметры, иначе красивую зависимость легко подобрать постфактум.",
+        "Качество модели оценивают не одной близостью кривой к обучающим данным, а остатками, неопределённостями, устойчивостью параметров и предсказанием отложенной серии. Неудачный прогноз — полезный результат: он указывает на пропущенную переменную, неверную область применимости или лишнюю сложность."
+      ],
+      "conceptExplanations": [
+        "Необработанные данные нужно хранить неизменными вместе с метаданными и отдельно вести очищенную таблицу с воспроизводимыми преобразованиями. Пропуски, насыщение датчика и переставленные метки времени являются частью физического анализа.",
+        "Гипотеза должна давать результат, который мог бы оказаться неверным, и содержать условия. «Точки похожи на экспоненту» слабее, чем «после импульса огибающая пиков убывает с постоянной относительной скоростью в этом диапазоне».",
+        "Выбирают непосредственно измеряемые величины и производные признаки с единицами. Графики во времени, фазовая плоскость и остатки отвечают на разные вопросы; логарифмический график полезен только для положительных данных и меняет модель ошибок.",
+        "Подгонка даёт параметры условно на выбранной модели. Неопределённость измерения, корреляции, дрейф и неопределённость параметров различаются; добавление параметров почти всегда улучшает обучающую ошибку и потому требует штрафа или внешней проверки.",
+        "Новые данные должны быть отделены до окончательного выбора модели. Для временного ряда случайное перемешивание может пропустить будущее в обучение; честнее проверять следующий временной участок или новый независимый запуск."
+      ],
+      "boundary": "Пример экспоненциальной огибающей предполагает одинаковые интервалы пиков, один постоянный коэффициент затухания и отсутствие заметного фона. Реальный вывод требует неопределённостей, анализа коррелированных остатков и сравнения с альтернативами; отложенные данные нельзя многократно использовать для выбора модели и продолжать называть независимым тестом.",
+      "example": {
+        "title": "Неизвестная затухающая огибающая",
+        "problem": "Последовательные пики через 1,00 с имеют амплитуды 10,00; 6,07; 3,68. Проверить модель A(t) = A₀e^(−γt) и предсказать следующий пик до его просмотра.",
+        "steps": [
+          "Отношения соседних пиков 6,07/10,00 = 0,607 и 3,68/6,07 ≈ 0,606 почти равны.",
+          "Для шага 1,00 с множитель e^(−γΔt) ≈ 0,607, поэтому γ ≈ −ln(0,607)/1,00 с ≈ 0,50 с⁻¹.",
+          "Предсказываем A(3 с) = 10,00e^(−0,50·3) ≈ 2,23.",
+          "Только после фиксации прогноза сравниваем его с новой точкой и строим остаток."
+        ],
+        "answer": "Данные согласуются с γ ≈ 0,50 с⁻¹ и дают предварительный прогноз следующего пика A ≈ 2,23.",
+        "check": "Постоянство отношения поддерживает экспоненциальную, а не линейную потерю; три точки ещё не исключают альтернативную модель."
+      },
+      "pitfall": "Высокий R² не доказывает механизм и не гарантирует прогноз. Тренд, автокорреляция и лишние параметры могут дать почти единицу даже у неверной модели; изучай размерные параметры и структуру остатков.",
+      "practice": [
+        {
+          "question": "Почему случайное перемешивание всех точек перед train/test-разбиением опасно для временного эксперимента?",
+          "hint": "Подумай о дрейфе и информации из будущего, попавшей в обучение.",
+          "answer": "Соседние точки коррелированы, и перемешивание позволяет модели видеть почти те же режимы и будущий дрейф. Последовательный отрезок или новый запуск лучше имитирует реальный прогноз."
+        },
+        {
+          "question": "Амплитуда уменьшается вдвое каждые 3,0 с: 8, 4, 2. Найди γ экспоненты и предскажи значение через 9,0 с от первого измерения.",
+          "hint": "e^(−γ·3) = 1/2.",
+          "answer": "γ = ln 2/3,0 ≈ 0,231 с⁻¹; через три периода A = 8·(1/2)³ = 1."
+        }
+      ]
+    }
+  },
+  "en": {
+    "16.1": {
+      "question": "How do nonlinear dependence and a closed feedback loop create thresholds, saturation, and multiple possible regimes?",
+      "overview": [
+        "A linear model preserves sums and scale: its response to ax₁ + bx₂ is a times the response to x₁ plus b times the response to x₂. This is a powerful local approximation, but real systems often contain products, powers, resource limits, or state-dependent coefficients, so independent inputs can no longer simply be added.",
+        "Feedback returns part of the output to the input. Negative feedback near an operating point usually suppresses a deviation, while positive feedback amplifies it; a stable finite regime requires sufficiently small loop gain or nonlinear saturation, loss, or another stabilizing mechanism."
+      ],
+      "conceptExplanations": [
+        "A linear operator L obeys L(ax + by) = aL(x) + bL(y). An affine relation with a constant offset is not strictly linear, although it is often called a linear trend after choosing an origin.",
+        "In a nonlinear equation, a sum of two solutions is generally not a solution. Frequency may depend on amplitude, a small parameter change may cross a threshold, and scale interactions may generate new frequencies.",
+        "Feedback sign belongs to the complete loop: a returned deviation is negative feedback if it reduces itself and positive if it enlarges itself. The same physical component may belong to loops of different signs.",
+        "Stability asks whether a small disturbance decays, while saturation limits growth at large amplitude. A locally stable point need not withstand a large kick that crosses into another basin."
+      ],
+      "boundary": "Linearization describes sufficiently small disturbances around one operating point when derivatives are finite and higher terms are genuinely small. It can miss thresholds, distant attractors, and saturation; feedback sign is set by total closed-loop gain rather than one component's label.",
+      "example": {
+        "title": "Stability in a Logistic Growth Model",
+        "problem": "For dx/dt = rx(1 - x/K), with r > 0 and K > 0, find equilibria and determine their local stability.",
+        "steps": [
+          "Equilibrium requires rx(1 - x/K) = 0, so x* = 0 or x* = K.",
+          "The derivative of the right-hand side is f'(x) = r(1 - 2x/K).",
+          "At x* = 0, f' = r > 0: a small positive perturbation grows, so the point is unstable.",
+          "At x* = K, f' = -r < 0: perturbations decay, so the point is locally stable."
+        ],
+        "answer": "The zero state is unstable for a positive population, while saturation level K is stable.",
+        "check": "For 0 < x < K, dx/dt is positive; above K it is negative, so flow points toward K from both sides of the admissible region."
+      },
+      "pitfall": "Positive feedback need not mean infinite explosion, and negative feedback does not guarantee stability. Delay, excessive gain, and phase shift can make a regulating loop oscillatory or unstable.",
+      "practice": [
+        {
+          "question": "Why is F = kx² not a linear law even for constant k?",
+          "hint": "Test the scaling x to 2x.",
+          "answer": "F(2x) = 4kx², whereas linearity would require 2F(x). Superposition fails."
+        },
+        {
+          "question": "In a logistic model r = 0.30 day⁻¹, K = 100, and x = 20. What is the instantaneous growth rate?",
+          "hint": "Substitute into rx(1 - x/K).",
+          "answer": "dx/dt = 0.30·20·(1 - 0.20) = 4.8 units per day."
+        }
+      ]
+    },
+    "16.2": {
+      "question": "How does trajectory geometry in state space reveal stable regimes and their qualitative restructuring as a parameter changes?",
+      "overview": [
+        "A dynamical-system state is the smallest variable set that, with the evolution law, predicts the next state. Each state is a point in phase space and a solution becomes a trajectory, so stability and transitions can be studied without plotting every coordinate against time.",
+        "A fixed point, limit cycle, or more complicated invariant set is an attractor when neighboring trajectories approach it. Smooth parameter variation can qualitatively change the number or stability of these regimes; that event is a bifurcation."
+      ],
+      "conceptExplanations": [
+        "For n first-order equations, state is normally an n-component vector. An oscillator needs position and velocity together; position alone does not determine its direction of subsequent motion.",
+        "At a fixed point the state-space velocity is zero. A limit cycle is an isolated closed orbit that other trajectories may approach; not every closed curve is an attractor.",
+        "Before a critical parameter, a system may return to one regime and afterward move toward two new states or an oscillation. Smooth coefficients do not guarantee a smoothly changing long-term qualitative response.",
+        "A bifurcation is defined by changed topology or stability of invariant regimes, not merely rapid numerical growth. Classification depends on symmetry, dimension, and nonlinear terms."
+      ],
+      "boundary": "A phase portrait belongs to a specific autonomous model and variable set. Projection from high dimension can create false crossings; noise blurs an attractor, and a finite parameter sweep may miss hysteresis. A local normal form is valid only near its bifurcation.",
+      "example": {
+        "title": "A Supercritical Pitchfork Bifurcation",
+        "problem": "Analyze equilibria of dx/dt = μx - x³ as parameter μ crosses zero.",
+        "steps": [
+          "Solve x(μ - x²) = 0: x* = 0 always, plus x* = ±√μ when μ > 0.",
+          "Local stability follows from f'(x) = μ - 3x².",
+          "For μ < 0, f'(0) = μ < 0, so zero is stable.",
+          "For μ > 0, zero is unstable, while at ±√μ, f' = μ - 3μ = -2μ < 0, so both new points are stable."
+        ],
+        "answer": "At μ = 0 one stable branch loses stability and two symmetric stable branches appear: a supercritical pitchfork bifurcation.",
+        "check": "The new solutions exist only for μ > 0 and continuously approach zero as μ approaches zero from above, as this normal form requires."
+      },
+      "pitfall": "A plot that resembles branching does not prove a bifurcation. One must demonstrate changing stable solutions with the parameter and exclude transients, noise, and insufficient settling time.",
+      "practice": [
+        {
+          "question": "Why can two trajectories of a smooth autonomous system not cross in full phase space?",
+          "hint": "At an intersection, one state would have two different future directions.",
+          "answer": "Solution uniqueness assigns one velocity vector to each state. An apparent crossing can occur only in projection, with nonsmooth dynamics, or with missing variables."
+        },
+        {
+          "question": "For μ = 0.04, find every equilibrium of μx - x³ and its stability.",
+          "hint": "Use x* = 0, ±√μ and the sign of μ - 3x*².",
+          "answer": "The points are 0 and ±0.20. Zero is unstable and both ±0.20 points are stable."
+        }
+      ]
+    },
+    "16.3": {
+      "question": "How can a deterministic law be exact yet provide only a finite horizon of practical prediction?",
+      "overview": [
+        "In a chaotic regime, nearby initial states separate on average exponentially: δ(t) ≈ δ₀e^(λt) for a positive largest Lyapunov exponent while separation remains small. Initial error is never zero, so the time to reach an allowed error grows only logarithmically with measurement precision.",
+        "Chaos occurs in nonlinear deterministic systems such as some regimes of the logistic map and double pendulum. It differs from external noise in origin, although finite short records can make them hard to distinguish; detailed long-term phase is lost while statistical properties and short forecasts may remain robust."
+      ],
+      "conceptExplanations": [
+        "Sensitivity means growth of a small perturbation, not that any two points become unrelated immediately. Once separation reaches attractor size, the exponential formula saturates and no longer describes literal distance.",
+        "For allowed error δmax, horizon t_h ≈ λ⁻¹ln(δmax/δ₀). One extra digit of initial precision adds roughly a constant amount of time rather than multiplying the horizon manyfold.",
+        "The logistic map xₙ₊₁ = rxₙ(1 - xₙ) changes stable regimes with r; it is not chaotic for every r. A double pendulum likewise has regular low-energy regimes as well as chaotic regions.",
+        "A stochastic process contains a random element in its model, while deterministic chaos has a unique evolution rule. Measurement noise, rounding, and hidden variables can make their time series look alike.",
+        "Fractal structure means self-similar or scale-complex geometry with noninteger effective dimension in an ideal model. Real data span finite scales, so 'fractal' needs a quantitative scaling test."
+      ],
+      "boundary": "A Lyapunov exponent is an asymptotic property of a selected regime and metric; a short transient record can give a false sign. Exponential separation applies to small distances before saturation, and a positive model exponent does not prove experimental chaos without noise and dimension checks.",
+      "example": {
+        "title": "A Model Predictability Horizon",
+        "problem": "Let initial error δ₀ = 10⁻⁶, allowed error δmax = 0.10, and largest Lyapunov exponent λ = 0.20 day⁻¹. Estimate the forecast horizon.",
+        "steps": [
+          "Set δmax = δ₀e^(λt_h).",
+          "Then t_h = λ⁻¹ln(δmax/δ₀).",
+          "The ratio is 0.10/10⁻⁶ = 10⁵ and ln(10⁵) ≈ 11.51.",
+          "Thus t_h ≈ 11.51/0.20 days ≈ 57.6 days."
+        ],
+        "answer": "Within the supplied model, the horizon is about 58 days.",
+        "check": "This is conditional on the stated λ and threshold, not the real weather limit; the linear separation formula is not used beyond the threshold."
+      },
+      "pitfall": "The butterfly effect does not say every small action causes any enormous event. It describes sensitivity of a particular trajectory in a chaotic regime and loss of detailed prediction, not absence of causality.",
+      "practice": [
+        {
+          "question": "Why does close agreement with a short chaotic trajectory not ensure an accurate long-range forecast?",
+          "hint": "Track how small parameter and initial-state errors grow with time.",
+          "answer": "A positive Lyapunov exponent amplifies unavoidable errors exponentially; the model may correctly capture mechanism and statistics while losing the phase of one distant trajectory."
+        },
+        {
+          "question": "At λ = 0.20 day⁻¹, how long does a small error take to double in the linear regime?",
+          "hint": "Set e^(λt₂) = 2.",
+          "answer": "t₂ = ln 2/0.20 ≈ 3.47 days."
+        }
+      ]
+    },
+    "16.4": {
+      "question": "How do raw measurements from an unknown system become a model that survives a genuinely new-data test?",
+      "overview": [
+        "An investigation begins by preserving original values, units, timing, calibration, and experimental conditions. A falsifiable hypothesis is then stated and inputs, responses, and diagnostic plots are selected before fitting parameters; otherwise an attractive pattern is too easy to choose after seeing the data.",
+        "Model quality is judged not only by closeness to training data but by residuals, uncertainties, parameter stability, and prediction of a held-out series. A failed forecast is useful: it points to a missing variable, an invalid domain, or unnecessary complexity."
+      ],
+      "conceptExplanations": [
+        "Raw data should remain unchanged with metadata, while a separate clean table records reproducible transformations. Missing samples, sensor saturation, and reordered timestamps are physical-analysis issues, not mere formatting.",
+        "A hypothesis must make a result that could be wrong and state its conditions. 'The dots look exponential' is weaker than 'after an impulse, the peak envelope decays at a constant fractional rate over this range.'",
+        "Choose directly measured variables and derived features with units. Time plots, phase planes, and residuals answer different questions; a logarithmic plot is useful only for positive data and changes the error model.",
+        "A fit gives parameters conditional on the selected model. Measurement uncertainty, correlations, drift, and parameter uncertainty differ; extra parameters almost always reduce training error and therefore need a penalty or external test.",
+        "New data must be separated before final model selection. Random shuffling of a time series can leak future information into training; a later time block or an independent run is a more honest test."
+      ],
+      "boundary": "The exponential-envelope example assumes equally spaced peaks, one constant decay coefficient, and negligible background. A real claim needs uncertainties, correlated-residual analysis, and alternative comparison; held-out data cease to be independent after repeated use for model selection.",
+      "example": {
+        "title": "An Unknown Decaying Envelope",
+        "problem": "Successive peaks 1.00 s apart have amplitudes 10.00, 6.07, and 3.68. Test A(t) = A₀e^(-γt) and predict the next peak before seeing it.",
+        "steps": [
+          "Adjacent ratios are 6.07/10.00 = 0.607 and 3.68/6.07 ≈ 0.606, nearly equal.",
+          "For 1.00 s spacing, e^(-γΔt) ≈ 0.607, so γ ≈ -ln(0.607)/1.00 s ≈ 0.50 s⁻¹.",
+          "Predict A(3 s) = 10.00e^(-0.50·3) ≈ 2.23.",
+          "Only after recording the prediction should the new point be compared and its residual plotted."
+        ],
+        "answer": "The data support γ ≈ 0.50 s⁻¹ and give a provisional next-peak prediction A ≈ 2.23.",
+        "check": "A constant ratio supports exponential rather than linear loss; three points still do not exclude an alternative model."
+      },
+      "pitfall": "A high R² does not prove a mechanism or guarantee prediction. Trend, autocorrelation, and extra parameters can make it nearly one for a wrong model; inspect dimensioned parameters and residual structure.",
+      "practice": [
+        {
+          "question": "Why is random shuffling before a train/test split dangerous for a time-dependent experiment?",
+          "hint": "Consider drift and information from future samples entering training.",
+          "answer": "Neighboring points are correlated, and shuffling lets the model see nearly identical regimes and future drift. A later block or new run better represents real forecasting."
+        },
+        {
+          "question": "Amplitude halves every 3.0 s: 8, 4, 2. Find exponential γ and predict the value 9.0 s after the first measurement.",
+          "hint": "Use e^(-γ·3) = 1/2.",
+          "answer": "γ = ln 2/3.0 ≈ 0.231 s⁻¹; after three periods A = 8·(1/2)³ = 1."
+        }
+      ]
+    }
+  }
+}

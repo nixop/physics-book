@@ -17,11 +17,11 @@ tags:
 
 ## Cards
 
-- [[5.1 · Gravitational Field and Potential|5.1. Gravitational Field and Potential]] — Newton's law of universal gravitation.
-- [[5.2 · Kepler's Laws and Orbits|5.2. Kepler's Laws and Orbits]] — In the two-body problem the relative orbit is a conic; a bound orbit is an ellipse.
-- [[5.3 · Orbital Energy and Cosmic Velocities|5.3. Orbital Energy and Cosmic Velocities]] — Circular and elliptical orbits.
-- [[5.4 · Tides and Rotating Systems|5.4. Tides and Rotating Systems]] — The nonuniformity of a gravitational field.
-- [[5.5 · The Many-Body Problem|5.5. The Many-Body Problem]] — Why the two-body problem has a particularly simple solution.
+- [[5.1 · Gravitational Field and Potential|5.1. Gravitational Field and Potential]] — A point mass M creates gravitational field g = −GMr/r³ directed toward the source.
+- [[5.2 · Kepler's Laws and Orbits|5.2. Kepler's Laws and Orbits]] — An isolated Newtonian two-body problem reduces to motion of the relative position vector in a central field.
+- [[5.3 · Orbital Energy and Cosmic Velocities|5.3. Orbital Energy and Cosmic Velocities]] — Specific mechanical energy in a Newtonian field is ε = v²/2 − μ/r, where μ = GM.
+- [[5.4 · Tides and Rotating Systems|5.4. Tides and Rotating Systems]] — A tide is caused not by gravitational field alone but by its difference across an extended body.
+- [[5.5 · The Many-Body Problem|5.5. The Many-Body Problem]] — In the two-body problem, center-of-mass motion separates and relative motion has enough conserved quantities for an analytic conic-section description.
 
 ## Navigation
 

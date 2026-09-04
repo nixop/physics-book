@@ -14,6 +14,20 @@ function filesBelow(directory: string): string[] {
   });
 }
 
+function zipLocalHeaderTimes(bytes: Uint8Array) {
+  const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+  const timestamps: Array<{ time: number; date: number }> = [];
+  let offset = 0;
+  while (offset + 30 <= bytes.byteLength && view.getUint32(offset, true) === 0x04034b50) {
+    timestamps.push({ time: view.getUint16(offset + 10, true), date: view.getUint16(offset + 12, true) });
+    const compressedSize = view.getUint32(offset + 18, true);
+    const nameLength = view.getUint16(offset + 26, true);
+    const extraLength = view.getUint16(offset + 28, true);
+    offset += 30 + nameLength + extraLength + compressedSize;
+  }
+  return timestamps;
+}
+
 const markdown = filesBelow(vault).filter((file) => file.endsWith('.md'));
 const markdownEn = filesBelow(vaultEn).filter((file) => file.endsWith('.md'));
 const normalized = (path: string) => normalize(path).toLocaleLowerCase('ru-RU');
@@ -38,6 +52,17 @@ describe('Obsidian vault', () => {
     expect(cardBodies.every((body) => !body.includes('**Интерактив:**'))).toBe(true);
     expect(cardBodies.every((body) => !body.includes('Мини-лаборатория:'))).toBe(true);
     expect(cardBodies.every((body) => !body.includes('Проект: восстановить'))).toBe(true);
+  });
+
+  it('содержит сокращённые, но законченные карточки вместо шаблонных outline', () => {
+    const cardsRu = markdown.map((file) => readFileSync(file, 'utf8')).filter((body) => /^type: card$/mu.test(body));
+    const cardsEn = markdownEn.map((file) => readFileSync(file, 'utf8')).filter((body) => /^type: card$/mu.test(body));
+    expect(cardsRu.every((body) => /^status: ready$/mu.test(body))).toBe(true);
+    expect(cardsEn.every((body) => /^status: ready$/mu.test(body))).toBe(true);
+    expect(cardsRu.every((body) => body.includes('## Суть') && body.includes('## Короткий пример') && body.includes('[!danger] Частая ошибка'))).toBe(true);
+    expect(cardsEn.every((body) => body.includes('## Core explanation') && body.includes('## Short example') && body.includes('[!danger] Common mistake'))).toBe(true);
+    expect(cardsRu.join('\n')).not.toContain('Выделите систему, назовите измеряемые величины');
+    expect(cardsEn.join('\n')).not.toContain('Define the system, name the measurable quantities');
   });
 
   it('не содержит битых wiki-ссылок', () => {
@@ -88,6 +113,15 @@ describe('Obsidian vault', () => {
     const entries = Object.keys(unzipSync(new Uint8Array(readFileSync(archive))));
     expect(entries).toHaveLength(133);
     expect(entries.every((entry) => entry.startsWith('field-physics-vault/'))).toBe(true);
+  });
+
+  it('создаёт воспроизводимые ZIP-архивы с фиксированной служебной датой', () => {
+    for (const archiveName of ['pole-physics-vault.zip', 'pole-physics-vault-en.zip']) {
+      const bytes = new Uint8Array(readFileSync(join(root, 'public', archiveName)));
+      const timestamps = zipLocalHeaderTimes(bytes);
+      expect(timestamps).toHaveLength(133);
+      expect(timestamps.every(({ time, date }) => time === 0 && date === 0x21)).toBe(true);
+    }
   });
 
   it('не публикует provenance приватного источника в vault-артефактах', () => {

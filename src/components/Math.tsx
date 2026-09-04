@@ -18,6 +18,7 @@ export function Math({ children, display = false, label }: MathProps) {
     <span
       className={display ? 'math math--display' : 'math'}
       aria-label={label}
+      tabIndex={display ? 0 : undefined}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );

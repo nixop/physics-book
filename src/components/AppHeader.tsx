@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Atom, BookOpen, FlaskConical, Menu, Moon, Search, Sigma, Sun, X } from 'lucide-react';
 import type { Route } from '../routing';
 import { routeToHash, routes } from '../routing';
-import { bookMeta } from '../data';
+import { bookMeta } from '../data/meta.generated';
 import { useLocale } from '../i18n/LocaleContext';
 
 interface AppHeaderProps {
@@ -20,7 +20,10 @@ export function AppHeader({ route, completedCount, theme, mobileOpen, onOpenSear
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
   const isBook = route.page === 'catalog' || route.page === 'chapter' || route.page === 'topic';
   const switchLocale = (nextLocale: 'ru' | 'en') => {
-    if (nextLocale !== locale) window.location.hash = routeToHash(route, nextLocale).slice(1);
+    if (nextLocale !== locale) {
+      document.documentElement.dataset.restoreFocus = 'locale';
+      window.location.hash = routeToHash(route, nextLocale).slice(1);
+    }
   };
   const vault = locale === 'en' ? './pole-physics-vault-en.zip' : './pole-physics-vault.zip';
   useEffect(() => {
@@ -61,8 +64,8 @@ export function AppHeader({ route, completedCount, theme, mobileOpen, onOpenSear
             <span>{t('header.of', { total: bookMeta.topicCount })}</span>
           </a>
           <div className="locale-switch" role="group" aria-label={t('header.language')}>
-            <button type="button" lang="ru" aria-label="Русский" className={locale === 'ru' ? 'is-active' : ''} onClick={() => switchLocale('ru')} aria-pressed={locale === 'ru'}>RU</button>
-            <button type="button" lang="en" aria-label="English" className={locale === 'en' ? 'is-active' : ''} onClick={() => switchLocale('en')} aria-pressed={locale === 'en'}>EN</button>
+            <button type="button" lang="ru" data-locale-option="ru" aria-label="Русский" className={locale === 'ru' ? 'is-active' : ''} onClick={() => switchLocale('ru')} aria-pressed={locale === 'ru'}>RU</button>
+            <button type="button" lang="en" data-locale-option="en" aria-label="English" className={locale === 'en' ? 'is-active' : ''} onClick={() => switchLocale('en')} aria-pressed={locale === 'en'}>EN</button>
           </div>
           <button type="button" className="header-icon" onClick={onToggleTheme} aria-label={theme === 'light' ? t('header.dark') : t('header.light')}>
             {theme === 'light' ? <Moon size={19} /> : <Sun size={19} />}

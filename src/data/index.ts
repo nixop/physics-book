@@ -2,8 +2,9 @@ import { book } from './book.generated';
 import { bookMeta } from './meta.generated';
 import { formulas } from './formulas.generated';
 import { constants } from './constants.generated';
+import { lessonDetails } from './lessons.generated';
 
-export { book, bookMeta, formulas, constants };
+export { book, bookMeta, formulas, constants, lessonDetails };
 
 export const allTopics = book.flatMap((chapter) => chapter.topics);
 

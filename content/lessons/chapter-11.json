@@ -1,0 +1,475 @@
+{
+  "chapter": 11,
+  "ru": {
+    "11.1": {
+      "question": "Когда свет можно заменить лучами и как единый принцип стационарного оптического времени приводит к отражению и построению изображения?",
+      "overview": [
+        "Луч — направление переноса энергии в приближении, где длина волны намного меньше размеров препятствий и масштаба изменения среды. В однородной прозрачной среде луч прямой. Конечный источник и протяжённый заслон создают область полной тени, куда не попадает ни один луч источника, и полутени, куда попадает лишь часть.",
+        "При отражении от неподвижной гладкой поверхности угол отражения равен углу падения, оба измеряются от нормали. Продолжения отражённых лучей от плоского зеркала пересекаются в виртуальном изображении за зеркалом. В более общем языке физический луч делает оптическое время стационарным относительно близких путей; стационарность может быть минимумом, максимумом или седловым случаем."
+      ],
+      "conceptExplanations": [
+        "Прямолинейность является коротковолновым пределом волнового распространения; возле края на масштабе lambda появляется дифракция и резкая геометрическая граница размывается.",
+        "Точечный источник даёт идеальную резкую тень, а каждый элемент протяжённого источника создаёт свою границу, суммарно формируя полутень.",
+        "Тангенциальная фаза на границе и обратимость хода луча дают равенство углов относительно локальной нормали, а не относительно поверхности.",
+        "Плоское зеркало даёт прямое виртуальное изображение такого же поперечного размера на равном перпендикулярном расстоянии за плоскостью.",
+        "Условие delta integral(n ds) = 0 выбирает стационарный оптический путь; формулировка «свет всегда идёт по самому быстрому пути» неверна в общем случае."
+      ],
+      "boundary": "Геометрическая оптика требует lambda намного меньше размеров апертур и радиусов изменения среды; шероховатая поверхность, дифракция и когерентная интерференция требуют волновой модели, а принцип Ферма относится к стационарным допустимым вариациям пути.",
+      "example": {
+        "title": "Изображение в плоском зеркале",
+        "problem": "Точечный объект находится в 0.75 м перед плоским зеркалом. Где видит его наблюдатель и каково расстояние между объектом и изображением?",
+        "steps": [
+          "Продолжим отражённые лучи назад за зеркало; их продолжения пересекаются симметрично объекту.",
+          "Изображение находится на перпендикуляре в 0.75 м за зеркалом и является виртуальным.",
+          "Расстояние объект–изображение равно 0.75 + 0.75 = 1.50 м."
+        ],
+        "answer": "Виртуальное изображение находится в 0.75 м за зеркалом; объект и изображение разделены на 1.50 м.",
+        "check": "Если объект приближается к зеркалу на Delta x, изображение симметрично приближается на Delta x, а их расстояние уменьшается на 2 Delta x."
+      },
+      "pitfall": "Виртуальное изображение не находится на поверхности зеркала: глаз локализует его в точке пересечения обратных продолжений лучей за зеркалом.",
+      "practice": [
+        {
+          "question": "Почему край тени Солнца обычно не идеально резкий?",
+          "hint": "Солнце имеет конечный угловой размер, и разные его точки освещают край по-разному.",
+          "answer": "Протяжённый источник создаёт полутень: часть его диска уже закрыта, а часть ещё видна; дифракция может добавить более тонкое размытие."
+        },
+        {
+          "question": "Луч падает под 28 градусов к нормали плоского зеркала. Каков угол отражения?",
+          "hint": "Оба угла измеряются от одной нормали.",
+          "answer": "Угол отражения равен 28 градусов."
+        }
+      ]
+    },
+    "11.2": {
+      "question": "Почему луч меняет направление на границе, как дисперсия разделяет цвета и при каком условии свет полностью остаётся внутри среды?",
+      "overview": [
+        "Фазовая скорость света в линейном веществе обычно меньше c и зависит от частоты; показатель n = c/v_ph характеризует эту скорость для заданной частоты. Непрерывность фазы на неподвижной границе сохраняет частоту и даёт закон Снеллиуса n1 sin(theta1) = n2 sin(theta2), где углы измеряются от нормали.",
+        "Зависимость n от длины волны называется дисперсией и заставляет разные спектральные компоненты идти под разными углами, создавая спектр призмы и участвуя в радуге вместе с отражением. При переходе из большего n в меньшее для theta1 > theta_c = arcsin(n2/n1) преломлённая распространяющаяся волна исчезает и возникает полное внутреннее отражение с затухающим внешним полем."
+      ],
+      "conceptExplanations": [
+        "Скорость v_ph = c/n относится к фазе в среде; перенос импульса, энергии и короткого сигнала требует учёта групповой скорости, дисперсии и поглощения.",
+        "Закон Снеллиуса следует применять к одной частоте и углам от нормали; при входе в большее n луч отклоняется к нормали.",
+        "Показатель может быть комплексным и частотно-зависимым; его мнимая часть описывает поглощение, которого простая лучевая схема не показывает.",
+        "В обычной дисперсии коротковолновый видимый свет чаще имеет больший n, но форма радуги также определяется геометрией капли и углом отклонения, а не одним «разложением белого».",
+        "Оптоволокно удерживает моды благодаря более высокому n сердцевины относительно оболочки, однако изгибы, рассеяние, поглощение и дисперсия дают потери и уширение импульса."
+      ],
+      "boundary": "Закон Снеллиуса в простой форме предполагает плоскую неподвижную границу однородных изотропных сред и одну частоту; анизотропия, поглощение, метаматериалы и структуры масштаба lambda требуют поляризационной волновой модели.",
+      "example": {
+        "title": "Преломление и критический угол стекла",
+        "problem": "Луч из воздуха падает на стекло n = 1.50 под 30 градусов к нормали. Найти угол в стекле и критический угол для обратного перехода стекло–воздух, считая n_air = 1.00.",
+        "steps": [
+          "По Снеллиусу sin(theta2) = 1.00 sin(30 градусов)/1.50 = 1/3, поэтому theta2 = 19.5 градусов.",
+          "Для критического угла преломлённый луч идёт вдоль границы: sin(theta_c) = n_air/n_glass = 2/3.",
+          "theta_c = 41.8 градусов."
+        ],
+        "answer": "Угол преломления 19.5 градусов; критический угол из стекла в воздух 41.8 градусов.",
+        "check": "При входе в большее n луч приблизился к нормали; полное внутреннее отражение возможно только при движении из стекла в воздух."
+      },
+      "pitfall": "Полное внутреннее отражение невозможно при входе из меньшего показателя в больший независимо от угла падения.",
+      "practice": [
+        {
+          "question": "Меняется ли частота монохроматического света при переходе через неподвижную границу?",
+          "hint": "Поле по обе стороны границы должно иметь одну временную фазу на самой границе.",
+          "answer": "Частота сохраняется; меняются фазовая скорость и длина волны lambda = v_ph/f."
+        },
+        {
+          "question": "Какова фазовая скорость в среде с n = 1.60 при c = 3.00e8 м/с?",
+          "hint": "Используйте v_ph = c/n.",
+          "answer": "v_ph = 1.875e8 м/с."
+        }
+      ]
+    },
+    "11.3": {
+      "question": "Как кривизна зеркала или линзы связывает положение объекта с положением, ориентацией и масштабом изображения?",
+      "overview": [
+        "Сферическое зеркало изменяет направления лучей отражением от разных локальных нормалей. Тонкая линза приближённо заменяет два преломления одним изменением направления в главной плоскости. Собирающая система сводит параллельный пучок к действительному фокусу, рассеивающая даёт расходящийся пучок с виртуальным фокусом.",
+        "В согласованной знаковой системе параксиальная тонкая линза подчиняется 1/f = 1/d_o + 1/d_i, а поперечное увеличение M = h_i/h_o = -d_i/d_o. Положительное d_i обычно обозначает действительное изображение на противоположной стороне, отрицательное — виртуальное. Лучевые построения проверяют знаки и дают геометрический смысл расчёту."
+      ],
+      "conceptExplanations": [
+        "В параксиальном приближении сферическое зеркало имеет фокус около R/2; лучи далеко от оси дают сферическую аберрацию.",
+        "Положительная оптическая сила собирающей линзы и отрицательная рассеивающей относятся к выбранной среде и форме поверхностей; одна геометрическая форма не гарантирует знак во всякой среде.",
+        "Три удобных луча — параллельный, проходящий через фокус и проходящий через оптический центр тонкой линзы — определяют изображение в приближённой схеме.",
+        "Формула тонкой линзы требует расстояний вдоль главной оси и единого соглашения знаков; смешение реальных расстояний с беззнаковыми модулями даёт ложные ответы.",
+        "Минус в M = -d_i/d_o кодирует переворот действительного изображения при обычных положительных d_o и d_i; |M| задаёт отношение размеров."
+      ],
+      "boundary": "Тонкая параксиальная модель требует толщины линзы и апертуры, малых относительно характерных расстояний, лучей близко к оси и слабых аберраций; широкоугольная или толстая система требует матриц переноса либо трассировки поверхностей.",
+      "example": {
+        "title": "Изображение собирающей линзы",
+        "problem": "Тонкая собирающая линза имеет f = +0.10 м. Предмет находится на d_o = +0.30 м. Найти d_i и увеличение по указанному соглашению.",
+        "steps": [
+          "1/d_i = 1/f - 1/d_o = 10 - 3.333 = 6.667 1/м.",
+          "d_i = +0.150 м, значит изображение действительное и находится за линзой.",
+          "M = -d_i/d_o = -0.150/0.30 = -0.50."
+        ],
+        "answer": "d_i = +0.150 м, M = -0.50: изображение действительное, перевёрнутое и вдвое меньше предмета.",
+        "check": "Предмет дальше 2f, поэтому изображение должно лежать между f и 2f и быть уменьшенным; расчёт этому соответствует."
+      },
+      "pitfall": "Фокус не является местом, через которое проходят вообще все лучи: туда сходится параксиальный пучок, параллельный соответствующей оси, в идеализированной системе.",
+      "practice": [
+        {
+          "question": "Какое изображение даёт собирающая линза для предмета внутри фокусного расстояния?",
+          "hint": "В формуле получится d_i < 0.",
+          "answer": "Изображение виртуальное, прямое и обычно увеличенное; расходящиеся выходные лучи пересекаются только при обратном продолжении."
+        },
+        {
+          "question": "Для f = +20 см и d_o = +60 см найдите d_i.",
+          "hint": "1/d_i = 1/f - 1/d_o.",
+          "answer": "1/d_i = 1/20 - 1/60 = 1/30 см^-1, поэтому d_i = +30 см."
+        }
+      ]
+    },
+    "11.4": {
+      "question": "Как одна схема формирования изображения превращается в глаз, камеру, микроскоп и телескоп, и какие пределы задают апертура и аберрации?",
+      "overview": [
+        "Глаз и камера должны создать действительное изображение на фиксированной поверхности — сетчатке или матрице. Камера фокусируется перемещением элементов, а глаз главным образом меняет оптическую силу хрусталика при аккомодации. Близорукость и дальнозоркость корректируют так, чтобы совместная система снова фокусировала доступные объекты на сетчатке.",
+        "Диафрагма управляет световым потоком и углами лучей: меньшая апертура увеличивает геометрическую глубину резкости, но усиливает дифракцию. Выдержка меняет собранную энергию и смазывание движения. Микроскоп и телескоп дают угловое увеличение через сочетание объектива и окуляра, однако разрешение определяется апертурой, длиной волны, аберрациями и детектором."
+      ],
+      "conceptExplanations": [
+        "Оптическая система создаёт на светочувствительной поверхности распределение освещённости, а мозг или электроника интерпретируют его; сетчатка не является экраном с уже готовым восприятием.",
+        "Аккомодация меняет фокусировку на расстояние; близорукость обычно требует рассеивающей, а дальнозоркость — собирающей коррекции для соответствующего диапазона зрения.",
+        "F-число N = f/D связывает фокусное расстояние и диаметр входного зрачка; закрытие диафрагмы уменьшает свет и геометрическое размытие, но слишком малое D расширяет дифракционное пятно.",
+        "Угловое увеличение сравнивает углы, под которыми объект или изображение видны с прибором и без него, а не просто линейные размеры промежуточного изображения.",
+        "Сферическая, хроматическая, кома и астигматизм зависят от поля и спектра; комбинации поверхностей и материалов уменьшают их, но не одной настройкой для всех условий."
+      ],
+      "boundary": "Тонколинзовая схема приборов является параксиальной и монохроматической аппроксимацией; реальная оценка качества требует функции рассеяния точки, дифракции, аберраций, размера пикселя, движения и обработки сигнала.",
+      "example": {
+        "title": "Перефокусировка камеры с бесконечности",
+        "problem": "Тонкий объектив имеет f = 50.0 мм. На каком расстоянии от линзы должна быть матрица для объекта в 2.00 м и насколько это дальше положения фокуса для бесконечности?",
+        "steps": [
+          "В метрах 1/d_i = 1/0.0500 - 1/2.00 = 19.5 1/м.",
+          "d_i = 0.05128 м = 51.28 мм.",
+          "Для бесконечного объекта d_i = f = 50.00 мм, поэтому матрица должна отойти ещё на 1.28 мм."
+        ],
+        "answer": "d_i = 51.28 мм; смещение относительно бесконечности равно 1.28 мм.",
+        "check": "Более близкий объект требует большего расстояния изображения, что согласуется с результатом d_i > f."
+      },
+      "pitfall": "Закрытие диафрагмы не улучшает резкость бесконечно: после уменьшения геометрических аберраций начинает доминировать дифракция и сигнал становится слабее.",
+      "practice": [
+        {
+          "question": "Почему телескоп может увеличить угловой размер звезды, но не раскрыть детали меньше своего дифракционного предела?",
+          "hint": "Разделите увеличение уже сформированного изображения и количество пространственной информации в нём.",
+          "answer": "Окуляр увеличивает углы, но объектив с конечной апертурой уже потерял слишком высокие пространственные частоты; пустое увеличение не возвращает детали."
+        },
+        {
+          "question": "Идеальный астрономический телескоп имеет f_objective = 800 мм и f_eyepiece = 20 мм. Найдите модуль углового увеличения.",
+          "hint": "Для нормальной настройки |M_theta| = f_objective/f_eyepiece.",
+          "answer": "|M_theta| = 40."
+        }
+      ]
+    },
+    "11.5": {
+      "question": "Как конечная когерентность и апертура создают интерференционные полосы, дифракционное пятно и практический предел разрешения?",
+      "overview": [
+        "Интерференция требует устойчивой разности фаз в течение наблюдения. В двухщелевом опыте неразличимые когерентные пути складываются по амплитуде, и максимумы дальней зоны удовлетворяют d sin(theta_m) = m lambda. Если источник широк или спектр широк, усреднение разных фаз уменьшает видимость полос.",
+        "Каждая конечная апертура сама дифрагирует: меньший поперечный размер даёт более широкое угловое распределение. Решётка из многих щелей создаёт узкие главные максимумы, а круглая апертура — диск Эйри. Критерий Рэлея theta примерно 1.22 lambda/D задаёт удобную договорённость о различимости двух равных точек, а не абсолютный запрет для всякого метода оценки."
+      ],
+      "conceptExplanations": [
+        "Временная когерентность ограничивает допустимую разность хода спектральной шириной, а пространственная — согласованность фазы между точками фронта.",
+        "Положение двухщелевых максимумов задаёт разность хода d sin(theta), а конечная ширина каждой щели умножает полосы на дифракционную огибающую.",
+        "Одна щель даёт широкую структуру, многощелевая решётка усиливает направления совпадающей фазы; спектральное разрешение растёт с числом освещённых штрихов и порядком.",
+        "Уменьшение апертуры увеличивает угловую ширину примерно как lambda/D, даже если геометрический лучевой рисунок предсказывает более тонкую точку.",
+        "По Рэлею максимум одного диска совпадает с первым минимумом другого; шум, контраст, априорная модель и обработка могут изменить практическую различимость."
+      ],
+      "boundary": "Формула d sin(theta_m) = m lambda требует монохроматических когерентных щелей и дальней зоны или фокальной плоскости; критерий 1.22 lambda/D относится к равномерно освещённой круглой апертуре и выбранному критерию различения.",
+      "example": {
+        "title": "Шаг полос в двухщелевом опыте",
+        "problem": "Две узкие щели разделены на d = 0.250 мм, длина волны 500 нм, экран находится на L = 2.00 м. Найти расстояние между соседними максимумами при малых углах.",
+        "steps": [
+          "Для малых углов y_m примерно L sin(theta_m), поэтому y_m примерно m lambda L/d.",
+          "Шаг Delta y = lambda L/d.",
+          "Delta y = 500e-9 x 2.00/(0.250e-3) = 4.00e-3 м."
+        ],
+        "answer": "Соседние максимумы разделены примерно на 4.00 мм.",
+        "check": "Увеличение d сжимает полосы, а увеличение lambda или L раздвигает их, как и показывает формула."
+      },
+      "pitfall": "Дифракция не является только отклонением у геометрического края: весь комплексный фронт внутри конечной апертуры участвует в формировании дальней картины.",
+      "practice": [
+        {
+          "question": "Почему две независимые обычные лампы не дают устойчивых двухщелевых полос друг с другом?",
+          "hint": "Сравните время изменения случайной относительной фазы со временем экспозиции.",
+          "answer": "Их относительная фаза быстро и случайно меняется, поэтому перекрёстный интерференционный член усредняется почти до нуля."
+        },
+        {
+          "question": "Оцените предел Рэлея для D = 0.050 м и lambda = 550 нм.",
+          "hint": "theta = 1.22 lambda/D.",
+          "answer": "theta примерно 1.34e-5 рад, или около 2.8 угловой секунды."
+        }
+      ]
+    },
+    "11.6": {
+      "question": "Как направление колебаний, спектр и доплеровский сдвиг позволяют управлять светом и извлекать состав и движение вещества?",
+      "overview": [
+        "Поляризация описывает ориентацию поперечного электрического поля. Идеальный линейный поляризатор выделяет одну компоненту, а анализатор под углом theta пропускает интенсивность I = I0 cos²(theta) для уже линейно поляризованного входа. Фазовая задержка между ортогональными компонентами создаёт эллиптическую и круговую поляризацию.",
+        "Цветовое ощущение возникает из спектра света, отклика колбочек и обработки зрительной системой, поэтому разные спектры могут выглядеть одинаково. Атомные и молекулярные уровни создают характерные линии поглощения и излучения. Их набор указывает состав и физические условия, а относительный сдвиг линий раскрывает лучевую скорость при корректной доплеровской модели."
+      ],
+      "conceptExplanations": [
+        "Неполяризованный свет имеет случайно меняющееся направление поперечного поля, линейная поляризация фиксирует ось, а круговая требует равных ортогональных компонент со сдвигом фазы pi/2.",
+        "Закон Малюса относится к идеальному анализатору и линейно поляризованному входу; первый поляризатор для неполяризованного пучка в среднем пропускает половину интенсивности.",
+        "Аддитивное смешение света и субтрактивное смешение красителей различны, а метамерия показывает, что одному воспринимаемому цвету могут соответствовать разные спектры.",
+        "Непрерывный, линейчатый и полосатый спектры связаны с источником и взаимодействием света с веществом; ширина линии также несёт сведения о температуре, столкновениях и движении.",
+        "Сопоставление лабораторных длин волн с наблюдаемыми идентифицирует элементы и молекулы, а систематический красный или синий сдвиг оценивает движение вдоль луча зрения."
+      ],
+      "boundary": "Закон Малюса требует идеальных линейных поляризаторов и учёта входного состояния; простая формула Delta lambda/lambda = v_r/c требует |v_r| намного меньше c и движения вдоль луча, а сильные поля, давление и космологическое расширение могут сдвигать или уширять линии иначе.",
+      "example": {
+        "title": "Интенсивность после анализатора",
+        "problem": "Линейно поляризованный пучок интенсивностью 100 Вт/м² падает на идеальный анализатор, ось которого составляет 60 градусов с направлением поляризации. Найти выходную интенсивность.",
+        "steps": [
+          "Для линейно поляризованного входа используем I = I0 cos²(theta).",
+          "cos(60 градусов) = 0.5, поэтому cos² = 0.25.",
+          "I = 100 x 0.25 = 25 Вт/м²."
+        ],
+        "answer": "После анализатора интенсивность равна 25 Вт/м².",
+        "check": "При 0 градусах прошёл бы весь идеальный пучок, при 90 градусах — ноль; результат лежит между ними."
+      },
+      "pitfall": "Цвет нельзя однозначно заменить одной длиной волны: белый, пурпурный и многие экранные цвета являются спектральными смесями.",
+      "practice": [
+        {
+          "question": "Почему перекрещённые идеальные поляризаторы почти не пропускают линейно поляризованный свет?",
+          "hint": "Подставьте theta = 90 градусов в закон Малюса.",
+          "answer": "Проекция электрического поля на ось второго поляризатора равна нулю, поэтому идеальная интенсивность cos²(90 градусов) равна нулю."
+        },
+        {
+          "question": "Линия 600.0 нм наблюдается при 600.2 нм. Оцените малую лучевую скорость при c = 3.00e8 м/с.",
+          "hint": "Для малого сдвига v_r/c примерно Delta lambda/lambda.",
+          "answer": "v_r примерно 3.00e8 x 0.2/600 = 1.00e5 м/с; красный сдвиг означает удаление в принятом соглашении."
+        }
+      ]
+    }
+  },
+  "en": {
+    "11.1": {
+      "question": "When may light be replaced by rays, and how does stationary optical time lead to reflection and image construction?",
+      "overview": [
+        "A ray gives energy-flow direction when wavelength is much smaller than obstacles and medium-variation scales. In a homogeneous transparent medium, the ray is straight. An extended source and opaque object produce an umbra reached by no source rays and a penumbra reached by only part of the source.",
+        "At a stationary smooth reflector, reflection angle equals incidence angle, both measured from the normal. Backward extensions of reflected rays from a plane mirror meet at a virtual image behind it. More generally, a physical ray makes optical travel time stationary under nearby path variations; a stationary value may be a minimum, maximum, or saddle."
+      ],
+      "conceptExplanations": [
+        "Straight propagation is the short-wavelength limit of wave propagation; near an edge on the lambda scale, diffraction smooths the sharp geometrical boundary.",
+        "A point source gives an ideal sharp shadow, while every point of an extended source produces its own boundary and their sum makes a penumbra.",
+        "Tangential phase matching and reversibility give equal angles relative to the local normal, not relative to the surface.",
+        "A plane mirror forms an upright virtual image of equal transverse size at equal perpendicular distance behind the plane.",
+        "The condition delta integral(n ds) = 0 selects a stationary optical path; 'light always takes the fastest path' is not generally correct."
+      ],
+      "boundary": "Geometrical optics requires wavelength much smaller than apertures and medium-variation radii; rough surfaces, diffraction, and coherent interference require a wave model, while Fermat's principle concerns stationary admissible path variations.",
+      "example": {
+        "title": "Image in a plane mirror",
+        "problem": "A point object is 0.75 m in front of a plane mirror. Where does an observer locate it, and what is object-image separation?",
+        "steps": [
+          "Extend reflected rays backward behind the mirror; their extensions meet at the point symmetric to the object.",
+          "The image is 0.75 m behind the mirror and is virtual.",
+          "Object-image separation is 0.75 + 0.75 = 1.50 m."
+        ],
+        "answer": "The virtual image is 0.75 m behind the mirror, separated from the object by 1.50 m.",
+        "check": "If the object approaches by Delta x, its image symmetrically approaches by Delta x and their separation falls by 2 Delta x."
+      },
+      "pitfall": "A virtual image is not on the mirror surface: the eye locates it where backward ray extensions meet behind the mirror.",
+      "practice": [
+        {
+          "question": "Why is the edge of a Sun-cast shadow usually not perfectly sharp?",
+          "hint": "The Sun has finite angular size, so its points illuminate the edge differently.",
+          "answer": "An extended source creates a penumbra where part of its disk is hidden and part remains visible; diffraction may add finer blurring."
+        },
+        {
+          "question": "A ray strikes at 28 degrees to a mirror normal. What is reflection angle?",
+          "hint": "Both angles are measured from the same normal.",
+          "answer": "The reflection angle is 28 degrees."
+        }
+      ]
+    },
+    "11.2": {
+      "question": "Why does a ray turn at a boundary, how does dispersion separate colors, and when does light remain entirely inside a medium?",
+      "overview": [
+        "Light phase speed in linear matter is usually below c and depends on frequency; n = c/v_ph characterizes it at a stated frequency. Phase continuity at a stationary boundary preserves frequency and gives Snell's law n1 sin(theta1) = n2 sin(theta2), with angles measured from the normal.",
+        "Frequency dependence of n is dispersion and sends spectral components along different directions, producing a prism spectrum and contributing with internal reflection to a rainbow. From larger n to smaller n, incidence above theta_c = arcsin(n2/n1) removes the propagating refracted wave and gives total internal reflection with an evanescent outside field."
+      ],
+      "conceptExplanations": [
+        "The speed v_ph = c/n belongs to phase in matter; momentum, energy, and short-signal propagation require group velocity, dispersion, and absorption.",
+        "Snell's law applies to one frequency and angles from the normal; entering larger n bends a ray toward the normal.",
+        "Index may be complex and frequency-dependent; its imaginary part describes absorption absent from a simple ray diagram.",
+        "Under normal dispersion, shorter visible wavelengths often have larger n, but rainbow shape also follows droplet geometry and deviation angle, not only white-light splitting.",
+        "A fiber guides modes because core n exceeds cladding n, but bends, scattering, absorption, and dispersion produce loss and pulse broadening."
+      ],
+      "boundary": "Simple Snell's law assumes a planar stationary boundary between homogeneous isotropic media at one frequency; anisotropy, absorption, metamaterials, and wavelength-scale structures require a polarized wave model.",
+      "example": {
+        "title": "Refraction and glass critical angle",
+        "problem": "A ray from air strikes glass of n = 1.50 at 30 degrees from normal. Find its glass angle and the critical angle for the reverse glass-to-air path, with n_air = 1.00.",
+        "steps": [
+          "Snell's law gives sin(theta2) = 1.00 sin(30 degrees)/1.50 = 1/3, so theta2 = 19.5 degrees.",
+          "At critical incidence the refracted ray follows the boundary: sin(theta_c) = n_air/n_glass = 2/3.",
+          "theta_c = 41.8 degrees."
+        ],
+        "answer": "Refraction angle is 19.5 degrees and glass-to-air critical angle is 41.8 degrees.",
+        "check": "On entering larger n the ray bent toward normal; total internal reflection is possible only from glass toward air."
+      },
+      "pitfall": "Total internal reflection cannot occur on entering a higher-index medium, regardless of incidence angle.",
+      "practice": [
+        {
+          "question": "Does monochromatic-light frequency change at a stationary boundary?",
+          "hint": "Fields on both sides must share one time phase at the boundary.",
+          "answer": "Frequency remains fixed; phase speed and wavelength lambda = v_ph/f change."
+        },
+        {
+          "question": "What is phase speed in a medium of n = 1.60 for c = 3.00e8 m/s?",
+          "hint": "Use v_ph = c/n.",
+          "answer": "v_ph = 1.875e8 m/s."
+        }
+      ]
+    },
+    "11.3": {
+      "question": "How does mirror or lens curvature connect object position to image position, orientation, and scale?",
+      "overview": [
+        "A spherical mirror redirects rays by reflection from different local normals. A thin lens approximates two refractions by one direction change at its principal plane. A converging system brings a parallel bundle to a real focus, while a diverging system makes a bundle appear to originate from a virtual focus.",
+        "Under a consistent sign convention, a paraxial thin lens obeys 1/f = 1/d_o + 1/d_i, with transverse magnification M = h_i/h_o = -d_i/d_o. Positive d_i commonly denotes a real image on the opposite side and negative d_i a virtual one. Ray diagrams check signs and give geometric meaning to calculation."
+      ],
+      "conceptExplanations": [
+        "In the paraxial approximation, a spherical mirror focuses near R/2; rays far from the axis create spherical aberration.",
+        "Positive power of a converging lens and negative power of a diverging lens depend on surrounding medium and surfaces; geometry alone does not guarantee the sign in every medium.",
+        "Three useful rays—parallel, focal, and through the thin-lens optical center—locate an image in the approximate diagram.",
+        "The thin-lens equation requires axial distances and one sign convention; mixing signed distances with unsigned magnitudes creates false answers.",
+        "The minus in M = -d_i/d_o records inversion for ordinary positive d_o and d_i, while |M| is the size ratio."
+      ],
+      "boundary": "The thin paraxial model requires lens thickness and aperture small relative to characteristic distances, near-axis rays, and weak aberrations; a wide-angle or thick system needs transfer matrices or surface ray tracing.",
+      "example": {
+        "title": "Image from a converging lens",
+        "problem": "A thin converging lens has f = +0.10 m. An object is at d_o = +0.30 m. Find d_i and magnification under the stated convention.",
+        "steps": [
+          "1/d_i = 1/f - 1/d_o = 10 - 3.333 = 6.667 1/m.",
+          "d_i = +0.150 m, so the image is real and lies beyond the lens.",
+          "M = -d_i/d_o = -0.150/0.30 = -0.50."
+        ],
+        "answer": "d_i = +0.150 m and M = -0.50: the image is real, inverted, and half-size.",
+        "check": "An object beyond 2f should form a reduced image between f and 2f, matching the calculation."
+      },
+      "pitfall": "A focus is not a point traversed by every ray; in an ideal system it receives a paraxial bundle parallel to the corresponding axis.",
+      "practice": [
+        {
+          "question": "What image does a converging lens form for an object inside focal distance?",
+          "hint": "The equation gives d_i < 0.",
+          "answer": "The image is virtual, upright, and usually enlarged; outgoing diverging rays meet only when extended backward."
+        },
+        {
+          "question": "For f = +20 cm and d_o = +60 cm, find d_i.",
+          "hint": "Use 1/d_i = 1/f - 1/d_o.",
+          "answer": "1/d_i = 1/20 - 1/60 = 1/30 cm^-1, so d_i = +30 cm."
+        }
+      ]
+    },
+    "11.4": {
+      "question": "How does one image-formation scheme become an eye, camera, microscope, or telescope, and what limits are set by aperture and aberration?",
+      "overview": [
+        "The eye and camera must form a real image on a fixed surface: retina or sensor. A camera focuses by moving elements, while the eye primarily changes lens power through accommodation. Myopia and hyperopia are corrected so the combined system again focuses accessible objects on the retina.",
+        "An aperture controls light flux and ray angles: a smaller opening increases geometrical depth of field but strengthens diffraction. Exposure time changes collected energy and motion blur. Microscopes and telescopes give angular magnification through objective and eyepiece combinations, but resolution is set by aperture, wavelength, aberrations, and detector."
+      ],
+      "conceptExplanations": [
+        "The optics creates an irradiance distribution on a photosensitive surface, while brain or electronics interprets it; the retina is not a screen containing completed perception.",
+        "Accommodation changes distance focus; myopia commonly needs a diverging correction and hyperopia a converging correction for the relevant viewing range.",
+        "F-number N = f/D connects focal length and entrance-pupil diameter; stopping down reduces light and geometrical blur, but too small D broadens diffraction.",
+        "Angular magnification compares angles subtended with and without an instrument, not merely linear size of an intermediate image.",
+        "Spherical and chromatic aberration, coma, and astigmatism depend on field and spectrum; combining surfaces and materials reduces them but not with one adjustment for all conditions."
+      ],
+      "boundary": "The thin-lens instrument scheme is a paraxial monochromatic approximation; real image quality needs a point-spread function including diffraction, aberrations, pixel size, motion, and signal processing.",
+      "example": {
+        "title": "Refocusing a camera from infinity",
+        "problem": "A thin objective has f = 50.0 mm. How far behind it should a sensor be for an object at 2.00 m, and how much farther is that than infinity focus?",
+        "steps": [
+          "In metres, 1/d_i = 1/0.0500 - 1/2.00 = 19.5 1/m.",
+          "d_i = 0.05128 m = 51.28 mm.",
+          "At infinity, d_i = f = 50.00 mm, so the sensor moves 1.28 mm farther away."
+        ],
+        "answer": "d_i = 51.28 mm, a 1.28 mm shift from infinity focus.",
+        "check": "A nearer object requires greater image distance, consistent with d_i > f."
+      },
+      "pitfall": "Stopping down does not improve sharpness without limit: after reducing geometrical aberration, diffraction dominates and the signal becomes weaker.",
+      "practice": [
+        {
+          "question": "Why can a telescope enlarge a star's angular image without revealing detail below its diffraction limit?",
+          "hint": "Separate enlargement of a formed image from spatial information present in it.",
+          "answer": "The eyepiece enlarges angles, but the finite objective already removed excessively high spatial frequencies; empty magnification cannot restore detail."
+        },
+        {
+          "question": "An ideal astronomical telescope has f_objective = 800 mm and f_eyepiece = 20 mm. Find angular-magnification magnitude.",
+          "hint": "For normal adjustment, |M_theta| = f_objective/f_eyepiece.",
+          "answer": "|M_theta| = 40."
+        }
+      ]
+    },
+    "11.5": {
+      "question": "How do finite coherence and aperture produce interference fringes, diffraction spots, and a practical resolution limit?",
+      "overview": [
+        "Interference requires a stable phase difference over observation. In a double slit, indistinguishable coherent paths add by amplitude and far-field maxima obey d sin(theta_m) = m lambda. A broad source or spectrum averages different phases and reduces fringe visibility.",
+        "Every finite aperture diffracts: a smaller transverse dimension produces a wider angular distribution. A many-slit grating gives narrow principal maxima, while a circular aperture gives an Airy pattern. The Rayleigh value theta approximately 1.22 lambda/D is a useful convention for distinguishing two equal points, not an absolute ban for every estimation method."
+      ],
+      "conceptExplanations": [
+        "Temporal coherence limits allowed path difference through spectral width, while spatial coherence measures phase consistency across wavefront positions.",
+        "Double-slit fringe locations follow path difference d sin(theta), while finite width of each slit multiplies fringes by a diffraction envelope.",
+        "One slit gives a broad structure and many grating slits reinforce phase-matched directions; spectral resolving power grows with illuminated groove count and order.",
+        "Reducing aperture increases angular width approximately as lambda/D even if a geometrical ray picture predicts a finer point.",
+        "Under Rayleigh, one Airy maximum coincides with the other's first minimum; noise, contrast, prior model, and processing change practical distinguishability."
+      ],
+      "boundary": "The formula d sin(theta_m) = m lambda requires monochromatic coherent slits and a far field or focal plane; 1.22 lambda/D applies to a uniformly illuminated circular aperture and a chosen resolution criterion.",
+      "example": {
+        "title": "Double-slit fringe spacing",
+        "problem": "Two narrow slits are separated by d = 0.250 mm, wavelength is 500 nm, and a screen is L = 2.00 m away. Find adjacent-maxima spacing at small angles.",
+        "steps": [
+          "At small angle, y_m approximately L sin(theta_m), so y_m approximately m lambda L/d.",
+          "Spacing is Delta y = lambda L/d.",
+          "Delta y = 500e-9 x 2.00/(0.250e-3) = 4.00e-3 m."
+        ],
+        "answer": "Adjacent maxima are about 4.00 mm apart.",
+        "check": "Larger d compresses fringes, while larger lambda or L expands them, as the formula predicts."
+      },
+      "pitfall": "Diffraction is not only bending at a geometrical edge: the whole complex wavefront across a finite aperture contributes to the far pattern.",
+      "practice": [
+        {
+          "question": "Why do two independent ordinary lamps not produce stable double-source fringes?",
+          "hint": "Compare random relative-phase change time with exposure time.",
+          "answer": "Their relative phase changes rapidly and randomly, so the cross-interference term averages nearly to zero."
+        },
+        {
+          "question": "Estimate Rayleigh angle for D = 0.050 m and lambda = 550 nm.",
+          "hint": "Use theta = 1.22 lambda/D.",
+          "answer": "theta is approximately 1.34e-5 rad, or about 2.8 arcseconds."
+        }
+      ]
+    },
+    "11.6": {
+      "question": "How do oscillation direction, spectrum, and Doppler shift let us control light and infer matter composition and motion?",
+      "overview": [
+        "Polarization describes orientation of transverse electric field. An ideal linear polarizer selects one component, and an analyzer at angle theta transmits I = I0 cos^2(theta) for already linearly polarized input. Phase delay between orthogonal components creates elliptical and circular polarization.",
+        "Color perception follows light spectrum, cone response, and visual processing, so distinct spectra can look identical. Atomic and molecular levels create characteristic absorption and emission lines. Their pattern indicates composition and conditions, while relative line shift reveals radial motion under an appropriate Doppler model."
+      ],
+      "conceptExplanations": [
+        "Unpolarized light has randomly varying transverse-field direction, linear polarization fixes an axis, and circular polarization needs equal orthogonal components separated by phase pi/2.",
+        "Malus's law applies to an ideal analyzer and linearly polarized input; a first polarizer transmits half the mean intensity of ideal unpolarized light.",
+        "Additive mixing of light differs from subtractive pigment mixing, and metamerism shows that one perceived color may come from different spectra.",
+        "Continuous, line, and band spectra reflect source and light-matter interaction; line width also carries information about temperature, collisions, and motion.",
+        "Matching laboratory wavelengths to observed ones identifies elements and molecules, while systematic redshift or blueshift estimates line-of-sight motion."
+      ],
+      "boundary": "Malus's law requires ideal linear polarizers and a known input state; Delta lambda/lambda = v_r/c requires |v_r| much less than c and line-of-sight motion, while strong fields, pressure, and cosmological expansion can shift or broaden lines differently.",
+      "example": {
+        "title": "Intensity after an analyzer",
+        "problem": "A linearly polarized beam of intensity 100 W/m^2 reaches an ideal analyzer whose axis is 60 degrees from the polarization direction. Find output intensity.",
+        "steps": [
+          "For linearly polarized input, use I = I0 cos^2(theta).",
+          "cos(60 degrees) = 0.5, so cos^2 = 0.25.",
+          "I = 100 x 0.25 = 25 W/m^2."
+        ],
+        "answer": "The analyzer transmits 25 W/m^2.",
+        "check": "At 0 degrees all ideal input passes and at 90 degrees none passes; this result lies between."
+      },
+      "pitfall": "Color cannot be assigned uniquely to one wavelength: white, purple, and many display colors are spectral mixtures.",
+      "practice": [
+        {
+          "question": "Why do crossed ideal polarizers transmit almost no linearly polarized light?",
+          "hint": "Set theta = 90 degrees in Malus's law.",
+          "answer": "Electric-field projection on the second axis is zero, so ideal intensity cos^2(90 degrees) is zero."
+        },
+        {
+          "question": "A 600.0 nm line is observed at 600.2 nm. Estimate small radial speed using c = 3.00e8 m/s.",
+          "hint": "For a small shift, v_r/c is approximately Delta lambda/lambda.",
+          "answer": "v_r is approximately 3.00e8 x 0.2/600 = 1.00e5 m/s; redshift denotes recession under this convention."
+        }
+      ]
+    }
+  }
+}

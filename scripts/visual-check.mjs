@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 import { chromium } from 'playwright-core';
 
 const output = resolve(import.meta.dirname, '..', '.screenshots');
-const baseUrl = process.env.VISUAL_BASE_URL ?? 'http://127.0.0.1:4173/';
+const baseUrl = process.env.VISUAL_BASE_URL ?? 'http://127.0.0.1:4397/';
 await mkdir(output, { recursive: true });
 
 const browserExecutable = process.env.BROWSER_EXECUTABLE ?? [
@@ -25,8 +25,13 @@ const checks = [
   { name: 'catalog-tablet', url: '#/ru/catalog', viewport: { width: 820, height: 1050 } },
   { name: 'lesson-desktop', url: '#/ru/topic/2.5', viewport: { width: 1440, height: 1050 } },
   { name: 'lesson-experiment', url: '#/ru/topic/2.5', viewport: { width: 1440, height: 1050 }, selector: '#experiment' },
+  { name: 'lesson-concepts', url: '#/ru/topic/1.5', viewport: { width: 1440, height: 1050 }, selector: '.concept-explanations' },
+  { name: 'lesson-example', url: '#/ru/topic/1.5', viewport: { width: 1280, height: 900 }, selector: '.worked-example' },
+  { name: 'lesson-example-mobile', url: '#/ru/topic/1.5', viewport: { width: 390, height: 844 }, selector: '.worked-example' },
   { name: 'lesson-formula', url: '#/ru/topic/9.8', viewport: { width: 1440, height: 1050 }, selector: '#math' },
   { name: 'lesson-mobile', url: '#/ru/topic/9.8', viewport: { width: 390, height: 844 } },
+  { name: 'lesson-practice-mobile', url: '#/ru/topic/1.5', viewport: { width: 390, height: 844 }, selector: '.practice-grid' },
+  { name: 'lesson-formula-320-en', url: '#/en/topic/13.4', viewport: { width: 320, height: 760 }, selector: '.lesson-formulas' },
   { name: 'labs-desktop', url: '#/ru/labs', viewport: { width: 1280, height: 900 } },
   { name: 'formulas-mobile', url: '#/ru/formulas', viewport: { width: 390, height: 844 } },
   { name: 'formulas-list', url: '#/ru/formulas', viewport: { width: 1280, height: 900 }, selector: '.formula-entry' },
@@ -42,6 +47,7 @@ for (const check of checks) {
   page.on('pageerror', (error) => runtimeErrors.push(error.message));
   page.on('console', (message) => { if (message.type() === 'error') runtimeErrors.push(message.text()); });
   await page.goto(`${baseUrl}${check.url}`, { waitUntil: 'networkidle' });
+  await page.locator('.app-shell').waitFor();
   const expectedLocale = check.url.startsWith('#/en/') ? 'en' : 'ru';
   if (await page.locator('html').getAttribute('lang') !== expectedLocale) throw new Error(`${check.name}: неверный lang документа`);
   if (expectedLocale === 'en') {
@@ -52,6 +58,43 @@ for (const check of checks) {
   await page.screenshot({ path: resolve(output, `${check.name}.png`), fullPage: false });
   const metrics = await page.evaluate(() => ({ width: document.documentElement.clientWidth, scrollWidth: document.documentElement.scrollWidth }));
   if (metrics.scrollWidth > metrics.width) throw new Error(`${check.name}: горизонтальное переполнение ${metrics.scrollWidth - metrics.width}px`);
+  if (check.name === 'lesson-formula-320-en') {
+    const clippedCards = await page.locator('.lesson-formula').evaluateAll((cards) => cards.filter((card) => {
+      const cardBox = card.getBoundingClientRect();
+      return [...card.children].some((child) => {
+        const childBox = child.getBoundingClientRect();
+        return childBox.left < cardBox.left - 0.5 || childBox.right > cardBox.right + 0.5;
+      });
+    }).length);
+    if (clippedCards) throw new Error(`${check.name}: formula card grid children are clipped outside their card`);
+    const inaccessibleOverflow = await page.locator('.lesson-formula .math--display').evaluateAll((items) => items.filter((item) => item.scrollWidth > item.clientWidth + 1 && (item.tabIndex !== 0 || getComputedStyle(item).overflowX !== 'auto' || !item.getAttribute('aria-label'))).length);
+    if (inaccessibleOverflow) throw new Error(`${check.name}: overflowing equation is not keyboard-scrollable or labeled`);
+  }
+  if (check.name === 'lesson-desktop' || check.name === 'lesson-mobile') {
+    const calmMetrics = await page.evaluate(() => {
+      const h1 = document.querySelector('.lesson-header h1');
+      const h2 = document.querySelector('.lesson-section h2');
+      const roadmap = document.querySelector('.lesson-roadmap');
+      const firstParagraph = document.querySelector('#phenomenon .lesson-prose p');
+      const conceptText = document.querySelector('.concept-explanation p');
+      return {
+        h1: h1 ? parseFloat(getComputedStyle(h1).fontSize) : Infinity,
+        h2: h2 ? parseFloat(getComputedStyle(h2).fontSize) : Infinity,
+        roadmapHeight: roadmap?.getBoundingClientRect().height ?? Infinity,
+        firstParagraphTop: firstParagraph?.getBoundingClientRect().top ?? Infinity,
+        conceptText: conceptText ? parseFloat(getComputedStyle(conceptText).fontSize) : 0,
+        viewportHeight: window.innerHeight,
+      };
+    });
+    const mobileLesson = check.name === 'lesson-mobile';
+    if (calmMetrics.h1 > (mobileLesson ? 44 : 68) || calmMetrics.h2 > (mobileLesson ? 32 : 44)) throw new Error(`${check.name}: lesson headings are still presentation-sized (${JSON.stringify(calmMetrics)})`);
+    if (calmMetrics.roadmapHeight > (mobileLesson ? 320 : 230) || calmMetrics.firstParagraphTop > calmMetrics.viewportHeight * 1.1) throw new Error(`${check.name}: roadmap/header still delay the actual lesson content (${JSON.stringify(calmMetrics)})`);
+    if (calmMetrics.conceptText < 14) throw new Error(`${check.name}: calmer chrome made explanatory text too small`);
+  }
+  if (check.name === 'lesson-example-mobile') {
+    const exampleMetrics = await page.locator('.worked-example').evaluate((example) => ({ height: example.getBoundingClientRect().height, shadow: getComputedStyle(example).boxShadow, radius: parseFloat(getComputedStyle(example).borderRadius) }));
+    if (exampleMetrics.height > 420 || exampleMetrics.shadow !== 'none' || exampleMetrics.radius > 16) throw new Error(`${check.name}: unopened worked example remains visually oversized`);
+  }
   if (runtimeErrors.length) throw new Error(`${check.name}: ошибки в браузере: ${runtimeErrors.join(' | ')}`);
   await page.close();
 }
@@ -71,6 +114,7 @@ if (!bookmarks.includes('8.7')) throw new Error('Закладка не сохр�
 await interaction.locator('.locale-switch button', { hasText: 'EN' }).click();
 await interaction.waitForURL(/#\/en\/topic\/8\.7$/u);
 if ((await interaction.locator('.lesson-header h1').textContent()) !== 'Entropy and the Second Law') throw new Error('English card content did not load after locale switch');
+await interaction.waitForFunction(() => document.activeElement?.getAttribute('data-locale-option') === 'en');
 await interaction.waitForFunction(() => localStorage.getItem('pole:locale') === 'en');
 const retained = await interaction.evaluate(() => JSON.parse(localStorage.getItem('pole:completed') ?? '[]'));
 if (!retained.includes('8.7')) throw new Error('Progress was lost while switching locale');
@@ -96,6 +140,7 @@ await mobile.locator('.sidebar-search').evaluate((element) => element.focus());
 if (await mobile.locator('.sidebar-search').evaluate((element) => element === document.activeElement)) throw new Error('Фокус попал в скрытое оглавление');
 await mobile.locator('.mobile-sidebar-trigger').click();
 if (!(await mobile.locator('.book-sidebar').getAttribute('class'))?.includes('is-open')) throw new Error('Мобильное оглавление не открылось');
+if ((await mobile.locator('.mobile-sidebar-trigger').getAttribute('aria-expanded')) !== 'true' || (await mobile.locator('.mobile-sidebar-trigger').getAttribute('aria-controls')) !== 'book-sidebar') throw new Error('Кнопка мобильного оглавления не сообщает его состояние');
 await mobile.keyboard.press('Escape');
 if ((await mobile.locator('.book-sidebar').getAttribute('class'))?.includes('is-open')) throw new Error('Escape не закрыл мобильное оглавление');
 if (!(await mobile.locator('.mobile-sidebar-trigger').evaluate((element) => element === document.activeElement))) throw new Error('После закрытия оглавления фокус не вернулся на кнопку открытия');
@@ -113,18 +158,40 @@ await mobile.close();
 
 const lessonA11y = await browser.newPage({ viewport: { width: 1100, height: 850 }, colorScheme: 'light' });
 await lessonA11y.goto(`${baseUrl}#/en/topic/2.5`, { waitUntil: 'networkidle' });
-const predictionRadios = lessonA11y.locator('.prediction-options [role="radio"]');
-await predictionRadios.first().focus();
-await predictionRadios.first().press('ArrowRight');
-if ((await predictionRadios.nth(1).getAttribute('aria-checked')) !== 'true') throw new Error('Arrow keys do not select the next prediction option');
-if (!(await predictionRadios.nth(1).evaluate((element) => element === document.activeElement))) throw new Error('Prediction radio focus did not follow the arrow-key selection');
-const quickCheckButton = lessonA11y.locator('.quick-check > button');
-const quickCheckTarget = await quickCheckButton.getAttribute('aria-controls');
-if ((await quickCheckButton.getAttribute('aria-expanded')) !== 'false' || !quickCheckTarget || !(await lessonA11y.locator(`#${quickCheckTarget}`).getAttribute('hidden') !== null)) throw new Error('Quick-check disclosure has an invalid collapsed state');
-await quickCheckButton.click();
-if ((await quickCheckButton.getAttribute('aria-expanded')) !== 'true' || !(await lessonA11y.locator(`#${quickCheckTarget}`).isVisible())) throw new Error('Quick-check disclosure does not expose its answer');
+const roadmapButtons = lessonA11y.locator('.lesson-roadmap button');
+const conceptSections = lessonA11y.locator('.concept-explanation');
+if (await roadmapButtons.count() !== await conceptSections.count() || await roadmapButtons.count() < 4) throw new Error('Card roadmap does not cover every explained concept');
+const firstConceptTarget = await roadmapButtons.first().getAttribute('aria-controls');
+if (!firstConceptTarget || !(await lessonA11y.locator(`#${firstConceptTarget} p`).textContent())?.trim()) throw new Error('Roadmap points to a concept without an explanation');
+const routeBeforeRoadmapClick = lessonA11y.url();
+await roadmapButtons.first().click();
+if (lessonA11y.url() !== routeBeforeRoadmapClick) throw new Error('Local concept navigation broke the hash-based book route');
+await lessonA11y.waitForFunction((target) => {
+  const element = document.getElementById(target);
+  if (!element) return false;
+  const top = element.getBoundingClientRect().top;
+  return document.activeElement === element && top >= 55 && top <= 180;
+}, firstConceptTarget);
+const exampleButton = lessonA11y.locator('.worked-example > button');
+const exampleSteps = lessonA11y.locator('.worked-example__steps li');
+const totalExampleSteps = Number(await lessonA11y.locator('.worked-example__steps').getAttribute('data-total-steps'));
+if (await lessonA11y.locator('#example > h2').count() !== 1) throw new Error('Worked-example section has no level-two heading');
+if (totalExampleSteps < 3 || await exampleSteps.count() !== 1 || await lessonA11y.locator('.worked-example__result').count()) throw new Error('Worked example does not start as a compact step-by-step exercise');
+for (let index = 0; index < totalExampleSteps; index += 1) await exampleButton.click();
+if (!(await lessonA11y.locator('.worked-example__result').isVisible()) || await lessonA11y.locator('.worked-example__steps li.is-visible').count() !== totalExampleSteps) throw new Error('Worked example cannot reveal its complete solution');
+const practiceReveal = lessonA11y.locator('.practice-card').first().locator('.lesson-reveal').first();
+const practiceButton = practiceReveal.locator('button');
+if ((await practiceButton.getAttribute('aria-expanded')) !== 'false') throw new Error('Practice hint starts with invalid disclosure state');
+await practiceButton.click();
+if ((await practiceButton.getAttribute('aria-expanded')) !== 'true' || !(await practiceReveal.locator('div').isVisible())) throw new Error('Practice hint is not revealed accessibly');
 await lessonA11y.goto(`${baseUrl}#/en/topic/3.3`, { waitUntil: 'networkidle' });
-if (await lessonA11y.locator('.prediction-card').count()) throw new Error('A prediction control is shown for a card without a working interactive model');
+if (await lessonA11y.locator('.physics-lab').count() || await lessonA11y.locator('.experiment-blueprint').count()) throw new Error('A card without a working model still renders fake interactive scaffolding');
+if (await lessonA11y.locator('.experiment-brief-card').count() !== 1 || await lessonA11y.locator('.concept-explanation p').count() < 4) throw new Error('A non-lab card lacks a clear experiment brief or full concept explanations');
+if (await lessonA11y.locator('.related-topic-grid a').count() < 2) throw new Error('Full lesson does not provide clickable related-card navigation');
+const routeBeforeRelated = lessonA11y.url();
+await lessonA11y.locator('.related-topic-grid a').first().focus();
+await lessonA11y.locator('.related-topic-grid a').first().press('Enter');
+await lessonA11y.waitForFunction((previousUrl) => window.location.href !== previousUrl && document.activeElement?.matches('.book-main h1') && window.scrollY <= 1, routeBeforeRelated);
 await lessonA11y.close();
 
 const malformed = await browser.newPage({ viewport: { width: 900, height: 700 } });
@@ -136,9 +203,9 @@ const firstEnglishVisit = await browser.newPage({ viewport: { width: 900, height
 await firstEnglishVisit.goto(baseUrl, { waitUntil: 'networkidle' });
 if (await firstEnglishVisit.locator('html').getAttribute('lang') !== 'en' || !/#\/en\/$/u.test(firstEnglishVisit.url())) throw new Error('Browser locale did not select and canonicalize English on first visit');
 await firstEnglishVisit.keyboard.press('Control+K');
-await firstEnglishVisit.locator('.search-dialog__input input').fill('entropy');
+await firstEnglishVisit.locator('.search-dialog__input input').fill('triangle inequality');
 await firstEnglishVisit.locator('.search-dialog__input input').press('Enter');
-await firstEnglishVisit.waitForURL(/#\/en\/topic\/8\.7$/u);
+await firstEnglishVisit.waitForURL(/#\/en\/topic\/1\.5$/u);
 await firstEnglishVisit.close();
 
 const blockedStorage = await browser.newPage({ viewport: { width: 900, height: 700 } });

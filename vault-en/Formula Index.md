@@ -62,7 +62,7 @@ $$\sum\mathbf F=\frac{d\mathbf p}{dt};\qquad\sum\mathbf F=m\mathbf a\quad(m=\mat
 - **Meaning:** The net external force determines the change in a body's momentum.
 - **Conditions:** An inertial frame and a material system of fixed composition; the ma form additionally requires constant mass and nonrelativistic motion. For an open system such as a rocket, momentum flux must be included separately.
 - **Units:** F: N; p: kg·m/s; m: kg; a: m/s²
-- **Related cards:** [[03 · Dynamics and Newton's Laws/3.2 · Inertia and Newton's First Law|3.2]], [[03 · Dynamics and Newton's Laws/3.3 · Newton's Second Law|3.3]]
+- **Related cards:** [[03 · Dynamics and Newton's Laws/3.1 · Interactions and Force Diagrams|3.1]], [[03 · Dynamics and Newton's Laws/3.2 · Inertia and Newton's First Law|3.2]], [[03 · Dynamics and Newton's Laws/3.3 · Newton's Second Law|3.3]], [[03 · Dynamics and Newton's Laws/3.5 · Normal Force, Tension, and Elasticity|3.5]], [[03 · Dynamics and Newton's Laws/3.7 · Constraints, Circular Motion, and Non-Inertial Frames|3.7]]
 
 ## Dry Friction
 
@@ -81,6 +81,15 @@ $$W_{\mathrm{net}}=\int_{\mathbf r_1}^{\mathbf r_2}\mathbf F_{\mathrm{net}}\cdot
 - **Conditions:** The expression K = mv²/2 is valid for a point particle of constant mass at nonrelativistic speeds.
 - **Units:** W and K: J; F: N; r: m
 - **Related cards:** [[04 · Energy, Momentum, and Rotation/4.1 · Work and Power|4.1]], [[04 · Energy, Momentum, and Rotation/4.2 · Kinetic Energy and the Work–Energy Theorem|4.2]]
+
+## Rigid-Body Kinetic Energy and Rolling
+
+$$K=\frac12Mv_{\mathrm{cm}}^2+\frac12I_{\mathrm{cm}}\omega^2,\qquad v_{\mathrm{cm}}=\omega R$$
+
+- **Meaning:** Splits the kinetic energy of a rigid body in planar motion into translation of its center of mass and rotation about it; the no-slip condition relates the two speeds.
+- **Conditions:** A perfectly rigid body undergoes planar motion, with a principal axis through its center of mass. The relation v_cm = ωR applies to a round body of radius R rolling without slipping on a stationary surface; conservation of mechanical energy separately requires no dissipative work.
+- **Units:** K: J; M: kg; v_cm: m/s; I_cm: kg·m²; ω: rad/s; R: m
+- **Related cards:** [[04 · Energy, Momentum, and Rotation/4.2 · Kinetic Energy and the Work–Energy Theorem|4.2]], [[04 · Energy, Momentum, and Rotation/4.7 · Rotational Kinematics and Dynamics|4.7]]
 
 ## Momentum Balance and Conservation
 
@@ -118,6 +127,15 @@ $$T^2=\frac{4\pi^2a^3}{G(M+m)}$$
 - **Units:** T: s; a: m; M and m: kg; G: m³/(kg·s²)
 - **Related cards:** [[05 · Gravitation and Celestial Mechanics/5.2 · Kepler's Laws and Orbits|5.2]], [[05 · Gravitation and Celestial Mechanics/5.3 · Orbital Energy and Cosmic Velocities|5.3]]
 
+## Orbital Energy and the Vis-Viva Equation
+
+$$\varepsilon=\frac{v^2}{2}-\frac{\mu}{r}=-\frac{\mu}{2a},\qquad v^2=\mu\left(\frac{2}{r}-\frac{1}{a}\right),\qquad\mu=G(M+m)$$
+
+- **Meaning:** Relates specific relative-motion energy, speed, and position on a Keplerian orbit to the semimajor axis of its conic section.
+- **Conditions:** An isolated Newtonian two-body system of pointlike or nonoverlapping spherically symmetric bodies; r and v are relative separation and speed, and ε is energy per unit reduced mass. For an ellipse a > 0, for a parabola a tends to infinity, and for a hyperbola the convention a < 0 is used; drag, perturbations, and relativistic corrections are small.
+- **Units:** ε: J/kg = m²/s²; v: m/s; μ: m³/s²; r and a: m; M and m: kg
+- **Related cards:** [[05 · Gravitation and Celestial Mechanics/5.2 · Kepler's Laws and Orbits|5.2]], [[05 · Gravitation and Celestial Mechanics/5.3 · Orbital Energy and Cosmic Velocities|5.3]]
+
 ## Hooke's Law for Uniaxial Deformation
 
 $$\sigma=E\varepsilon,\qquad\varepsilon=\frac{\Delta L}{L_0}$$
@@ -136,6 +154,15 @@ $$p+\frac12\rho v^2+\rho gz=\mathrm{const}$$
 - **Units:** each term: Pa = J/m³; ρ: kg/m³; v: m/s; z: m
 - **Related cards:** [[06 · Matter, Elasticity, and Fluids/6.3 · Hydrostatics and Buoyancy|6.3]], [[06 · Matter, Elasticity, and Fluids/6.5 · Flow of Real Fluids|6.5]]
 
+## Small-Angle Period of a Simple Pendulum
+
+$$T=2\pi\sqrt{\frac{L}{g}},\qquad\omega_0=\sqrt{\frac{g}{L}}$$
+
+- **Meaning:** Gives the period and natural angular frequency of small oscillations of an ideal simple pendulum.
+- **Conditions:** The bob is a point particle, and the string of length L is massless, inextensible, and attached to a frictionless pivot; g is uniform, drag is absent, and amplitude |θ₀| is small enough in radians that sin θ ≈ θ. Amplitude independence of the period holds only to this approximation.
+- **Units:** T: s; L: m; g: m/s²; ω₀: rad/s; θ₀: rad (dimensionless)
+- **Related cards:** [[00 · How Physics Works/0.1 · Physics as Model Building|0.1]], [[07 · Oscillations, Waves, and Sound/7.1 · The Harmonic Oscillator|7.1]]
+
 ## Harmonic Oscillator
 
 $$m\ddot x+kx=0,\qquad\omega_0=\sqrt{\frac{k}{m}},\qquad x=A\cos(\omega_0t+\varphi)$$
@@ -143,7 +170,7 @@ $$m\ddot x+kx=0,\qquad\omega_0=\sqrt{\frac{k}{m}},\qquad x=A\cos(\omega_0t+\varp
 - **Meaning:** A linear restoring force produces sinusoidal oscillations at the natural frequency.
 - **Conditions:** There is no damping or external driving; the force is linear in displacement, and the parameters m and k are constant.
 - **Units:** m: kg; k: N/m; x and A: m; ω₀: rad/s; φ: dimensionless
-- **Related cards:** [[07 · Oscillations, Waves, and Sound/7.1 · The Harmonic Oscillator|7.1]], [[07 · Oscillations, Waves, and Sound/7.2 · Energy and Phase Space|7.2]]
+- **Related cards:** [[00 · How Physics Works/0.2 · How a Physics Experiment Is Structured|0.2]], [[07 · Oscillations, Waves, and Sound/7.1 · The Harmonic Oscillator|7.1]], [[07 · Oscillations, Waves, and Sound/7.2 · Energy and Phase Space|7.2]]
 
 ## Wave Speed, Frequency, and Wavelength
 

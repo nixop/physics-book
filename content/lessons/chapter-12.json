@@ -1,0 +1,473 @@
+{
+  "chapter": 12,
+  "ru": {
+    "12.1": {
+      "question": "Почему правило сложения скоростей Галилея нельзя одновременно сохранить с электродинамикой и одинаковой скоростью света для всех инерциальных наблюдателей?",
+      "overview": [
+        "В ньютоновской кинематике время считается общим для всех наблюдателей, поэтому переход между системами отсчёта меняет скорость по правилу u′ = u − v. Это приближение прекрасно работает при v ≪ c, но применённое к свету предсказывает разные значения его скорости у наблюдателей, движущихся друг относительно друга.",
+        "Специальная теория относительности меняет не электродинамику, а правила сопоставления пространственных и временных координат. Если законы физики одинаковы во всех инерциальных системах и свет в вакууме имеет одну скорость c, то одновременность, интервалы времени и длины уже не могут быть абсолютными; их связывают преобразования Лоренца."
+      ],
+      "conceptExplanations": [
+        "Преобразование Галилея x′ = x − vt при t′ = t даёт u′ = u − v. Оно является первым приближением преобразования Лоренца по малому параметру v/c, а не отдельным универсальным законом природы.",
+        "Уравнения Максвелла задают скорость электромагнитной волны в вакууме через электрическую и магнитную постоянные. Опыт требует трактовать c как инвариантную скорость, а не как скорость относительно материального эфира.",
+        "Первый постулат утверждает равноправие инерциальных систем, второй — одинаковое значение c для света в вакууме. Вместе они определяют лоренцеву, а не галилееву структуру переходов между наблюдателями.",
+        "Выбрать систему, в которой конкретное тело покоится, можно, но экспериментально выделенной абсолютной инерциальной системы нет. Ускорение, в отличие от постоянной скорости, обнаруживается акселерометром и потому не является только относительным утверждением."
+      ],
+      "boundary": "Специальная теория относительности непосредственно описывает инерциальные системы в плоском пространстве-времени. При v/c ≪ 1 её формулы переходят в галилеевы; гравитацию и протяжённые ускоренные системы нужно рассматривать средствами общей теории относительности.",
+      "example": {
+        "title": "Световой импульс с движущегося корабля",
+        "problem": "Корабль летит относительно Земли со скоростью 0,60c и посылает световой импульс вперёд. Сравнить галилеевский и релятивистский ответы для скорости импульса относительно Земли.",
+        "steps": [
+          "По галилеевскому правилу получилось бы u = c + 0,60c = 1,60c, что противоречит инвариантности скорости света.",
+          "Для сонаправленных скоростей используем u = (u′ + v)/(1 + u′v/c²).",
+          "Подставляем u′ = c и v = 0,60c: u = 1,60c/(1 + 0,60) = c."
+        ],
+        "answer": "Земной наблюдатель также измерит скорость импульса c; меняются координаты событий испускания и регистрации, а не значение c.",
+        "check": "Релятивистская формула не даёт результат выше c и при v ≪ c сводится к обычному сложению скоростей для медленных объектов."
+      },
+      "pitfall": "Постоянство c не означает, что скорости вообще нельзя складывать. Складывать нужно через дробно-линейную релятивистскую формулу; для малых скоростей её поправка практически незаметна.",
+      "practice": [
+        {
+          "question": "Можно ли обнаружить равномерное прямолинейное движение закрытой лаборатории только внутренними механическими и электромагнитными опытами?",
+          "hint": "Сформулируй первый постулат и отличи скорость от ускорения.",
+          "answer": "Нет. Все инерциальные системы равноправны, поэтому внутренний опыт не выделит абсолютную скорость; акселерометр обнаружил бы лишь отклонение от инерциального движения."
+        },
+        {
+          "question": "Зонд движется со скоростью 0,50c и запускает вперёд частицу со скоростью 0,80c относительно себя. Какова скорость частицы относительно Земли?",
+          "hint": "Используй u = (u′ + v)/(1 + u′v/c²).",
+          "answer": "u = (0,80 + 0,50)c/(1 + 0,80·0,50) = 1,30c/1,40 ≈ 0,929c."
+        }
+      ]
+    },
+    "12.2": {
+      "question": "Как сравнить показания часов в разных местах, если сама процедура их синхронизации использует сигнал с конечной скоростью?",
+      "overview": [
+        "Удалённые часы нельзя сравнить без соглашения о передаче времени. В синхронизации Эйнштейна световой сигнал идёт от часов A к часам B и обратно, а момент прихода к B принимают равным середине между отправлением и возвращением по часам A. Такое определение естественно в инерциальной системе, где скорость света одинакова в обоих направлениях.",
+        "Преобразование Лоренца смешивает пространство и время: события, одновременные в одной системе, обычно неодновременны в другой. Часы, движущиеся между двумя событиями по одной мировой линии, измеряют собственное время Δτ; в инерциальной системе, где эти часы движутся со скоростью v, между теми же событиями проходит Δt = γΔτ."
+      ],
+      "conceptExplanations": [
+        "Синхронизация — физическая процедура, а не молчаливое предположение об общих для Вселенной часах. Для A→B→A при симметричном распространении B устанавливают на (t₁ + t₂)/2, где t₁ — отправление, t₂ — возвращение.",
+        "Для двух событий с Δt = 0 и Δx ≠ 0 преобразование даёт Δt′ = −γvΔx/c². Поэтому разные инерциальные наблюдатели могут не соглашаться о порядке пространственно разделённых событий, не нарушая причинность.",
+        "Фраза «движущиеся часы идут медленнее» сравнивает собственное время одних часов с координатным временем между теми же событиями в выбранной инерциальной системе. Она не задаёт абсолютного, независимо от наблюдателя движущегося объекта.",
+        "Собственное время отсчитывают одни часы, присутствующие в обоих событиях. Для произвольной траектории оно находится интегрированием dτ = dt√(1 − v²/c²) и зависит от пути между событиями."
+      ],
+      "boundary": "Формула Δt = γΔτ предполагает равномерное относительное движение на рассматриваемом участке и сравнение одной пары событий. Для ускоренной траектории собственное время нужно суммировать по малым участкам; в гравитационном поле добавляется зависимость хода часов от потенциала и геометрии.",
+      "example": {
+        "title": "Одновременные вспышки вдоль платформы",
+        "problem": "В системе платформы две вспышки происходят одновременно на расстоянии 300 м друг от друга. Поезд движется в направлении от первой вспышки ко второй со скоростью 0,60c. Найти разность времён событий в системе поезда.",
+        "steps": [
+          "В системе платформы Δt = 0, Δx = +300 м, а γ = 1/√(1 − 0,60²) = 1,25.",
+          "Используем Δt′ = γ(Δt − vΔx/c²) = −γvΔx/c².",
+          "Так как 300 м/c ≈ 1,00 мкс, получаем Δt′ ≈ −1,25·0,60·1,00 мкс = −0,75 мкс."
+        ],
+        "answer": "В системе поезда вторая, расположенная впереди вспышка происходит примерно на 0,75 мкс раньше первой.",
+        "check": "События разделены пространственноподобно: свет не успел бы пройти 300 м за нулевое время, поэтому изменение их временного порядка не может изменить причинно-следственную связь."
+      },
+      "pitfall": "Нельзя объяснять замедление времени только задержкой распространения света до наблюдателя. После учёта времени доставки сигнала правильно синхронизированные часы всё равно дают релятивистский эффект.",
+      "practice": [
+        {
+          "question": "Почему два наблюдателя могут спорить о порядке пространственноподобных событий, но не о порядке причины и её следствия?",
+          "hint": "Сравни пространственноподобный и времениподобный интервалы и максимальную скорость сигнала.",
+          "answer": "Причина и следствие должны быть соединены времениподобным или светоподобным интервалом, порядок которого сохраняется при преобразованиях Лоренца. Для пространственноподобной пары сигнал со скоростью не выше c пройти не может."
+        },
+        {
+          "question": "Часы летят равномерно со скоростью 0,80c и между двумя встречами с лабораторными метками отсчитывают 3,0 мкс. Сколько времени между встречами прошло в лаборатории?",
+          "hint": "Для 0,80c коэффициент γ = 1/√(1 − 0,80²).",
+          "answer": "γ = 5/3, поэтому Δt = γΔτ = 5,0 мкс."
+        }
+      ]
+    },
+    "12.3": {
+      "question": "Почему длину движущегося стержня нельзя получить простым преобразованием координат его концов в произвольные моменты времени?",
+      "overview": [
+        "Длина — расстояние между координатами концов, измеренными одновременно в той системе, где требуется результат. Поскольку одновременность зависит от системы отсчёта, две лабораторные отметки концов движущегося стержня не являются одновременной парой событий в собственной системе стержня.",
+        "Преобразования Лоренца согласованно изменяют x и t и сохраняют пространственно-временной интервал. Для стержня с собственной длиной L₀, движущегося вдоль себя, лаборатория получает L = L₀/γ. Та же структура преобразований приводит к релятивистскому закону сложения скоростей, который сохраняет предельную скорость c."
+      ],
+      "conceptExplanations": [
+        "Нужно зарегистрировать положения переднего и заднего концов при одном лабораторном времени. Фотография без поправки на различное время прихода света не является такой прямой процедурой измерения.",
+        "Сокращается только компонента длины вдоль относительной скорости; поперечные размеры не получают множитель 1/γ. L₀ измеряется в системе покоя тела и потому называется собственной длиной.",
+        "Коэффициент γ = 1/√(1 − v²/c²) не меньше единицы, быстро растёт при v→c и отличается от единицы лишь на величину порядка v²/(2c²) при малых v.",
+        "Для S′, движущейся со скоростью +v вдоль x относительно S, удобно фиксировать соглашение x′ = γ(x − vt), t′ = γ(t − vx/c²). Смена направления v меняет соответствующие знаки.",
+        "Если объект имеет скорость u в S, то в S′ его скорость u′ = (u − v)/(1 − uv/c²). Знаменатель является следствием преобразования времени и не позволяет досветовым скоростям сложиться в сверхсветовую."
+      ],
+      "boundary": "Формула L = L₀/γ относится к расстоянию между концами в инерциальной системе и предполагает стержень, покоящийся как целое в другой инерциальной системе. Для ускоряемого протяжённого тела понятие жёсткости требует отдельного анализа; визуальный облик также искажается временем распространения света.",
+      "example": {
+        "title": "Длина пролетающего стержня",
+        "problem": "Собственная длина стержня равна 100 м. Он движется вдоль своей оси со скоростью 0,80c относительно лаборатории. Какую длину получат лабораторные датчики, срабатывающие одновременно?",
+        "steps": [
+          "Вычисляем γ = 1/√(1 − 0,80²) = 1/0,60 = 5/3.",
+          "Обе координаты концов должны относиться к одному лабораторному времени.",
+          "Применяем L = L₀/γ = 100 м·3/5 = 60 м."
+        ],
+        "answer": "Лабораторная длина вдоль движения равна 60 м; в системе стержня его длина остаётся 100 м.",
+        "check": "Результат меньше собственной длины и стремился бы к 100 м при уменьшении скорости до нуля."
+      },
+      "pitfall": "Сокращение длины не означает механического сжатия в собственной системе тела. Это различие пространственных срезов одной протяжённой мировой области у разных наблюдателей.",
+      "practice": [
+        {
+          "question": "Почему нельзя измерить лабораторную длину движущегося поезда, сначала отметив положение локомотива, а через секунду — последнего вагона?",
+          "hint": "Вспомни операционное определение длины в выбранной системе.",
+          "answer": "Такая разность координат смешивает перемещение поезда с его размером. Положения обоих концов нужно зарегистрировать при одном и том же лабораторном времени."
+        },
+        {
+          "question": "Частица летит в лаборатории со скоростью 0,90c, а наблюдатель движется вслед за ней со скоростью 0,50c. Какую скорость частицы измерит наблюдатель?",
+          "hint": "Используй u′ = (u − v)/(1 − uv/c²).",
+          "answer": "u′ = (0,90 − 0,50)c/(1 − 0,90·0,50) = 0,40c/0,55 ≈ 0,727c."
+        }
+      ]
+    },
+    "12.4": {
+      "question": "Как по геометрии диаграммы пространства-времени определить, может ли одно событие физически повлиять на другое?",
+      "overview": [
+        "Диаграмма Минковского изображает событие точкой с координатами x и ct, а историю объекта — мировой линией. При одинаковом масштабе осей свет движется под углом 45°, образуя границу светового конуса; мировая линия массивного тела обязана оставаться внутри этого конуса.",
+        "Интервал s² = c²Δt² − Δx² одинаков во всех инерциальных системах при выбранном соглашении знаков. Положительный интервал допускает причинную связь и систему, где события происходят в одном месте; нулевой соответствует свету; отрицательный означает, что никакой досветовой сигнал между событиями невозможен."
+      ],
+      "conceptExplanations": [
+        "Наклон мировой линии кодирует скорость: при вертикальной оси ct величина |dx/d(ct)| равна |v|/c. Вертикальная линия описывает покой в данной системе, а излом указывает изменение скорости.",
+        "Будущий и прошлый световые конусы содержат события, достижимые соответственно из данного события или способные на него повлиять. Их границу задают лучи x = ±ct.",
+        "Инвариантность интервала объединяет замедление времени, сокращение длины и причинность. Для времениподобной пары собственное время равно Δτ = √(Δt² − Δx²/c²).",
+        "Времениподобный и светоподобный порядок событий сохраняется у всех инерциальных наблюдателей. Для пространственноподобной пары порядок может измениться, но именно потому эта пара не может быть причиной и следствием.",
+        "Близнецы сравнивают собственные времена вдоль разных мировых линий между общими встречами. Путешественник меняет инерциальные участки при развороте, поэтому ситуации не симметричны; разность возрастов определяется полными траекториями, а не мгновенным «ощущением» скорости."
+      ],
+      "boundary": "Плоская диаграмма x–ct подавляет две пространственные координаты и описывает специальную относительность. В искривлённом пространстве-времени световые конусы определяются локально, а интервал вычисляется по метрике; длинные линии на простой диаграмме уже нельзя читать как глобально евклидовы.",
+      "example": {
+        "title": "Проверка причинной связи двух событий",
+        "problem": "Между событиями проходит 5,0 мкс по лабораторным часам, а их координаты различаются на 1,20 км. Определить тип интервала и собственное время между ними.",
+        "steps": [
+          "За 5,0 мкс свет проходит cΔt ≈ 1,50 км, что больше 1,20 км.",
+          "Вычисляем Δx/c ≈ 4,00 мкс и Δτ = √[(5,0 мкс)² − (4,00 мкс)²].",
+          "Получаем Δτ ≈ √(25,0 − 16,0) мкс ≈ 3,0 мкс; следовательно, s² > 0."
+        ],
+        "answer": "Интервал времениподобный, причинная связь возможна, а часы, движущиеся из первого события во второе равномерно, отсчитают около 3,0 мкс.",
+        "check": "Требуемая средняя скорость 1,20 км/5,0 мкс = 0,80c меньше c, что согласуется со времениподобным интервалом."
+      },
+      "pitfall": "Угол линии на экране имеет физический смысл только при одинаковом масштабе x и ct. Растянутая ось может визуально сделать досветовую мировую линию «быстрее света», хотя её координаты этого не показывают.",
+      "practice": [
+        {
+          "question": "Что означает отрицательное s² при соглашении s² = c²Δt² − Δx²?",
+          "hint": "Сравни расстояние Δx с максимальным путём света c|Δt|.",
+          "answer": "Интервал пространственноподобный: |Δx| > c|Δt|, причинный сигнал между событиями невозможен, а разные инерциальные системы могут менять их временной порядок."
+        },
+        {
+          "question": "События разделены расстоянием 600 м и временем 1,0 мкс. Может ли первое вызвать второе?",
+          "hint": "Найди скорость Δx/Δt или путь света за указанное время.",
+          "answer": "Нет. Потребовалась бы скорость 6,0·10⁸ м/с ≈ 2c; интервал пространственноподобный."
+        }
+      ]
+    },
+    "12.5": {
+      "question": "Какие определения импульса и энергии сохраняют законы сохранения и лоренцеву симметрию при скоростях, сравнимых с c?",
+      "overview": [
+        "Для частицы с инвариантной массой m релятивистский импульс равен p = γmv, а полная энергия — E = γmc². При малых скоростях разложение даёт E ≈ mc² + mv²/2: ньютоновская кинетическая энергия возникает как добавка к большой энергии покоя.",
+        "Энергия и импульс связаны инвариантом E² − p²c² = m²c⁴. Поэтому в столкновениях и распадах сохраняют суммарные E и вектор p, а не отдельно сумму масс покоя. У системы взаимодействующих частиц её инвариантная масса может включать внутреннюю и кинетическую энергию компонентов."
+      ],
+      "conceptExplanations": [
+        "Множитель γ делает p нелинейным по скорости и не позволяет конечной силой разогнать массивную частицу до c: при v→c требуемые импульс и энергия неограниченно растут.",
+        "E₀ = mc² относится к частице или системе в системе центра импульса. Это не утверждение, что полная энергия движущейся частицы всегда равна только mc².",
+        "Соотношение E² = p²c² + m²c⁴ работает и для m = 0: тогда E = pc, как у фотона в вакууме.",
+        "В реакции часть энергии покоя исходной системы может стать кинетической энергией продуктов, либо внешняя энергия может увеличить инвариантную массу составной системы. Полная четырёхмерная величина при этом сохраняется.",
+        "Четырёхимпульс P = (E/c, p) преобразуется как один геометрический объект. Его квадрат P² = m²c² инвариантен и особенно удобен для анализа порогов и распадов."
+      ],
+      "boundary": "Формулы E = γmc² и p = γmv описывают свободную точечную частицу с постоянной инвариантной массой. Для связанной системы нужно учитывать всю внутреннюю энергию и работать с полным четырёхимпульсом; в искривлённом пространстве-времени глобальное сохранение энергии требует симметрии геометрии.",
+      "example": {
+        "title": "Энергия протона по его импульсу",
+        "problem": "Протон имеет энергию покоя 938 МэВ и импульс 750 МэВ/c. Найти его полную и кинетическую энергии.",
+        "steps": [
+          "Записываем E = √[(pc)² + (mc²)²].",
+          "Подставляем pc = 750 МэВ и mc² = 938 МэВ.",
+          "E = √(750² + 938²) МэВ ≈ 1201 МэВ.",
+          "Кинетическая энергия K = E − mc² ≈ 1201 − 938 = 263 МэВ."
+        ],
+        "answer": "Полная энергия приблизительно 1,20 ГэВ, кинетическая — 263 МэВ.",
+        "check": "Полная энергия больше и pc, и энергии покоя; подстановка обратно даёт E² − p²c² ≈ (938 МэВ)²."
+      },
+      "pitfall": "Не используй выражение «релятивистская масса» без необходимости. Яснее сохранять одну инвариантную массу m и отдельно указывать зависящие от системы энергию E и импульс p.",
+      "practice": [
+        {
+          "question": "Может ли один свободный электрон полностью поглотить один фотон в пустом пространстве?",
+          "hint": "Попробуй одновременно сохранить энергию и импульс и сравни инвариантную массу начального и конечного состояний.",
+          "answer": "Нет. Четырёхимпульс системы «электрон + фотон» имеет инвариантную массу больше массы электрона, а единственный конечный электрон должен иметь неизменную массу. Нужен ещё один объект для отдачи импульса."
+        },
+        {
+          "question": "Частица движется со скоростью 0,80c. Во сколько раз её кинетическая энергия отличается от энергии покоя?",
+          "hint": "K/E₀ = γ − 1.",
+          "answer": "γ = 5/3, поэтому K/E₀ = 2/3 ≈ 0,667."
+        }
+      ]
+    },
+    "12.6": {
+      "question": "Как локальная неотличимость свободного падения от инерциального движения приводит к геометрическому описанию гравитации?",
+      "overview": [
+        "В достаточно малой свободно падающей лаборатории однородную часть гравитационного поля можно устранить выбором системы отсчёта: незакреплённые тела движутся там инерциально. Наблюдатель, стоящий на поверхности, наоборот, испытывает собственное ускорение опоры, которое регистрирует акселерометр.",
+        "Устранить приливные различия ускорений во всём протяжённом объёме нельзя. Общая теория относительности описывает их кривизной пространства-времени: свободные тела следуют времениподобным геодезическим, свет — нулевым, а часы на разных траекториях накапливают разное собственное время."
+      ],
+      "conceptExplanations": [
+        "Эквивалентность локальна: в маленькой кабине эффект почти однородной гравитации совпадает с эффектом ускорения кабины. Градиенты поля и приливные силы позволяют отличить реальное искривление на конечной области.",
+        "Свободно падающий акселерометр показывает ноль, хотя координатная скорость относительно Земли меняется. Это и есть локальное инерциальное движение; вес на весах создаёт сила опоры, а не само тяготение.",
+        "В слабом стационарном поле разность темпа часов приближённо равна Δf/f ≈ ΔΦ/c². Часы при большем гравитационном потенциале идут быстрее относительно часов при меньшем потенциале.",
+        "Геодезическая локально экстремизирует собственное время, а кривизна проявляется в относительном ускорении соседних геодезических. Поэтому «сила, тянущая по искривлённой поверхности» — лишь аналогия, не определение.",
+        "Специальная относительность остаётся локальной касательной теорией: в достаточно малой свободно падающей области метрика близка к метрике Минковского. Общая теория задаёт, как эти локальные области сшиваются в присутствии энергии и импульса."
+      ],
+      "boundary": "Приближение Δf/f ≈ ΔΦ/c² требует слабого стационарного поля и |ΔΦ| ≪ c²; замена ΔΦ на gh дополнительно предполагает почти постоянное g и небольшую высоту. Эквивалентность однородного ускорения не устраняет приливные эффекты на протяжённой области.",
+      "example": {
+        "title": "Разность хода часов на высоте",
+        "problem": "Оценить, насколько больше времени накопят за сутки часы на 100 м выше других часов у поверхности Земли. Принять g = 9,81 м/с² и c = 3,00·10⁸ м/с.",
+        "steps": [
+          "Для небольшой высоты ΔΦ ≈ gh = 9,81·100 = 981 м²/с².",
+          "Относительная разность темпа Δf/f ≈ gh/c² ≈ 981/(9,00·10¹⁶) = 1,09·10⁻¹⁴.",
+          "За 86400 с разность времени равна 86400·1,09·10⁻¹⁴ с ≈ 9,4·10⁻¹⁰ с."
+        ],
+        "answer": "Верхние часы накопят примерно на 0,94 нс больше за сутки.",
+        "check": "Знак верен: выше потенциал больше и часы идут быстрее; безразмерная дробь gh/c² очень мала."
+      },
+      "pitfall": "Принцип эквивалентности не утверждает, что любое гравитационное поле глобально тождественно ускоренной системе. Кривизну и приливные силы нельзя удалить одним выбором координат на всей области.",
+      "practice": [
+        {
+          "question": "Что покажет идеальный акселерометр в падающем лифте и в лифте, покоящемся на поверхности Земли?",
+          "hint": "Акселерометр измеряет собственное ускорение, создаваемое негравитационными силами.",
+          "answer": "В свободном падении он покажет примерно ноль; в покоящемся лифте — ускорение около g вверх из-за силы опоры."
+        },
+        {
+          "question": "Оцени разность хода за сутки для часов, разделённых по высоте на 10 м у поверхности Земли.",
+          "hint": "Результат линейно масштабируется с h в приближении gh/c².",
+          "answer": "Примерно 0,094 нс за сутки: в десять раз меньше результата для 100 м."
+        }
+      ]
+    }
+  },
+  "en": {
+    "12.1": {
+      "question": "Why can Galilean velocity addition not be retained together with electrodynamics and the same speed of light for every inertial observer?",
+      "overview": [
+        "Newtonian kinematics treats time as common to all observers, so changing frames changes a velocity according to u' = u - v. This approximation works extremely well when v is much smaller than c, but applying it to light predicts different light speeds for observers moving relative to one another.",
+        "Special relativity changes the rules for relating spatial and temporal coordinates rather than changing electrodynamics. If the laws of physics are the same in every inertial frame and light in vacuum has one speed c, simultaneity, elapsed time, and length cannot all remain absolute; Lorentz transformations relate them."
+      ],
+      "conceptExplanations": [
+        "The Galilean transformation x' = x - vt with t' = t gives u' = u - v. It is the leading low-v/c approximation to the Lorentz transformation, not a separate universal law of nature.",
+        "Maxwell's equations set the vacuum speed of an electromagnetic wave through the electric and magnetic constants. Experiment requires c to be treated as an invariant speed, not as a speed relative to a material ether.",
+        "The first postulate makes inertial frames equivalent, and the second assigns the same vacuum value c to light in each of them. Together they select Lorentzian rather than Galilean transformations.",
+        "One may choose a frame in which a particular object is at rest, but no experimentally distinguished absolute inertial rest frame exists. Acceleration, unlike constant velocity, is detected by an accelerometer and is therefore not merely relative."
+      ],
+      "boundary": "Special relativity directly describes inertial frames in flat spacetime. Its equations reduce to Galilean results when v/c is much less than one; gravity and extended accelerated frames require general relativity.",
+      "example": {
+        "title": "A Light Pulse from a Moving Spacecraft",
+        "problem": "A spacecraft moves at 0.60c relative to Earth and emits a light pulse forward. Compare the Galilean and relativistic answers for the pulse speed relative to Earth.",
+        "steps": [
+          "Galilean addition would give u = c + 0.60c = 1.60c, contradicting the invariance of light speed.",
+          "For collinear velocities use u = (u' + v)/(1 + u'v/c²).",
+          "With u' = c and v = 0.60c, u = 1.60c/(1 + 0.60) = c."
+        ],
+        "answer": "The Earth observer also measures c; the event coordinates of emission and reception change, not the value of c.",
+        "check": "The relativistic expression does not exceed c and approaches ordinary velocity addition for slow objects."
+      },
+      "pitfall": "The invariance of c does not mean velocities cannot be combined. They must be combined with the fractional relativistic rule, whose correction is negligible at low speeds.",
+      "practice": [
+        {
+          "question": "Can uniform straight-line motion of a sealed laboratory be detected using only experiments performed inside it?",
+          "hint": "State the first postulate and distinguish velocity from acceleration.",
+          "answer": "No. All inertial frames are equivalent, so an internal experiment cannot reveal an absolute velocity; an accelerometer would reveal only departure from inertial motion."
+        },
+        {
+          "question": "A probe moves at 0.50c and launches a particle forward at 0.80c relative to itself. What is the particle's speed relative to Earth?",
+          "hint": "Use u = (u' + v)/(1 + u'v/c²).",
+          "answer": "u = (0.80 + 0.50)c/(1 + 0.80·0.50) = 1.30c/1.40 ≈ 0.929c."
+        }
+      ]
+    },
+    "12.2": {
+      "question": "How can clocks at different locations be compared when the synchronization procedure itself uses a signal with finite speed?",
+      "overview": [
+        "Distant clocks cannot be compared without a convention for transferring time. In Einstein synchronization, a light signal travels from clock A to clock B and back, and B assigns the arrival event the midpoint of the emission and return readings at A. This definition is natural in an inertial frame where light has the same speed in both directions.",
+        "A Lorentz transformation mixes space and time: events simultaneous in one frame are generally not simultaneous in another. A clock present at two events along one worldline measures proper time Δτ; an inertial frame in which that clock moves at speed v assigns Δt = γΔτ between the same events."
+      ],
+      "conceptExplanations": [
+        "Synchronization is a physical procedure, not an assumption of one universal set of clocks. For an A-to-B-to-A exchange with symmetric propagation, B is set to (t₁ + t₂)/2, where t₁ is emission and t₂ is return.",
+        "For two events with Δt = 0 and Δx not equal to zero, the transformation gives Δt' = -γvΔx/c². Inertial observers may therefore disagree about the order of spatially separated events without violating causality.",
+        "The phrase 'moving clocks run slow' compares one clock's proper time with coordinate time between the same two events in a chosen inertial frame. It does not identify an absolutely moving object.",
+        "Proper time is read by one clock present at both events. Along an arbitrary trajectory it is found by integrating dτ = dt√(1 - v²/c²), so it depends on the path between the events."
+      ],
+      "boundary": "The relation Δt = γΔτ assumes uniform relative motion over the segment and comparison of the same event pair. Proper time on an accelerated path must be accumulated segment by segment; a gravitational field also changes clock rates through the potential and geometry.",
+      "example": {
+        "title": "Simultaneous Flashes Along a Platform",
+        "problem": "In a platform frame, two flashes occur simultaneously 300 m apart. A train moves from the first flash toward the second at 0.60c. Find the time difference between the events in the train frame.",
+        "steps": [
+          "In the platform frame Δt = 0, Δx = +300 m, and γ = 1/√(1 - 0.60²) = 1.25.",
+          "Use Δt' = γ(Δt - vΔx/c²) = -γvΔx/c².",
+          "Because 300 m/c ≈ 1.00 μs, Δt' ≈ -1.25·0.60·1.00 μs = -0.75 μs."
+        ],
+        "answer": "In the train frame, the forward flash occurs about 0.75 μs before the rear flash.",
+        "check": "The events are spacelike separated: light could not cover 300 m in zero time, so changing their order cannot reverse a causal chain."
+      },
+      "pitfall": "Time dilation is not merely a delay in light reaching an observer. After signal-travel time is accounted for, properly synchronized clocks still display the relativistic effect.",
+      "practice": [
+        {
+          "question": "Why may observers disagree about the order of spacelike events but not about the order of a cause and its effect?",
+          "hint": "Compare spacelike and timelike intervals with the maximum signal speed.",
+          "answer": "A cause and effect must have a timelike or lightlike separation, whose order is preserved by Lorentz transformations. No signal at or below c can connect a spacelike pair."
+        },
+        {
+          "question": "A clock moves uniformly at 0.80c and records 3.0 μs between encounters with two laboratory markers. How much laboratory time passes between the encounters?",
+          "hint": "At 0.80c, γ = 1/√(1 - 0.80²).",
+          "answer": "γ = 5/3, so Δt = γΔτ = 5.0 μs."
+        }
+      ]
+    },
+    "12.3": {
+      "question": "Why can the length of a moving rod not be obtained by transforming the coordinates of its ends at arbitrary times?",
+      "overview": [
+        "Length is the distance between endpoint positions measured simultaneously in the frame where the answer is required. Because simultaneity depends on the frame, the two laboratory endpoint events are not a simultaneous pair in the rod's rest frame.",
+        "Lorentz transformations change x and t consistently while preserving the spacetime interval. A rod of proper length L₀ moving parallel to itself has laboratory length L = L₀/γ. The same transformation structure gives the relativistic velocity-addition law that preserves the limiting speed c."
+      ],
+      "conceptExplanations": [
+        "The front and rear positions must be recorded at one laboratory time. An uncorrected photograph is not this direct measurement because light from different points reaches the camera at different times.",
+        "Only the component parallel to relative motion contracts; transverse dimensions do not acquire a factor 1/γ. L₀ is measured in the object's rest frame and is therefore called proper length.",
+        "The factor γ = 1/√(1 - v²/c²) is at least one, grows rapidly as v approaches c, and differs from one only by about v²/(2c²) at low speed.",
+        "For S' moving at +v along x relative to S, a clear sign convention is x' = γ(x - vt), t' = γ(t - vx/c²). Reversing v reverses the corresponding signs.",
+        "If an object has speed u in S, then S' measures u' = (u - v)/(1 - uv/c²). The denominator comes from transforming time and prevents subluminal velocities from combining into a superluminal one."
+      ],
+      "boundary": "The equation L = L₀/γ concerns endpoint separation in an inertial frame and assumes a rod at rest as a whole in another inertial frame. An extended accelerating body requires a separate treatment of rigidity, and its visual appearance is also altered by light-travel time.",
+      "example": {
+        "title": "Length of a Passing Rod",
+        "problem": "A rod's proper length is 100 m. It moves along its axis at 0.80c relative to a laboratory. What length do laboratory sensors triggered simultaneously obtain?",
+        "steps": [
+          "Calculate γ = 1/√(1 - 0.80²) = 1/0.60 = 5/3.",
+          "Both endpoint coordinates must refer to the same laboratory time.",
+          "Apply L = L₀/γ = 100 m·3/5 = 60 m."
+        ],
+        "answer": "The longitudinal laboratory length is 60 m; in the rod frame its length remains 100 m.",
+        "check": "The result is below the proper length and would approach 100 m as the speed approaches zero."
+      },
+      "pitfall": "Length contraction is not mechanical compression in the object's own frame. It is the difference between spatial slices through the same extended world tube made by different observers.",
+      "practice": [
+        {
+          "question": "Why can one not measure a moving train's laboratory length by marking the locomotive position and then, one second later, the last carriage position?",
+          "hint": "Recall the operational definition of length in a chosen frame.",
+          "answer": "That coordinate difference mixes the train's displacement with its size. Both endpoint positions must be recorded at the same laboratory time."
+        },
+        {
+          "question": "A particle moves at 0.90c in a laboratory, while an observer follows it at 0.50c. What particle speed does the observer measure?",
+          "hint": "Use u' = (u - v)/(1 - uv/c²).",
+          "answer": "u' = (0.90 - 0.50)c/(1 - 0.90·0.50) = 0.40c/0.55 ≈ 0.727c."
+        }
+      ]
+    },
+    "12.4": {
+      "question": "How does the geometry of a spacetime diagram show whether one event can physically influence another?",
+      "overview": [
+        "A Minkowski diagram represents an event by coordinates x and ct and an object's history by a worldline. With equal axis scales, light travels at 45 degrees and forms the light-cone boundary; a massive object's worldline must remain inside that cone.",
+        "The interval s² = c²Δt² - Δx² is the same in every inertial frame for the chosen sign convention. A positive interval permits causal influence and a frame where both events occur at one place; zero describes light; a negative interval means no subluminal signal can connect the events."
+      ],
+      "conceptExplanations": [
+        "A worldline's slope encodes speed: with ct vertical, |dx/d(ct)| equals |v|/c. A vertical line is rest in that frame, while a bend indicates changing velocity.",
+        "Future and past light cones contain events respectively reachable from an event or able to influence it. Their boundaries are the rays x = ±ct.",
+        "Interval invariance unifies time dilation, length contraction, and causality. For a timelike pair, proper time is Δτ = √(Δt² - Δx²/c²).",
+        "The order of timelike and lightlike events is preserved for all inertial observers. A spacelike pair may reverse order precisely because neither event can cause the other.",
+        "The twins compare proper times along different worldlines between common meetings. The traveler changes inertial segments at turnaround, so the situations are not symmetric; the age difference is determined by the complete paths, not by a momentary 'feeling' of speed."
+      ],
+      "boundary": "A flat x-ct diagram suppresses two spatial coordinates and represents special relativity. In curved spacetime light cones are defined locally and intervals come from the metric; long lines on the simple plot cannot be interpreted as globally Euclidean.",
+      "example": {
+        "title": "Testing the Causal Relation Between Events",
+        "problem": "Two events are 5.0 μs apart in laboratory time and 1.20 km apart in position. Determine the interval type and the proper time between them.",
+        "steps": [
+          "In 5.0 μs light travels cΔt ≈ 1.50 km, greater than 1.20 km.",
+          "Compute Δx/c ≈ 4.00 μs and Δτ = √[(5.0 μs)² - (4.00 μs)²].",
+          "This gives Δτ ≈ √(25.0 - 16.0) μs ≈ 3.0 μs, so s² is positive."
+        ],
+        "answer": "The interval is timelike, causal influence is possible, and a clock moving uniformly from the first event to the second records about 3.0 μs.",
+        "check": "The required average speed is 1.20 km/5.0 μs = 0.80c, below c and consistent with a timelike interval."
+      },
+      "pitfall": "A line's visual angle has physical meaning only when x and ct use equal scales. Stretching an axis can make a subluminal worldline look 'faster than light' even though its coordinates are valid.",
+      "practice": [
+        {
+          "question": "What does negative s² mean when s² = c²Δt² - Δx²?",
+          "hint": "Compare Δx with the maximum light-travel distance c|Δt|.",
+          "answer": "The separation is spacelike: |Δx| > c|Δt|, no causal signal can connect the events, and inertial frames may disagree about their time order."
+        },
+        {
+          "question": "Events are separated by 600 m and 1.0 μs. Can the first cause the second?",
+          "hint": "Find Δx/Δt or the distance light covers in that time.",
+          "answer": "No. The required speed is 6.0·10⁸ m/s ≈ 2c, so the separation is spacelike."
+        }
+      ]
+    },
+    "12.5": {
+      "question": "Which definitions of momentum and energy preserve conservation laws and Lorentz symmetry at speeds comparable with c?",
+      "overview": [
+        "For a particle of invariant mass m, relativistic momentum is p = γmv and total energy is E = γmc². At low speed, expansion gives E ≈ mc² + mv²/2: Newtonian kinetic energy appears as the addition to a much larger rest energy.",
+        "Energy and momentum obey the invariant E² - p²c² = m²c⁴. Collisions and decays therefore conserve total E and vector p, not a separate sum of rest masses. The invariant mass of an interacting multiparticle system can include internal and kinetic energy of its constituents."
+      ],
+      "conceptExplanations": [
+        "The factor γ makes momentum nonlinear in speed and prevents any finite force from accelerating a massive particle to c: the required momentum and energy diverge as v approaches c.",
+        "E₀ = mc² refers to a particle or system in its center-of-momentum frame. It does not say that the total energy of a moving particle is always only mc².",
+        "The relation E² = p²c² + m²c⁴ also works for m = 0, giving E = pc for a photon in vacuum.",
+        "In a reaction, rest energy of the initial system may become product kinetic energy, or supplied energy may increase a composite system's invariant mass. The total four-dimensional quantity remains conserved.",
+        "Four-momentum P = (E/c, p) transforms as one geometric object. Its square P² = m²c² is invariant and is especially useful for thresholds and decays."
+      ],
+      "boundary": "The formulas E = γmc² and p = γmv describe a free point particle with constant invariant mass. A bound system requires all internal energy and its total four-momentum; in curved spacetime, global energy conservation requires an appropriate symmetry of the geometry.",
+      "example": {
+        "title": "A Proton's Energy from Its Momentum",
+        "problem": "A proton has rest energy 938 MeV and momentum 750 MeV/c. Find its total and kinetic energies.",
+        "steps": [
+          "Write E = √[(pc)² + (mc²)²].",
+          "Insert pc = 750 MeV and mc² = 938 MeV.",
+          "E = √(750² + 938²) MeV ≈ 1201 MeV.",
+          "The kinetic energy is K = E - mc² ≈ 1201 - 938 = 263 MeV."
+        ],
+        "answer": "The total energy is about 1.20 GeV and the kinetic energy is 263 MeV.",
+        "check": "Total energy exceeds both pc and rest energy; substitution back gives E² - p²c² ≈ (938 MeV)²."
+      },
+      "pitfall": "Avoid 'relativistic mass' unless a context specifically defines it. It is clearer to keep one invariant mass m and separately state the frame-dependent energy E and momentum p.",
+      "practice": [
+        {
+          "question": "Can one free electron completely absorb one photon in empty space?",
+          "hint": "Try to conserve energy and momentum together and compare the invariant masses of the initial and final states.",
+          "answer": "No. The electron-plus-photon system has invariant mass greater than the electron mass, whereas a lone final electron must retain its mass. Another object is needed to take recoil."
+        },
+        {
+          "question": "A particle moves at 0.80c. What fraction of its rest energy is its kinetic energy?",
+          "hint": "K/E₀ = γ - 1.",
+          "answer": "γ = 5/3, so K/E₀ = 2/3 ≈ 0.667."
+        }
+      ]
+    },
+    "12.6": {
+      "question": "How does the local indistinguishability of free fall and inertial motion lead to a geometric description of gravity?",
+      "overview": [
+        "In a sufficiently small freely falling laboratory, the uniform part of a gravitational field can be removed by choosing the frame: unsupported bodies move inertially there. An observer standing on the ground instead experiences the support's proper acceleration, which an accelerometer detects.",
+        "Tidal differences in acceleration cannot be removed throughout an extended region. General relativity describes them through spacetime curvature: free bodies follow timelike geodesics, light follows null geodesics, and clocks on different paths accumulate different proper times."
+      ],
+      "conceptExplanations": [
+        "Equivalence is local: inside a small cabin, nearly uniform gravity has the same effect as cabin acceleration. Field gradients and tidal forces distinguish genuine curvature across a finite region.",
+        "A freely falling accelerometer reads zero even while its coordinate speed relative to Earth changes. That is local inertial motion; weight on a scale is produced by the support force, not by gravity alone.",
+        "In a weak stationary field, the fractional clock-rate difference is approximately Δf/f ≈ ΔΦ/c². A clock at higher gravitational potential runs faster relative to one at lower potential.",
+        "A geodesic locally extremizes proper time, while curvature appears as relative acceleration of neighboring geodesics. A 'force pulling on a curved surface' is only an analogy, not the definition.",
+        "Special relativity remains the local tangent theory: in a sufficiently small freely falling region, the metric is close to the Minkowski metric. General relativity specifies how those local regions fit together in the presence of energy and momentum."
+      ],
+      "boundary": "The approximation Δf/f ≈ ΔΦ/c² requires a weak stationary field and |ΔΦ| much smaller than c²; replacing ΔΦ by gh also assumes nearly constant g and modest height. Equivalence to uniform acceleration cannot remove tidal effects over an extended region.",
+      "example": {
+        "title": "Clock-Rate Difference with Height",
+        "problem": "Estimate how much more time a clock 100 m above another near Earth's surface accumulates in one day. Use g = 9.81 m/s² and c = 3.00·10⁸ m/s.",
+        "steps": [
+          "For a small height, ΔΦ ≈ gh = 9.81·100 = 981 m²/s².",
+          "The fractional rate difference is Δf/f ≈ gh/c² ≈ 981/(9.00·10¹⁶) = 1.09·10⁻¹⁴.",
+          "Over 86400 s, the difference is 86400·1.09·10⁻¹⁴ s ≈ 9.4·10⁻¹⁰ s."
+        ],
+        "answer": "The upper clock accumulates about 0.94 ns more per day.",
+        "check": "The sign is correct: higher potential means a faster clock, and the dimensionless ratio gh/c² is very small."
+      },
+      "pitfall": "The equivalence principle does not claim that every gravitational field is globally identical to an accelerated frame. Curvature and tidal forces cannot be removed by one coordinate choice across an entire region.",
+      "practice": [
+        {
+          "question": "What does an ideal accelerometer read in a falling elevator and in an elevator resting on Earth's surface?",
+          "hint": "An accelerometer measures proper acceleration produced by nongravitational forces.",
+          "answer": "It reads approximately zero in free fall and about g upward in the resting elevator because of the support force."
+        },
+        {
+          "question": "Estimate the daily clock difference for two clocks separated vertically by 10 m near Earth's surface.",
+          "hint": "Within the gh/c² approximation, the result scales linearly with h.",
+          "answer": "About 0.094 ns per day, one tenth of the result for 100 m."
+        }
+      ]
+    }
+  }
+}
