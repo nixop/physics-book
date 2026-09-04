@@ -17,11 +17,11 @@ tags:
 
 ## Cards
 
-- [[10.1 · The Magnetic Field and the Lorentz Force|10.1. The Magnetic Field and the Lorentz Force]] — Magnetic field B is defined through the transverse part of Lorentz force, F = q(E + v x B).
-- [[10.2 · Motion of a Charge in a Magnetic Field|10.2. Motion of a Charge in a Magnetic Field]] — Velocity perpendicular to uniform B experiences centripetal force and forms a circle of radius r = p_perp/(|q|B).
+- [[10.1 · The Magnetic Field and the Lorentz Force|10.1. The Magnetic Field and the Lorentz Force]] — Magnetic field B is defined through the transverse part of Lorentz force, $F = q(E + v \times B)$.
+- [[10.2 · Motion of a Charge in a Magnetic Field|10.2. Motion of a Charge in a Magnetic Field]] — Velocity perpendicular to uniform B experiences centripetal force and forms a circle of radius $r=p_\perp/(|q|B)$.
 - [[10.3 · Fields Produced by Electric Currents|10.3. Fields Produced by Electric Currents]] — Every steady-current element contributes to B in a direction set by the cross product of path element with direction toward the observation point.
-- [[10.4 · Magnetic Materials and the Electric Motor|10.4. Magnetic Materials and the Electric Motor]] — A planar current loop has magnetic dipole moment mu = NIA n_hat.
-- [[10.5 · Electromagnetic Induction|10.5. Electromagnetic Induction]] — Magnetic flux Phi_B = integral B dot dS counts normal B through an oriented surface.
+- [[10.4 · Magnetic Materials and the Electric Motor|10.4. Magnetic Materials and the Electric Motor]] — A planar current loop has magnetic dipole moment $\mu = NIA \hat{\mathbf n}$.
+- [[10.5 · Electromagnetic Induction|10.5. Electromagnetic Induction]] — Magnetic flux $\Phi_{\mathrm B}=\int \mathbf B\cdot d\mathbf S$ counts the normal component of $\mathbf B$ through an oriented surface.
 - [[10.6 · Inductance, Alternating Current, and the RLC Circuit|10.6. Inductance, Alternating Current, and the RLC Circuit]] — Changing a coil's own current changes linked magnetic flux and creates self-induced emf opposing that change.
 - [[10.7 · Maxwell's Equations and Electromagnetic Waves|10.7. Maxwell's Equations and Electromagnetic Waves]] — Maxwell's equations connect electric flux to charge, exclude net magnetic charge in the classical field, connect circulating E to changing magnetic flux, and connect circulating B to current plus changing electric flux.
 

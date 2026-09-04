@@ -5,8 +5,10 @@ describe('hash routing', () => {
   it('разбирает стабильные ссылки на главы и карточки', () => {
     expect(parseRoute('#/ru/chapter/12')).toEqual({ locale: 'ru', page: 'chapter', chapter: 12 });
     expect(parseRoute('#/en/topic/12.4')).toEqual({ locale: 'en', page: 'topic', topic: '12.4' });
+    expect(parseRoute('#/en/topic/12.4/experiment')).toEqual({ locale: 'en', page: 'topic', topic: '12.4', section: 'experiment' });
     expect(parseRoute('#/topic/12.4')).toEqual({ locale: 'ru', page: 'topic', topic: '12.4' });
     expect(routeToHash(parseRoute('#/ru/topic/12.4'), 'en')).toBe('#/en/topic/12.4');
+    expect(routeToHash(parseRoute('#/ru/topic/12.4/limits'), 'en')).toBe('#/en/topic/12.4/limits');
   });
 
   it('безопасно отклоняет повреждённый percent-encoding', () => {

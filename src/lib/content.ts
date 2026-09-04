@@ -34,19 +34,45 @@ const englishGuides = englishContent.guides as unknown as Record<number, Chapter
 
 export const chapterGuide = (chapter: Chapter, locale: Locale = 'ru') => locale === 'en' ? englishGuides[chapter.number] : guides[chapter.number];
 
-const implementedLabs: Record<string, { mode: LabMode; title: string }> = {
-  '1.3': { mode: 'measure', title: 'Данные и шум' },
-  '2.5': { mode: 'motion', title: 'Баллистическая песочница' },
-  '5.2': { mode: 'cosmos', title: 'Законы Кеплера' },
-  '7.4': { mode: 'wave', title: 'Волна на струне' },
-  '9.2': { mode: 'field', title: 'Поле системы зарядов' },
-  '12.4': { mode: 'relativity', title: 'Диаграмма пространства-времени' },
-  '13.2': { mode: 'quantum', title: 'Опыт с двумя щелями' },
-};
+interface ImplementedLab {
+  mode: LabMode;
+  title: Record<Locale, string>;
+}
+
+const implementedLabs = {
+  '1.3': {
+    mode: 'measure',
+    title: { ru: 'Измерительный шум, объём выборки и повторная выборка', en: 'Measurement Noise, Sample Size, and Resampling' },
+  },
+  '2.5': {
+    mode: 'motion',
+    title: { ru: 'Бросок при v₀ = 24 м/с без сопротивления воздуха', en: 'Projectile at v₀ = 24 m/s without Air Resistance' },
+  },
+  '5.2': {
+    mode: 'cosmos',
+    title: { ru: 'Кеплерова орбита и равные площади при изменяемом e', en: 'Keplerian Orbit and Equal Areas at Variable e' },
+  },
+  '7.4': {
+    mode: 'wave',
+    title: { ru: 'Гармоническая волна при постоянной скорости', en: 'Harmonic Wave at Constant Speed' },
+  },
+  '9.2': {
+    mode: 'field',
+    title: { ru: 'Поле двух неподвижных точечных зарядов', en: 'Field of Two Fixed Point Charges' },
+  },
+  '12.4': {
+    mode: 'relativity',
+    title: { ru: 'Мировая линия и одновременность при изменяемой β', en: 'Worldline and Simultaneity at Variable β' },
+  },
+  '13.2': {
+    mode: 'quantum',
+    title: { ru: 'Двухщелевая картина при изменяемых d/λ и a/λ', en: 'Double-Slit Pattern with Variable d/λ and a/λ' },
+  },
+} satisfies Record<string, ImplementedLab>;
 
 export const implementedLabForTopic = (topicId: string, locale: Locale = 'ru') => {
-  const lab = implementedLabs[topicId];
-  return lab ? { ...lab, title: locale === 'en' ? englishContent.labs[topicId as keyof typeof englishContent.labs] : lab.title } : undefined;
+  const lab = implementedLabs[topicId as keyof typeof implementedLabs];
+  return lab ? { mode: lab.mode, title: lab.title[locale] } : undefined;
 };
 export const implementedLabForChapter = (chapter: number, locale: Locale = 'ru') => {
   const entry = Object.entries(implementedLabs).find(([topicId]) => Number(topicId.split('.')[0]) === chapter);

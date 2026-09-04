@@ -29,21 +29,25 @@ describe('measurement model', () => {
     }
   });
 
-  it('generates deterministic noise with normalized sample statistics', () => {
-    const first = seededStandardNoise(257, 2026);
-    const repeated = seededStandardNoise(257, 2026);
-    const otherSeed = seededStandardNoise(257, 2027);
+  it('generates deterministic Gaussian draws without forcing sample statistics', () => {
+    const first = seededStandardNoise(50_000, 2026);
+    const repeated = seededStandardNoise(50_000, 2026);
+    const otherSeed = seededStandardNoise(50_000, 2027);
 
     expect(repeated).toEqual(first);
     expect(otherSeed).not.toEqual(first);
-    expect(sampleMean(first)).toBeCloseTo(0, 14);
-    expect(sampleStandardDeviation(first)).toBeCloseTo(1, 14);
+    expect(Math.abs(sampleMean(first))).toBeLessThan(0.02);
+    expect(Math.abs(sampleStandardDeviation(first) - 1)).toBeLessThan(0.02);
 
     const sigma = 1.7;
-    const residuals = measurementSeries(sigma, 257, 2026)
+    const residuals = measurementSeries(sigma, 50_000, 2026)
       .map((point) => point.observed - point.model);
-    expect(sampleMean(residuals)).toBeCloseTo(0, 14);
-    expect(sampleStandardDeviation(residuals)).toBeCloseTo(sigma, 14);
+    expect(Math.abs(sampleMean(residuals))).toBeLessThan(0.04);
+    expect(Math.abs(sampleStandardDeviation(residuals) - sigma)).toBeLessThan(0.04);
+
+    const smallSamples = [2026, 2027, 2028].map((seed) => sampleStandardDeviation(measurementSeries(sigma, 16, seed).map((point) => point.noise)));
+    expect(new Set(smallSamples.map((value) => value.toFixed(6))).size).toBe(3);
+    expect(smallSamples.every((value) => Math.abs(value - sigma) > 1e-8)).toBe(true);
   });
 });
 

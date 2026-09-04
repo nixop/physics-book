@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowRight, BookOpen, CornerDownLeft, Search, X } from 'lucide-react';
+import { RichText } from './LessonBlocks';
 import { routes } from '../routing';
 import { useLocale } from '../i18n/LocaleContext';
+import { createSearchTerms, createSearchTextIndex, matchesSearchTerms, scoreSearchTerms } from '../lib/search';
 
 interface SearchDialogProps {
   open: boolean;
@@ -9,7 +11,6 @@ interface SearchDialogProps {
 }
 
 const frequent = ['2.3', '3.3', '4.4', '7.3', '9.8', '12.3', '13.3'];
-const normalize = (value: string) => value.toLocaleLowerCase().replaceAll('ё', 'е').replace(/[^\p{L}\p{N}.]+/gu, ' ').trim();
 
 export function SearchDialog({ open, onClose }: SearchDialogProps) {
   const { locale, t, allTopics, book, groupLabel, lessonSearchTextForTopic } = useLocale();
@@ -21,22 +22,21 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
 
   const searchCorpus = useMemo(() => new Map(allTopics.map((topic) => {
     const chapter = book[topic.chapter];
-    const title = normalize(`${topic.id} ${topic.title}`);
+    const title = createSearchTextIndex(`${topic.id} ${topic.title}`);
     return [topic.id, {
       title,
-      haystack: normalize(`${title} ${topic.summary} ${topic.concepts.join(' ')} ${topic.interactive} ${lessonSearchTextForTopic(topic.id)} ${chapter.title} ${groupLabel(chapter.group)}`),
+      haystack: createSearchTextIndex(`${topic.id} ${topic.title} ${topic.summary} ${topic.concepts.join(' ')} ${topic.interactive} ${lessonSearchTextForTopic(topic.id)} ${chapter.title} ${groupLabel(chapter.group)}`),
     }];
   })), [allTopics, book, groupLabel, lessonSearchTextForTopic]);
 
   const results = useMemo(() => {
-    const normalizedQuery = normalize(query);
-    if (!normalizedQuery) return frequent.map((id) => allTopics.find((topic) => topic.id === id)).filter(Boolean).slice(0, 7) as typeof allTopics;
-    const terms = normalizedQuery.split(/\s+/u);
+    const terms = createSearchTerms(query);
+    if (!terms.length) return frequent.map((id) => allTopics.find((topic) => topic.id === id)).filter(Boolean).slice(0, 7) as typeof allTopics;
     return allTopics
       .map((topic) => {
         const { title, haystack } = searchCorpus.get(topic.id)!;
-        const matches = terms.every((term) => haystack.includes(term));
-        const score = terms.reduce((sum, term) => sum + (title.startsWith(term) ? 8 : title.includes(term) ? 4 : haystack.includes(term) ? 1 : 0), 0);
+        const matches = matchesSearchTerms(haystack, terms);
+        const score = scoreSearchTerms(title, haystack, terms);
         return { topic, matches, score };
       })
       .filter((item) => item.matches)
@@ -124,7 +124,7 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
                 <span className={`search-result__icon accent-${chapter.accent}`}><BookOpen size={17} /></span>
                 <span className="search-result__copy">
                   <strong><span>{topic.id}</span> {topic.title}</strong>
-                  <small>{chapter.title} · {groupLabel(chapter.group)} · {topic.summary}</small>
+                  <small>{chapter.title} · {groupLabel(chapter.group)} · <RichText>{topic.summary}</RichText></small>
                 </span>
                 {index === active ? <CornerDownLeft size={17} /> : <ArrowRight size={17} />}
               </a>

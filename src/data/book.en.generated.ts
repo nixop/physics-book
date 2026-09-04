@@ -1181,7 +1181,7 @@ export const book: Chapter[] = [
           "The phase diagram.",
           "Conduction, convection, and thermal radiation."
         ],
-        "summary": "Within one phase and over a modest interval, heat is often estimated as Q = mc Delta T, where c depends on substance and process conditions.",
+        "summary": "Within one phase and over a modest interval, heat is often estimated as $Q = mc\\Delta T$, where c depends on substance and process conditions.",
         "labKind": "mini-lab",
         "interactive": "virtual calorimetry of an unknown material"
       },
@@ -1193,7 +1193,7 @@ export const book: Chapter[] = [
         "order": 6,
         "title": "Thermodynamic Processes",
         "pages": 5,
-        "minutes": 13,
+        "minutes": 12,
         "level": "in-depth",
         "concepts": [
           "Isochoric, isobaric, isothermal, and adiabatic processes.",
@@ -1245,7 +1245,7 @@ export const book: Chapter[] = [
           "In a closed system at constant `T, V` with no non-pV work, Helmholtz free energy does not increase during a spontaneous process: `ΔF ≤ 0`.",
           "In a closed system at constant `T, p` with no non-pV work, Gibbs free energy does not increase during a spontaneous process: `ΔG ≤ 0`."
         ],
-        "summary": "A heat engine receives Q_h from a hot reservoir, delivers work W, and rejects Q_c to a cold reservoir.",
+        "summary": "A heat engine receives $Q_{\\mathrm h}$ from a hot reservoir, delivers work W, and rejects $Q_{\\mathrm c}$ to a cold reservoir.",
         "labKind": "interactive",
         "interactive": "configuring an engine operating between two thermal reservoirs"
       }
@@ -1295,7 +1295,7 @@ export const book: Chapter[] = [
           "Electric field strength.",
           "Field lines and their limitations as a visualization."
         ],
-        "summary": "Coulomb's law gives the vacuum force between stationary point charges: magnitude falls as 1/r^2 and direction lies along their separation.",
+        "summary": "Coulomb's law gives the vacuum force between stationary point charges: magnitude falls as $1/r^2$ and direction lies along their separation.",
         "labKind": "interactive",
         "interactive": "a charge-configuration editor with a vector-field display"
       },
@@ -1316,7 +1316,7 @@ export const book: Chapter[] = [
           "Spherical, cylindrical, and planar symmetry.",
           "When Gauss's law simplifies a calculation—and when it remains true but is not computationally useful."
         ],
-        "summary": "Electric flux through an oriented surface is the integral of E dot dA and counts only normal field.",
+        "summary": "Electric flux through an oriented surface is the integral of $\\mathbf E\\cdot d\\mathbf A$ and counts only normal field.",
         "labKind": "interactive",
         "interactive": "a deformable closed surface enclosing electric charges"
       },
@@ -1337,7 +1337,7 @@ export const book: Chapter[] = [
           "Equipotential surfaces.",
           "The relationship between the electric field and the spatial variation of potential."
         ],
-        "summary": "For an electrostatic field, work between two points is path-independent, so potential energy U and potential phi = U/q can be defined for a probe charge.",
+        "summary": "For an electrostatic field, work between two points is path-independent, so potential energy U and potential $\\varphi = U/q$ can be defined for a probe charge.",
         "labKind": "interactive",
         "interactive": "moving a test charge across a potential map"
       },
@@ -1379,7 +1379,7 @@ export const book: Chapter[] = [
           "Ohm's law and its limits.",
           "The temperature dependence of resistance."
         ],
-        "summary": "Current I = dQ/dt measures charge transfer rate through a selected cross-section, while current density J describes it locally.",
+        "summary": "Current $I = dQ/dt$ measures charge transfer rate through a selected cross-section, while current density J describes it locally.",
         "labKind": "interactive",
         "interactive": "the motion and scattering of charge carriers in a conductor"
       },
@@ -1441,7 +1441,7 @@ export const book: Chapter[] = [
           "The integrating and differentiating behavior of an RC circuit.",
           "Low-pass and high-pass filters."
         ],
-        "summary": "Ideal-capacitor voltage cannot jump because Q = CV and finite current moves finite charge.",
+        "summary": "Ideal-capacitor voltage cannot jump because $Q=CV$ and finite current moves finite charge.",
         "labKind": "interactive",
         "interactive": "an oscilloscope and an RC circuit with an arbitrary input signal"
       }
@@ -1471,7 +1471,7 @@ export const book: Chapter[] = [
           "The Lorentz force.",
           "The direction of the force and the work done by a magnetic field."
         ],
-        "summary": "Magnetic field B is defined through the transverse part of Lorentz force, F = q(E + v x B).",
+        "summary": "Magnetic field B is defined through the transverse part of Lorentz force, $F = q(E + v \\times B)$.",
         "labKind": "interactive",
         "interactive": "a three-dimensional controller for the directions of velocity, field, and force"
       },
@@ -1491,7 +1491,7 @@ export const book: Chapter[] = [
           "Crossed electric and magnetic fields.",
           "The mass spectrometer, cyclotron, and magnetosphere."
         ],
-        "summary": "Velocity perpendicular to uniform B experiences centripetal force and forms a circle of radius r = p_perp/(|q|B).",
+        "summary": "Velocity perpendicular to uniform B experiences centripetal force and forms a circle of radius $r=p_\\perp/(|q|B)$.",
         "labKind": "interactive",
         "interactive": "a chamber for observing the motion of a charged particle"
       },
@@ -1532,7 +1532,7 @@ export const book: Chapter[] = [
           "Magnetic domains and hysteresis.",
           "The operating principle of an electric motor."
         ],
-        "summary": "A planar current loop has magnetic dipole moment mu = NIA n_hat.",
+        "summary": "A planar current loop has magnetic dipole moment $\\mu = NIA \\hat{\\mathbf n}$.",
         "labKind": "interactive",
         "interactive": "a motor with visible currents, magnetic field, and torque"
       },
@@ -1553,7 +1553,7 @@ export const book: Chapter[] = [
           "Eddy currents.",
           "The electric generator."
         ],
-        "summary": "Magnetic flux Phi_B = integral B dot dS counts normal B through an oriented surface.",
+        "summary": "Magnetic flux $\\Phi_{\\mathrm B}=\\int \\mathbf B\\cdot d\\mathbf S$ counts the normal component of $\\mathbf B$ through an oriented surface.",
         "labKind": "interactive",
         "interactive": "a magnet and coil with a graph of the induced voltage"
       },
@@ -1648,7 +1648,7 @@ export const book: Chapter[] = [
           "Dispersion and the rainbow.",
           "Total internal reflection and optical fibers."
         ],
-        "summary": "Light phase speed in linear matter is usually below c and depends on frequency; n = c/v_ph characterizes it at a stated frequency.",
+        "summary": "Light phase speed in linear matter is usually below c and depends on frequency; $n=c/v_{\\mathrm{ph}}$ characterizes it at a stated frequency.",
         "labKind": "interactive",
         "interactive": "a light ray passing through boundaries between arbitrary media"
       },

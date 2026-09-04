@@ -2,12 +2,15 @@ import { useId, useState, type ReactNode } from 'react';
 import { Check, ChevronDown, ChevronRight, ChevronUp, RotateCcw } from 'lucide-react';
 import { useLocale } from '../i18n/LocaleContext';
 import type { LessonPractice, TopicLessonDetail } from '../types';
+import { Math } from './Math';
 
 export function RichText({ children }: { children: string }) {
-  const parts = children.split(/(`[^`]+`)/gu);
-  return <>{parts.map((part, index) => part.startsWith('`') && part.endsWith('`')
-    ? <code key={`${index}-${part}`}>{part.slice(1, -1)}</code>
-    : <span key={`${index}-${part}`}>{part}</span>)}</>;
+  const parts = children.split(/(`[^`]+`|\$[^$\n]+\$)/gu);
+  return <>{parts.map((part, index) => {
+    if (part.startsWith('`') && part.endsWith('`')) return <code key={`${index}-${part}`}>{part.slice(1, -1)}</code>;
+    if (part.startsWith('$') && part.endsWith('$')) return <Math key={`${index}-${part}`} label={part.slice(1, -1)}>{part.slice(1, -1)}</Math>;
+    return <span key={`${index}-${part}`}>{part}</span>;
+  })}</>;
 }
 
 export function StepExample({ example }: { example: TopicLessonDetail['example'] }) {

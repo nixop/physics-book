@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { ArrowRight, Atom, BarChart3, CircleDot, FlaskConical, Gauge, Orbit, Play, Sparkles, Waves } from 'lucide-react';
 import { PhysicsLab, type LabMode } from '../components/PhysicsLab';
+import { implementedLabForTopic } from '../lib/content';
 import { routes } from '../routing';
 import { useLocale } from '../i18n/LocaleContext';
 import type { TranslationKey } from '../i18n/strings';
@@ -20,8 +21,9 @@ export function LabsPage() {
   const labs = useMemo(() => labDefinitions.map((lab) => ({ ...lab, title: t(lab.title), subtitle: t(lab.subtitle), prompt: t(lab.prompt) })), [t]);
   const [activeMode, setActiveMode] = useState<LabMode>('motion');
   const current = labs.find((lab) => lab.mode === activeMode) ?? labs[1];
+  const currentModel = implementedLabForTopic(current.topic, locale);
   const activityCounts = useMemo(() => ({
-    interactive: allTopics.filter((topic) => topic.labKind === 'interactive').length,
+    plannedBriefs: allTopics.filter((topic) => topic.labKind === 'interactive').length,
     miniLab: allTopics.filter((topic) => topic.labKind === 'mini-lab').length,
     project: allTopics.filter((topic) => topic.labKind === 'project').length,
   }), []);
@@ -39,7 +41,7 @@ export function LabsPage() {
     <main className="labs-page">
       <section className="labs-hero page-width">
         <div><span className="eyebrow-pill"><FlaskConical size={15} /> {t('labs.eyebrow')}</span><h1>{t('labs.titleA')}<br /><em>{t('labs.titleEm')}</em> {t('labs.titleB')}</h1><p>{t('labs.subtitle')}</p></div>
-        <div className="labs-hero__stats"><div><strong>7</strong><span>{t('labs.liveModels')}</span></div><div><strong>{activityCounts.miniLab}</strong><span><Lines text={t('labs.miniLabs')} /></span></div><div><strong>{activityCounts.interactive}</strong><span><Lines text={t('labs.briefs')} /></span></div></div>
+        <div className="labs-hero__stats"><div><strong>{labs.length}</strong><span>{t('labs.liveModels')}</span></div><div><strong>{activityCounts.miniLab}</strong><span><Lines text={t('labs.miniLabs')} /></span></div><div><strong>{activityCounts.plannedBriefs}</strong><span><Lines text={t('labs.briefs')} /></span></div></div>
       </section>
 
       <section className="lab-workbench page-width">
@@ -50,10 +52,11 @@ export function LabsPage() {
           <div className="lab-brief">
             <span className="section-index">{t('labs.question')}</span>
             <h2>{current.prompt}</h2>
+            <p>{t('labs.methodNote')}</p>
             <ol><li><span>1</span>{t('labs.step1')}</li><li><span>2</span>{t('labs.step2')}</li><li><span>3</span>{t('labs.step3')}</li><li><span>4</span>{t('labs.step4')}</li></ol>
             <a className="text-link" href={routes.topic(current.topic, locale)}>{t('labs.related')} <ArrowRight size={17} /></a>
           </div>
-          <PhysicsLab key={current.mode} mode={current.mode} title={current.title} />
+          <PhysicsLab key={current.mode} mode={current.mode} title={currentModel?.title ?? current.title} />
         </div>
       </section>
 
@@ -68,7 +71,7 @@ export function LabsPage() {
         <div className="page-width">
           <div className="section-heading section-heading--split"><div><span className="section-index">{t('labs.editorial')}</span><h2><Lines text={t('labs.allBound')} /></h2></div><p>{t('labs.editorialText')}</p></div>
           <div className="registry-cards">
-            <div><Sparkles /><strong>{activityCounts.interactive}</strong><span>{t('labs.interactives')}</span><p>{t('labs.interactivesText')}</p></div>
+            <div><Sparkles /><strong>{activityCounts.plannedBriefs}</strong><span>{t('labs.plannedBriefsLabel')}</span><p>{t('labs.plannedBriefsText')}</p></div>
             <div><FlaskConical /><strong>{activityCounts.miniLab}</strong><span>{t('labs.miniLabsLabel')}</span><p>{t('labs.miniLabsText')}</p></div>
             <div><Atom /><strong>{activityCounts.project}</strong><span>{t('labs.project')}</span><p>{t('labs.projectText')}</p></div>
           </div>

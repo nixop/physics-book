@@ -1,5 +1,5 @@
 import { useEffect, useId, useMemo, useState } from 'react';
-import { Pause, Play, RotateCcw, Sparkles } from 'lucide-react';
+import { Pause, Play, RefreshCw, RotateCcw, Sparkles } from 'lucide-react';
 import { useLocale } from '../i18n/LocaleContext';
 import type { TranslationKey } from '../i18n/strings';
 import type { Locale } from '../i18n/types';
@@ -66,7 +66,9 @@ const ranges: Record<LabMode, { min: number; max: number; step: number }> = {
 };
 
 const TWO_PI = Math.PI * 2;
-const QUANTUM_SLIT_WIDTH_OVER_WAVELENGTH = 0.5;
+const DEFAULT_SAMPLE_COUNT = 16;
+const DEFAULT_SAMPLE_SEED = 0x504f4c45;
+const DEFAULT_SLIT_WIDTH_OVER_WAVELENGTH = 0.5;
 const pointsToString = (points: ReadonlyArray<readonly [number, number]>) => points
   .map(([x, y]) => `${x.toFixed(2)},${y.toFixed(2)}`)
   .join(' ');
@@ -106,8 +108,11 @@ function useSimulationClock(running: boolean, resetToken: number, rate = 1) {
 export function PhysicsLab({ mode, title, compact = false }: PhysicsLabProps) {
   const { locale, t } = useLocale();
   const [parameter, setParameter] = useState(defaults[mode]);
-  const [running, setRunning] = useState(true);
+  const [running, setRunning] = useState(false);
   const [resetToken, setResetToken] = useState(0);
+  const [sampleCount, setSampleCount] = useState(DEFAULT_SAMPLE_COUNT);
+  const [sampleSeed, setSampleSeed] = useState(DEFAULT_SAMPLE_SEED);
+  const [slitWidthOverLambda, setSlitWidthOverLambda] = useState(DEFAULT_SLIT_WIDTH_OVER_WAVELENGTH);
   const rawId = useId();
   const stableId = rawId.replaceAll(':', '');
   const markerId = `arrow-${stableId}`;
@@ -116,18 +121,23 @@ export function PhysicsLab({ mode, title, compact = false }: PhysicsLabProps) {
   const animated = mode === 'motion' || mode === 'wave' || mode === 'quantum' || mode === 'cosmos';
   const controlLabel = t(labelKeys[mode]);
   const controlValue = formattedControlValue(mode, parameter, locale);
+  const resampleLabel = locale === 'en' ? 'Generate a new sample' : 'Создать новую выборку';
+  const toggleLabel = running ? t('lab.pause') : t('lab.play');
 
   useEffect(() => {
     setParameter(defaults[mode]);
-    setRunning(true);
+    setRunning(false);
+    setSampleCount(DEFAULT_SAMPLE_COUNT);
+    setSampleSeed(DEFAULT_SAMPLE_SEED);
+    setSlitWidthOverLambda(DEFAULT_SLIT_WIDTH_OVER_WAVELENGTH);
     setResetToken((value) => value + 1);
   }, [mode]);
 
   const output = useMemo(() => {
     if (mode === 'measure') {
       const sigma = parameter / 50;
-      const residuals = measurementSeries(sigma, 16).map((point) => point.noise);
-      return `σ = ${sigma.toFixed(2)} · s = ${sampleStandardDeviation(residuals).toFixed(2)} · n = 16`;
+      const residuals = measurementSeries(sigma, sampleCount, sampleSeed).map((point) => point.noise);
+      return `σ = ${sigma.toFixed(2)} · s = ${sampleStandardDeviation(residuals).toFixed(2)} · n = ${sampleCount}`;
     }
     if (mode === 'motion') {
       const metrics = projectileMetrics(24, parameter);
@@ -153,20 +163,23 @@ export function PhysicsLab({ mode, title, compact = false }: PhysicsLabProps) {
       const beta = parameter / 100;
       return `β = ${beta.toFixed(2)} · γ = ${lorentzFactor(beta).toFixed(3)}`;
     }
-    if (mode === 'quantum') return `d/λ = ${(0.7 + parameter / 24).toFixed(2)} · a/λ = ${QUANTUM_SLIT_WIDTH_OVER_WAVELENGTH.toFixed(2)}`;
+    if (mode === 'quantum') return `d/λ = ${(0.7 + parameter / 24).toFixed(2)} · a/λ = ${slitWidthOverLambda.toFixed(2)}`;
     const eccentricity = parameter / 100;
     return `e = ${eccentricity.toFixed(2)} · rₐ/rₚ = ${apoapsisPeriapsisRatio(eccentricity).toFixed(2)}`;
-  }, [locale, mode, parameter, t]);
+  }, [locale, mode, parameter, sampleCount, sampleSeed, slitWidthOverLambda, t]);
 
   const reset = () => {
     setParameter(defaults[mode]);
-    setRunning(true);
+    setRunning(false);
+    setSampleCount(DEFAULT_SAMPLE_COUNT);
+    setSampleSeed(DEFAULT_SAMPLE_SEED);
+    setSlitWidthOverLambda(DEFAULT_SLIT_WIDTH_OVER_WAVELENGTH);
     setResetToken((value) => value + 1);
   };
 
   const changeParameter = (value: number) => {
     setParameter(value);
-    setResetToken((token) => token + 1);
+    if (mode === 'quantum') setResetToken((token) => token + 1);
   };
 
   return (
@@ -177,10 +190,13 @@ export function PhysicsLab({ mode, title, compact = false }: PhysicsLabProps) {
           <h3>{title ?? t('lab.defaultTitle')}</h3>
         </div>
         <div className="lab-actions">
-          {animated && <button type="button" className="icon-button" data-lab-action="toggle" onClick={() => setRunning((value) => !value)} aria-label={running ? t('lab.pause') : t('lab.play')}>
+          {mode === 'measure' && <button type="button" className="icon-button" data-lab-action="resample" onClick={() => setSampleSeed((seed) => seed + 1)} aria-label={resampleLabel} title={resampleLabel}>
+            <RefreshCw size={17} aria-hidden="true" />
+          </button>}
+          {animated && <button type="button" className="icon-button" data-lab-action="toggle" aria-pressed={running} onClick={() => setRunning((value) => !value)} aria-label={toggleLabel} title={toggleLabel}>
             {running ? <Pause size={17} aria-hidden="true" /> : <Play size={17} aria-hidden="true" />}
           </button>}
-          <button type="button" className="icon-button" data-lab-action="reset" onClick={reset} aria-label={t('lab.reset')}>
+          <button type="button" className="icon-button" data-lab-action="reset" onClick={reset} aria-label={t('lab.reset')} title={t('lab.reset')}>
             <RotateCcw size={17} aria-hidden="true" />
           </button>
         </div>
@@ -194,29 +210,42 @@ export function PhysicsLab({ mode, title, compact = false }: PhysicsLabProps) {
             <clipPath id={plotClipId}><rect x="28" y="28" width="504" height="230" rx="4" /></clipPath>
           </defs>
           <rect width="560" height="300" rx="20" fill={`url(#grid-${stableId})`} />
-          {mode === 'measure' && <MeasureScene parameter={parameter} plotClipId={plotClipId} />}
+          {mode === 'measure' && <MeasureScene parameter={parameter} sampleCount={sampleCount} sampleSeed={sampleSeed} plotClipId={plotClipId} />}
           {mode === 'motion' && <MotionScene angle={parameter} running={running} resetToken={resetToken} />}
           {mode === 'wave' && <WaveScene parameter={parameter} running={running} resetToken={resetToken} />}
           {mode === 'field' && <FieldScene charge={parameter / 50} markerId={markerId} />}
           {mode === 'relativity' && <RelativityScene beta={parameter / 100} plotClipId={plotClipId} />}
-          {mode === 'quantum' && <QuantumScene parameter={parameter} running={running} resetToken={resetToken} />}
+          {mode === 'quantum' && <QuantumScene parameter={parameter} slitWidthOverLambda={slitWidthOverLambda} running={running} resetToken={resetToken} />}
           {mode === 'cosmos' && <CosmosScene eccentricity={parameter / 100} running={running} resetToken={resetToken} />}
         </svg>
-        <div className="lab-readout" aria-live="polite"><span>{t('lab.result')}</span><strong>{output}</strong></div>
       </div>
 
-      <label className="lab-control">
-        <span>{controlLabel}</span>
-        <input type="range" data-lab-control min={range.min} max={range.max} step={range.step} value={parameter} aria-label={controlLabel} aria-valuetext={controlValue} onChange={(event) => changeParameter(Number(event.target.value))} />
-        <output>{controlValue}</output>
-      </label>
+      <div className="lab-readout" aria-live="polite"><span>{t('lab.result')}</span><strong>{output}</strong></div>
+
+      <div className="lab-controls">
+        <label className="lab-control">
+          <span>{controlLabel}</span>
+          <input type="range" data-lab-control min={range.min} max={range.max} step={range.step} value={parameter} aria-label={controlLabel} aria-valuetext={controlValue} onChange={(event) => changeParameter(Number(event.target.value))} />
+          <output>{controlValue}</output>
+        </label>
+        {mode === 'measure' && <label className="lab-control lab-control--secondary">
+          <span>{locale === 'en' ? 'sample size n' : 'объём выборки n'}</span>
+          <input type="range" data-lab-control-secondary="sample-count" min="8" max="128" step="8" value={sampleCount} aria-label={locale === 'en' ? 'Sample size' : 'Объём выборки'} aria-valuetext={`n = ${sampleCount}`} onChange={(event) => setSampleCount(Number(event.target.value))} />
+          <output>n {sampleCount}</output>
+        </label>}
+        {mode === 'quantum' && <label className="lab-control lab-control--secondary">
+          <span>{locale === 'en' ? 'slit width a/λ' : 'ширина щели a/λ'}</span>
+          <input type="range" data-lab-control-secondary="slit-width" min="0.15" max="1" step="0.05" value={slitWidthOverLambda} aria-label={locale === 'en' ? 'Slit width relative to wavelength' : 'Ширина щели относительно длины волны'} aria-valuetext={`a/λ = ${slitWidthOverLambda.toFixed(2)}`} onChange={(event) => { setSlitWidthOverLambda(Number(event.target.value)); setResetToken((token) => token + 1); }} />
+          <output>a/λ {slitWidthOverLambda.toFixed(2)}</output>
+        </label>}
+      </div>
     </section>
   );
 }
 
-function MeasureScene({ parameter, plotClipId }: { parameter: number; plotClipId: string }) {
+function MeasureScene({ parameter, sampleCount, sampleSeed, plotClipId }: { parameter: number; sampleCount: number; sampleSeed: number; plotClipId: string }) {
   const { t } = useLocale();
-  const measurements = measurementSeries(parameter / 50, 16);
+  const measurements = measurementSeries(parameter / 50, sampleCount, sampleSeed);
   const mapX = (x: number) => 42 + x / TWO_PI * 476;
   const mapY = (value: number) => 150 - value * 23;
   const model = Array.from({ length: 161 }, (_, index) => {
@@ -231,7 +260,7 @@ function MeasureScene({ parameter, plotClipId }: { parameter: number; plotClipId
     <g clipPath={`url(#${plotClipId})`}>
       <polyline points={pointsToString(model)} className="lab-line lab-line--muted lab-model-curve" />
       {measurements.map((point) => <line key={`residual-${point.index}`} x1={mapX(point.x)} y1={mapY(point.model)} x2={mapX(point.x)} y2={mapY(point.observed)} className="lab-residual" />)}
-      {measurements.map((point) => <circle key={point.index} cx={mapX(point.x)} cy={mapY(point.observed)} r="5" className="lab-point" data-model={point.model.toFixed(8)} data-observed={point.observed.toFixed(8)} />)}
+      {measurements.map((point) => <circle key={point.index} cx={mapX(point.x)} cy={mapY(point.observed)} r={sampleCount <= 32 ? 5 : sampleCount <= 64 ? 3.6 : 2.7} className="lab-point" data-model={point.model.toFixed(8)} data-observed={point.observed.toFixed(8)} data-sample-seed={sampleSeed} />)}
     </g>
     <text x="44" y="65" className="lab-label">{t('lab.measurementsModel')}</text>
     <text x="500" y="263" className="lab-tick">2π</text>
@@ -264,10 +293,11 @@ function MotionScene({ angle, running, resetToken }: { angle: number; running: b
     <polyline points={pointsToString(trajectoryPoints)} className="lab-line lab-trajectory" data-lab-part="trajectory" data-range-m={metrics.range.toFixed(8)} data-flight-time-s={metrics.flightTime.toFixed(8)} data-end-x={trajectoryPoints.at(-1)?.[0].toFixed(4)} />
     <circle cx={projectileX} cy={projectileY} r="8" className="lab-orb lab-projectile" data-lab-part="projectile" data-time-s={Math.min(cycleTime, metrics.flightTime).toFixed(6)} />
     <path d={`M 42 246 L ${42 + Math.cos(radians) * 66} ${246 - Math.sin(radians) * 66}`} className="lab-vector" />
-    <text x="45" y="282" className="lab-label">v₀ = 24 {locale === 'en' ? 'm/s' : 'м/с'}</text>
+    <text x="45" y="24" className="lab-label">v₀ = 24 {locale === 'en' ? 'm/s' : 'м/с'}</text>
+    <text x="518" y="24" textAnchor="end" className="lab-label">g = {locale === 'en' ? '9.81 m/s²' : '9,81 м/с²'}</text>
     <text x="467" y="227" className="lab-label">x, {locale === 'en' ? 'm' : 'м'}</text>
-    <text x="49" y="50" className="lab-label">y, {locale === 'en' ? 'm' : 'м'}</text>
-    <text x="414" y="282" className="lab-label">{t('lab.noAir')}</text>
+    <text x="49" y="60" className="lab-label">y, {locale === 'en' ? 'm' : 'м'}</text>
+    <text x="518" y="60" textAnchor="end" className="lab-label">{t('lab.noAir')}</text>
   </>;
 }
 
@@ -292,7 +322,7 @@ function WaveScene({ parameter, running, resetToken }: { parameter: number; runn
     <line x1={wavelengthEnd} y1="234" x2={wavelengthEnd} y2="244" className="lab-wavelength-guide" />
     <text x={(30 + wavelengthEnd) / 2 - 4} y="232" className="lab-tick">λ</text>
     <text x="38" y="54" className="lab-label">{t('lab.displacement')}</text>
-    <text x="404" y="278" className="lab-label">L = 10 {locale === 'en' ? 'm' : 'м'} · v = 5 {locale === 'en' ? 'm/s' : 'м/с'}</text>
+    <text x="518" y="278" textAnchor="end" className="lab-label">L = 10 {locale === 'en' ? 'm' : 'м'} · v = 5 {locale === 'en' ? 'm/s' : 'м/с'}</text>
   </>;
 }
 
@@ -339,7 +369,7 @@ function FieldScene({ charge, markerId }: { charge: number; markerId: string }) 
     <g className="lab-field-legend">
       <line x1="34" y1="269" x2="44" y2="269" className="lab-field-arrow" markerEnd={`url(#${markerId})`} opacity="0.38" />
       <line x1="58" y1="269" x2="85" y2="269" className="lab-field-arrow" markerEnd={`url(#${markerId})`} />
-      <text x="94" y="273" className="lab-tick">|E| · {locale === 'en' ? 'log scale' : 'лог. шкала'}</text>
+      <text x="94" y="273" className="lab-tick">|E| · {locale === 'en' ? 'relative to this frame' : 'относительно этого кадра'}</text>
     </g>
   </>;
 }
@@ -374,23 +404,25 @@ function RelativityScene({ beta, plotClipId }: { beta: number; plotClipId: strin
     </g>
     <text x="290" y="42" className="lab-label">ct</text>
     <text x="512" y="278" className="lab-label">x</text>
-    <text x={Math.min(mapX(observerTopX) + 8, 495)} y="52" className="lab-label">{t('lab.observer')}</text>
+    <text x="518" y="52" textAnchor="end" className="lab-label">{t('lab.observer')}</text>
     <text x={mapX(-1) - 6} y="276" className="lab-tick">−1</text>
     <text x={mapX(1) - 3} y="276" className="lab-tick">1</text>
   </>;
 }
 
-function QuantumScene({ parameter, running, resetToken }: { parameter: number; running: boolean; resetToken: number }) {
-  const { locale, t } = useLocale();
+function QuantumScene({ parameter, slitWidthOverLambda, running, resetToken }: { parameter: number; slitWidthOverLambda: number; running: boolean; resetToken: number }) {
+  const { t } = useLocale();
   const time = useSimulationClock(running, resetToken);
   const dOverLambda = 0.7 + parameter / 24;
-  const curve = useMemo(() => sampleDoubleSlitCurve(dOverLambda, QUANTUM_SLIT_WIDTH_OVER_WAVELENGTH, { uMin: -0.9, uMax: 0.9, sampleCount: 241 }), [dOverLambda]);
+  const curve = useMemo(() => sampleDoubleSlitCurve(dOverLambda, slitWidthOverLambda, { uMin: -0.9, uMax: 0.9, sampleCount: 241 }), [dOverLambda, slitWidthOverLambda]);
   const detections = useMemo(() => sampleDoubleSlitDetections(curve, 420, 0x51_17 + Math.round(dOverLambda * 1000)), [curve, dOverLambda]);
   const visibleCount = Math.min(detections.length, Math.floor(time * 36));
   const screenX = 486;
   const mapU = (u: number) => 42 + (u - curve.uMin) / (curve.uMax - curve.uMin) * 216;
   const intensityCurve = curve.points.map((point) => [screenX - point.intensity * 112, mapU(point.u)] as const);
-  const slitSeparation = 27 + dOverLambda * 8;
+  const pixelsPerWavelength = 20;
+  const slitSeparation = dOverLambda * pixelsPerWavelength;
+  const slitHeight = slitWidthOverLambda * pixelsPerWavelength;
   const pseudoRandom = (index: number) => {
     const value = Math.sin((index + 1) * 12.9898 + parameter * 78.233) * 43758.5453;
     return value - Math.floor(value);
@@ -401,17 +433,16 @@ function QuantumScene({ parameter, running, resetToken }: { parameter: number; r
     <line x1="53" y1="150" x2="150" y2={150 - slitSeparation / 2} className="lab-particle-line" />
     <line x1="53" y1="150" x2="150" y2={150 + slitSeparation / 2} className="lab-particle-line" />
     <rect x="150" y="39" width="9" height="222" rx="4" className="lab-screen" />
-    <rect x="150" y={144 - slitSeparation / 2} width="9" height="12" className="lab-slit" />
-    <rect x="150" y={144 + slitSeparation / 2} width="9" height="12" className="lab-slit" />
+    <rect x="150" y={150 - slitSeparation / 2 - slitHeight / 2} width="9" height={slitHeight} className="lab-slit" />
+    <rect x="150" y={150 + slitSeparation / 2 - slitHeight / 2} width="9" height={slitHeight} className="lab-slit" />
     <line x1={screenX} y1="39" x2={screenX} y2="261" className="lab-detector-screen" />
-    <polyline points={pointsToString(intensityCurve)} className="lab-line lab-quantum" data-lab-part="quantum-curve" data-d-over-lambda={dOverLambda.toFixed(8)} data-a-over-lambda={QUANTUM_SLIT_WIDTH_OVER_WAVELENGTH.toFixed(8)} data-sample-count={curve.points.length} />
+    <polyline points={pointsToString(intensityCurve)} className="lab-line lab-quantum" data-lab-part="quantum-curve" data-d-over-lambda={dOverLambda.toFixed(8)} data-a-over-lambda={slitWidthOverLambda.toFixed(8)} data-sample-count={curve.points.length} data-pixels-per-lambda={pixelsPerWavelength} data-slit-separation={slitSeparation.toFixed(4)} data-slit-height={slitHeight.toFixed(4)} />
     <g className="lab-detections" data-event-count={visibleCount}>
       {detections.slice(0, visibleCount).map((detection, index) => <circle key={index} cx={screenX + 6 + pseudoRandom(index * 2) * 30} cy={mapU(detection.u) + (pseudoRandom(index * 2 + 1) - 0.5) * 2.4} r="1.45" className="lab-detection-event" data-lab-part="quantum-detection" data-curve-index={detection.index} data-u={detection.u.toFixed(6)} />)}
     </g>
-    <text x="260" y="44" className="lab-label">{t('lab.probability')} I/I₀</text>
-    <text x="28" y="280" className="lab-label">{t('lab.twoSlits')} · d/λ = {dOverLambda.toFixed(2)}</text>
-    <text x="448" y="280" className="lab-label">N = {visibleCount}</text>
-    <text x="177" y="278" className="lab-tick">{locale === 'en' ? 'detections follow the curve' : 'события следуют кривой'}</text>
+    <text x="522" y="44" textAnchor="end" className="lab-label">{t('lab.probability')} I/I₀</text>
+    <text x="28" y="276" className="lab-label">{t('lab.twoSlits')} · d/λ = {dOverLambda.toFixed(2)}</text>
+    <text x="522" y="276" textAnchor="end" className="lab-label">N = {visibleCount}</text>
   </>;
 }
 

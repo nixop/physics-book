@@ -61,25 +61,39 @@ function App() {
 
   useEffect(() => {
     const onHashChange = () => {
+      const nextRoute = readPreferredRoute();
       routeFocusPending.current = document.documentElement.dataset.restoreFocus !== 'locale';
-      setRoute(readPreferredRoute());
+      setRoute(nextRoute);
       setMobileOpen(false);
       setSidebarOpen(false);
-      window.scrollTo({ top: 0, behavior: 'instant' });
+      if (nextRoute.page !== 'topic' || !nextRoute.section) window.scrollTo({ top: 0, behavior: 'instant' });
     };
     window.addEventListener('hashchange', onHashChange);
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
 
   useEffect(() => {
-    if (!routeFocusPending.current) return;
+    const section = route.page === 'topic' ? route.section : undefined;
+    if (!routeFocusPending.current && !section) return;
+    const shouldFocus = routeFocusPending.current;
     routeFocusPending.current = false;
     const frame = window.requestAnimationFrame(() => {
-      const heading = document.querySelector<HTMLElement>('.book-main h1, main h1');
-      if (!heading) return;
-      heading.tabIndex = -1;
-      heading.focus({ preventScroll: true });
-      window.scrollTo({ top: 0, behavior: 'instant' });
+      const target = section
+        ? document.getElementById(section)
+        : document.querySelector<HTMLElement>('.book-main h1, main h1');
+      if (!target) return;
+      if (shouldFocus) {
+        target.tabIndex = -1;
+        target.focus({ preventScroll: true });
+      }
+      if (section) {
+        target.scrollIntoView({
+          block: 'start',
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+        });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
     });
     return () => window.cancelAnimationFrame(frame);
   }, [route]);
@@ -101,6 +115,22 @@ function App() {
     setSearchOpen(true);
     setMobileOpen(false);
   }, []);
+
+  const skipToContent = useCallback((event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    const routeContent = document.getElementById('main-content');
+    const target = route.page === 'topic'
+      ? document.getElementById('phenomenon')
+      : routeContent?.querySelector<HTMLElement>('.book-main') ?? routeContent?.querySelector<HTMLElement>('main');
+    const focusTarget = target ?? routeContent;
+    if (!focusTarget) return;
+    focusTarget.tabIndex = -1;
+    focusTarget.focus({ preventScroll: true });
+    focusTarget.scrollIntoView({
+      block: 'start',
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+    });
+  }, [route.page]);
 
   useEffect(() => {
     const onShortcut = (event: KeyboardEvent) => {
@@ -131,6 +161,14 @@ function App() {
     <LocaleProvider locale={route.locale}>
     <DocumentMeta route={route} />
     <div className="app-shell">
+      <a
+        className="skip-link"
+        data-skip-link
+        href={route.page === 'topic' ? '#phenomenon' : '#main-content'}
+        onClick={skipToContent}
+      >
+        {route.locale === 'en' ? 'Skip to content' : 'Перейти к содержанию'}
+      </a>
       <AppHeader
         route={route}
         completedCount={completed.size}
@@ -141,12 +179,14 @@ function App() {
         onToggleMobile={() => setMobileOpen((value) => !value)}
       />
 
-      {route.page === 'home' && <HomePage completed={completed} />}
-      {route.page === 'catalog' && <CatalogPage completed={completed} bookmarks={bookmarks} />}
-      {route.page === 'labs' && <LabsPage />}
-      {route.page === 'formulas' && <FormulasPage />}
-      {route.page === 'chapter' && <ChapterPage chapterNumber={route.chapter} completed={completed} sidebarOpen={sidebarOpen} onToggleSidebar={() => setSidebarOpen((value) => !value)} onOpenSearch={openSearch} />}
-      {route.page === 'topic' && <LessonPage topicId={route.topic} completed={completed} bookmarks={bookmarks} sidebarOpen={sidebarOpen} onToggleSidebar={() => setSidebarOpen((value) => !value)} onOpenSearch={openSearch} onToggleComplete={(id) => toggleStored(COMPLETED_KEY, id, setCompleted)} onToggleBookmark={(id) => toggleStored(BOOKMARKS_KEY, id, setBookmarks)} />}
+      <div id="main-content" tabIndex={-1}>
+        {route.page === 'home' && <HomePage completed={completed} />}
+        {route.page === 'catalog' && <CatalogPage completed={completed} bookmarks={bookmarks} />}
+        {route.page === 'labs' && <LabsPage />}
+        {route.page === 'formulas' && <FormulasPage />}
+        {route.page === 'chapter' && <ChapterPage chapterNumber={route.chapter} completed={completed} sidebarOpen={sidebarOpen} onToggleSidebar={() => setSidebarOpen((value) => !value)} onOpenSearch={openSearch} />}
+        {route.page === 'topic' && <LessonPage topicId={route.topic} completed={completed} bookmarks={bookmarks} sidebarOpen={sidebarOpen} onToggleSidebar={() => setSidebarOpen((value) => !value)} onOpenSearch={openSearch} onToggleComplete={(id) => toggleStored(COMPLETED_KEY, id, setCompleted)} onToggleBookmark={(id) => toggleStored(BOOKMARKS_KEY, id, setBookmarks)} />}
+      </div>
 
       <LocalizedFooter />
       <SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />

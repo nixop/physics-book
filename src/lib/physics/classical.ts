@@ -48,10 +48,7 @@ function mulberry32(seed: number): () => number {
   };
 }
 
-/**
- * Returns a repeatable, Gaussian-shaped sample with sample mean 0 and sample
- * standard deviation 1 (up to floating-point round-off).
- */
+/** Returns repeatable draws from a standard normal distribution. */
 export function seededStandardNoise(count: number, seed = 0x504f4c45): number[] {
   assertSampleCount(count);
   if (!Number.isInteger(seed)) throw new RangeError('seed must be an integer');
@@ -67,11 +64,7 @@ export function seededStandardNoise(count: number, seed = 0x504f4c45): number[] 
     if (raw.length < count) raw.push(radius * Math.sin(angle));
   }
 
-  const mean = sampleMean(raw);
-  const centered = raw.map((value) => value - mean);
-  const standardDeviation = sampleStandardDeviation(centered);
-  if (standardDeviation === 0) throw new Error('seeded noise sample is degenerate');
-  return centered.map((value) => value / standardDeviation);
+  return raw;
 }
 
 export interface MeasurementPoint {
@@ -82,7 +75,7 @@ export interface MeasurementPoint {
   readonly observed: number;
 }
 
-/** Samples one full period, including both endpoints. Sigma uses sample-SD units. */
+/** Samples one full period, including both endpoints. Sigma is the noise distribution's population SD. */
 export function measurementSeries(sigma: number, count: number, seed = 0x504f4c45): MeasurementPoint[] {
   assertFinite(sigma, 'sigma');
   if (sigma < 0) throw new RangeError('sigma must not be negative');

@@ -1,5 +1,6 @@
 import { ArrowLeft, ArrowRight, BookOpen, Check, Clock3, Menu, Sparkles } from 'lucide-react';
 import { BookSidebar } from '../components/BookSidebar';
+import { RichText } from '../components/LessonBlocks';
 import { Math } from '../components/Math';
 import { PhysicsLab } from '../components/PhysicsLab';
 import { chapterGuide, implementedLabForChapter } from '../lib/content';
@@ -49,7 +50,7 @@ export function ChapterPage({ chapterNumber, completed, sidebarOpen, onToggleSid
             {chapter.topics.map((topic, index) => (
               <a className={completed.has(topic.id) ? 'chapter-topic-row is-complete' : 'chapter-topic-row'} href={routes.topic(topic.id, locale)} key={topic.id}>
                 <span className="chapter-topic-row__number">{topic.id}</span>
-                <span className="chapter-topic-row__copy"><small>{t('chapter.step', { number: index + 1 })}</small><strong>{topic.title}</strong><p>{topic.summary}</p></span>
+                <span className="chapter-topic-row__copy"><small>{t('chapter.step', { number: index + 1 })}</small><strong>{topic.title}</strong><p><RichText>{topic.summary}</RichText></p></span>
                 <span className="chapter-topic-row__meta"><span><Clock3 size={14} /> {t('chapter.minutes', { count: topic.minutes })}</span>{completed.has(topic.id) ? <Check size={19} /> : <ArrowRight size={19} />}</span>
               </a>
             ))}

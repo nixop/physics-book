@@ -2,6 +2,7 @@ import { ArrowRight, Atom, BookOpen, CheckCircle2, Eye, FlaskConical, LineChart,
 import { bookMeta } from '../data/meta.generated';
 import { routes } from '../routing';
 import { PhysicsLab } from '../components/PhysicsLab';
+import { RichText } from '../components/LessonBlocks';
 import { pluralRu } from '../lib/format';
 import { useLocale } from '../i18n/LocaleContext';
 import type { TranslationKey } from '../i18n/strings';
@@ -99,7 +100,7 @@ export function HomePage({ completed }: HomePageProps) {
             return <a className={`featured-card accent-${chapter.accent}`} href={routes.topic(topic.id, locale)} key={topic.id}>
               <div><span>{topic.id}</span><Icon size={21} /></div>
               <h3>{topic.title}</h3>
-              <p>{topic.summary}</p>
+              <p><RichText>{topic.summary}</RichText></p>
               <small>{t('home.minutes', { count: topic.minutes })} · {levelLabel(topic.level)}</small>
             </a>;
           })}

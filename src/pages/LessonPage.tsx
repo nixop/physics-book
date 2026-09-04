@@ -6,7 +6,7 @@ import { Math } from '../components/Math';
 import { PhysicsLab } from '../components/PhysicsLab';
 import { bookMeta } from '../data/meta.generated';
 import { implementedLabForTopic } from '../lib/content';
-import { routes } from '../routing';
+import { lessonSections, routes, type LessonSection } from '../routing';
 import { pluralRu } from '../lib/format';
 import { useLocale } from '../i18n/LocaleContext';
 
@@ -35,8 +35,27 @@ export function LessonPage({ topicId, completed, bookmarks, sidebarOpen, onToggl
   const topic = findTopic(topicId);
   const detail = topic ? lessonDetailForTopic(topic.id) : undefined;
   const [copied, setCopied] = useState(false);
+  const [activeSection, setActiveSection] = useState<LessonSection>('phenomenon');
 
   useEffect(() => setCopied(false), [locale, topicId]);
+  useEffect(() => {
+    const updateActiveSection = () => {
+      const marker = window.innerHeight * 0.3;
+      const visible = lessonSections
+        .map((section) => ({ section, element: document.getElementById(section) }))
+        .filter((entry): entry is { section: LessonSection; element: HTMLElement } => Boolean(entry.element))
+        .filter(({ element }) => element.getBoundingClientRect().top <= marker)
+        .at(-1);
+      setActiveSection(visible?.section ?? 'phenomenon');
+    };
+    updateActiveSection();
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
+    window.addEventListener('resize', updateActiveSection);
+    return () => {
+      window.removeEventListener('scroll', updateActiveSection);
+      window.removeEventListener('resize', updateActiveSection);
+    };
+  }, [topicId]);
 
   if (!topic) return <main className="not-found"><h1>{t('lesson.notFound')}</h1><a href={routes.catalog(locale)}>{t('lesson.back')}</a></main>;
   if (!detail) return <main className="not-found"><h1>{t('lesson.notFound')}</h1><a href={routes.catalog(locale)}>{t('lesson.back')}</a></main>;
@@ -115,14 +134,31 @@ export function LessonPage({ topicId, completed, bookmarks, sidebarOpen, onToggl
           </div>
         </section>
 
-        {implementedLab && <section id="experiment" className="lesson-section lesson-section--wide">
+        <section id="experiment" className={implementedLab ? 'lesson-section lesson-section--wide' : 'lesson-section'}>
           <div className="lesson-section__label"><span>03</span> {t('lesson.experiment')}</div>
-          <h2>{topic.interactive}</h2>
-          <PhysicsLab key={topic.id} mode={implementedLab.mode} title={implementedLab.title} />
-        </section>}
+          <h2>{implementedLab ? implementedLab.title : t('lesson.experimentFallback')}</h2>
+          {implementedLab ? <>
+            <div className="lab-status lab-status--ready">
+              <CheckCircle2 size={19} aria-hidden="true" />
+              <span><strong>{t('lesson.demoReady')}</strong>{' '}{t('lesson.demoReadyText')}</span>
+            </div>
+            <PhysicsLab key={topic.id} mode={implementedLab.mode} title={implementedLab.title} />
+          </> : <p>{t('lesson.briefText')}</p>}
+          <aside className="experiment-blueprint" aria-labelledby={`experiment-brief-${topic.slug}`}>
+            <div>
+              <Sparkles size={20} aria-hidden="true" />
+              <div>
+                <small>{t('lesson.experimentBrief')}</small>
+                <strong id={`experiment-brief-${topic.slug}`}>{t('lesson.fullBrief')}</strong>
+                <p><RichText>{topic.interactive}</RichText></p>
+                <p>{implementedLab ? t('lesson.fullBriefText') : t('lesson.briefOnlyText')}</p>
+              </div>
+            </div>
+          </aside>
+        </section>
 
         <section id="math" className="lesson-section">
-          <div className="lesson-section__label"><span>{implementedLab ? '04' : '03'}</span> {t('lesson.math')}</div>
+          <div className="lesson-section__label"><span>04</span> {t('lesson.math')}</div>
           <h2>{t('lesson.formulaWithConditions')}</h2>
           {directFormulas.length > 0 ? (
             <div className="lesson-formulas">
@@ -140,33 +176,27 @@ export function LessonPage({ topicId, completed, bookmarks, sidebarOpen, onToggl
         </section>
 
         <section id="example" className="lesson-section">
-          <div className="lesson-section__label"><span>{implementedLab ? '05' : '04'}</span> {t('lesson.workedExample')}</div>
+          <div className="lesson-section__label"><span>05</span> {t('lesson.workedExample')}</div>
           <h2>{t('lesson.workedExample')}</h2>
           <StepExample key={`${locale}-${topic.id}`} example={detail.example} />
         </section>
 
-        {!implementedLab && <aside id="experiment" className="experiment-brief-card">
-          <div><Sparkles size={20} aria-hidden="true" /><span>{t('lesson.experimentBrief')}</span></div>
-          <h2>{topic.interactive}</h2>
-          <p>{t('lesson.briefOnlyText')}</p>
-        </aside>}
-
         <section id="limits" className="lesson-section">
-          <div className="lesson-section__label"><span>{implementedLab ? '06' : '05'}</span> {t('lesson.limits')}</div>
+          <div className="lesson-section__label"><span>06</span> {t('lesson.limits')}</div>
           <h2>{t('lesson.whenFails')}</h2>
           <div className="boundary-callout"><span>!</span><div><p><RichText>{detail.boundary}</RichText></p></div></div>
           <aside className="pitfall-card"><AlertTriangle size={22} aria-hidden="true" /><div><strong>{t('lesson.commonMistake')}</strong><p><RichText>{detail.pitfall}</RichText></p></div></aside>
         </section>
 
         <section id="practice" className="lesson-section">
-          <div className="lesson-section__label"><span>{implementedLab ? '07' : '06'}</span> {t('lesson.practice')}</div>
+          <div className="lesson-section__label"><span>07</span> {t('lesson.practice')}</div>
           <h2>{t('lesson.practice')}</h2>
           <p>{t('lesson.practiceText')}</p>
           <PracticeSet key={`${locale}-${topic.id}`} items={detail.practice} />
         </section>
 
         <section id="connections" className="lesson-section">
-          <div className="lesson-section__label"><span>{implementedLab ? '08' : '07'}</span> {t('lesson.related')}</div>
+          <div className="lesson-section__label"><span>08</span> {t('lesson.related')}</div>
           <h2>{t('lesson.related')}</h2>
           <p>{t('lesson.relatedText')}</p>
           <div className="related-topic-grid">
@@ -187,20 +217,25 @@ export function LessonPage({ topicId, completed, bookmarks, sidebarOpen, onToggl
 
       <aside className="lesson-outline">
         <strong>{t('lesson.onPage')}</strong>
-        <OutlineLink target="phenomenon">{t('lesson.phenomenon')}</OutlineLink>
-        <OutlineLink target="model">{t('lesson.explanation')}</OutlineLink>
-        {implementedLab && <OutlineLink target="experiment">{t('lesson.experiment')}</OutlineLink>}
-        <OutlineLink target="math">{t('lesson.formula')}</OutlineLink>
-        <OutlineLink target="example">{t('lesson.workedExample')}</OutlineLink>
-        <OutlineLink target="limits">{t('lesson.limits')}</OutlineLink>
-        <OutlineLink target="practice">{t('lesson.practice')}</OutlineLink>
-        <OutlineLink target="connections">{t('lesson.related')}</OutlineLink>
+        <OutlineLink target="phenomenon" topicId={topic.id} locale={locale} active={activeSection === 'phenomenon'}>{t('lesson.phenomenon')}</OutlineLink>
+        <OutlineLink target="model" topicId={topic.id} locale={locale} active={activeSection === 'model'}>{t('lesson.explanation')}</OutlineLink>
+        <OutlineLink target="experiment" topicId={topic.id} locale={locale} active={activeSection === 'experiment'}>{t('lesson.experiment')}</OutlineLink>
+        <OutlineLink target="math" topicId={topic.id} locale={locale} active={activeSection === 'math'}>{t('lesson.formula')}</OutlineLink>
+        <OutlineLink target="example" topicId={topic.id} locale={locale} active={activeSection === 'example'}>{t('lesson.workedExample')}</OutlineLink>
+        <OutlineLink target="limits" topicId={topic.id} locale={locale} active={activeSection === 'limits'}>{t('lesson.limits')}</OutlineLink>
+        <OutlineLink target="practice" topicId={topic.id} locale={locale} active={activeSection === 'practice'}>{t('lesson.practice')}</OutlineLink>
+        <OutlineLink target="connections" topicId={topic.id} locale={locale} active={activeSection === 'connections'}>{t('lesson.related')}</OutlineLink>
         <div className="outline-progress"><span>{t('lesson.progress')}</span><strong>{completed.size}/{bookMeta.topicCount}</strong><i><i style={{ width: `${completed.size / bookMeta.topicCount * 100}%` }} /></i></div>
       </aside>
     </main>
   );
 }
 
-function OutlineLink({ target, children }: { target: string; children: React.ReactNode }) {
-  return <button type="button" onClick={() => focusLessonTarget(target)}>{children}</button>;
+function OutlineLink({ target, topicId, locale, active, children }: { target: LessonSection; topicId: string; locale: 'ru' | 'en'; active: boolean; children: React.ReactNode }) {
+  const href = routes.topic(topicId, locale, target);
+  return <a href={href} aria-current={active ? 'location' : undefined} onClick={(event) => {
+    if (window.location.hash !== href) return;
+    event.preventDefault();
+    focusLessonTarget(target);
+  }}>{children}</a>;
 }

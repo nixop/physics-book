@@ -8,3 +8,4 @@ coverage/
 .env.*
 !.env.example
 /interactive_physics_book*.md
+/AUDIT.md

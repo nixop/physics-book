@@ -1472,24 +1472,24 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "question": "Why can matter made of discrete atoms often be described by continuous fields of density, pressure, and temperature?",
     "overview": [
       "A state of matter is determined by the balance between thermal motion, interactions among particles, and external conditions rather than by the substance name alone. A solid preserves long-range or local structural order, a liquid flows while remaining nearly fixed in volume, a gas fills the available volume, and a plasma contains enough free charges to respond collectively to electromagnetic fields.",
-      "A macroscopic description averages over a huge number of particles inside a small physical volume. If that volume still contains many particles but is much smaller than the scale over which the flow changes, fields such as rho(r,t), p(r,t), and T(r,t) can be defined. The continuum approximation becomes unreliable when the mean free path or a microstructural size is comparable to the problem scale."
+      "A macroscopic description averages over a huge number of particles inside a small physical region. If its linear size still spans many particles but remains much smaller than the scale over which the flow changes, fields such as $\\rho(\\mathbf r,t)$, $p(\\mathbf r,t)$, and $T(\\mathbf r,t)$ can be defined. The continuum approximation becomes unreliable when the mean free path or a microstructural size is comparable to the problem scale."
     ],
     "conceptExplanations": [
       "The states differ through their ability to preserve shape and volume, the character of particle order, and the presence of mobile charge carriers; a phase diagram locates transitions under specified conditions.",
-      "Density rho = dm/dV measures mass in a local volume, whereas pressure p is normal force per unit area; in an equilibrium medium both can be assigned at every point.",
+      "Density $\\rho = dm/dV$ measures mass in a local volume, whereas pressure p is normal force per unit area; in an equilibrium medium both can be assigned at every point.",
       "Temperature, pressure, and viscosity are not properties of a single molecule in the same sense as they are properties of a system; they emerge after statistical averaging of microscopic motion and collisions.",
-      "A practical criterion is a small Knudsen number Kn = lambda/L, where lambda is the mean free path and L is the characteristic scale of macroscopic variation."
+      "A practical criterion is a small Knudsen number $\\mathrm{Kn} = \\lambda/L$, where $\\lambda$ is the mean free path and L is the characteristic scale of macroscopic variation."
     ],
     "boundary": "A continuum model requires Kn much less than 1 and local thermodynamic equilibrium; a rarefied gas, nanoscopic channel, shock front, or granular medium may require a kinetic or discrete description.",
     "example": {
       "title": "Testing the continuum approximation for air",
       "problem": "The molecular mean free path in air is 70 nm and the characteristic channel width is 1.0 mm. Estimate the Knudsen number and decide whether ordinary fluid mechanics is suitable away from the walls.",
       "steps": [
-        "Convert to SI units: lambda = 7.0e-8 m and L = 1.0e-3 m.",
-        "Calculate Kn = lambda/L = 7.0e-5.",
+        "Convert to SI units: $\\lambda = 7.0 \\times 10^{-8}\\,\\mathrm{m}$ and $L = 1.0 \\times 10^{-3}\\,\\mathrm{m}$.",
+        "Calculate $\\mathrm{Kn} = \\lambda/L = 7.0 \\times 10^{-5}$.",
         "This is much less than 0.01, so collisions rapidly restore local equilibrium and the bulk flow can be treated as a continuum."
       ],
-      "answer": "Kn = 7.0e-5; the continuum model is appropriate for the bulk flow.",
+      "answer": "$\\mathrm{Kn} = 7.0 \\times 10^{-5}$; the continuum model is appropriate for the bulk flow.",
       "check": "Kn is dimensionless and decreases for a wider channel; a separate boundary condition may still be needed immediately next to a wall."
     },
     "pitfall": "A plasma is not merely a very hot ideal gas: even a modest ionized fraction can produce collective behavior through long-range fields and introduce new length and time scales.",
@@ -1500,9 +1500,9 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
         "answer": "Pressure is the statistical mean normal momentum flux of many particles per unit area; one molecular path supplies only isolated impulses."
       },
       {
-        "question": "A gas has lambda = 20 micrometers in a channel 0.20 mm wide. Find Kn and assess the model.",
-        "hint": "Put both lengths in metres and divide lambda by L.",
-        "answer": "Kn = 0.10. This is a transition regime, so conventional continuum fluid mechanics without slip corrections is unreliable."
+        "question": "A gas has $\\lambda = 20\\,\\mu\\mathrm{m}$ in a channel 0.20 mm wide. Find Kn and assess the model.",
+        "hint": "Put both lengths in metres and divide $\\lambda$ by L.",
+        "answer": "$\\mathrm{Kn} = 0.10$. This is a transition regime, so conventional continuum fluid mechanics without slip corrections is unreliable."
       }
     ]
   },
@@ -1510,40 +1510,40 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "6.2",
     "question": "How can an applied load predict reversible deformation, and how can we tell when the linear material model has failed?",
     "overview": [
-      "A load creates stresses inside a body, while its geometric response is described by strains. For uniaxial tension, the mean normal stress is F/A and the longitudinal strain is Delta L/L0. These quantities remove the direct effect of specimen size and allow tests of different parts to be compared.",
-      "Within a small elastic range, many materials approximately obey Hooke's law, sigma = E epsilon. Elastic strain vanishes after unloading, whereas plastic strain leaves a permanent change of shape. Real strength is not fixed by one tabulated limit: holes, cracks, cyclic loading, and material heterogeneity amplify local stresses."
+      "A load creates stresses inside a body, while its geometric response is described by strains. For uniaxial tension, the mean normal stress is $F/A$ and the longitudinal strain is $\\Delta L/L_0$. These quantities remove the direct effect of specimen size and allow tests of different parts to be compared.",
+      "Within a small elastic range, many materials approximately obey Hooke's law, $\\sigma = E \\varepsilon$. Elastic strain vanishes after unloading, whereas plastic strain leaves a permanent change of shape. Real strength is not fixed by one tabulated limit: holes, cracks, cyclic loading, and material heterogeneity amplify local stresses."
     ],
     "conceptExplanations": [
-      "Stress is internal force per area and is generally a tensor, while strain measures relative changes of lengths and angles; the simple scalars sigma and epsilon belong to a uniaxial test.",
+      "Stress is internal force per area and is generally a tensor, while strain measures relative changes of lengths and angles; the simple scalars $\\sigma$ and $\\varepsilon$ belong to a uniaxial test.",
       "An elastic regime permits recovery of the original shape, whereas a plastic regime involves irreversible structural rearrangement; the transition is identified on a stress-strain curve.",
       "Young's modulus E is the slope of the linear portion of that curve: a large E means little elastic strain at a given stress, but it does not by itself imply high strength.",
       "Shear changes angles, bending stretches one side and compresses the other, and torsion produces a shear-stress distribution that depends on cross-sectional geometry.",
-      "Fatigue permits crack growth under repeated loads below a static limit, and a sharp notch raises the local stress above the average F/A."
+      "Fatigue permits crack growth under repeated loads below a static limit, and a sharp notch raises the local stress above the average $F/A$."
     ],
-    "boundary": "The relation sigma = E epsilon describes small uniaxial elastic strain in a homogeneous material; it does not replace a tensor model, a plasticity law, a fracture criterion, or a buckling analysis for a slender member.",
+    "boundary": "The relation $\\sigma = E \\varepsilon$ describes small uniaxial elastic strain in a homogeneous material; it does not replace a tensor model, a plasticity law, a fracture criterion, or a buckling analysis for a slender member.",
     "example": {
       "title": "Extension of a steel rod",
-      "problem": "A rod 2.0 m long with cross-sectional area 400 mm^2 carries a tensile force of 20 kN. Take E = 200 GPa and yield stress 250 MPa. Find the stress and elastic extension.",
+      "problem": "A rod 2.0 m long with cross-sectional area 400 mm^2 carries a tensile force of 20 kN. Take $E = 200\\,\\mathrm{GPa}$ and yield stress 250 MPa. Find the stress and elastic extension.",
       "steps": [
-        "Convert the data: A = 4.00e-4 m^2, F = 2.0e4 N, and E = 2.00e11 Pa.",
-        "The mean stress is sigma = F/A = 5.0e7 Pa = 50 MPa, below the stated yield stress.",
-        "The strain is epsilon = sigma/E = 2.5e-4.",
-        "The extension is Delta L = epsilon L0 = 5.0e-4 m = 0.50 mm."
+        "Convert the data: $A = 4.00 \\times 10^{-4}\\,\\mathrm{m^2}$, $F = 2.0 \\times 10^{4}\\,\\mathrm{N}$, and $E = 2.00 \\times 10^{11}\\,\\mathrm{Pa}$.",
+        "The mean stress is $\\sigma = F/A = 5.0 \\times 10^{7}\\,\\mathrm{Pa} = 50\\,\\mathrm{MPa}$, below the stated yield stress.",
+        "The strain is $\\varepsilon = \\sigma/E = 2.5 \\times 10^{-4}$.",
+        "The extension is $\\Delta L = \\varepsilon L_{0} = 5.0 \\times 10^{-4}\\,\\mathrm{m} = 0.50\\,\\mathrm{mm}$."
       ],
-      "answer": "sigma = 50 MPa and Delta L = 0.50 mm; under the stated assumptions the deformation is elastic.",
-      "check": "The relative extension is only 0.025%, and F/A has units of pascals. The calculation does not assess notches, fatigue, or buckling."
+      "answer": "$\\sigma = 50\\,\\mathrm{MPa}$ and $\\Delta L = 0.50\\,\\mathrm{mm}$; under the stated assumptions the deformation is elastic.",
+      "check": "The relative extension is only 0.025%, and $F/A$ has units of pascals. The calculation does not assess notches, fatigue, or buckling."
     },
     "pitfall": "A high Young's modulus does not imply a high strength: stiffness is the slope of the elastic curve, whereas yielding and fracture are separate properties.",
     "practice": [
       {
-        "question": "Why is a hole in a stretched plate more dangerous than the average stress F/A suggests?",
+        "question": "Why is a hole in a stretched plate more dangerous than the average stress $F/A$ suggests?",
         "hint": "Consider how load paths bend around the edge of the hole.",
         "answer": "The stress field is nonuniform near the hole and its local maximum exceeds the average; cracks therefore tend to initiate at the edge."
       },
       {
-        "question": "A 1.5 m wire has E = 70 GPa and a stress of 140 MPa within its linear range. Find its extension.",
-        "hint": "First use epsilon = sigma/E and then Delta L = epsilon L0.",
-        "answer": "epsilon = 0.002, so Delta L = 0.003 m = 3.0 mm."
+        "question": "A 1.5 m wire has $E = 70\\,\\mathrm{GPa}$ and a stress of 140 MPa within its linear range. Find its extension.",
+        "hint": "First use $\\varepsilon = \\sigma/E$ and then $\\Delta L = \\varepsilon L_{0}$.",
+        "answer": "$\\varepsilon = 0.002$, so $\\Delta L = 0.003\\,\\mathrm{m} = 3.0\\,\\mathrm{mm}$."
       }
     ]
   },
@@ -1551,23 +1551,23 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "6.3",
     "question": "How does the pressure distribution in a stationary liquid determine the force and orientational stability of an immersed body?",
     "overview": [
-      "A fluid at rest has no shear stress, and pressure acts normal to every surface. Balancing a small volume in a uniform gravitational field gives dp/dz = -rho g: pressure increases downward. A pressure difference, rather than atmospheric pressure by itself, creates a net hydrostatic force.",
+      "A fluid at rest has no shear stress, and pressure acts normal to every surface. Balancing a small volume in a uniform gravitational field gives $dp/dz = -\\rho g$: pressure increases downward. A pressure difference, rather than atmospheric pressure by itself, creates a net hydrostatic force.",
       "Integrating pressure over an immersed surface produces the buoyant force, equal to the weight of displaced fluid. A floating body settles at an immersed volume for which buoyancy equals its weight. Orientational stability also depends on the lines of action of weight and buoyancy, not only on equality of their magnitudes."
     ],
     "conceptExplanations": [
-      "For a liquid of constant density, p = p0 + rho g h; points at equal height in one connected stationary liquid have equal pressure.",
+      "For a liquid of constant density, $p = p_{0} + \\rho g h$; points at equal height in one connected stationary liquid have equal pressure.",
       "An externally applied pressure increment is transmitted through an enclosed liquid, so an ideal hydraulic press changes force in the area ratio while conserving work.",
-      "Buoyancy points opposite to effective gravity and has magnitude rho_fluid g V_displaced; it arises because lower parts of the surface experience greater pressure.",
-      "Floating equilibrium requires F_b = mg, and a small tilt must produce a restoring torque; the metacentre relative to the centre of mass supplies a small-angle stability criterion."
+      "Buoyancy points opposite to effective gravity and has magnitude $\\rho_{\\mathrm{fluid}}gV_{\\mathrm{displaced}}$; it arises because lower parts of the surface experience greater pressure.",
+      "Floating equilibrium requires $F_{\\mathrm{b}} = mg$, and a small tilt must produce a restoring torque; the metacentre relative to the centre of mass supplies a small-angle stability criterion."
     ],
-    "boundary": "Hydrostatic relations require a fluid at rest in the chosen frame and a known effective gravity field; accelerated flow, appreciable compressibility, or dominant capillary forces require more than p = p0 + rho gh.",
+    "boundary": "Hydrostatic relations require a fluid at rest in the chosen frame and a known effective gravity field; accelerated flow, appreciable compressibility, or dominant capillary forces require more than $p = p_{0} + \\rho gh$.",
     "example": {
       "title": "Immersed fraction of a floating block",
       "problem": "A uniform block of volume 0.020 m^3 and mass 12 kg floats freely in water of density 1000 kg/m^3. Find the displaced volume and the fraction below water.",
       "steps": [
-        "At equilibrium, weight mg equals buoyancy rho g V_sub.",
-        "Cancel g to obtain V_sub = m/rho = 12/1000 = 0.012 m^3.",
-        "The immersed fraction is V_sub/V = 0.012/0.020 = 0.60."
+        "At equilibrium, weight mg equals buoyancy $\\rho gV_{\\mathrm{sub}}$.",
+        "Cancel g to obtain $V_{\\mathrm{sub}} = m/\\rho = 12/1000 = 0.012\\,\\mathrm{m^3}$.",
+        "The immersed fraction is $V_{\\mathrm{sub}}/V = 0.012/0.020 = 0.60$."
       ],
       "answer": "The block displaces 0.012 m^3 of water and has 60% of its volume submerged.",
       "check": "Its mean density is 600 kg/m^3, below that of water, so partial flotation is possible; g cancels as expected."
@@ -1576,13 +1576,13 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "practice": [
       {
         "question": "Why is pressure at a vessel bottom not determined uniquely by the total mass of liquid?",
-        "hint": "Compare p = p0 + rho gh for differently shaped vessels having the same depth.",
+        "hint": "Compare $p = p_{0} + \\rho gh$ for differently shaped vessels having the same depth.",
         "answer": "Local pressure depends on depth, density, and surface pressure; vessel walls may carry part of the liquid weight, and bottom force also depends on bottom area."
       },
       {
-        "question": "What is the gauge pressure 5.0 m below the surface of fresh water? Take g = 9.81 m/s^2.",
-        "hint": "Use Delta p = rho gh with rho = 1000 kg/m^3.",
-        "answer": "Delta p = 4.905e4 Pa, approximately 49 kPa."
+        "question": "What is the gauge pressure 5.0 m below the surface of fresh water? Take $g = 9.81\\,\\mathrm{m/s^2}$.",
+        "hint": "Use $\\Delta p = \\rho gh$ with $\\rho = 1000\\,\\mathrm{kg/m^3}$.",
+        "answer": "$\\Delta p = 4.905 \\times 10^{4}\\,\\mathrm{Pa}$, approximately 49 kPa."
       }
     ]
   },
@@ -1590,24 +1590,24 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "6.4",
     "question": "Why does a liquid surface tend to reduce its area, and how does that tendency produce droplets, menisci, and capillary rise?",
     "overview": [
-      "A molecule inside a liquid is surrounded on all sides, whereas the environment of a surface molecule is asymmetric. Creating a new interface requires work, so at fixed conditions the free surface energy changes as dW = gamma dA. The same coefficient gamma describes tangential force per unit length along a line in the interface.",
+      "A molecule inside a liquid is surrounded on all sides, whereas the environment of a surface molecule is asymmetric. Creating a new interface requires work, so at fixed conditions the free surface energy changes as $dW = \\gamma dA$. The same coefficient $\\gamma$ describes tangential force per unit length along a line in the interface.",
       "Surface curvature creates a pressure jump, and the competition among surface energy, gravity, and contact with a solid determines shape. In a narrow capillary, the vertical component of surface tension can support a liquid column. The effect strengthens rapidly as size decreases because surface force scales with length while weight scales with volume."
     ],
     "conceptExplanations": [
-      "The coefficient gamma is reversible work per unit increase of area at specified temperature and composition; contaminants and temperature can change it substantially.",
+      "The coefficient $\\gamma$ is reversible work per unit increase of area at specified temperature and composition; contaminants and temperature can change it substantially.",
       "Without gravity, a droplet of fixed volume approaches a sphere, the minimum-area shape; when weight matters, the capillary length controls the deformation.",
       "The equilibrium contact angle is measured through the liquid where three interfaces meet; an angle below 90 degrees indicates preferential wetting but depends on material and surface cleanliness.",
-      "For a thin circular capillary, h = 2 gamma cos(theta)/(rho g r); the sign of cos(theta) determines a rise or depression.",
-      "The ratio of surface force to weight grows approximately as 1/L^2 as size falls, allowing a water strider to be supported by an interface while the same mechanism cannot support a large animal."
+      "For a thin circular capillary, $h = 2 \\gamma \\cos(\\theta)/(\\rho g r)$; the sign of $\\cos\\theta$ determines a rise or depression.",
+      "The ratio of surface force to weight grows approximately as $1/L^2$ as size falls, allowing a water strider to be supported by an interface while the same mechanism cannot support a large animal."
     ],
-    "boundary": "Elementary formulas assume an equilibrium clean interface, constant gamma, a specified contact angle, and a cylindrical tube; dynamic wetting, evaporation, contamination, and contact-angle hysteresis require additional modeling.",
+    "boundary": "Elementary formulas assume an equilibrium clean interface, constant $\\gamma$, a specified contact angle, and a cylindrical tube; dynamic wetting, evaporation, contamination, and contact-angle hysteresis require additional modeling.",
     "example": {
       "title": "Water rise in a glass capillary",
-      "problem": "For water, gamma = 0.072 N/m and rho = 1000 kg/m^3; take the contact angle as zero. Find the rise in a capillary of radius 0.50 mm with g = 9.81 m/s^2.",
+      "problem": "For water, $\\gamma = 0.072\\,\\mathrm{N/m}$ and $\\rho = 1000\\,\\mathrm{kg/m^3}$; take the contact angle as zero. Find the rise in a capillary of radius 0.50 mm with $g = 9.81\\,\\mathrm{m/s^2}$.",
       "steps": [
-        "Use h = 2 gamma cos(theta)/(rho g r).",
-        "Convert the radius: r = 5.0e-4 m, and cos(0) = 1.",
-        "Substitution gives h = 0.144/(1000 x 9.81 x 5.0e-4) = 2.94e-2 m."
+        "Use $h = 2 \\gamma \\cos(\\theta)/(\\rho g r)$.",
+        "Convert the radius: $r = 5.0 \\times 10^{-4}\\,\\mathrm{m}$, and $\\cos(0) = 1$.",
+        "Substitution gives $h = 0.144/(1000 \\times 9.81 \\times 5.0 \\times 10^{-4}) = 2.94 \\times 10^{-2}\\,\\mathrm{m}$."
       ],
       "answer": "The ideal model predicts a rise of about 2.9 cm.",
       "check": "The result has units of length and is inversely proportional to radius; a tube half as wide would predict twice the rise."
@@ -1630,27 +1630,27 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "6.5",
     "question": "How do conservation laws and viscosity connect pipe geometry with flow speed, pressure, and flow regime?",
     "overview": [
-      "For steady flow, mass conservation requires the same mass flow rate through successive sections. For an incompressible liquid this becomes A v_mean = constant, so a constriction increases the mean speed. In ideal inviscid flow, p + rho v^2/2 + rho gz remains constant along a streamline and expresses mechanical energy per unit volume.",
-      "A real fluid dissipates mechanical energy through viscosity and interacts with a wall through the no-slip condition. The Reynolds number Re = rho v L/mu compares inertial and viscous effects, although its critical value depends on geometry and disturbances. Turbulent flow adds fluctuations and eddy transport of momentum to the mean motion."
+      "For steady flow, mass conservation requires the same mass flow rate through successive sections. For an incompressible liquid this becomes $A v_{\\mathrm{mean}}=\\mathrm{constant}$, so a constriction increases the mean speed. In ideal inviscid flow, $p+\\rho v^2/2+\\rho gz$ remains constant along a streamline and expresses mechanical energy per unit volume.",
+      "A real fluid dissipates mechanical energy through viscosity and interacts with a wall through the no-slip condition. The Reynolds number $\\mathrm{Re} = \\rho v L/\\mu$ compares inertial and viscous effects, although its critical value depends on geometry and disturbances. Turbulent flow adds fluctuations and eddy transport of momentum to the mean motion."
     ],
     "conceptExplanations": [
-      "Volume flow rate Q = dV/dt is the integral of velocity over a cross-section; Q = A v_mean uses its area average, and Q is conserved in steady incompressible flow.",
+      "Volume flow rate $Q = dV/dt$ is the integral of velocity over a cross-section; $Q = A v_{\\mathrm{mean}}$ uses its area average, and Q is conserved in steady incompressible flow.",
       "Bernoulli's equation is an energy integral for steady inviscid flow; pumps, turbines, and head loss require additional terms.",
-      "Dynamic viscosity mu relates shear stress to velocity gradient in a Newtonian fluid; in a long round pipe, laminar flow rate is particularly sensitive to radius.",
+      "Dynamic viscosity $\\mu$ relates shear stress to velocity gradient in a Newtonian fluid; in a long round pipe, laminar flow rate is particularly sensitive to radius.",
       "Re is not a speed by itself: equal Reynolds numbers describe a similar inertia-to-viscosity balance in geometrically similar problems.",
       "A boundary layer is the region of rapid velocity change near a surface; its separation changes drag and can create a broad wake."
     ],
-    "boundary": "The simple forms Q = Av and Bernoulli require steadiness and incompressibility, while Bernoulli additionally neglects viscous loss along the selected streamline; high-Mach-number gases and non-Newtonian fluids require other equations of state or constitutive laws.",
+    "boundary": "$Q=A\\bar v$ defines volume flow through one cross-section without requiring steady flow; equal flow rates through sections of a rigid impermeable streamtube follow from incompressibility. The stated form of Bernoulli's equation additionally assumes steady flow and negligible viscous loss along the selected streamline; high-Mach-number gases and non-Newtonian fluids require other equations of state or constitutive laws.",
     "example": {
       "title": "A constriction in a water pipe",
-      "problem": "A horizontal pipe narrows from diameter 4.0 cm to 2.0 cm. Upstream water speed is 1.0 m/s, rho = 1000 kg/m^3, and mu = 1.0e-3 Pa s. Find the ideal downstream speed and pressure drop, then estimate Re downstream.",
+      "problem": "A horizontal pipe narrows from diameter 4.0 cm to 2.0 cm. Upstream water speed is 1.0 m/s, $\\rho = 1000\\,\\mathrm{kg/m^3}$, and $\\mu = 1.0 \\times 10^{-3}\\,\\mathrm{Pa\\cdot s}$. Find the ideal downstream speed and pressure drop, then estimate Re downstream.",
       "steps": [
-        "Area is proportional to D^2, so A1/A2 = 4 and continuity gives v2 = 4.0 m/s.",
-        "For ideal horizontal flow, p1 - p2 = rho(v2^2 - v1^2)/2 = 7.5e3 Pa.",
-        "The downstream Reynolds number is Re = rho v2 D2/mu = 8.0e4.",
+        "Area is proportional to $D^2$, so $A_{1}/A_{2} = 4$ and continuity gives $v_{2} = 4.0\\,\\mathrm{m/s}$.",
+        "For ideal horizontal flow, $p_{1} - p_{2} = \\rho(v_{2}^2 - v_{1}^2)/2 = 7.5 \\times 10^{3}\\,\\mathrm{Pa}$.",
+        "The downstream Reynolds number is $\\mathrm{Re} = \\rho v_{2} D_{2}/\\mu = 8.0 \\times 10^{4}$.",
         "This Re suggests a likely turbulent real flow, so the actual pressure drop exceeds the ideal value because of loss."
       ],
-      "answer": "v2 = 4.0 m/s, ideal p1 - p2 = 7.5 kPa, and Re = 8.0e4; the final result flags the limitation of the ideal calculation.",
+      "answer": "$v_{2} = 4.0\\,\\mathrm{m/s}$, ideal $p_{1} - p_{2} = 7.5\\,\\mathrm{kPa}$, and $\\mathrm{Re} = 8.0 \\times 10^{4}$; the final result flags the limitation of the ideal calculation.",
       "check": "Speed rises inversely with area and static pressure falls; energy is not destroyed, but real flow converts some mechanical energy into internal energy."
     },
     "pitfall": "The phrase 'higher speed means lower pressure' is not a universal local law; it follows from Bernoulli only when suitable points on a flow are compared with height, devices, and losses accounted for.",
@@ -1662,8 +1662,8 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
       },
       {
         "question": "In incompressible flow, area decreases from 30 to 10 cm^2 while speed is 0.50 m/s in the wider section. Find the narrower-section speed.",
-        "hint": "Use A1 v1 = A2 v2.",
-        "answer": "v2 = (30/10) x 0.50 = 1.5 m/s."
+        "hint": "Use $A_{1} v_{1} = A_{2} v_{2}$.",
+        "answer": "$v_{2} = (30/10) \\times 0.50 = 1.5\\,\\mathrm{m/s}$."
       }
     ]
   },
@@ -1671,39 +1671,39 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "7.1",
     "question": "Why do many different systems oscillate almost sinusoidally near stable equilibrium?",
     "overview": [
-      "At stable equilibrium, a small displacement produces a force directed back toward equilibrium. If potential energy is smooth, its first nonzero term near a minimum is usually quadratic, making the restoring force linear in displacement. The equation m x_ddot + kx = 0 then has sinusoidal solutions.",
-      "Amplitude and initial phase are fixed by the initial state, while the natural angular frequency omega0 = sqrt(k/m) is fixed by system parameters. The same mathematical form describes a spring, a small-angle pendulum, and many electrical or acoustic systems, but only while nonlinearity and loss remain negligible."
+      "At stable equilibrium, a small displacement produces a force directed back toward equilibrium. If potential energy is smooth, its first nonzero term near a minimum is usually quadratic, making the restoring force linear in displacement. The equation $m \\ddot{x} + kx = 0$ then has sinusoidal solutions.",
+      "Amplitude and initial phase are fixed by the initial state, while the natural angular frequency $\\omega_{0} = \\sqrt{k/m}$ is fixed by system parameters. The same mathematical form describes a spring, a small-angle pendulum, and many electrical or acoustic systems, but only while nonlinearity and loss remain negligible."
     ],
     "conceptExplanations": [
       "Stable equilibrium corresponds to a local minimum of potential energy: after a small displacement, the system accelerates back toward the equilibrium point.",
-      "Amplitude is the maximum displacement, period T is the repeat time, f = 1/T, omega = 2 pi f, and phase specifies the location within a cycle.",
-      "For an ideal spring F = -kx, so mass and stiffness determine omega0; leaving the linear Hooke-law range creates harmonics and an amplitude-dependent period.",
-      "The exact pendulum equation contains sin(theta); replacing it by theta is valid only for a small angle expressed in radians and makes the equation linear.",
-      "A point moving uniformly around a circle has coordinate A cos(omega t + phi) on a selected axis, geometrically explaining the sine and cosine solution."
+      "Amplitude is the maximum displacement, period T is the repeat time, $f = 1/T$, $\\omega = 2 \\pi f$, and phase specifies the location within a cycle.",
+      "For an ideal spring $F = -kx$, so mass and stiffness determine $\\omega_0$; leaving the linear Hooke-law range creates harmonics and an amplitude-dependent period.",
+      "The exact pendulum equation contains $\\sin\\theta$; replacing it by $\\theta$ is valid only for a small angle expressed in radians and makes the equation linear.",
+      "A point moving uniformly around a circle has coordinate $A\\cos(\\omega t+\\varphi)$ on a selected axis, geometrically explaining the sine and cosine solution."
     ],
     "boundary": "The ideal harmonic-oscillator model requires a linear restoring force, constant parameters, and negligible loss; large pendulum angles, a nonlinear spring, or dry friction change both waveform and period.",
     "example": {
       "title": "Frequency of a mass on a spring",
       "problem": "A 0.50 kg mass is attached to a spring of stiffness 200 N/m. Neglect loss. Find its natural angular frequency, period, and frequency.",
       "steps": [
-        "Calculate omega0 = sqrt(k/m) = sqrt(200/0.50) = 20 rad/s.",
-        "The period is T = 2 pi/omega0 = 0.314 s.",
-        "The frequency is f = 1/T = 3.18 Hz."
+        "Calculate $\\omega_{0} = \\sqrt{k/m} = \\sqrt{200/0.50} = 20\\,\\mathrm{rad/s}$.",
+        "The period is $T = 2 \\pi/\\omega_{0} = 0.314\\,\\mathrm{s}$.",
+        "The frequency is $f = 1/T = 3.18\\,\\mathrm{Hz}$."
       ],
-      "answer": "omega0 = 20 rad/s, T = 0.314 s, and f = 3.18 Hz.",
-      "check": "k/m has units of 1/s^2; increasing mass must reduce frequency, as the square root predicts."
+      "answer": "$\\omega_{0} = 20\\,\\mathrm{rad/s}$, $T = 0.314\\,\\mathrm{s}$, and $f = 3.18\\,\\mathrm{Hz}$.",
+      "check": "$k/m$ has units of 1/s^2; increasing mass must reduce frequency, as the square root predicts."
     },
-    "pitfall": "A small angle is not merely a small number of degrees: theta must be in radians when using sin(theta) approximately equal to theta.",
+    "pitfall": "A small angle is not merely a small number of degrees: $\\theta$ must be in radians when using $\\sin\\theta$ approximately equal to $\\theta$.",
     "practice": [
       {
         "question": "Does the period of an ideal spring oscillator change if amplitude is doubled within the linear range?",
-        "hint": "Check whether A appears in omega0 = sqrt(k/m).",
+        "hint": "Check whether A appears in $\\omega_{0} = \\sqrt{k/m}$.",
         "answer": "No. The ideal linear period is amplitude-independent; a measured dependence indicates nonlinearity or another violated assumption."
       },
       {
         "question": "By what factor does period change if mass is quadrupled while the spring is unchanged?",
-        "hint": "T is proportional to sqrt(m/k).",
-        "answer": "The period increases by sqrt(4) = 2."
+        "hint": "T is proportional to $\\sqrt{m/k}$.",
+        "answer": "The period increases by $\\sqrt{4} = 2$."
       }
     ]
   },
@@ -1712,7 +1712,7 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "question": "What does a phase trajectory reveal about oscillator state that a single animation frame cannot?",
     "overview": [
       "One coordinate is insufficient for a one-dimensional oscillator: at the same position the body may move right or left. The pair (x,v) specifies its instantaneous state and fixes subsequent motion when the law is known. A plot of v against x is a phase trajectory.",
-      "For an ideal harmonic oscillator, E = mv^2/2 + kx^2/2 is constant, so the phase trajectory is a closed ellipse. Loss contracts the trajectory toward equilibrium, driving can sustain a limit cycle, and different regions of phase space reveal qualitatively distinct regimes without watching a long animation."
+      "For an ideal harmonic oscillator, $E = mv^2/2 + kx^2/2$ is constant, so the phase trajectory is a closed ellipse. Loss contracts the trajectory toward equilibrium, driving can sustain a limit cycle, and different regions of phase space reveal qualitatively distinct regimes without watching a long animation."
     ],
     "conceptExplanations": [
       "At turning points, speed and kinetic energy vanish while potential energy is maximal; at the equilibrium crossing, speed and kinetic energy are maximal.",
@@ -1723,14 +1723,14 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "boundary": "The two-dimensional plane (x,v) is complete only for one coordinate governed by a second-order equation; a driven system also needs driving phase, and a multidimensional system needs additional coordinates and momenta.",
     "example": {
       "title": "Speed from a phase ellipse",
-      "problem": "An oscillator has amplitude A = 0.080 m and omega0 = 5.0 rad/s. What is its speed magnitude at x = 0.048 m? Neglect loss.",
+      "problem": "An oscillator has amplitude $A = 0.080\\,\\mathrm{m}$ and $\\omega_{0} = 5.0\\,\\mathrm{rad/s}$. What is its speed magnitude at $x = 0.048\\,\\mathrm{m}$? Neglect loss.",
       "steps": [
-        "From x = A cos(phi) and v = -A omega0 sin(phi), obtain (x/A)^2 + (v/(A omega0))^2 = 1.",
-        "Therefore |v| = omega0 sqrt(A^2 - x^2).",
-        "Substitution gives |v| = 5.0 sqrt(0.080^2 - 0.048^2) = 0.32 m/s."
+        "From $x = A \\cos(\\varphi)$ and $v = -A \\omega_{0} \\sin(\\varphi)$, obtain $(x/A)^2 + (v/(A \\omega_{0}))^2 = 1$.",
+        "Therefore $|v| = \\omega_{0} \\sqrt{A^2 - x^2}$.",
+        "Substitution gives $|v| = 5.0 \\sqrt{0.080^2 - 0.048^2} = 0.32\\,\\mathrm{m/s}$."
       ],
       "answer": "The speed magnitude is 0.32 m/s; its sign depends on direction around the phase trajectory.",
-      "check": "At x = 0 the speed would be A omega0 = 0.40 m/s, so this result is correctly below the maximum."
+      "check": "At $x = 0$ the speed would be $A \\omega_{0} = 0.40\\,\\mathrm{m/s}$, so this result is correctly below the maximum."
     },
     "pitfall": "A phase trajectory is not the body's path in ordinary space: its axes carry different quantities, such as metres and metres per second.",
     "practice": [
@@ -1740,9 +1740,9 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
         "answer": "An ideal oscillator follows a closed curve of constant size, while a damped oscillator spirals toward stable equilibrium."
       },
       {
-        "question": "For A = 0.10 m and omega0 = 4 rad/s, find the maximum speed.",
-        "hint": "Maximum speed occurs at x = 0.",
-        "answer": "v_max = A omega0 = 0.40 m/s."
+        "question": "For $A = 0.10\\,\\mathrm{m}$ and $\\omega_{0} = 4\\,\\mathrm{rad/s}$, find the maximum speed.",
+        "hint": "Maximum speed occurs at $x = 0$.",
+        "answer": "$v_{\\mathrm{max}} = A \\omega_{0} = 0.40\\,\\mathrm{m/s}$."
       }
     ]
   },
@@ -1757,17 +1757,17 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
       "A dissipative force does negative work on average, converting organized mechanical motion into internal energy of the system and surroundings.",
       "In steady linear response, the oscillator moves at the drive frequency even though its amplitude is controlled by proximity to a natural frequency.",
       "Resonance is a frequency-selective response, not always unlimited growth: finite damping gives a finite amplitude, and the precise peak frequency depends slightly on what is measured.",
-      "For a weakly damped isolated resonance, Q is approximately f0/Delta f, where Delta f is the full width between half-power points.",
+      "For a weakly damped isolated resonance, Q is approximately $f_0/\\Delta f$, where $\\Delta f$ is the full width between half-power points.",
       "Parametric excitation varies a parameter such as pendulum length or stiffness; a strong response can occur when the modulation is near twice the natural frequency."
     ],
-    "boundary": "A single resonance curve and Q = f0/Delta f assume a linear oscillator, weak damping, sinusoidal stationary drive, and steady state; nonlinearity may shift the resonance, create jumps, and permit multiple stable responses.",
+    "boundary": "A single resonance curve and $Q = f_{0}/\\Delta f$ assume a linear oscillator, weak damping, sinusoidal stationary drive, and steady state; nonlinearity may shift the resonance, create jumps, and permit multiple stable responses.",
     "example": {
       "title": "Quality factor from resonance width",
       "problem": "A resonator has its power maximum at 50 Hz, with half-power points at 47 and 53 Hz. Estimate its quality factor.",
       "steps": [
-        "The bandwidth is Delta f = 53 - 47 = 6 Hz.",
-        "For weak damping, use Q = f0/Delta f.",
-        "Thus Q = 50/6 = 8.3."
+        "The bandwidth is $\\Delta f = 53 - 47 = 6\\,\\mathrm{Hz}$.",
+        "For weak damping, use $Q = f_{0}/\\Delta f$.",
+        "Thus $Q = 50/6 = 8.3$."
       ],
       "answer": "The estimated quality factor is Q ≈ 8.3, corresponding to a comparatively broad resonance peak.",
       "check": "Q is dimensionless; this moderate value is consistent with a visibly broad resonance."
@@ -1780,9 +1780,9 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
         "answer": "Greater loss prevents energy from accumulating to a large amplitude and reduces frequency selectivity, so the peak is lower and the bandwidth wider."
       },
       {
-        "question": "A resonator has f0 = 1.2 kHz and Q = 60. Estimate its half-power bandwidth.",
-        "hint": "Rearrange Q = f0/Delta f.",
-        "answer": "Delta f = 1200/60 = 20 Hz."
+        "question": "A resonator has $f_{0} = 1.2\\,\\mathrm{kHz}$ and $Q = 60$. Estimate its half-power bandwidth.",
+        "hint": "Rearrange $Q = f_{0}/\\Delta f$.",
+        "answer": "$\\Delta f = 1200/60 = 20\\,\\mathrm{Hz}$."
       }
     ]
   },
@@ -1790,27 +1790,27 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "7.4",
     "question": "How does local interaction between neighboring parts of a medium carry a disturbance and energy without transporting matter as a whole?",
     "overview": [
-      "A wave forms when a local displacement creates forces or fluxes that affect a neighboring region while inertia delays its response. Material elements usually oscillate around their positions as disturbance phase and energy propagate. For a harmonic traveling wave, the same phase repeats after wavelength lambda in space and period T in time.",
-      "The relation v_ph = f lambda follows because the profile advances one wavelength during one period. The wave equation connects the second time derivative to spatial curvature. At a boundary, continuity conditions create reflected and transmitted waves; a speed change alters wavelength while frequency from a stationary source remains fixed."
+      "A wave forms when a local displacement creates forces or fluxes that affect a neighboring region while inertia delays its response. Material elements usually oscillate around their positions as disturbance phase and energy propagate. For a harmonic traveling wave, the same phase repeats after wavelength $\\lambda$ in space and period T in time.",
+      "The relation $v_{\\mathrm{ph}} = f \\lambda$ follows because the profile advances one wavelength during one period. The wave equation connects the second time derivative to spatial curvature. At a boundary, continuity conditions create reflected and transmitted waves; a speed change alters wavelength while frequency from a stationary source remains fixed."
     ],
     "conceptExplanations": [
       "Material elements may have zero mean displacement over a cycle while energy crosses a surface; mass transport and propagation of a wave pattern are different processes.",
       "In a longitudinal wave displacement is parallel to propagation, while in a transverse wave it is perpendicular; the classification concerns the disturbance vector.",
-      "Frequency counts cycles per second, lambda is the spatial period, and phase velocity tracks a point of constant phase.",
-      "For a stretched string, curvature produces a transverse resultant force and element mass supplies inertia; their balance gives y_tt = v^2 y_xx.",
+      "Frequency counts cycles per second, $\\lambda$ is the spatial period, and phase velocity tracks a point of constant phase.",
+      "For a stretched string, curvature produces a transverse resultant force and element mass supplies inertia; their balance gives $\\frac{\\partial^2y}{\\partial t^2} = v^2 \\frac{\\partial^2y}{\\partial x^2}$.",
       "At reflection and refraction from a stationary boundary, frequency is conserved while amplitude, phase, direction, and wavelength may change."
     ],
-    "boundary": "The relation v_ph = f lambda describes a monochromatic traveling wave in a specified frame; the simple linear wave equation requires small disturbances and fixed medium parameters, while a dispersive medium has frequency-dependent speed.",
+    "boundary": "The relation $v_{\\mathrm{ph}} = f \\lambda$ describes a monochromatic traveling wave in a specified frame; the simple linear wave equation requires small disturbances and fixed medium parameters, while a dispersive medium has frequency-dependent speed.",
     "example": {
       "title": "Wavelength and propagation time",
       "problem": "A harmonic wave of frequency 120 Hz travels through a nondispersive medium at 15 m/s. Find its wavelength and the time for a disturbance to travel 20 m.",
       "steps": [
-        "From v = f lambda, lambda = v/f = 15/120 = 0.125 m.",
-        "In this nondispersive model the signal and phase speeds coincide, so t = L/v = 20/15 = 1.33 s.",
-        "Distinguish the established-wave period T = 1/f = 8.33 ms from propagation time to the distant point."
+        "From $v = f \\lambda$, $\\lambda = v/f = 15/120 = 0.125\\,\\mathrm{m}$.",
+        "In this nondispersive model the signal and phase speeds coincide, so $t = L/v = 20/15 = 1.33\\,\\mathrm{s}$.",
+        "Distinguish the established-wave period $T = 1/f = 8.33\\,\\mathrm{ms}$ from propagation time to the distant point."
       ],
-      "answer": "lambda = 0.125 m and the travel time over 20 m is 1.33 s.",
-      "check": "f lambda has units m/s; in one 8.33 ms period the wave moves 0.125 m."
+      "answer": "$\\lambda = 0.125\\,\\mathrm{m}$ and the travel time over 20 m is 1.33 s.",
+      "check": "$f\\lambda$ has units m/s; in one 8.33 ms period the wave moves 0.125 m."
     },
     "pitfall": "Particle speed in the medium is generally not wave speed: the former is the time derivative of local displacement, while the latter tracks phase or an envelope.",
     "practice": [
@@ -1820,9 +1820,9 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
         "answer": "Frequency remains fixed and wavelength decreases in proportion to phase speed."
       },
       {
-        "question": "A wave has lambda = 0.80 m and f = 2.5 Hz. Find phase speed.",
-        "hint": "Use v = f lambda.",
-        "answer": "v = 2.0 m/s."
+        "question": "A wave has $\\lambda = 0.80\\,\\mathrm{m}$ and $f = 2.5\\,\\mathrm{Hz}$. Find phase speed.",
+        "hint": "Use $v = f \\lambda$.",
+        "answer": "$v = 2.0\\,\\mathrm{m/s}$."
       }
     ]
   },
@@ -1837,19 +1837,19 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
       "Superposition applies when the medium response is linear: total displacement is the algebraic sum of separate displacements at the same point and time.",
       "Constructive and destructive behavior is set by phase difference; complete cancellation requires equal amplitudes and opposite phases at the point considered.",
       "A standing wave can have zero average energy flux although each segment between nodes exchanges kinetic and potential energy.",
-      "A fixed string end requires zero displacement, so L = n lambda/2 and f_n = n v/(2L); another boundary type gives a different mode set."
+      "A fixed string end requires zero displacement, so $L = n \\lambda/2$ and $f_{\\mathrm{n}} = n v/(2L)$; another boundary type gives a different mode set."
     ],
     "boundary": "Linear superposition and ideal-string mode formulas require small transverse displacement, constant tension and linear density, fixed ideal boundaries, and weak loss; string stiffness and compliant supports shift the frequencies.",
     "example": {
       "title": "Modes of a stretched string",
-      "problem": "A 0.65 m string is fixed at both ends, held at tension 80 N, and has linear density 5.0e-3 kg/m. Find its first and third natural frequencies.",
+      "problem": "A 0.65 m string is fixed at both ends, held at tension 80 N, and has linear density $5.0 \\times 10^{-3}\\,\\mathrm{kg/m}$. Find its first and third natural frequencies.",
       "steps": [
-        "The transverse wave speed is v = sqrt(T/mu) = sqrt(80/0.005) = 126.5 m/s.",
-        "The fundamental is f1 = v/(2L) = 126.5/1.30 = 97.3 Hz.",
-        "For an ideal string, fn = n f1, so f3 = 292 Hz."
+        "The transverse wave speed is $v = \\sqrt{T/\\mu} = \\sqrt{80/0.005} = 126.5\\,\\mathrm{m/s}$.",
+        "The fundamental is $f_{1} = v/(2L) = 126.5/1.30 = 97.3\\,\\mathrm{Hz}$.",
+        "For an ideal string, $f_n=nf_1$, so $f_{3} = 292\\,\\mathrm{Hz}$."
       ],
-      "answer": "f1 is about 97 Hz and f3 is about 292 Hz.",
-      "check": "Three half-wavelengths fit along the string in the third mode; increasing tension raises every frequency as sqrt(T)."
+      "answer": "$f_1$ is about 97 Hz and $f_3$ is about 292 Hz.",
+      "check": "Three half-wavelengths fit along the string in the third mode; increasing tension raises every frequency as $\\sqrt T$."
     },
     "pitfall": "Destructive interference at one point does not mean energy vanished: it remains elsewhere or in another form if no absorption occurs.",
     "practice": [
@@ -1859,8 +1859,8 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
         "answer": "The support forbids transverse displacement, so incident and reflected waves must always sum to zero there."
       },
       {
-        "question": "How does f1 change if ideal-string tension is increased by a factor of 9?",
-        "hint": "f1 is proportional to sqrt(T).",
+        "question": "How does $f_1$ change if ideal-string tension is increased by a factor of 9?",
+        "hint": "$f_1$ is proportional to $\\sqrt T$.",
         "answer": "The fundamental frequency increases by a factor of 3."
       }
     ]
@@ -1870,24 +1870,24 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "question": "How does a harmonic spectrum explain signal shape, and why does a wave packet change shape in a dispersive medium?",
     "overview": [
       "A Fourier transform represents a suitable signal as a sum of sinusoids with different frequencies, amplitudes, and phases. A time representation shows when a signal changes, whereas a spectrum shows its frequency scales. A short pulse necessarily occupies a broad frequency range.",
-      "If the dispersion relation omega(k) is nonlinear, harmonic components propagate with different phase velocities. The phase of one component moves at v_ph = omega/k, while the maximum of a narrowband envelope moves approximately at v_g = d omega/dk. Variation of velocity across the band makes the packet spread."
+      "If the dispersion relation $\\omega(k)$ is nonlinear, harmonic components propagate with different phase velocities. The phase of one component moves at $v_{\\mathrm{ph}} = \\omega/k$, while the maximum of a narrowband envelope moves approximately at $v_{\\mathrm{g}} = d\\omega/dk$. Variation of velocity across the band makes the packet spread."
     ],
     "conceptExplanations": [
       "Harmonics form a basis for linear analysis: their sums reproduce periodic waveforms and, with a suitable continuous spectrum, localized pulses.",
       "A spectrum contains amplitude and phase at each frequency; its magnitude alone is not generally enough to reconstruct the time waveform.",
       "Phase velocity tracks a crest of one harmonic and group velocity tracks the slow envelope of a narrow frequency group; neither may be identified with information speed without checking conditions.",
-      "Curvature of omega(k) makes different spectrum components accumulate different phases, changing packet duration and shape even without absorption."
+      "Curvature of $\\omega(k)$ makes different spectrum components accumulate different phases, changing packet duration and shape even without absorption."
     ],
-    "boundary": "Interpreting v_g = d omega/dk as packet speed requires a narrow spectrum and slowly varying medium; near strong absorption or resonance, group velocity need not equal energy or signal-front velocity.",
+    "boundary": "Interpreting $v_{\\mathrm{g}} = d\\omega/dk$ as packet speed requires a narrow spectrum and slowly varying medium; near strong absorption or resonance, group velocity need not equal energy or signal-front velocity.",
     "example": {
       "title": "Phase and group velocities",
-      "problem": "In a model medium, dispersion is omega = a k^2 with a = 0.50 m^2/s. Find phase and group velocities at k0 = 4.0 1/m.",
+      "problem": "In a model medium, dispersion is $\\omega = a k^2$ with $a = 0.50\\,\\mathrm{m^2/s}$. Find phase and group velocities at $k_{0} = 4.0\\,\\mathrm{m^{-1}}$.",
       "steps": [
-        "Phase velocity is v_ph = omega/k = a k.",
-        "At k0 = 4.0 1/m, v_ph = 0.50 x 4.0 = 2.0 m/s.",
-        "Group velocity is v_g = d omega/dk = 2ak = 4.0 m/s."
+        "Phase velocity is $v_{\\mathrm{ph}} = \\omega/k = a k$.",
+        "At $k_{0} = 4.0\\,\\mathrm{m^{-1}}$, $v_{\\mathrm{ph}} = 0.50 \\times 4.0 = 2.0\\,\\mathrm{m/s}$.",
+        "Group velocity is $v_{\\mathrm{g}} = d\\omega/dk = 2ak = 4.0\\,\\mathrm{m/s}$."
       ],
-      "answer": "v_ph = 2.0 m/s and v_g = 4.0 m/s.",
+      "answer": "$v_{\\mathrm{ph}} = 2.0\\,\\mathrm{m/s}$ and $v_{\\mathrm{g}} = 4.0\\,\\mathrm{m/s}$.",
       "check": "a k has units m/s, and unequal velocities confirm dispersion."
     },
     "pitfall": "A large spectral amplitude does not reveal when that component occurred; time localization also requires phase and a specified observation window.",
@@ -1898,8 +1898,8 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
         "answer": "Localization comes from interference among many frequencies; the shorter the pulse scale, the broader the required bandwidth."
       },
       {
-        "question": "For the nondispersive relation omega = c k, find v_ph and v_g.",
-        "hint": "Divide omega by k and differentiate it with respect to k.",
+        "question": "For the nondispersive relation $\\omega = c k$, find $v_{\\mathrm{ph}}$ and $v_{\\mathrm g}$.",
+        "hint": "Divide $\\omega$ by k and differentiate it with respect to k.",
         "answer": "Both velocities equal c, so an ideal packet does not spread through dispersion."
       }
     ]
@@ -1923,12 +1923,12 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
       "title": "Doppler shift from a moving source",
       "problem": "A 680 Hz tone source moves directly toward a stationary observer at 20 m/s through still air. Sound speed is 343 m/s. Find the received frequency.",
       "steps": [
-        "During one period the source advances, shortening the forward wavelength to lambda_front = (c - v_s)/f.",
-        "The observer receives fronts at speed c, so f_obs = c/lambda_front = f c/(c - v_s).",
-        "Substitution gives f_obs = 680 x 343/323 = 722 Hz."
+        "During one period the source advances, shortening the forward wavelength to $\\lambda_{\\mathrm{front}} = (c - v_{\\mathrm{s}})/f$.",
+        "The observer receives fronts at speed c, so $f_{\\mathrm{obs}}=c/\\lambda_{\\mathrm{front}}=fc/(c-v_{\\mathrm s})$.",
+        "Substitution gives $f_{\\mathrm{obs}} = 680 \\times 343/323 = 722\\,\\mathrm{Hz}$."
       ],
       "answer": "The received frequency is approximately 722 Hz.",
-      "check": "Approach must raise frequency, and setting v_s = 0 returns 680 Hz."
+      "check": "Approach must raise frequency, and setting $v_{\\mathrm{s}} = 0$ returns 680 Hz."
     },
     "pitfall": "A decibel is a logarithmic level, not a unit of intensity; equal additions in decibels multiply an intensity ratio.",
     "practice": [
@@ -1938,9 +1938,9 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
         "answer": "Their fundamental pitch may agree, but harmonic amplitudes and phases, attack, and decay differ, producing distinct timbre."
       },
       {
-        "question": "An echo returns after 0.80 s with c = 340 m/s. How far away is the reflecting wall?",
+        "question": "An echo returns after 0.80 s with $c = 340\\,\\mathrm{m/s}$. How far away is the reflecting wall?",
         "hint": "During the measured time, sound travels to the wall and back.",
-        "answer": "d = ct/2 = 340 x 0.80/2 = 136 m."
+        "answer": "$d = ct/2 = 340 \\times 0.80/2 = 136\\,\\mathrm{m}$."
       }
     ]
   },
@@ -1962,9 +1962,9 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
       "title": "A constant-volume gas thermometer",
       "problem": "A dilute gas in a rigid vessel has pressure 100 kPa at 300 K. The amount of gas is fixed and remains in equilibrium. What pressure corresponds to 360 K in the ideal-gas model?",
       "steps": [
-        "For fixed N and V, pV = Nk_B T gives p/T = constant.",
-        "Write p2 = p1 T2/T1.",
-        "Then p2 = 100 kPa x 360/300 = 120 kPa."
+        "For fixed N and V, $pV=Nk_{\\mathrm B}T$ gives $p/T=\\mathrm{constant}$.",
+        "Write $p_{2} = p_{1}T_{2}/T_{1}$.",
+        "Then $p_{2} = 100\\,\\mathrm{kPa} \\times 360/300 = 120\\,\\mathrm{kPa}$."
       ],
       "answer": "The pressure is 120 kPa.",
       "check": "Temperature increased by 20%, so pressure at fixed volume and particle number also rose by 20%; absolute temperatures were used."
@@ -1978,8 +1978,8 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
       },
       {
         "question": "At fixed N and V, ideal-gas pressure rises from 90 to 105 kPa. Initial temperature is 270 K. Find the final temperature.",
-        "hint": "Use p1/T1 = p2/T2.",
-        "answer": "T2 = 270 x 105/90 = 315 K."
+        "hint": "Use $p_{1}/T_{1} = p_{2}/T_{2}$.",
+        "answer": "$T_{2} = 270 \\times 105/90 = 315\\,\\mathrm{K}$."
       }
     ]
   },
@@ -1988,39 +1988,39 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "question": "How do molecular collisions with a wall connect microscopic speeds to pressure and temperature of an ideal gas?",
     "overview": [
       "In the kinetic model, ideal-gas particles are small compared with their separations and interact only through elastic collisions. Changes of normal momentum in wall collisions produce pressure. Velocity isotropy connects the mean square of one component to mean-square speed.",
-      "In a classical gas, each quadratic translational degree of freedom carries mean energy k_B T/2, so mean translational kinetic energy is 3k_B T/2 per particle. Combining this with the mechanical pressure expression gives pV = Nk_B T. Internal rotational and vibrational modes require separate treatment and may be quantum mechanically frozen out."
+      "In a classical gas, each quadratic translational degree of freedom carries mean energy $k_{\\mathrm B}T/2$, so mean translational kinetic energy is $3k_{\\mathrm B}T/2$ per particle. Combining this with the mechanical pressure expression gives $pV=Nk_{\\mathrm B}T$. Internal rotational and vibrational modes require separate treatment and may be quantum mechanically frozen out."
     ],
     "conceptExplanations": [
       "Pressure is the mean normal momentum flux to a wall; more particles or a larger mean-square speed increase the rate and strength of impacts.",
-      "The value 3k_B T/2 concerns only three classical translational components and does not say that all particles have the same energy.",
+      "The value $3k_{\\mathrm B}T/2$ concerns only three classical translational components and does not say that all particles have the same energy.",
       "Rotation and vibration add heat-capacity contributions when their energy levels are accessible at the stated temperature; simple classical degree counting does not always work.",
-      "The equation pV = nRT = Nk_B T connects equilibrium macroscopic variables but does not itself specify the velocity distribution.",
+      "The equation $pV=nRT=Nk_{\\mathrm B}T$ connects equilibrium macroscopic variables but does not itself specify the velocity distribution.",
       "The model degrades at high density, with strong intermolecular interactions, near condensation, and in a quantum-degenerate regime."
     ],
     "boundary": "An ideal gas requires equilibrium, negligible particle volume, and weak interactions outside elastic collisions; the classical energy formula additionally requires nondegenerate statistics and accessible degrees of freedom.",
     "example": {
       "title": "Pressure and molecular energy",
-      "problem": "One mole of monatomic ideal gas is at T = 300 K in a volume of 24.6 L. Find pressure and mean translational kinetic energy per particle. Use R = 8.314 J/(mol K) and k_B = 1.380649e-23 J/K.",
+      "problem": "One mole of monatomic ideal gas is at $T = 300\\,\\mathrm{K}$ in a volume of 24.6 L. Find pressure and mean translational kinetic energy per particle. Use $R = 8.314$ J/(mol K) and $k_{\\mathrm{B}} = 1.380649 \\times 10^{-23}\\,\\mathrm{J/K}$.",
       "steps": [
-        "Convert volume: V = 2.46e-2 m^3.",
-        "From p = nRT/V, p = 8.314 x 300/0.0246 = 1.014e5 Pa.",
-        "Mean translational energy is 3k_B T/2.",
-        "Substitution gives 6.21e-21 J per particle."
+        "Convert volume: $V = 2.46 \\times 10^{-2}\\,\\mathrm{m^3}$.",
+        "From $p=nRT/V$, $p = 8.314 \\times 300/0.0246 = 1.014 \\times 10^{5}\\,\\mathrm{Pa}$.",
+        "Mean translational energy is $3k_{\\mathrm B}T/2$.",
+        "Substitution gives $6.21 \\times 10^{-21}\\,\\mathrm{J}$ per particle."
       ],
-      "answer": "p is approximately 101 kPa, and mean translational kinetic energy is 6.21e-21 J per particle.",
+      "answer": "$p$ is approximately $101\\,\\mathrm{kPa}$, and mean translational kinetic energy is $6.21 \\times 10^{-21}\\,\\mathrm{J}$ per particle.",
       "check": "A molar volume near 24.6 L at room temperature is consistent with pressure near one atmosphere."
     },
-    "pitfall": "Do not turn a mean energy into the claim that every molecule has energy 3k_B T/2; the speed distribution remains broad.",
+    "pitfall": "Do not turn a mean energy into the claim that every molecule has energy $3k_{\\mathrm B}T/2$; the speed distribution remains broad.",
     "practice": [
       {
         "question": "Why do lighter molecules move faster on average than heavier ones at equal temperature?",
-        "hint": "Relate characteristic translational energy to a quantity of order m v^2.",
+        "hint": "Relate characteristic translational energy to a quantity of order $mv^2$.",
         "answer": "Mean translational energy is fixed by temperature, so characteristic mean-square speed is inversely proportional to particle mass."
       },
       {
         "question": "How many moles of ideal gas occupy 0.050 m^3 at 200 kPa and 400 K?",
-        "hint": "Use n = pV/(RT).",
-        "answer": "n = 200000 x 0.050/(8.314 x 400), approximately 3.01 mol."
+        "hint": "Use $n=pV/(RT)$.",
+        "answer": "$n = 200000 \\times 0.050/(8.314 \\times 400)$, approximately 3.01 mol."
       }
     ]
   },
@@ -2029,25 +2029,25 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "question": "Why does randomness of individual motion still allow precise predictions of distributions, averages, and diffusion scales?",
     "overview": [
       "Collisions continually redistribute energy among molecules, so equal temperature does not mean equal speed. The equilibrium Maxwell speed distribution contains many slow particles, a maximum at an intermediate speed, and a decaying high-speed tail. Heating increases characteristic speeds and broadens the distribution.",
-      "Macroscopic averages are stable because particle number is large, while relative fluctuations usually fall approximately as 1/sqrt(N) for weakly correlated contributions. A random walk has zero mean displacement but a nonzero mean-square displacement; in ordinary diffusion, that quantity grows linearly with time."
+      "Macroscopic averages are stable because particle number is large, while relative fluctuations usually fall approximately as $1/\\sqrt N$ for weakly correlated contributions. A random walk has zero mean displacement but a nonzero mean-square displacement; in ordinary diffusion, that quantity grows linearly with time."
     ],
     "conceptExplanations": [
       "Elastic collisions conserve total energy while changing individual particle energies, so equilibrium specifies a probability distribution rather than one speed.",
       "The speed distribution depends on temperature and mass: raising T moves characteristic speeds upward, while raising mass at equal T moves them downward.",
       "A mean describes the statistical center, whereas a fluctuation is the departure of one measurement; relative variations are more visible in a small subsystem.",
-      "For independent steps, random directions cancel mean displacement while variances add, so rms distance grows as sqrt(N), not N."
+      "For independent steps, random directions cancel mean displacement while variances add, so rms distance grows as $\\sqrt N$, not N."
     ],
     "boundary": "Normal random-walk diffusion assumes finite step variance, weak correlations, and a homogeneous medium; directed drift, trapping, long memory, or heavy-tailed steps may produce anomalous diffusion.",
     "example": {
       "title": "Scale of a random walk",
-      "problem": "A particle takes independent one-dimensional steps of length 1.0 micrometer to the right or left with equal probability. Find mean displacement and rms distance after 10000 steps.",
+      "problem": "A particle takes independent one-dimensional steps of length $1.0\\,\\mu\\mathrm{m}$ to the right or left with equal probability. Find mean displacement and rms distance after 10000 steps.",
       "steps": [
-        "Directional symmetry gives mean displacement <x> = 0.",
-        "For independent steps, <x^2> = N l^2.",
-        "Thus x_rms = l sqrt(N) = 1.0 micrometer x 100 = 100 micrometers."
+        "Directional symmetry gives mean displacement $\\langle x\\rangle = 0$.",
+        "For independent steps, $\\langle x^2\\rangle = N l^2$.",
+        "Thus $x_{\\mathrm{rms}} = l \\sqrt{N} = 1.0\\,\\mu\\mathrm{m} \\times 100 = 100\\,\\mu\\mathrm{m}$."
       ],
-      "answer": "Mean displacement is zero, while x_rms = 100 micrometers.",
-      "check": "The straight-line path length would be 10 mm; random reversal reduces typical net displacement to the sqrt(N) scale."
+      "answer": "Mean displacement is zero, while $x_{\\mathrm{rms}} = 100\\,\\mu\\mathrm{m}$.",
+      "check": "The straight-line path length would be 10 mm; random reversal reduces typical net displacement to the $\\sqrt N$ scale."
     },
     "pitfall": "Zero mean displacement does not mean the particle remains near the origin; the distribution width continues to grow.",
     "practice": [
@@ -2058,7 +2058,7 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
       },
       {
         "question": "By what factor does random-walk rms displacement change if the number of independent steps increases ninefold?",
-        "hint": "x_rms is proportional to sqrt(N).",
+        "hint": "$x_{\\mathrm{rms}}$ is proportional to $\\sqrt N$.",
         "answer": "It increases by a factor of 3."
       }
     ]
@@ -2068,39 +2068,39 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "question": "How can we balance system energy unambiguously while distinguishing stored internal energy from transfer mechanisms?",
     "overview": [
       "Internal energy U contains microscopic kinetic and potential contributions within the chosen system and is a state function. Heat Q and work W characterize transfers across its boundary, so a system does not contain an amount of heat or work. Their values depend on the path between states.",
-      "Adopt the convention Q positive into the system and W positive when done by the system on its surroundings. Then Delta U = Q - W_total. For a simple compressible body, boundary work is the integral of p_ext dV; it equals total work only when electrical, chemical, surface, and other work channels are absent."
+      "Adopt the convention Q positive into the system and W positive when done by the system on its surroundings. Then $\\Delta U = Q - W_{\\mathrm{total}}$. For a simple compressible body, boundary work is the integral of $p_{\\mathrm{ext}}\\,dV$; it equals total work only when electrical, chemical, surface, and other work channels are absent."
     ],
     "conceptExplanations": [
       "The change in U is determined only by initial and final equilibrium states, although the division of transferred energy into Q and W depends on process.",
       "Heat transfer is driven by temperature difference, while work is organized transfer through a generalized force and displacement; after crossing the boundary, energy belongs to U or macroscopic energy.",
       "With this convention, heat input raises the balance and positive work by the system lowers it; another convention changes the sign before W together with its definition.",
-      "W_total sums every work mode, whereas the pV term accounts only for motion of a mechanical boundary against external pressure.",
-      "Area under p_ext(V) has units Pa m^3 = J and gives all work only if no other work coordinates are present.",
-      "For example, C_V describes heating at fixed volume with no pV work, while C_p includes energy needed for expansion at fixed pressure."
+      "$W_{\\mathrm{total}}$ sums every work mode, whereas the pV term accounts only for motion of a mechanical boundary against external pressure.",
+      "Area under $p_{\\mathrm{ext}}(V)$ has units $Pa m^3 = J$ and gives all work only if no other work coordinates are present.",
+      "For example, $C_V$ describes heating at fixed volume with no pV work, while $C_p$ includes energy needed for expansion at fixed pressure."
     ],
-    "boundary": "The balance requires a declared system and sign convention; W_pV = integral p_ext dV assumes a simple moving boundary and external pressure, while using system pressure along the path additionally requires quasistatic mechanical equilibrium.",
+    "boundary": "The balance requires a declared system and sign convention; $W_{\\mathrm{pV}} = \\int p_{\\mathrm{ext}} dV$ assumes a simple moving boundary and external pressure, while using system pressure along the path additionally requires quasistatic mechanical equilibrium.",
     "example": {
       "title": "Heating an expanding gas",
-      "problem": "A closed gas absorbs Q = 2.20 kJ and expands by 0.0100 m^3 against constant external pressure 150 kPa. No other work occurs. Find W and Delta U with W positive when done by the system.",
+      "problem": "A closed gas absorbs $Q = 2.20$ kJ and expands by 0.0100 m^3 against constant external pressure 150 kPa. No other work occurs. Find W and $\\Delta U$ with W positive when done by the system.",
       "steps": [
-        "Boundary work is W = p_ext Delta V = 150000 x 0.0100 = 1500 J.",
+        "Boundary work is $W = p_{\\mathrm{ext}} \\Delta V = 150000 \\times 0.0100 = 1500\\,\\mathrm{J}$.",
         "Because the gas expands, work by the system is positive.",
-        "The first law gives Delta U = Q - W = 2200 - 1500 = 700 J."
+        "The first law gives $\\Delta U = Q - W = 2200 - 1500 = 700\\,\\mathrm{J}$."
       ],
-      "answer": "W = +1.50 kJ and Delta U = +0.70 kJ.",
+      "answer": "$W = +1.50$ kJ and $\\Delta U = +0.70$ kJ.",
       "check": "The 2.20 kJ input splits into 1.50 kJ of work and a 0.70 kJ increase in internal energy."
     },
     "pitfall": "Do not say that a body 'contains heat': heat denotes energy crossing a boundary because of temperature difference, while internal energy describes storage.",
     "practice": [
       {
-        "question": "Why do Q and W depend on path while Delta U does not?",
+        "question": "Why do Q and W depend on path while $\\Delta U$ does not?",
         "hint": "Compare two processes between identical states with different pV paths.",
         "answer": "U is fixed by states, but work area and required heat transfer can differ; the first law preserves the same difference Q - W."
       },
       {
-        "question": "A system receives 500 J as heat, and an external force does 120 J of work on it. Find Delta U under this convention.",
-        "hint": "Work on the system means W_by_system = -120 J.",
-        "answer": "Delta U = 500 - (-120) = 620 J."
+        "question": "A system receives 500 J as heat, and an external force does 120 J of work on it. Find $\\Delta U$ under this convention.",
+        "hint": "Work on the system means $W_{\\mathrm{by\\,system}}=-120\\,\\mathrm J$.",
+        "answer": "$\\Delta U = 500 - (-120) = 620\\,\\mathrm{J}$."
       }
     ]
   },
@@ -2108,7 +2108,7 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "8.5",
     "question": "Where does transferred energy go when temperature, phase, and heat-transfer mechanism change?",
     "overview": [
-      "Within one phase and over a modest interval, heat is often estimated as Q = mc Delta T, where c depends on substance and process conditions. During an equilibrium first-order phase transition, energy changes structure and intermolecular binding, so temperature can remain constant while Q = mL.",
+      "Within one phase and over a modest interval, heat is often estimated as $Q = mc\\Delta T$, where c depends on substance and process conditions. During an equilibrium first-order phase transition, energy changes structure and intermolecular binding, so temperature can remain constant while $Q=mL$.",
       "A phase diagram identifies the stable phase as a function of variables, commonly T and p, and marks coexistence lines. Energy moves by conduction through microscopic interactions, by convection with moving matter, and by electromagnetic radiation; real problems often combine all three."
     ],
     "conceptExplanations": [
@@ -2117,17 +2117,17 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
       "A phase-diagram line marks phase coexistence, a triple point marks three-phase coexistence, and a critical point terminates the liquid-gas distinction.",
       "Conduction requires a temperature gradient, convection carries enthalpy with moving matter, and radiation can cross a vacuum."
     ],
-    "boundary": "The formulas Q = mc Delta T and Q = mL use tabulated equilibrium properties at stated pressure and assume a nearly uniform body temperature; rapid heating, chemical reaction, variable c, or a nonequilibrium transition requires integration and transport modeling.",
+    "boundary": "The formulas $Q = mc\\Delta T$ and $Q=mL$ use tabulated equilibrium properties at stated pressure and assume a nearly uniform body temperature; rapid heating, chemical reaction, variable c, or a nonequilibrium transition requires integration and transport modeling.",
     "example": {
       "title": "Melting and then warming ice",
-      "problem": "Convert 0.200 kg of ice at 0 degrees C into water at 20 degrees C. Take L_f = 334 kJ/kg and c_water = 4.18 kJ/(kg K). Neglect loss.",
+      "problem": "Convert 0.200 kg of ice at 0 degrees C into water at 20 degrees C. Take $L_{\\mathrm{f}} = 334$ kJ/kg and $c_{\\mathrm{water}} = 4.18$ kJ/(kg K). Neglect loss.",
       "steps": [
-        "Melting requires Q1 = mL_f = 0.200 x 334 = 66.8 kJ.",
-        "Warming the water requires Q2 = mc Delta T = 0.200 x 4.18 x 20 = 16.72 kJ.",
-        "Total energy is Q = Q1 + Q2 = 83.52 kJ."
+        "Melting requires $Q_{1} = mL_{\\mathrm{f}} = 0.200 \\times 334 = 66.8$ kJ.",
+        "Warming the water requires $Q_2=mc\\Delta T=0.200\\times4.18\\times20=16.72\\,\\mathrm{kJ}$.",
+        "Total energy is $Q = Q_{1} + Q_{2} = 83.52$ kJ."
       ],
       "answer": "Approximately 83.5 kJ is required.",
-      "check": "Most energy went into the phase transition; treating the entire process with one mc Delta T expression would be wrong."
+      "check": "Most energy went into the phase transition; treating the entire process with one $mc\\Delta T$ expression would be wrong."
     },
     "pitfall": "Constant temperature during melting does not mean that no energy is transferred; the energy changes phase rather than temperature.",
     "practice": [
@@ -2137,9 +2137,9 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
         "answer": "Without a medium, gas conduction and convection nearly vanish, but bodies still exchange electromagnetic thermal radiation."
       },
       {
-        "question": "How much energy heats 0.50 kg of water by 10 K if c = 4.18 kJ/(kg K)?",
-        "hint": "Use Q = mc Delta T.",
-        "answer": "Q = 0.50 x 4.18 x 10 = 20.9 kJ."
+        "question": "How much energy heats 0.50 kg of water by 10 K if $c = 4.18$ kJ/(kg K)?",
+        "hint": "Use $Q = mc\\Delta T$.",
+        "answer": "$Q = 0.50 \\times 4.18 \\times 10 = 20.9$ kJ."
       }
     ]
   },
@@ -2148,28 +2148,28 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "question": "How does a path on a state diagram determine work and heat even though internal-energy change is fixed only by its endpoints?",
     "overview": [
       "Isochoric, isobaric, isothermal, and adiabatic processes impose different constraints: fixed V, p, T, or no heat transfer, respectively. They are not interchangeable. A quasistatic process passes through a sequence of near-equilibrium states, allowing system pressure and temperature to be defined at each step.",
-      "On a pV diagram, boundary work by the system is the oriented area under a path when the pressure used for work is appropriate. Over a complete cycle U returns to its initial value, so Delta U_cycle = 0 and net heat equals net work under the chosen convention. An irreversible real path may not possess one well-defined internal pV curve."
+      "On a pV diagram, boundary work by the system is the oriented area under a path when the pressure used for work is appropriate. Over a complete cycle U returns to its initial value, so $\\Delta U_{\\mathrm{cycle}} = 0$ and net heat equals net work under the chosen convention. An irreversible real path may not possess one well-defined internal pV curve."
     ],
     "conceptExplanations": [
-      "Isothermal does not mean Q = 0, and adiabatic does not mean Delta T = 0; the constraints are related through the first law and equation of state.",
+      "Isothermal does not mean $Q = 0$, and adiabatic does not mean $\\Delta T = 0$; the constraints are related through the first law and equation of state.",
       "Quasistatic change requires relaxation much faster than external driving; it does not by itself guarantee reversibility when friction or a finite temperature gradient is present.",
       "A closed loop has oriented area: clockwise traversal usually corresponds to positive net pV work by the system.",
-      "Each leg separately obeys Delta U = Q - W, and the sums over a cycle must give zero change for every state function.",
+      "Each leg separately obeys $\\Delta U = Q - W$, and the sums over a cycle must give zero change for every state function.",
       "Idealizations make a path calculable, while real processes include finite pressure and temperature differences, viscosity, leakage, and dissipation."
     ],
     "boundary": "Equilibrium pV paths and tabulated heat capacities apply to quasistatic states of a simple compressible system; during rapid irreversible expansion, system pressure may be nonuniform and work must be computed from boundary external pressure.",
     "example": {
       "title": "Isobaric heating of a monatomic ideal gas",
-      "problem": "One mole of monatomic ideal gas is heated quasistatically at constant pressure from 300 to 450 K. No other work occurs. Find W, Delta U, and Q using R = 8.314 J/(mol K) and W positive when done by the gas.",
+      "problem": "One mole of monatomic ideal gas is heated quasistatically at constant pressure from 300 to 450 K. No other work occurs. Find W, $\\Delta U$, and Q using $R = 8.314$ J/(mol K) and W positive when done by the gas.",
       "steps": [
-        "At constant p for an ideal gas, W = p Delta V = nR Delta T = 1.247 kJ.",
-        "For a monatomic ideal gas, Delta U = 3nR Delta T/2 = 1.871 kJ.",
-        "The first law gives Q = Delta U + W = 3.118 kJ."
+        "At constant $p$ for an ideal gas, $W = p\\,\\Delta V = nR\\,\\Delta T = 1.247\\,\\mathrm{kJ}$.",
+        "For a monatomic ideal gas, $\\Delta U=3nR\\Delta T/2=1.871\\,\\mathrm{kJ}$.",
+        "The first law gives $Q = \\Delta U + W = 3.118$ kJ."
       ],
-      "answer": "W = 1.25 kJ, Delta U = 1.87 kJ, and Q = 3.12 kJ.",
-      "check": "Q exceeds Delta U because part of the supplied energy became positive expansion work."
+      "answer": "$W = 1.25$ kJ, $\\Delta U = 1.87$ kJ, and $Q = 3.12$ kJ.",
+      "check": "Q exceeds $\\Delta U$ because part of the supplied energy became positive expansion work."
     },
-    "pitfall": "An adiabatic process need not be isothermal: with Q = 0, work usually changes internal energy and temperature.",
+    "pitfall": "An adiabatic process need not be isothermal: with $Q = 0$, work usually changes internal energy and temperature.",
     "practice": [
       {
         "question": "Can a quasistatic process be irreversible?",
@@ -2178,8 +2178,8 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
       },
       {
         "question": "A gas completes a cycle and does 400 J of net work. Find the net heat received by the gas under this chapter's convention.",
-        "hint": "For a cycle, Delta U = 0.",
-        "answer": "From 0 = Q - W, Q = +400 J."
+        "hint": "For a cycle, $\\Delta U = 0$.",
+        "answer": "From $0 = Q - W$, $Q = +400\\,\\mathrm{J}$."
       }
     ]
   },
@@ -2187,28 +2187,28 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "8.7",
     "question": "How does the number of compatible microstates explain equilibrium, irreversibility, and local entropy decrease?",
     "overview": [
-      "A macrostate is fixed by a few measured variables, whereas a microstate specifies all microscopic degrees of freedom. Equilibrium is overwhelmingly likely because it usually corresponds to most accessible microstates. For Omega equiprobable states, S = k_B ln(Omega); for discrete probabilities, S_G = -k_B sum p_i ln(p_i).",
-      "Thermodynamic entropy change between equilibrium states can be computed along an auxiliary reversible path: Delta S = integral(delta Q_rev/T). The second law requires nondecrease of total entropy for an isolated system. Entropy of a selected subsystem can fall if entropy transfer to the surroundings and entropy production are included in the full balance."
+      "A macrostate is fixed by a few measured variables, whereas a microstate specifies all microscopic degrees of freedom. Equilibrium is overwhelmingly likely because it usually corresponds to most accessible microstates. For $\\Omega$ equiprobable states, $S = k_{\\mathrm{B}}\\ln\\Omega$; for discrete probabilities, $S_{\\mathrm{G}} = -k_{\\mathrm{B}}\\sum_i p_i\\ln p_i$.",
+      "Thermodynamic entropy change between equilibrium states can be computed along an auxiliary reversible path: $\\Delta S = \\int \\delta Q_{\\mathrm{rev}}/T$. The second law requires nondecrease of total entropy for an isolated system. Entropy of a selected subsystem can fall if entropy transfer to the surroundings and entropy production are included in the full balance."
     ],
     "conceptExplanations": [
       "Many different particle positions and momenta give the same p, V, and T; entropy connects macroscopic description to the multiplicity of these realizations.",
       "A fluctuation away from equilibrium is possible, but in a macroscopic system the fraction of corresponding microstates is ordinarily extraordinarily small.",
       "The logarithm makes entropy additive for independent systems because joint microstate counts multiply while their logarithms add.",
-      "For an isolated system, a spontaneous process has Delta S_total >= 0; equality describes the ideal reversible limit.",
+      "For an isolated system, a spontaneous process has $\\Delta S_{\\mathrm{total}} \\ge 0$; equality describes the ideal reversible limit.",
       "The macroscopic arrow of time appears because evolution from a rare state almost always enters a vastly larger set of equilibrium microstates.",
       "A refrigerator lowers entropy inside its cabinet, but input work and rejected heat raise surroundings entropy by at least as much."
     ],
-    "boundary": "S = k_B ln(Omega) requires an equiprobable set, while -k_B sum p_i ln p_i requires normalized discrete classical probabilities; continuous and quantum systems require a suitably refined measure and definition.",
+    "boundary": "$S = k_{\\mathrm{B}}\\ln\\Omega$ requires an equiprobable set, while $-k_{\\mathrm{B}}\\sum_i p_i\\ln p_i$ requires normalized discrete classical probabilities; continuous and quantum systems require a suitably refined measure and definition.",
     "example": {
       "title": "Entropy of free expansion",
       "problem": "One mole of ideal gas freely expands inside an isolated vessel from volume V to 2V. Find the gas entropy change.",
       "steps": [
-        "The real process is irreversible with Q = 0 and W = 0, but Delta S is a state-function change and may be evaluated on a reversible isothermal path between the same states.",
-        "Along that path, delta Q_rev = nRT dV/V, so Delta S = nR integral(dV/V).",
-        "Thus Delta S = nR ln(2) = 8.314 x 0.693 = 5.76 J/K."
+        "The real process is irreversible with $Q = 0$ and $W = 0$, but $\\Delta S$ is a state-function change and may be evaluated on a reversible isothermal path between the same states.",
+        "Along that path, $\\delta Q_{\\mathrm{rev}} = nRT\\,dV/V$, so $\\Delta S = nR\\int dV/V$.",
+        "Thus $\\Delta S = nR\\ln 2 = 8.314 \\times 0.693 = 5.76\\,\\mathrm{J/K}$."
       ],
       "answer": "The gas entropy increases by 5.76 J/K.",
-      "check": "The isolated gas gained accessible volume, increasing its microstate count and entropy despite Q = 0 on the real path."
+      "check": "The isolated gas gained accessible volume, increasing its microstate count and entropy despite $Q = 0$ on the real path."
     },
     "pitfall": "The entropy integral uses reversible heat on an auxiliary path; inserting actual irreversible-process heat, such as zero in free expansion, gives a wrong result.",
     "practice": [
@@ -2218,9 +2218,9 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
         "answer": "No. Crystal entropy decrease is offset by an equal or larger surroundings increase; the law applies to the complete isolated composite."
       },
       {
-        "question": "How does entropy change if equiprobable microstates increase from Omega to 4Omega?",
-        "hint": "Subtract k_B ln(Omega) from k_B ln(4Omega).",
-        "answer": "Delta S = k_B ln 4 = 2 k_B ln 2."
+        "question": "How does entropy change if equiprobable microstates increase from $\\Omega$ to $4\\Omega$?",
+        "hint": "Subtract $k_{\\mathrm{B}}\\ln\\Omega$ from $k_{\\mathrm{B}}\\ln(4\\Omega)$.",
+        "answer": "$\\Delta S = k_{\\mathrm{B}} \\ln 4 = 2 k_{\\mathrm{B}} \\ln 2$."
       }
     ]
   },
@@ -2228,29 +2228,29 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "8.8",
     "question": "What limits does the second law place on converting heat into work, and which energy function is minimized under stated constraints?",
     "overview": [
-      "A heat engine receives Q_h from a hot reservoir, delivers work W, and rejects Q_c to a cold reservoir. A refrigerator uses work to move heat against its spontaneous direction, while a heat pump is rated by heat delivered to the warm side. Efficiency and coefficient of performance have different definitions and must not be confused.",
-      "A reversible Carnot cycle sets the upper bound eta_C = 1 - T_c/T_h for an engine between two reservoirs. Free energies express related balances under other constraints: for a closed system at fixed T,V without non-pV work, Delta F <= 0; at fixed T,p under the corresponding restrictions, Delta G <= 0."
+      "A heat engine receives $Q_{\\mathrm h}$ from a hot reservoir, delivers work W, and rejects $Q_{\\mathrm c}$ to a cold reservoir. A refrigerator uses work to move heat against its spontaneous direction, while a heat pump is rated by heat delivered to the warm side. Efficiency and coefficient of performance have different definitions and must not be confused.",
+      "A reversible Carnot cycle sets the upper bound $\\eta_{\\mathrm{C}} = 1 - T_{\\mathrm{c}}/T_{\\mathrm{h}}$ for an engine between two reservoirs. Free energies express related balances under other constraints: for a closed system at fixed T,V without non-pV work, $\\Delta F \\le 0$; at fixed T,p under the corresponding restrictions, $\\Delta G \\le 0$."
     ],
     "conceptExplanations": [
-      "An engine delivers W = Q_h - Q_c, a refrigerator has COP_R = Q_cold/W, and a heat pump has COP_HP = Q_hot/W; either COP may exceed one without violating energy conservation.",
-      "Efficiency eta = W/Q_h is bounded by one, whereas refrigerator COP compares moved heat with work and therefore has a different range.",
+      "An engine delivers $W = Q_{\\mathrm h}-Q_{\\mathrm c}$, a refrigerator has $\\mathrm{COP}_{\\mathrm R}=Q_{\\mathrm{cold}}/W$, and a heat pump has $\\mathrm{COP}_{\\mathrm{HP}}=Q_{\\mathrm{hot}}/W$; either COP may exceed one without violating energy conservation.",
+      "Efficiency $\\eta = W/Q_{\\mathrm{h}}$ is bounded by one, whereas refrigerator COP compares moved heat with work and therefore has a different range.",
       "Carnot reaches the bound only in a reversible cycle with constant-temperature reservoirs; finite temperature differences and friction produce entropy and lower performance.",
-      "F = U - TS accounts for exchange with a thermostat; at fixed T,V, its decrease constrains useful work available under the stated conditions.",
-      "G = H - TS is useful at fixed T,p; Delta G <= 0 is a criterion under those constraints, not for every process."
+      "$F = U-TS$ accounts for exchange with a thermostat; at fixed $T,V$, its decrease constrains useful work available under the stated conditions.",
+      "$G = H-TS$ is useful at fixed $T,p$; $\\Delta G\\le 0$ is a criterion under those constraints, not for every process."
     ],
     "boundary": "The Carnot bound assumes two ideal reservoirs and a cyclic device, while F and G criteria require a closed system, fixed T,V or T,p respectively, and no non-pV work; outside those conditions use another potential and the complete balance.",
     "example": {
       "title": "Carnot engine bound",
       "problem": "An engine operates between 600 K and 300 K reservoirs and receives 1.00 kJ per cycle from the hot reservoir. Find maximum efficiency and work and minimum heat rejected to the cold reservoir.",
       "steps": [
-        "The bound is eta_C = 1 - T_c/T_h = 1 - 300/600 = 0.50.",
-        "Maximum work is W_max = eta_C Q_h = 0.50 kJ.",
-        "Energy conservation gives Q_c,min = Q_h - W_max = 0.50 kJ."
+        "The bound is $\\eta_{\\mathrm{C}} = 1 - T_{\\mathrm{c}}/T_{\\mathrm{h}} = 1 - 300/600 = 0.50$.",
+        "Maximum work is $W_{\\mathrm{max}} = \\eta_{\\mathrm{C}} Q_{\\mathrm{h}} = 0.50$ kJ.",
+        "Energy conservation gives $Q_{\\mathrm{c,min}} = Q_{\\mathrm{h}} - W_{\\mathrm{max}} = 0.50$ kJ."
       ],
-      "answer": "eta_max = 50%, W_max = 0.50 kJ, and Q_c,min = 0.50 kJ per cycle.",
+      "answer": "$\\eta_{\\mathrm{max}} = 50\\%$, $W_{\\mathrm{max}} = 0.50\\,\\mathrm{kJ}$, and $Q_{\\mathrm{c,min}} = 0.50\\,\\mathrm{kJ}$ per cycle.",
       "check": "Even a reversible engine must reject some heat to the cold reservoir; 100% is incompatible with the second law here."
     },
-    "pitfall": "Do not apply Delta G < 0 to an isolated system at arbitrary T and p; the criterion is derived for specific fixed external conditions.",
+    "pitfall": "Do not apply $\\Delta G<0$ to an isolated system at arbitrary T and p; the criterion is derived for specific fixed external conditions.",
     "practice": [
       {
         "question": "Why can a refrigerator COP equal 3 without implying 300% efficiency?",
@@ -2259,8 +2259,8 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
       },
       {
         "question": "What is the maximum engine efficiency between 500 K and 300 K?",
-        "hint": "Use absolute temperatures in eta_C = 1 - T_c/T_h.",
-        "answer": "eta_C = 1 - 300/500 = 0.40, or 40%."
+        "hint": "Use absolute temperatures in $\\eta_{\\mathrm{C}} = 1 - T_{\\mathrm{c}}/T_{\\mathrm{h}}$.",
+        "answer": "$\\eta_{\\mathrm{C}} = 1 - 300/500 = 0.40$, or 40%."
       }
     ]
   },
@@ -2273,18 +2273,18 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     ],
     "conceptExplanations": [
       "The labels positive and negative are conventional, but relative sign is measurable because it determines force direction and contribution to total charge.",
-      "Local charge continuity connects change inside a volume to current through its surface; quantization gives Q = n e for an isolated collection of ordinary carriers.",
+      "Local charge continuity connects change inside a volume to current through its surface; quantization gives $Q = n e$ for an isolated collection of ordinary carriers.",
       "A conductor has carriers able to move macroscopically, whereas a dielectric responds mainly through small displacement of bound positive and negative charge.",
       "A charged object can separate charges in a neutral conductor without contact; grounding lets carriers enter or leave, and disconnection order determines residual charge."
     ],
     "boundary": "Charge conservation is fundamental, but a simple picture of point electrons and linear polarization does not describe breakdown, electrochemistry, strong-field ionization, or frequency-dependent material response.",
     "example": {
       "title": "Counting transferred electrons",
-      "problem": "A small body acquires charge Q = -3.204e-16 C. How many excess electrons did it receive? Use e = 1.602e-19 C.",
+      "problem": "A small body acquires charge $Q = -3.204 \\times 10^{-16}\\,\\mathrm{C}$. How many excess electrons did it receive? Use $e = 1.602 \\times 10^{-19}\\,\\mathrm{C}$.",
       "steps": [
         "The negative sign denotes excess electrons, each carrying -e.",
-        "Carrier count is N = |Q|/e.",
-        "N = 3.204e-16 / 1.602e-19 = 2000."
+        "Carrier count is $N = |Q|/e$.",
+        "$N = \\frac{3.204 \\times 10^{-16}}{1.602 \\times 10^{-19}} = 2000$."
       ],
       "answer": "The body received 2000 excess electrons.",
       "check": "N is dimensionless and integral; total electron charge -Ne reproduces Q."
@@ -2297,9 +2297,9 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
         "answer": "The field polarizes the dielectric; nearer opposite bound charge feels a larger force than farther like charge, producing net attraction."
       },
       {
-        "question": "What is the charge after 5.0e6 electrons are removed from a body?",
-        "hint": "Removing negative charge leaves positive charge; Q = Ne.",
-        "answer": "Q = +5.0e6 x 1.602e-19 C = +8.01e-13 C."
+        "question": "What is the charge after $5.0 \\times 10^{6}$ electrons are removed from a body?",
+        "hint": "Removing negative charge leaves positive charge; $Q=Ne$.",
+        "answer": "$Q = +5.0 \\times 10^{6} \\times 1.602 \\times 10^{-19}\\,\\mathrm{C} = +8.01 \\times 10^{-13}\\,\\mathrm{C}$."
       }
     ]
   },
@@ -2307,11 +2307,11 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "9.2",
     "question": "How can a charge distribution determine local electric field without treating field lines as physical objects?",
     "overview": [
-      "Coulomb's law gives the vacuum force between stationary point charges: magnitude falls as 1/r^2 and direction lies along their separation. Vector form automatically handles signs and direction. With several sources, forces and fields add vectorially by superposition.",
-      "Electric field E is force per unit positive test charge in the limit that the probe does not disturb the sources: F = q_test E. Field lines encode only tangent direction and qualitative density; their count and placement are chosen by the illustrator, the lines do not move, and they cannot cross where field direction is unique."
+      "Coulomb's law gives the vacuum force between stationary point charges: magnitude falls as $1/r^2$ and direction lies along their separation. Vector form automatically handles signs and direction. With several sources, forces and fields add vectorially by superposition.",
+      "Electric field E is force per unit positive test charge in the limit that the probe does not disturb the sources: $F = q_{\\mathrm{test}} E$. Field lines encode only tangent direction and qualitative density; their count and placement are chosen by the illustrator, the lines do not move, and they cannot cross where field direction is unique."
     ],
     "conceptExplanations": [
-      "A point source q produces E = k q r_vector/r^3; the singularity at r = 0 marks an idealization limit rather than an infinite measurable field inside a real extended body.",
+      "A point source q produces $\\mathbf E = kq\\,\\mathbf r/r^3$; the singularity at $r = 0$ marks an idealization limit rather than an infinite measurable field inside a real extended body.",
       "Each source contribution is evaluated independently in an unchanged linear medium and components are summed; magnitudes can be added only for aligned vectors.",
       "E has units N/C or V/m; field depends on sources and position, whereas force also depends on the probe charge.",
       "Denser drawn lines conventionally indicate stronger field, but the drawing does not define exact magnitude or literal connections between charges."
@@ -2319,13 +2319,13 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "boundary": "The direct Coulomb formula applies to stationary point charges in vacuum; extended charge requires integration, matter requires polarization, and rapidly changing sources require retarded electromagnetic fields.",
     "example": {
       "title": "Field at the center of an electric dipole",
-      "problem": "Charges +2.0 nC and -2.0 nC lie on the x-axis at -0.10 m and +0.10 m. Find the field at the origin; k = 8.99e9 N m^2/C^2.",
+      "problem": "Charges +2.0 nC and -2.0 nC lie on the x-axis at -0.10 m and +0.10 m. Find the field at the origin; $k = 8.99 \\times 10^{9}\\,\\mathrm{N m^2/C^2}$.",
       "steps": [
         "The positive charge field at the center points right, away from its source.",
-        "The negative charge field also points right, toward its source; both magnitudes are k|q|/r^2.",
-        "E = 2k|q|/r^2 = 2 x 8.99e9 x 2.0e-9 / 0.10^2 = 3.60e3 N/C."
+        "The negative charge field also points right, toward its source; both magnitudes are $k|q|/r^2$.",
+        "$E = 2k|q|/r^2 = 2 \\times 8.99 \\times 10^{9} \\times 2.0 \\times 10^{-9} / 0.10^2 = 3.60 \\times 10^{3}\\,\\mathrm{N/C}$."
       ],
-      "answer": "E = 3.60 kN/C along +x, from the positive charge toward the negative one.",
+      "answer": "$E = 3.60\\,\\mathrm{kN/C}$ along +x, from the positive charge toward the negative one.",
       "check": "The contributions reinforce rather than cancel because both arrows point the same way at the midpoint."
     },
     "pitfall": "Zero net charge does not imply zero field everywhere: a dipole's far field falls faster than a monopole field but remains nonzero.",
@@ -2333,12 +2333,12 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
       {
         "question": "Can two field lines cross where E is nonzero?",
         "hint": "A vector at one point has one direction.",
-        "answer": "No. A crossing would assign two tangent directions to one vector; at E = 0 the direction is simply undefined."
+        "answer": "No. A crossing would assign two tangent directions to one vector; at $E = 0$ the direction is simply undefined."
       },
       {
         "question": "What is the field magnitude 0.30 m from a +1.0 nC point charge in vacuum?",
-        "hint": "Use E = kq/r^2.",
-        "answer": "E = 8.99e9 x 1.0e-9 / 0.30^2, approximately 100 N/C."
+        "hint": "Use $E=kq/r^2$.",
+        "answer": "$E = 8.99 \\times 10^{9} \\times 1.0 \\times 10^{-9} / 0.30^2$, approximately 100 N/C."
       }
     ]
   },
@@ -2346,12 +2346,12 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "9.3",
     "question": "Why does Gauss's law always connect flux with charge yet determine field directly only under strong symmetry?",
     "overview": [
-      "Electric flux through an oriented surface is the integral of E dot dA and counts only normal field. Its sign follows the selected normal. For a closed surface, Gauss's law states that total flux is Q_inside/epsilon0, independent of surface shape and external charges.",
+      "Electric flux through an oriented surface is the integral of $\\mathbf E\\cdot d\\mathbf A$ and counts only normal field. Its sign follows the selected normal. For a closed surface, Gauss's law states that total flux is $Q_{\\mathrm{inside}}/\\varepsilon_0$, independent of surface shape and external charges.",
       "An external charge may produce a large surface field, but its lines enter and leave, giving zero net flux. Extracting E from the integral requires symmetry that makes magnitude constant on chosen parts and direction known. A sphere, infinite cylinder, and infinite plane provide standard cases; an arbitrary shape generally does not."
     ],
     "conceptExplanations": [
-      "For a small flat element, the contribution is E dA cos(theta); tangential field does not cross the surface and contributes no flux.",
-      "In differential form, div E = rho/epsilon0 shows that electric charge is the local source or sink of electric field.",
+      "For a small flat element, the contribution is E dA $\\cos\\theta$; tangential field does not cross the surface and contributes no flux.",
+      "In differential form, $\\nabla\\cdot E = \\rho/\\varepsilon_{0}$ shows that electric charge is the local source or sink of electric field.",
       "The law counts only algebraic enclosed charge, but every charge, including external ones, contributes to the field in the integral.",
       "Spherical symmetry makes E radial and constant on a sphere, cylindrical symmetry makes it constant on a lateral surface, and planar symmetry makes it normal to parallel faces.",
       "Without symmetry the flux equality stays exact, but one integral quantity cannot determine many unknown E values over a surface."
@@ -2359,14 +2359,14 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "boundary": "Gauss's law is exact in electrodynamics, but elementary extraction of E from flux needs an ideally symmetric distribution; a finite plane, short cylinder, or nonuniform sphere has edge or angular dependence.",
     "example": {
       "title": "Flux and field of a spherically symmetric charge",
-      "problem": "A +3.0 nC charge is enclosed in a spherically symmetric distribution. Find flux through a sphere and field at radius 0.20 m. Use epsilon0 = 8.854e-12 F/m.",
+      "problem": "A +3.0 nC charge is enclosed in a spherically symmetric distribution. Find flux through a sphere and field at radius 0.20 m. Use $\\varepsilon_{0} = 8.854 \\times 10^{-12}\\,\\mathrm{F/m}$.",
       "steps": [
-        "Gauss's law gives Phi_E = Q/epsilon0 = 3.0e-9/8.854e-12 = 339 N m^2/C.",
-        "Symmetry gives constant radial field, so Phi_E = E 4 pi r^2.",
-        "E = Q/(4 pi epsilon0 r^2), approximately 674 N/C outward."
+        "Gauss's law gives $\\Phi_{\\mathrm{E}} = Q/\\varepsilon_{0} = \\frac{3.0 \\times 10^{-9}}{8.854 \\times 10^{-12}} = 339\\,\\mathrm{N m}^2/C$.",
+        "Symmetry gives constant radial field, so $\\Phi_{\\mathrm{E}} = E 4 \\pi r^2$.",
+        "$E = Q/(4 \\pi \\varepsilon_{0} r^2)$, approximately 674 N/C outward."
       ],
-      "answer": "Phi_E is about 339 N m^2/C and E is about 674 N/C outward.",
-      "check": "Flux is radius-independent while field falls as 1/r^2, exactly offsetting the sphere's area growth."
+      "answer": "$\\Phi_E$ is about 339 N m^2/C and E is about 674 N/C outward.",
+      "check": "Flux is radius-independent while field falls as $1/r^2$, exactly offsetting the sphere's area growth."
     },
     "pitfall": "Zero flux does not imply zero field on a surface: nonzero inward and outward contributions may cancel.",
     "practice": [
@@ -2386,29 +2386,29 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "9.4",
     "question": "How does scalar potential encode electric-field work, and why does motion along an equipotential require no electrostatic work?",
     "overview": [
-      "For an electrostatic field, work between two points is path-independent, so potential energy U and potential phi = U/q can be defined for a probe charge. The difference V_B - V_A is energy change per unit positive charge and is opposite to field work per unit charge.",
-      "Field points toward steepest potential decrease: E = -grad(phi). Therefore E is perpendicular to an equipotential surface and displacement along it does not change U. The zero of phi is conventional; differences are physical unless boundary conditions establish a reference."
+      "For an electrostatic field, work between two points is path-independent, so potential energy U and potential $\\varphi = U/q$ can be defined for a probe charge. The difference $V_B-V_A$ is energy change per unit positive charge and is opposite to field work per unit charge.",
+      "Field points toward steepest potential decrease: $E = -\\nabla(\\varphi)$. Therefore E is perpendicular to an equipotential surface and displacement along it does not change U. The zero of $\\varphi$ is conventional; differences are physical unless boundary conditions establish a reference."
     ],
     "conceptExplanations": [
-      "Potential energy belongs to the charge configuration; moving probe q changes it by q Delta phi.",
+      "Potential energy belongs to the charge configuration; moving probe q changes it by $q\\Delta\\varphi$.",
       "Potential is a source scalar, so point-charge contributions add algebraically more simply than vector fields.",
-      "Voltage from A to B is Delta V = V_B - V_A; its sign follows point order, not the word voltage alone.",
+      "Voltage from A to B is $\\Delta V = V_{\\mathrm{B}} - V_{\\mathrm{A}}$; its sign follows point order, not the word voltage alone.",
       "Tangential electrostatic field vanishes on an equipotential surface, or the field would do work along that surface.",
-      "The minus sign in E = -grad(phi) indicates motion toward lower potential, and a steep spatial slope means strong field."
+      "The minus sign in $E = -\\nabla(\\varphi)$ indicates motion toward lower potential, and a steep spatial slope means strong field."
     ],
-    "boundary": "One scalar electrostatic potential describes a curl-free field of stationary charges; a changing magnetic flux gives nonzero circulation of E, so phi alone is insufficient.",
+    "boundary": "One scalar electrostatic potential describes a curl-free field of stationary charges; a changing magnetic flux gives nonzero circulation of E, so $\\varphi$ alone is insufficient.",
     "example": {
       "title": "Potential difference from a point charge",
-      "problem": "A +2.0 nC source is in vacuum. Find Delta V = V_B - V_A from r_A = 0.20 m to r_B = 0.50 m with V(infinity)=0 and k = 8.99e9.",
+      "problem": "A +2.0 nC source is in vacuum. Find $\\Delta V = V_{\\mathrm{B}} - V_{\\mathrm{A}}$ from $r_{\\mathrm{A}} = 0.20\\,\\mathrm{m}$ to $r_{\\mathrm{B}} = 0.50\\,\\mathrm{m}$ with $V(\\infty)=0$ and $k = 8.99 \\times 10^{9}\\,\\mathrm{N m^2/C^2}$.",
       "steps": [
-        "Point-charge potential is V(r) = kq/r.",
-        "V_A = 89.9 V and V_B = 36.0 V.",
-        "Delta V = 36.0 - 89.9 = -53.9 V."
+        "Point-charge potential is $V(r)=kq/r$.",
+        "$V_{\\mathrm{A}} = 89.9\\,\\mathrm{V}$ and $V_{\\mathrm{B}} = 36.0\\,\\mathrm{V}$.",
+        "$\\Delta V = 36.0 - 89.9 = -53.9\\,\\mathrm{V}$."
       ],
-      "answer": "Delta V = -53.9 V; potential falls on moving away from a positive charge.",
+      "answer": "$\\Delta V = -53.9\\,\\mathrm{V}$; potential falls on moving away from a positive charge.",
       "check": "Potential approaches zero as r increases, so the final value must be below the initial value."
     },
-    "pitfall": "Positive potential does not imply positive potential energy for every probe: U = qV changes sign with q.",
+    "pitfall": "Positive potential does not imply positive potential energy for every probe: $U=qV$ changes sign with q.",
     "practice": [
       {
         "question": "Can field be nonzero at a point where the selected potential is zero?",
@@ -2416,9 +2416,9 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
         "answer": "Yes. One value of V depends on reference, whereas E depends on spatial variation of V."
       },
       {
-        "question": "A +3.0 microC charge crosses Delta V = -20 V. Find Delta U.",
-        "hint": "Use Delta U = q Delta V.",
-        "answer": "Delta U = 3.0e-6 x (-20) = -6.0e-5 J."
+        "question": "A $+3.0\\,\\mu\\mathrm{C}$ charge crosses $\\Delta V = -20\\,\\mathrm{V}$. Find $\\Delta U$.",
+        "hint": "Use $\\Delta U = q \\Delta V$.",
+        "answer": "$\\Delta U = 3.0 \\times 10^{-6} \\times (-20) = -6.0 \\times 10^{-5}\\,\\mathrm{J}$."
       }
     ]
   },
@@ -2427,38 +2427,38 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "question": "How does redistribution of free and bound charge determine capacitance and stored field energy?",
     "overview": [
       "At electrostatic equilibrium, field inside the bulk of an ideal conductor is zero, its potential is constant, and excess free charge lies on its surface. Boundary geometry determines surface density and outside field; charge usually concentrates more strongly near sharp regions.",
-      "Capacitance C = Q/V characterizes geometry and medium between two conductors, not the current Q alone. Large parallel plates give C approximately epsilon A/d. A dielectric polarizes and changes the relation between free charge and voltage. Energy U = Q^2/(2C) = CV^2/2 resides in the electromagnetic field of the whole configuration."
+      "Capacitance $C = Q/V$ characterizes geometry and medium between two conductors, not the current Q alone. Large parallel plates give C approximately $\\varepsilon A/d$. A dielectric polarizes and changes the relation between free charge and voltage. Energy $U = Q^2/(2C) = CV^2/2$ resides in the electromagnetic field of the whole configuration."
     ],
     "conceptExplanations": [
-      "If a static field existed inside conducting material, mobile carriers would keep moving; equilibrium requires E_inside = 0, although a cavity or nearby surface may contain nonzero field.",
+      "If a static field existed inside conducting material, mobile carriers would keep moving; equilibrium requires $E_{\\mathrm{inside}} = 0$, although a cavity or nearby surface may contain nonzero field.",
       "C depends on shape, separation, and permittivity; changing a connected source changes Q and V according to that characteristic.",
-      "The expression epsilon A/d neglects fringing and assumes plate separation much smaller than plate dimensions.",
+      "The expression $\\varepsilon A/d$ neglects fringing and assumes plate separation much smaller than plate dimensions.",
       "Bound polarization charge usually reduces field for fixed free Q; at fixed V, a source may deliver additional free charge.",
-      "Linear-field energy density is epsilon E^2/2, so energy is distributed in space rather than stored only on metal plates."
+      "Linear-field energy density is $\\varepsilon E^2/2$, so energy is distributed in space rather than stored only on metal plates."
     ],
     "boundary": "An ideal conductor assumes electrostatic equilibrium, while parallel-plate formulas assume a linear homogeneous dielectric, negligible fringing, and no leakage or breakdown.",
     "example": {
       "title": "A parallel-plate air capacitor",
-      "problem": "Plates of area 0.010 m^2 are separated by 1.0 mm of air and connected to 100 V. Take epsilon0 = 8.854e-12 F/m. Find C, Q, and U while neglecting edges.",
+      "problem": "Plates of area 0.010 m^2 are separated by 1.0 mm of air and connected to 100 V. Take $\\varepsilon_{0} = 8.854 \\times 10^{-12}\\,\\mathrm{F/m}$. Find C, Q, and U while neglecting edges.",
       "steps": [
-        "C = epsilon0 A/d = 8.854e-12 x 0.010/0.001 = 8.854e-11 F.",
-        "Q = CV = 8.854e-9 C.",
-        "U = CV^2/2 = 4.427e-7 J."
+        "First calculate the capacitance: $C = \\varepsilon_{0} A/d = 8.854 \\times 10^{-12} \\times 0.010/0.001 = 8.854 \\times 10^{-11}\\,\\mathrm{F}$.",
+        "Then find the plate charge: $Q=CV=8.854\\times10^{-9}\\,\\mathrm C$.",
+        "The electric-field energy is $U = CV^2/2 = 4.427\\times10^{-7}\\,\\mathrm{J}$."
       ],
-      "answer": "C = 88.5 pF, Q = 8.85 nC, and U = 0.443 microJ.",
+      "answer": "$C = 88.5\\,\\mathrm{pF}$, $Q = 8.85\\,\\mathrm{nC}$, and $U = 0.443\\,\\mu\\mathrm{J}$.",
       "check": "Doubling V would double Q but multiply energy by four."
     },
-    "pitfall": "Q^2/(2C) and CV^2/2 describe the same state, but when C changes the outcome depends on whether a source remains connected and Q or V is fixed.",
+    "pitfall": "$Q^2/(2C)$ and $CV^2/2$ describe the same state, but when C changes the outcome depends on whether a source remains connected and Q or V is fixed.",
     "practice": [
       {
-        "question": "What happens to C and Q when a linear dielectric of epsilon_r > 1 fully fills plates held at constant V?",
+        "question": "What happens to C and Q when a linear dielectric of $\\varepsilon_r>1$ fully fills plates held at constant V?",
         "hint": "The source maintains V and may move free charge.",
-        "answer": "Capacitance rises by epsilon_r, and at fixed V the charge Q = CV rises by the same factor."
+        "answer": "Capacitance rises by $\\varepsilon_r$, and at fixed V the charge $Q=CV$ rises by the same factor."
       },
       {
-        "question": "A 10 microF capacitor is charged to 12 V. Find its stored energy.",
-        "hint": "Use U = CV^2/2.",
-        "answer": "U = 0.5 x 10e-6 x 12^2 = 7.2e-4 J."
+        "question": "A $10\\,\\mu\\mathrm{F}$ capacitor is charged to 12 V. Find its stored energy.",
+        "hint": "Use $U = CV^2/2$.",
+        "answer": "$U = 0.5 \\times 10 \\times 10^{-6} \\times 12^2 = 7.2 \\times 10^{-4}\\,\\mathrm{J}$."
       }
     ]
   },
@@ -2466,39 +2466,39 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "9.6",
     "question": "How does slow drift of enormous numbers of carriers create current, and why does resistance depend on material, geometry, and temperature?",
     "overview": [
-      "Current I = dQ/dt measures charge transfer rate through a selected cross-section, while current density J describes it locally. Metal electrons have large random thermal speeds, but an electric field adds a small directed drift; the sum over many carriers makes a measurable current.",
-      "For a uniform conductor, R = rho l/A connects resistance to material resistivity and geometry. V = IR describes a linear ohmic regime under nearly constant conditions. Temperature changes scattering and carrier concentration, so dependence differs among metals, semiconductors, and other materials."
+      "Current $I = dQ/dt$ measures charge transfer rate through a selected cross-section, while current density J describes it locally. Metal electrons have large random thermal speeds, but an electric field adds a small directed drift; the sum over many carriers makes a measurable current.",
+      "For a uniform conductor, $R = \\rho l/A$ connects resistance to material resistivity and geometry. $V=IR$ describes a linear ohmic regime under nearly constant conditions. Temperature changes scattering and carrier concentration, so dependence differs among metals, semiconductors, and other materials."
     ],
     "conceptExplanations": [
       "Conventional current points with positive charge motion; metal electrons drift oppositely, and J may vary across a section.",
       "The field signal establishes along a circuit much faster than one electron traverses the wire, so lamp response does not await an electron from the source.",
-      "rho is a material property at specified temperature, whereas R also grows with length and falls with cross-sectional area.",
+      "$\\rho$ is a material property at specified temperature, whereas R also grows with length and falls with cross-sectional area.",
       "An ohmic element has a linear current-voltage curve within a chosen range; a diode, heating lamp, or electrolyte generally violates simple proportionality.",
       "Metals usually gain R as temperature rises through stronger scattering, but a positive coefficient is not universal for all conductors."
     ],
-    "boundary": "V = IR with constant R requires a linear steady regime and nearly fixed temperature; strong heating, frequency effects, contact resistance, and nonlinear carriers need a local or dynamic model.",
+    "boundary": "$V=IR$ with constant R requires a linear steady regime and nearly fixed temperature; strong heating, frequency effects, contact resistance, and nonlinear carriers need a local or dynamic model.",
     "example": {
       "title": "Resistance of a copper wire",
-      "problem": "A 10 m copper wire has area 1.0 mm^2 and rho = 1.68e-8 ohm m at the stated temperature. A 1.0 V potential difference is applied. Find R, I, and power.",
+      "problem": "A 10 m copper wire has area 1.0 mm^2 and $\\rho = 1.68 \\times 10^{-8}\\,\\Omega\\,\\mathrm{m}$ at the stated temperature. A 1.0 V potential difference is applied. Find R, I, and power.",
       "steps": [
-        "A = 1.0e-6 m^2, so R = rho l/A = 0.168 ohm.",
-        "I = V/R = 1.0/0.168 = 5.95 A.",
-        "P = VI = 5.95 W."
+        "$A = 1.0 \\times 10^{-6}\\,\\mathrm{m^2}$, so $R = \\rho l/A = 0.168\\,\\Omega$.",
+        "$I = V/R = 1.0/0.168 = 5.95\\,\\mathrm{A}$.",
+        "The power in the element is $P=VI=5.95\\,\\mathrm{W}$."
       ],
-      "answer": "R = 0.168 ohm, I = 5.95 A, and P = 5.95 W if rho remains fixed.",
-      "check": "The large current may heat a thin wire and change rho, so the final assumption needs checking in a real device."
+      "answer": "$R = 0.168\\,\\Omega$, $I = 5.95\\,\\mathrm{A}$, and $P = 5.95\\,\\mathrm{W}$ if $\\rho$ remains fixed.",
+      "check": "The large current may heat a thin wire and change $\\rho$, so the final assumption needs checking in a real device."
     },
     "pitfall": "Electron drift speed is small, but current can be large because carrier density is enormous; drift speed is not signal propagation speed.",
     "practice": [
       {
         "question": "Why does joining two identical wires in series double resistance?",
         "hint": "Their effective total length doubled at unchanged cross-section.",
-        "answer": "For uniform material R = rho l/A, so doubling length doubles resistance; the same current traverses both pieces."
+        "answer": "For uniform material $R = \\rho l/A$, so doubling length doubles resistance; the same current traverses both pieces."
       },
       {
-        "question": "A resistor has R = 4 ohm at 8 V. Find current and heating power.",
-        "hint": "Use I = V/R and then P = VI.",
-        "answer": "I = 2 A and P = 16 W."
+        "question": "A resistor has $R = 4\\,\\Omega$ at 8 V. Find current and heating power.",
+        "hint": "Use $I = V/R$ and then $P=VI$.",
+        "answer": "$I = 2\\,\\mathrm{A}$ and $P = 16\\,\\mathrm{W}$."
       }
     ]
   },
@@ -2507,39 +2507,39 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "question": "How does a source maintain potential difference, and by what route does energy reach and dissipate in a load?",
     "overview": [
       "A source's electromotive force is work by non-electrostatic processes per unit charge moved inside the source. A real source has internal resistance or a more complicated impedance, so terminal voltage under load differs from emf and some power dissipates internally.",
-      "In a resistive load, P = VI = I^2 R = V^2/R when V and I refer to that element. Maximum simple-load power occurs at R_load = r_internal, but then half the power is lost in the source, so this is not maximum efficiency. Energy flows through electromagnetic fields around conductors; electrons support current but are not a consumable energy supply stored in the wire."
+      "In a resistive load, $P = VI = I^2R = V^2/R$ when V and I refer to that element. Maximum simple-load power occurs at $R_{\\mathrm{load}} = r_{\\mathrm{internal}}$, but then half the power is lost in the source, so this is not maximum efficiency. Energy flows through electromagnetic fields around conductors; electrons support current but are not a consumable energy supply stored in the wire."
     ],
     "conceptExplanations": [
       "Emf has units volts and describes energy per charge supplied by chemical, mechanical, or other forces, not a mechanical force in newtons.",
-      "For emf epsilon in series with r during discharge, V_terminal = epsilon - Ir; the drop Ir grows with current and transfers energy into internal heat.",
+      "For emf $\\varepsilon$ in series with r during discharge, $V_{\\mathrm{terminal}} = \\varepsilon-Ir$; the drop Ir grows with current and transfers energy into internal heat.",
       "Joule heating results as the field gives energy to carriers and they scatter into the lattice; the usable P expression depends on known variables and whether the element is ohmic.",
-      "Maximum-power matching is useful for signals, but energy sources usually use R_load much greater than r for high efficiency.",
+      "Maximum-power matching is useful for signals, but energy sources usually use $R_{\\mathrm{load}}$ much greater than r for high efficiency.",
       "The Poynting vector describes field-energy flow into a load from surrounding space, while carrier drift closes the electrical circuit."
     ],
     "boundary": "A constant emf plus one internal resistance works only over a limited current, temperature, and state-of-charge range; a real battery has dynamics, nonlinearity, power limits, and electrochemical loss.",
     "example": {
       "title": "A source with internal resistance",
-      "problem": "A source has emf 12 V and internal resistance 1.0 ohm. A 5.0 ohm load is connected. Find current, terminal voltage, load power, and internal loss.",
+      "problem": "A source has emf 12 V and internal resistance $1.0\\,\\Omega$. A $5.0\\,\\Omega$ load is connected. Find current, terminal voltage, load power, and internal loss.",
       "steps": [
-        "Total series resistance R + r = 6.0 ohm, so I = 12/6 = 2.0 A.",
-        "Terminal voltage is V = epsilon - Ir = 10 V.",
-        "P_load = I^2 R = 20 W and P_internal = I^2 r = 4.0 W.",
-        "Source check: epsilon I = 24 W = 20 W + 4 W."
+        "Total series resistance $R + r = 6.0\\,\\Omega$, so $I = 12/6 = 2.0\\,\\mathrm{A}$.",
+        "Terminal voltage is $V = \\varepsilon-Ir = 10\\,\\mathrm{V}$.",
+        "$P_{\\mathrm{load}} = I^2 R = 20\\,\\mathrm{W}$ and $P_{\\mathrm{internal}} = I^2 r = 4.0\\,\\mathrm{W}$.",
+        "Source check: $\\varepsilon I = 24\\,\\mathrm{W} = 20\\,\\mathrm{W} + 4\\,\\mathrm{W}$."
       ],
-      "answer": "I = 2.0 A, V_terminal = 10 V, P_load = 20 W, and internal loss is 4.0 W.",
+      "answer": "$I = 2.0\\,\\mathrm{A}$, $V_{\\mathrm{terminal}} = 10\\,\\mathrm{V}$, $P_{\\mathrm{load}} = 20\\,\\mathrm{W}$, and internal loss is 4.0 W.",
       "check": "The power balance closes, and terminal voltage is below emf during discharge."
     },
-    "pitfall": "Maximum load power is not maximum efficiency: at R_load = r, simple-circuit efficiency is only 50%.",
+    "pitfall": "Maximum load power is not maximum efficiency: at $R_{\\mathrm{load}} = r$, simple-circuit efficiency is only 50%.",
     "practice": [
       {
         "question": "Why does battery voltage sag when a heavy load is connected?",
         "hint": "Include the internal drop Ir.",
-        "answer": "A larger current produces greater internal voltage drop and loss, reducing V_terminal = epsilon - Ir."
+        "answer": "A larger current produces greater internal voltage drop and loss, reducing $V_{\\mathrm{terminal}} = \\varepsilon-Ir$."
       },
       {
-        "question": "A 9 V source with r = 0.50 ohm drives R = 4.0 ohm. Find current.",
+        "question": "A 9 V source with $r = 0.50\\,\\Omega$ drives $R = 4.0\\,\\Omega$. Find current.",
         "hint": "The resistances are series elements in this model.",
-        "answer": "I = 9/(4.0 + 0.50) = 2.0 A."
+        "answer": "$I = 9/(4.0 + 0.50) = 2.0\\,\\mathrm{A}$."
       }
     ]
   },
@@ -2559,11 +2559,11 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "boundary": "Lumped-circuit laws require dimensions much smaller than signal wavelength and negligible distributed fields; at high frequency, wires have inductance, capacitance, propagation delay, and radiation.",
     "example": {
       "title": "Divider loading error",
-      "problem": "Two 10 kohm resistors divide 5.0 V. Voltage across the lower resistor is measured by a voltmeter with 10 kohm input resistance. Find its reading.",
+      "problem": "Two $10\\,\\mathrm{k}\\Omega$ resistors divide 5.0 V. Voltage across the lower resistor is measured by a voltmeter with $10\\,\\mathrm{k}\\Omega$ input resistance. Find its reading.",
       "steps": [
         "Without the meter, the ideal divider would give 2.5 V.",
-        "The meter parallels the lower resistor: 10 kohm in parallel with 10 kohm equals 5.0 kohm.",
-        "The loaded divider gives V = 5.0 x 5/(10 + 5) = 1.67 V."
+        "The meter parallels the lower resistor: $10\\,\\mathrm{k}\\Omega \\parallel 10\\,\\mathrm{k}\\Omega = 5.0\\,\\mathrm{k}\\Omega$.",
+        "The loaded divider gives $V = 5.0 \\times 5/(10 + 5) = 1.67\\,\\mathrm{V}$."
       ],
       "answer": "The meter reads about 1.67 V and substantially changes the measured circuit.",
       "check": "The effective lower branch decreased, so its fraction of total voltage must fall below one half."
@@ -2576,9 +2576,9 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
         "answer": "High resistance reduces additional current and therefore reduces disturbance of the original circuit voltage."
       },
       {
-        "question": "Resistors 6 ohm and 3 ohm are parallel. Find equivalent resistance.",
-        "hint": "1/R_eq = 1/6 + 1/3.",
-        "answer": "1/R_eq = 1/2, so R_eq = 2 ohm."
+        "question": "Resistors $6\\,\\Omega$ and $3\\,\\Omega$ are parallel. Find equivalent resistance.",
+        "hint": "Add the conductances: $1/R_{\\mathrm{eq}}=1/6+1/3$.",
+        "answer": "$1/R_{\\mathrm{eq}}=1/2$, so $R_{\\mathrm{eq}}=2\\,\\Omega$."
       }
     ]
   },
@@ -2586,29 +2586,29 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "9.9",
     "question": "Why can one RC network smooth slow changes, reject a constant component, or approximately integrate and differentiate a signal?",
     "overview": [
-      "Ideal-capacitor voltage cannot jump because Q = CV and finite current moves finite charge. After a step, it approaches a new state exponentially with time constant tau = RC; after one tau, the remaining departure falls to e^-1.",
+      "Ideal-capacitor voltage cannot jump because $Q=CV$ and finite current moves finite charge. After a step, it approaches a new state exponentially with time constant $\\tau = RC$; after one $\\tau$, the remaining departure falls to $e^{-1}$.",
       "Taking output across the capacitor gives a low-pass filter: slow components charge it while fast components are attenuated. Output across the resistor rejects DC and gives a high-pass filter. In limiting frequency ranges relative to 1/RC, these circuits approximate integration or differentiation, but not over all frequencies."
     ],
     "conceptExplanations": [
-      "For charging from an ideal step, V_C(t) = V_final + [V_C(0)-V_final] exp(-t/RC); for discharge, the final value is often zero.",
-      "Tau has units seconds and sets a scale rather than full completion time: after 5tau, about 0.7% remains.",
+      "For charging from an ideal step, $V_{\\mathrm{C}}(t) = V_{\\mathrm{final}} + [V_{\\mathrm{C}}(0)-V_{\\mathrm{final}}]\\exp(-t/RC)$; for discharge, the final value is often zero.",
+      "$\\tau$ has units seconds and sets a scale rather than full completion time: after $5\\tau$, about 0.7% remains.",
       "The exponential follows from a first-order linear equation in which change rate is proportional to remaining departure.",
       "When input varies much faster than RC, capacitor voltage follows accumulated charge and gives an integrating approximation; resistor voltage under slow variation can be proportional to the input derivative.",
-      "The first-order cutoff f_c = 1/(2 pi RC) gives amplitude 1/sqrt(2) of the low- or high-frequency limiting value."
+      "The first-order cutoff $f_{\\mathrm{c}} = 1/(2 \\pi RC)$ gives amplitude $1/\\sqrt2$ of the low- or high-frequency limiting value."
     ],
     "boundary": "A simple RC model needs linear lumped R and C, ideal connections, and a source of known resistance; leakage, parasitic inductance, amplifier limits, and frequency-dependent components alter the transient.",
     "example": {
       "title": "Charging after two time constants",
-      "problem": "A series network R = 10 kohm and C = 100 microF is connected to an ideal 5.0 V step with an initially uncharged capacitor. Find tau, V_C after 2.0 s, and low-pass cutoff.",
+      "problem": "A series network $R = 10\\,\\mathrm{k}\\Omega$ and $C = 100\\,\\mu\\mathrm{F}$ is connected to an ideal 5.0 V step with an initially uncharged capacitor. Find $\\tau$, V_C after 2.0 s, and low-pass cutoff.",
       "steps": [
-        "tau = RC = 10000 x 100e-6 = 1.0 s.",
-        "V_C(t) = 5[1 - exp(-t/tau)], so V_C(2.0 s) = 5[1 - exp(-2)] = 4.32 V.",
-        "f_c = 1/(2 pi tau) = 0.159 Hz."
+        "$\\tau = RC = 10000 \\times 100 \\times 10^{-6} = 1.0\\,\\mathrm{s}$.",
+        "$V_{\\mathrm{C}}(t) = 5[1 - \\exp(-t/\\tau)]$, so $V_{\\mathrm{C}}(2.0\\,\\mathrm{s}) = 5[1 - \\exp(-2)] = 4.32\\,\\mathrm{V}$.",
+        "$f_{\\mathrm{c}} = 1/(2 \\pi \\tau) = 0.159\\,\\mathrm{Hz}$."
       ],
-      "answer": "tau = 1.0 s, V_C(2.0 s) = 4.32 V, and f_c = 0.159 Hz.",
-      "check": "After 2tau, exp(-2), about 13.5%, of the initial departure from final voltage remains."
+      "answer": "$\\tau=1.0\\,\\mathrm{s}$, $V_C(2.0\\,\\mathrm{s})=4.32\\,\\mathrm{V}$, and $f_{\\mathrm c}=0.159\\,\\mathrm{Hz}$.",
+      "check": "After $2\\tau$, $\\exp(-2)$, about 13.5%, of the initial departure from final voltage remains."
     },
-    "pitfall": "A time constant does not mean charging completes after tau; only about 63.2% of the full change has occurred.",
+    "pitfall": "A time constant does not mean charging completes after $\\tau$; only about 63.2% of the full change has occurred.",
     "practice": [
       {
         "question": "Why does a low-pass RC output across the capacitor pass a constant voltage?",
@@ -2616,9 +2616,9 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
         "answer": "At steady state current is zero, resistor drop vanishes, and the entire constant input appears across the capacitor."
       },
       {
-        "question": "For R = 2.0 kohm and C = 50 microF, find tau.",
+        "question": "For $R = 2.0\\,\\mathrm{k}\\Omega$ and $C = 50\\,\\mu\\mathrm{F}$, find $\\tau$.",
         "hint": "Convert prefixes and multiply R by C.",
-        "answer": "tau = 2000 x 50e-6 = 0.10 s."
+        "answer": "$\\tau = 2000 \\times 50 \\times 10^{-6} = 0.10\\,\\mathrm{s}$."
       }
     ]
   },
@@ -2626,38 +2626,38 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "10.1",
     "question": "How can a magnetic field change charge motion direction without changing kinetic energy?",
     "overview": [
-      "Magnetic field B is defined through the transverse part of Lorentz force, F = q(E + v x B). Unlike an electric field, a static B acts only on moving charge. Current fields are tied to moving charges and depend on reference frame, while electric and magnetic components form one electromagnetic field.",
-      "The vector v x B is perpendicular to velocity, so a purely magnetic force changes momentum direction but has zero instantaneous power F dot v. Magnetic field lines have no beginning or end: they close for localized sources and may extend to infinity in an ideal uniform field; B flux through every closed surface is zero."
+      "Magnetic field B is defined through the transverse part of Lorentz force, $F = q(E + v \\times B)$. Unlike an electric field, a static B acts only on moving charge. Current fields are tied to moving charges and depend on reference frame, while electric and magnetic components form one electromagnetic field.",
+      "The vector $\\mathbf v\\times\\mathbf B$ is perpendicular to velocity, so a purely magnetic force changes momentum direction but has zero instantaneous power $\\mathbf F\\cdot\\mathbf v$. Magnetic field lines have no beginning or end: they close for localized sources and may extend to infinity in an ideal uniform field; B flux through every closed surface is zero."
     ],
     "conceptExplanations": [
-      "Cutting a bar magnet makes two smaller dipoles rather than isolated north and south poles; absence of observed monopoles is expressed by div B = 0 in classical theory.",
+      "Cutting a bar magnet makes two smaller dipoles rather than isolated north and south poles; absence of observed monopoles is expressed by $\\nabla\\cdot B = 0$ in classical theory.",
       "A slowly moving point charge creates a magnetic contribution circling its motion; relativistic motion requires the complete retarded field law.",
-      "The electric term qE is independent of v, while q v x B depends on velocity and reverses with charge sign.",
-      "The right-hand rule gives v x B for positive charge; negative charge reverses force direction, while magnetic work remains zero."
+      "The electric term qE is independent of v, while $q\\mathbf v\\times\\mathbf B$ depends on velocity and reverses with charge sign.",
+      "The right-hand rule gives $\\mathbf v\\times\\mathbf B$ for positive charge; negative charge reverses force direction, while magnetic work remains zero."
     ],
-    "boundary": "The form q(E + v x B) applies to a point particle in a prescribed local field; extended bodies require integration over charge and current, while radiation and self-force of an accelerated charge need additional modeling.",
+    "boundary": "The form $q(\\mathbf E+\\mathbf v\\times\\mathbf B)$ applies to a point particle in a prescribed local field; extended bodies require integration over charge and current, while radiation and self-force of an accelerated charge need additional modeling.",
     "example": {
       "title": "Transverse force on a proton",
-      "problem": "A proton travels at 2.0e6 m/s along +x in a uniform 0.20 T field along +z. There is no electric field. Find force magnitude and direction; e = 1.602e-19 C.",
+      "problem": "A proton travels at $2.0 \\times 10^{6}\\,\\mathrm{m/s}$ along +x in a uniform 0.20 T field along +z. There is no electric field. Find force magnitude and direction; $e = 1.602 \\times 10^{-19}\\,\\mathrm{C}$.",
       "steps": [
-        "Velocity is perpendicular to B, so F = qvB.",
-        "F = 1.602e-19 x 2.0e6 x 0.20 = 6.41e-14 N.",
+        "Velocity is perpendicular to B, so $F=qvB$.",
+        "$F = 1.602 \\times 10^{-19} \\times 2.0 \\times 10^{6} \\times 0.20 = 6.41 \\times 10^{-14}\\,\\mathrm{N}$.",
         "For positive charge, +x cross +z equals -y, so force points along -y."
       ],
-      "answer": "F = 6.41e-14 N along -y.",
-      "check": "F dot v = 0, so the force bends the path without changing proton speed magnitude."
+      "answer": "$F = 6.41 \\times 10^{-14}\\,\\mathrm{N}$ along -y.",
+      "check": "$\\mathbf F\\cdot\\mathbf v = 0$, so the force bends the path without changing proton speed magnitude."
     },
     "pitfall": "The right-hand rule directly gives force direction only for positive charge; reverse it for an electron.",
     "practice": [
       {
         "question": "Why can a uniform magnetic field not accelerate a charge initially at rest?",
-        "hint": "Put v = 0 into the magnetic Lorentz term.",
-        "answer": "At v = 0, v x B is zero, so no magnetic force acts; an electric field or another force is needed to start motion."
+        "hint": "Put $v = 0$ into the magnetic Lorentz term.",
+        "answer": "At $v = 0$, $\\mathbf v\\times\\mathbf B$ is zero, so no magnetic force acts; an electric field or another force is needed to start motion."
       },
       {
-        "question": "A 3.0 microC charge moves perpendicular to B = 0.50 T at 40 m/s. Find force magnitude.",
-        "hint": "Use F = |q|vB.",
-        "answer": "F = 3.0e-6 x 40 x 0.50 = 6.0e-5 N."
+        "question": "A $3.0\\,\\mu\\mathrm{C}$ charge moves perpendicular to $B = 0.50\\,\\mathrm{T}$ at 40 m/s. Find force magnitude.",
+        "hint": "Use $F=|q|vB$.",
+        "answer": "$F = 3.0 \\times 10^{-6} \\times 40 \\times 0.50 = 6.0 \\times 10^{-5}\\,\\mathrm{N}$."
       }
     ]
   },
@@ -2665,38 +2665,38 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "10.2",
     "question": "How does Lorentz-force geometry turn a uniform magnetic field into a velocity selector and mass-to-charge analyzer?",
     "overview": [
-      "Velocity perpendicular to uniform B experiences centripetal force and forms a circle of radius r = p_perp/(|q|B). The parallel component is unchanged, so general motion is helical. In the nonrelativistic limit, cyclotron angular frequency omega_c = |q|B/m is speed-independent.",
-      "In crossed E and B fields, particles with v = E/B in the proper direction pass undeflected. After velocity selection, magnetic radius reveals m/|q| for mass spectrometry. A cyclotron synchronizes electric acceleration with orbital motion, and a magnetosphere guides charged particles along field lines."
+      "Velocity perpendicular to uniform B experiences centripetal force and forms a circle of radius $r=p_\\perp/(|q|B)$. The parallel component is unchanged, so general motion is helical. In the nonrelativistic limit, cyclotron angular frequency $\\omega_{\\mathrm{c}} = |q|B/m$ is speed-independent.",
+      "In crossed E and B fields, particles with $v = E/B$ in the proper direction pass undeflected. After velocity selection, magnetic radius reveals m/|q| for mass spectrometry. A cyclotron synchronizes electric acceleration with orbital motion, and a magnetosphere guides charged particles along field lines."
     ],
     "conceptExplanations": [
-      "For v_perp, field continuously turns velocity into a circle; unchanged v_parallel carries the circle center along B to produce a helix.",
-      "The frequency |q|B/(2 pi m) assumes constant B and nonrelativistic momentum mv; it decreases as relativistic energy grows.",
-      "When qE and q v x B are equal and opposite, total transverse force vanishes; E/B has units speed.",
-      "A mass spectrometer separates ions by m/q, a cyclotron adds energy through electric field, and a nonuniform magnetosphere can reflect particles through magnetic mirroring."
+      "For $v_\\perp$, field continuously turns velocity into a circle; unchanged $v_\\parallel$ carries the circle center along B to produce a helix.",
+      "The frequency $|q|B/(2\\pi m)$ assumes constant B and nonrelativistic momentum mv; it decreases as relativistic energy grows.",
+      "When qE and $q\\mathbf v\\times\\mathbf B$ are equal and opposite, total transverse force vanishes; E/B has units speed.",
+      "A mass spectrometer separates ions by $m/q$, a cyclotron adds energy through electric field, and a nonuniform magnetosphere can reflect particles through magnetic mirroring."
     ],
-    "boundary": "The circular radius r = mv/(|q|B) and speed-independent cyclotron frequency require uniform field, v much less than c, and negligible loss; collisions, B gradients, and radiation alter the motion.",
+    "boundary": "The circular radius $r = mv/(|q|B)$ and speed-independent cyclotron frequency require uniform field, v much less than c, and negligible loss; collisions, B gradients, and radiation alter the motion.",
     "example": {
       "title": "A proton orbit in a magnetic field",
-      "problem": "A proton at 1.0e6 m/s enters perpendicular to B = 0.50 T. Use m_p = 1.673e-27 kg and e = 1.602e-19 C. Find radius and orbital frequency.",
+      "problem": "A proton at $1.0 \\times 10^{6}\\,\\mathrm{m/s}$ enters perpendicular to $B = 0.50\\,\\mathrm{T}$. Use $m_{\\mathrm{p}} = 1.673 \\times 10^{-27}\\,\\mathrm{kg}$ and $e = 1.602 \\times 10^{-19}\\,\\mathrm{C}$. Find radius and orbital frequency.",
       "steps": [
-        "From |q|vB = mv^2/r, r = mv/(|q|B).",
-        "r = 1.673e-27 x 1.0e6/(1.602e-19 x 0.50) = 2.09e-2 m.",
-        "f_c = |q|B/(2 pi m) = 7.62e6 Hz."
+        "From $|q|vB=mv^2/r$, $r = mv/(|q|B)$.",
+        "$r = 1.673 \\times 10^{-27} \\times 1.0 \\times 10^{6}/(1.602 \\times 10^{-19} \\times 0.50) = 2.09 \\times 10^{-2}\\,\\mathrm{m}$.",
+        "$f_{\\mathrm{c}} = |q|B/(2 \\pi m) = 7.62 \\times 10^{6}\\,\\mathrm{Hz}$."
       ],
-      "answer": "r = 2.09 cm and f_c = 7.62 MHz.",
+      "answer": "$r = 2.09\\,\\mathrm{cm}$ and $f_{\\mathrm{c}} = 7.62\\,\\mathrm{MHz}$.",
       "check": "Doubling speed would double radius but leave frequency unchanged in this nonrelativistic model."
     },
     "pitfall": "The magnetic field does not supply cyclotron kinetic energy; electric field in the gaps accelerates the particle.",
     "practice": [
       {
-        "question": "What happens to helical pitch if v_parallel increases at unchanged v_perp and B?",
-        "hint": "Orbital period stays fixed and axial distance per period is v_parallel T.",
-        "answer": "Radius remains fixed and pitch increases in proportion to v_parallel."
+        "question": "What happens to helical pitch if $v_\\parallel$ increases at unchanged $v_\\perp$ and B?",
+        "hint": "Orbital period stays fixed and axial distance per period is $v_\\parallel$ T.",
+        "answer": "Radius remains fixed and pitch increases in proportion to $v_\\parallel$."
       },
       {
-        "question": "A selector has E = 3.0e4 V/m and B = 0.20 T. What speed passes undeflected?",
-        "hint": "For perpendicular fields, v = E/B.",
-        "answer": "v = 1.5e5 m/s."
+        "question": "A selector has $E = 3.0 \\times 10^{4}\\,\\mathrm{V}/m$ and $B = 0.20\\,\\mathrm{T}$. What speed passes undeflected?",
+        "hint": "For perpendicular fields, $v = E/B$.",
+        "answer": "$v = 1.5 \\times 10^{5}\\,\\mathrm{m/s}$."
       }
     ]
   },
@@ -2709,20 +2709,20 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     ],
     "conceptExplanations": [
       "Around a long straight wire, B lines are circles; on a loop axis, field follows its normal; inside a long densely wound solenoid, field is nearly uniform.",
-      "Biot-Savart adds directed contributions I dl cross r_hat/r^2 and assumes steady current in its simple magnetostatic form.",
-      "The equality integral B dot dl = mu0 I_inside directly finds B only when symmetry fixes direction and constant magnitude on the selected path.",
-      "Force on a second wire element is I dl cross B from the first; reversing one current changes attraction to repulsion."
+      "Biot-Savart adds directed contributions $I\\,d\\mathbf l\\times\\hat{\\mathbf r}/r^2$ and assumes steady current in its simple magnetostatic form.",
+      "The relation $\\oint \\mathbf B \\cdot d\\mathbf l = \\mu_{0} I_{\\mathrm{enc}}$ directly finds B only when symmetry fixes its direction and constant magnitude on the selected path.",
+      "Force on a second wire element is $I\\,d\\mathbf l\\times\\mathbf B$ from the first wire; reversing one current changes attraction to repulsion."
     ],
     "boundary": "Long-wire and ideal-solenoid formulas neglect ends and finite cross-sections; magnetostatic laws without displacement current require steady currents and a quasistatic regime.",
     "example": {
       "title": "Field of a long straight wire",
-      "problem": "A long straight wire carries 10 A. Find B at 5.0 cm in vacuum; mu0 = 4 pi e-7 H/m.",
+      "problem": "A long straight wire carries 10 A. Find B at 5.0 cm in vacuum; $\\mu_{0} = 4\\pi \\times 10^{-7}\\,\\mathrm{H/m}$.",
       "steps": [
         "Cylindrical symmetry makes B tangential and constant around a circle of radius r.",
-        "Ampere's law gives B 2 pi r = mu0 I.",
-        "B = mu0 I/(2 pi r) = 4.0e-5 T."
+        "Ampere's law gives $B 2 \\pi r = \\mu_{0} I$.",
+        "$B = \\mu_{0} I/(2 \\pi r) = 4.0 \\times 10^{-5}\\,\\mathrm{T}$."
       ],
-      "answer": "B = 40 microT, tangent to the circle by the right-hand rule.",
+      "answer": "$B = 40\\,\\mu\\mathrm{T}$, tangent to the circle by the right-hand rule.",
       "check": "Field falls as 1/r, and its magnitude is comparable in order to Earth's magnetic field."
     },
     "pitfall": "An Amperian path can always be drawn, but it does not always compute B: without symmetry, the unknown field cannot leave the integral.",
@@ -2734,7 +2734,7 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
       },
       {
         "question": "How does long-wire B change if current doubles and distance triples?",
-        "hint": "B is proportional to I/r.",
+        "hint": "B is proportional to $I/r$.",
         "answer": "It becomes 2/3 of the original field."
       }
     ]
@@ -2743,12 +2743,12 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "10.4",
     "question": "How does magnetic moment turn current into mechanical torque, and why does a magnetic material retain or nearly lose magnetization?",
     "overview": [
-      "A planar current loop has magnetic dipole moment mu = NIA n_hat. In uniform field, net force can vanish while a force pair creates torque tau = mu x B tending to align mu with B. A motor sustains directed torque by switching current or field as rotation proceeds.",
+      "A planar current loop has magnetic dipole moment $\\mu = NIA \\hat{\\mathbf n}$. In uniform field, net force can vanish while a force pair creates torque $\\tau = \\mu \\times B$ tending to align $\\mu$ with B. A motor sustains directed torque by switching current or field as rotation proceeds.",
       "Material response arises from orbital and spin magnetic moments. Diamagnetism opposes applied field, paramagnetic moments weakly align with it, and exchange interaction in a ferromagnet creates collectively ordered domains. Domain-wall motion produces nonlinearity and hysteresis."
     ],
     "conceptExplanations": [
-      "Vector mu follows the current right-hand rule, and its magnitude NIA grows with turn count, current, and area.",
-      "Torque magnitude mu B sin(theta) is greatest at perpendicular orientation and zero when aligned, although aligned states can be stable or unstable.",
+      "Vector $\\mu$ follows the current right-hand rule, and its magnitude $NIA$ grows with turn count, current, and area.",
+      "Torque magnitude $\\mu B \\sin\\theta$ is greatest at perpendicular orientation and zero when aligned, although aligned states can be stable or unstable.",
       "Diamagnetism occurs in all materials, paramagnetism requires uncompensated moments, and ferromagnetism produces spontaneous order below a Curie temperature.",
       "Domains reduce external magnetic energy, while a hysteresis loop shows remanent magnetization and energy loss during a field cycle.",
       "Motor conductor forces create torque, and rotational back emf reflects conversion of electrical into mechanical energy."
@@ -2756,14 +2756,14 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "boundary": "The loop dipole formula assumes loop size small compared with the B variation scale; linear permeability fails near saturation, with hysteresis, and under strong frequency or temperature dependence.",
     "example": {
       "title": "Torque on a multiturn loop",
-      "problem": "A loop has N = 100 turns, area 2.0e-3 m^2 per turn, and current 0.50 A. It lies in B = 0.20 T with a 30 degree angle between loop normal and B. Find mu and torque.",
+      "problem": "A loop has $N = 100$ turns, area $2.0 \\times 10^{-3}\\,\\mathrm{m^2}$ per turn, and current 0.50 A. It lies in $B = 0.20\\,\\mathrm{T}$ with a 30 degree angle between loop normal and B. Find $\\mu$ and torque.",
       "steps": [
-        "mu = NIA = 100 x 0.50 x 2.0e-3 = 0.10 A m^2.",
-        "tau = mu B sin(theta).",
-        "tau = 0.10 x 0.20 x sin(30 degrees) = 1.0e-2 N m."
+        "$\\mu = NIA = 100 \\times 0.50 \\times 2.0 \\times 10^{-3} = 0.10\\,\\mathrm{A} m^2$.",
+        "$\\tau = \\mu B \\sin(\\theta)$.",
+        "$\\tau = 0.10 \\times 0.20 \\times \\sin(30^{\\circ}) = 1.0 \\times 10^{-2}\\,\\mathrm{N m}$."
       ],
-      "answer": "mu = 0.10 A m^2 and tau = 0.010 N m.",
-      "check": "At theta = 0 torque vanishes, while at 90 degrees it would be twice as large."
+      "answer": "$\\mu = 0.10\\,\\mathrm{A} m^2$ and $\\tau = 0.010\\,\\mathrm{N m}$.",
+      "check": "At $\\theta = 0$ torque vanishes, while at 90 degrees it would be twice as large."
     },
     "pitfall": "A ferromagnet in zero external field need not have maximum external magnetization; differently oriented domains can nearly cancel in total.",
     "practice": [
@@ -2774,33 +2774,33 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
       },
       {
         "question": "How does maximum loop torque change if current is tripled?",
-        "hint": "tau_max = N I A B.",
+        "hint": "$\\tau_{\\mathrm{max}} = N I A B$.",
         "answer": "Maximum torque triples."
       }
     ]
   },
   "10.5": {
     "topicId": "10.5",
-    "question": "Why does changing magnetic flux create a circulating electric field, and how does Lenz's law preserve energy balance?",
+    "question": "How do a changing magnetic field and conductor motion produce emf, and how does Lenz's law preserve energy balance?",
     "overview": [
-      "Magnetic flux Phi_B = integral B dot dS counts normal B through an oriented surface. Faraday's law connects its rate of change to circulation of induced E: emf = -dPhi_B/dt. Flux can change through B, area, orientation, or contour motion.",
+      "Magnetic flux $\\Phi_{\\mathrm B}=\\int \\mathbf B\\cdot d\\mathbf S$ counts the normal component of $\\mathbf B$ through an oriented surface. For a fixed contour, Maxwell–Faraday law connects electric-field circulation to a time-varying B: $\\oint \\mathbf E\\cdot d\\mathbf l=-d\\Phi_{\\mathrm B}/dt$. For a moving or deforming conducting loop, total emf includes the magnetic Lorentz term: $\\mathcal E=\\oint(\\mathbf E+\\mathbf u\\times\\mathbf B)\\cdot d\\mathbf l=-d\\Phi_{\\mathrm B}/dt$.",
       "The minus sign is Lenz's law: induced current produces a magnetic effect opposing flux change, not necessarily the original field. A mechanical generator therefore feels opposing torque under load. Closed eddy currents in bulk conductors heat material and create forces; lamination suppresses them, while braking and induction heating exploit them."
     ],
     "conceptExplanations": [
       "Flux depends on selected surface orientation; reversing its normal reverses Phi_B and the consistently associated contour direction.",
-      "Emf is field circulation around a closed path and exists without a metal wire; a conductor merely permits substantial current.",
+      "For a fixed path, transformer emf is electric-field circulation and needs no metal wire; conductor motion adds the $\\mathbf u\\times\\mathbf B$ term, while a wire merely permits substantial current.",
       "Opposition to change does not prevent flux growth: an external agent performs extra work that becomes electrical energy and heat.",
       "Eddy currents flow in bulk loops, so slots and insulated laminations limit loop area and reduce loss.",
       "A generator changes coil flux mechanically and thereby converts mechanical work into electrical energy."
     ],
-    "boundary": "The simple form -N dPhi/dt assumes equal flux through N turns and a defined contour; at high frequency, distributed fields, skin effect, and parasitic capacitance require a full electromagnetic model.",
+    "boundary": "The simple form $-N\\,d\\Phi/dt$ assumes equal flux through N turns and a defined contour; at high frequency, distributed fields, skin effect, and parasitic capacitance require a full electromagnetic model.",
     "example": {
       "title": "Emf amplitude of a rotating coil",
-      "problem": "A coil with N = 200 and turn area 5.0e-3 m^2 rotates at 50 Hz in uniform B = 0.40 T. Its rotation axis is perpendicular to B. Find emf amplitude.",
+      "problem": "A coil with $N = 200$ and turn area $5.0 \\times 10^{-3}\\,\\mathrm{m^2}$ rotates at 50 Hz in uniform $B = 0.40\\,\\mathrm{T}$. Its rotation axis is perpendicular to B. Find emf amplitude.",
       "steps": [
-        "Flux linkage N Phi = NBA cos(omega t), so emf amplitude is N B A omega.",
-        "omega = 2 pi f = 314 rad/s.",
-        "emf_max = 200 x 0.40 x 5.0e-3 x 314 = 126 V."
+        "Flux linkage is $N\\Phi_{\\mathrm B} = NBA \\cos(\\omega t)$, so the flux rule gives $\\mathcal E_{\\mathrm{max}}=NBA\\omega$.",
+        "$\\omega = 2 \\pi f = 314\\,\\mathrm{rad/s}$.",
+        "$\\mathcal E_{\\mathrm{max}} = 200 \\times 0.40 \\times 5.0 \\times 10^{-3} \\times 314 = 126\\,\\mathrm{V}$."
       ],
       "answer": "Emf amplitude is approximately 126 V.",
       "check": "Doubling rotation frequency would double flux-change rate and emf amplitude."
@@ -2814,8 +2814,8 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
       },
       {
         "question": "One-turn flux falls uniformly from 8 to 2 mWb in 0.030 s. Find average emf magnitude.",
-        "hint": "Use |Delta Phi|/Delta t.",
-        "answer": "|emf| = 6.0e-3/0.030 = 0.20 V."
+        "hint": "Use $|\\Delta\\Phi|/\\Delta t$.",
+        "answer": "$|\\mathcal E| = 6.0 \\times 10^{-3}/0.030 = 0.20\\,\\mathrm{V}$."
       }
     ]
   },
@@ -2823,39 +2823,39 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "10.6",
     "question": "How does inductance store energy, delay current change, and create frequency resonance with capacitance?",
     "overview": [
-      "Changing a coil's own current changes linked magnetic flux and creates self-induced emf opposing that change. For a linear coil, flux linkage is LI, voltage is related to L dI/dt, and magnetic-field energy is LI^2/2. In an RL circuit, current changes on scale L/R.",
-      "In an ideal LC circuit, energy alternates between capacitor electric field and coil magnetic field at omega0 = 1/sqrt(LC). Resistance dissipates energy and limits RLC resonance. Reactive elements create phase shifts in AC. A transformer uses shared alternating flux to raise voltage while lowering current at approximately conserved power."
+      "Changing a coil's own current changes linked magnetic flux and creates self-induced emf opposing that change. For a linear coil, flux linkage is LI, voltage is related to $L\\,dI/dt$, and magnetic-field energy is $LI^2/2$. In an RL circuit, current changes on scale $L/R$.",
+      "In an ideal LC circuit, energy alternates between capacitor electric field and coil magnetic field at $\\omega_{0} = 1/\\sqrt{LC}$. Resistance dissipates energy and limits RLC resonance. Reactive elements create phase shifts in AC. A transformer uses shared alternating flux to raise voltage while lowering current at approximately conserved power."
     ],
     "conceptExplanations": [
       "Inductance depends on geometry and magnetic medium; ideal finite L forbids an instantaneous current jump without infinite voltage.",
       "An RL transient approaches steady current, while an ideal LC circuit oscillates; real resistance turns free oscillation into decay.",
-      "In a series RLC circuit at omega L = 1/(omega C), reactive voltages cancel in the sum and impedance is minimal, although each voltage may be large.",
+      "In a series RLC circuit at $\\omega L = 1/(\\omega C)$, reactive voltages cancel in the sum and impedance is minimal, although each voltage may be large.",
       "Resistor current and voltage are in phase, ideal-L current lags, and ideal-C current leads; total angle follows the combined impedance.",
-      "An ideal transformer obeys V2/V1 = N2/N1 and I2/I1 = N1/N2; steady DC after the transient creates no changing flux and is not transformed."
+      "An ideal transformer obeys $V_{2}/V_{1} = N_{2}/N_{1}$ and $I_{2}/I_{1} = N_{1}/N_{2}$; steady DC after the transient creates no changing flux and is not transformed."
     ],
     "boundary": "Ideal RLC and transformer formulas assume linear lumped elements, sinusoidal operation, and weak parasitics; core saturation, loss, leakage flux, and high-frequency radiation alter response.",
     "example": {
       "title": "Series RLC resonance",
-      "problem": "A series circuit has L = 0.10 H, C = 100 microF, and R = 10 ohm. Find ideal resonance frequency and estimate Q = omega0 L/R.",
+      "problem": "A series circuit has $L = 0.10\\,\\mathrm{H}$, $C = 100\\,\\mu\\mathrm{F}$, and $R = 10\\,\\Omega$. Find ideal resonance frequency and estimate $Q = \\omega_{0} L/R$.",
       "steps": [
-        "omega0 = 1/sqrt(LC) = 1/sqrt(0.10 x 100e-6) = 316 rad/s.",
-        "f0 = omega0/(2 pi) = 50.3 Hz.",
-        "Q = omega0 L/R = 316 x 0.10/10 = 3.16."
+        "$\\omega_{0} = 1/\\sqrt{LC} = 1/\\sqrt{0.10 \\times 100 \\times 10^{-6}} = 316\\,\\mathrm{rad/s}$.",
+        "$f_{0} = \\omega_{0}/(2 \\pi) = 50.3\\,\\mathrm{Hz}$.",
+        "$Q = \\omega_{0} L/R = 316 \\times 0.10/10 = 3.16$."
       ],
-      "answer": "f0 = 50.3 Hz and Q is about 3.16.",
+      "answer": "$f_{0} = 50.3\\,\\mathrm{Hz}$ and Q is about 3.16.",
       "check": "LC has units s^2, and increasing R lowers Q without changing ideal f0."
     },
     "pitfall": "Resonance does not mean zero voltage on L and C: their sum can cancel while each voltage is large.",
     "practice": [
       {
         "question": "Why can opening a circuit with a large inductance create high voltage?",
-        "hint": "The coil opposes rapid current change through L dI/dt.",
+        "hint": "The coil opposes rapid current change through $L\\,dI/dt$.",
         "answer": "Trying to force current rapidly to zero creates a large self-induced emf, enough for a spark or breakdown without a protective path."
       },
       {
-        "question": "An ideal transformer has N2/N1 = 5 and V1 = 24 V. Find V2.",
-        "hint": "V2/V1 = N2/N1.",
-        "answer": "V2 = 120 V."
+        "question": "An ideal transformer has $N_{2}/N_{1} = 5$ and $V_{1} = 24\\,\\mathrm{V}$. Find V2.",
+        "hint": "$V_{2}/V_{1} = N_{2}/N_{1}$.",
+        "answer": "$V_{2} = 120\\,\\mathrm{V}$."
       }
     ]
   },
@@ -2864,29 +2864,29 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "question": "How do four field laws predict a wave that propagates through vacuum and transports energy?",
     "overview": [
       "Maxwell's equations connect electric flux to charge, exclude net magnetic charge in the classical field, connect circulating E to changing magnetic flux, and connect circulating B to current plus changing electric flux. Displacement current makes Ampere's law consistent with charge conservation, including between charging capacitor plates.",
-      "In free space, changing E and B satisfy wave equations with speed c = 1/sqrt(mu0 epsilon0). In a plane wave, fields are mutually perpendicular and transverse to propagation, with B = E/c. Frequency selects the spectrum band, but every vacuum component has the same speed; the Poynting vector gives energy flux."
+      "In free space, changing E and B satisfy wave equations with speed $c = 1/\\sqrt{\\mu_{0} \\varepsilon_{0}}$. In a plane wave, fields are mutually perpendicular and transverse to propagation, with $B = E/c$. Frequency selects the spectrum band, but every vacuum component has the same speed; the Poynting vector gives energy flux."
     ],
     "conceptExplanations": [
       "Two equations describe sources through fluxes and two describe field circulation under changing flux of the other field; with Lorentz force they form classical electrodynamics.",
-      "The term epsilon0 dPhi_E/dt produces magnetic circulation where no conduction current crosses a selected surface, preserving surface-independent results.",
+      "The term $\\varepsilon_0\\,d\\Phi_{\\mathrm E}/dt$ produces magnetic circulation where no conduction current crosses a selected surface, preserving surface-independent results.",
       "Self-sustaining does not mean a time-ordered chain E then B then E at one point; both fields are one joint solution with boundary conditions.",
-      "The values mu0 and epsilon0 determine classical vacuum wave speed, and c is also the invariant limiting speed in special relativity.",
+      "The values $\\mu_0$ and $\\varepsilon_0$ determine classical vacuum wave speed, and c is also the invariant limiting speed in special relativity.",
       "Radio, microwave, infrared, visible, ultraviolet, X-ray, and gamma radiation differ in frequency and matter interaction, not in vacuum-field nature.",
-      "S = E cross H points along energy transport, and its surface integral gives electromagnetic power crossing that surface."
+      "$\\mathbf S=\\mathbf E\\times\\mathbf H$ points along energy transport, and its surface integral gives electromagnetic power crossing that surface."
     ],
-    "boundary": "B = E/c and mean S = epsilon0 c E0^2/2 describe a sinusoidal plane wave in vacuum; antenna near fields, guiding media, dispersion, and absorption require different geometry and material relations.",
+    "boundary": "$B = E/c$ and $\\langle S\\rangle = \\varepsilon_{0} c E_{0}^2/2$ describe a sinusoidal plane wave in vacuum; antenna near fields, guiding media, dispersion, and absorption require different geometry and material relations.",
     "example": {
       "title": "Fields and intensity of a plane wave",
-      "problem": "A sinusoidal plane wave in vacuum has electric amplitude E0 = 300 V/m. Find B0 and mean intensity. Use c = 2.998e8 m/s and epsilon0 = 8.854e-12 F/m.",
+      "problem": "A sinusoidal plane wave in vacuum has electric amplitude $E_{0} = 300\\,\\mathrm{V}/m$. Find B0 and mean intensity. Use $c = 2.998 \\times 10^{8}\\,\\mathrm{m/s}$ and $\\varepsilon_{0} = 8.854 \\times 10^{-12}\\,\\mathrm{F/m}$.",
       "steps": [
-        "B0 = E0/c = 300/2.998e8 = 1.00e-6 T.",
-        "Mean intensity is <S> = epsilon0 c E0^2/2.",
-        "Substitution gives <S> approximately 119 W/m^2."
+        "$B_{0} = E_{0}/c = 300/(2.998 \\times 10^{8}) = 1.00 \\times 10^{-6}\\,\\mathrm{T}$.",
+        "Mean intensity is $\\langle S\\rangle = \\varepsilon_{0} c E_{0}^2/2$.",
+        "Substitution gives $\\langle S\\rangle\\approx119\\,\\mathrm{W/m^2}$."
       ],
-      "answer": "B0 is about 1.00 microT and mean intensity about 119 W/m^2.",
-      "check": "E0/B0 equals c, and E cross B points along propagation."
+      "answer": "$B_0 \\approx 1.00\\,\\mu\\mathrm{T}$ and mean intensity is about $119\\,\\mathrm{W/m^2}$.",
+      "check": "$E_0/B_0$ equals c, and $\\mathbf E\\times\\mathbf B$ points along propagation."
     },
-    "pitfall": "An electromagnetic wave needs no material medium; mu0 and epsilon0 in the vacuum formula are not mechanical properties of an ether.",
+    "pitfall": "An electromagnetic wave needs no material medium; $\\mu_0$ and $\\varepsilon_0$ in the vacuum formula are not mechanical properties of an ether.",
     "practice": [
       {
         "question": "Why is displacement current needed in a charging-capacitor gap?",
@@ -2895,8 +2895,8 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
       },
       {
         "question": "What is the vacuum wavelength of a 100 MHz radio signal?",
-        "hint": "Use lambda = c/f.",
-        "answer": "lambda = 2.998e8/1.00e8, approximately 3.00 m."
+        "hint": "Use $\\lambda = c/f$.",
+        "answer": "$\\lambda = \\frac{2.998 \\times 10^{8}}{1.00 \\times 10^{8}} \\approx 3.00\\,\\mathrm{m}$."
       }
     ]
   },
@@ -2908,11 +2908,11 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
       "At a stationary smooth reflector, reflection angle equals incidence angle, both measured from the normal. Backward extensions of reflected rays from a plane mirror meet at a virtual image behind it. More generally, a physical ray makes optical travel time stationary under nearby path variations; a stationary value may be a minimum, maximum, or saddle."
     ],
     "conceptExplanations": [
-      "Straight propagation is the short-wavelength limit of wave propagation; near an edge on the lambda scale, diffraction smooths the sharp geometrical boundary.",
+      "Straight propagation is the short-wavelength limit of wave propagation; near an edge on the $\\lambda$ scale, diffraction smooths the sharp geometrical boundary.",
       "A point source gives an ideal sharp shadow, while every point of an extended source produces its own boundary and their sum makes a penumbra.",
       "Tangential phase matching and reversibility give equal angles relative to the local normal, not relative to the surface.",
       "A plane mirror forms an upright virtual image of equal transverse size at equal perpendicular distance behind the plane.",
-      "The condition delta integral(n ds) = 0 selects a stationary optical path; 'light always takes the fastest path' is not generally correct."
+      "The condition $\\delta \\int n ds = 0$ selects a stationary optical path; 'light always takes the fastest path' is not generally correct."
     ],
     "boundary": "Geometrical optics requires wavelength much smaller than apertures and medium-variation radii; rough surfaces, diffraction, and coherent interference require a wave model, while Fermat's principle concerns stationary admissible path variations.",
     "example": {
@@ -2921,10 +2921,10 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
       "steps": [
         "Extend reflected rays backward behind the mirror; their extensions meet at the point symmetric to the object.",
         "The image is 0.75 m behind the mirror and is virtual.",
-        "Object-image separation is 0.75 + 0.75 = 1.50 m."
+        "Object-image separation is $0.75 + 0.75 = 1.50\\,\\mathrm{m}$."
       ],
       "answer": "The virtual image is 0.75 m behind the mirror, separated from the object by 1.50 m.",
-      "check": "If the object approaches by Delta x, its image symmetrically approaches by Delta x and their separation falls by 2 Delta x."
+      "check": "If the object approaches by $\\Delta x$, its image symmetrically approaches by $\\Delta x$ and their separation falls by 2 $\\Delta x$."
     },
     "pitfall": "A virtual image is not on the mirror surface: the eye locates it where backward ray extensions meet behind the mirror.",
     "practice": [
@@ -2944,11 +2944,11 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "11.2",
     "question": "Why does a ray turn at a boundary, how does dispersion separate colors, and when does light remain entirely inside a medium?",
     "overview": [
-      "Light phase speed in linear matter is usually below c and depends on frequency; n = c/v_ph characterizes it at a stated frequency. Phase continuity at a stationary boundary preserves frequency and gives Snell's law n1 sin(theta1) = n2 sin(theta2), with angles measured from the normal.",
-      "Frequency dependence of n is dispersion and sends spectral components along different directions, producing a prism spectrum and contributing with internal reflection to a rainbow. From larger n to smaller n, incidence above theta_c = arcsin(n2/n1) removes the propagating refracted wave and gives total internal reflection with an evanescent outside field."
+      "Light phase speed in linear matter is usually below c and depends on frequency; $n=c/v_{\\mathrm{ph}}$ characterizes it at a stated frequency. Phase continuity at a stationary boundary preserves frequency and gives Snell's law $n_{1} \\sin(\\theta_{1}) = n_{2} \\sin(\\theta_{2})$, with angles measured from the normal.",
+      "Frequency dependence of n is dispersion and sends spectral components along different directions, producing a prism spectrum and contributing with internal reflection to a rainbow. From larger n to smaller n, incidence above $\\theta_{\\mathrm{c}} = \\arcsin(n_{2}/n_{1})$ removes the propagating refracted wave and gives total internal reflection with an evanescent outside field."
     ],
     "conceptExplanations": [
-      "The speed v_ph = c/n belongs to phase in matter; momentum, energy, and short-signal propagation require group velocity, dispersion, and absorption.",
+      "The speed $v_{\\mathrm{ph}} = c/n$ belongs to phase in matter; momentum, energy, and short-signal propagation require group velocity, dispersion, and absorption.",
       "Snell's law applies to one frequency and angles from the normal; entering larger n bends a ray toward the normal.",
       "Index may be complex and frequency-dependent; its imaginary part describes absorption absent from a simple ray diagram.",
       "Under normal dispersion, shorter visible wavelengths often have larger n, but rainbow shape also follows droplet geometry and deviation angle, not only white-light splitting.",
@@ -2957,11 +2957,11 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "boundary": "Simple Snell's law assumes a planar stationary boundary between homogeneous isotropic media at one frequency; anisotropy, absorption, metamaterials, and wavelength-scale structures require a polarized wave model.",
     "example": {
       "title": "Refraction and glass critical angle",
-      "problem": "A ray from air strikes glass of n = 1.50 at 30 degrees from normal. Find its glass angle and the critical angle for the reverse glass-to-air path, with n_air = 1.00.",
+      "problem": "A ray from air strikes glass of $n = 1.50$ at 30 degrees from normal. Find its glass angle and the critical angle for the reverse glass-to-air path, with $n_{\\mathrm{air}} = 1.00$.",
       "steps": [
-        "Snell's law gives sin(theta2) = 1.00 sin(30 degrees)/1.50 = 1/3, so theta2 = 19.5 degrees.",
-        "At critical incidence the refracted ray follows the boundary: sin(theta_c) = n_air/n_glass = 2/3.",
-        "theta_c = 41.8 degrees."
+        "Snell's law gives $\\sin(\\theta_{2}) = 1.00 \\sin(30^{\\circ})/1.50 = 1/3$, so $\\theta_{2} = 19.5^{\\circ}$.",
+        "At critical incidence the refracted ray follows the boundary: $\\sin\\theta_{\\mathrm c}=n_{\\mathrm{air}}/n_{\\mathrm{glass}}=2/3$.",
+        "$\\theta_{\\mathrm{c}} = 41.8^{\\circ}$."
       ],
       "answer": "Refraction angle is 19.5 degrees and glass-to-air critical angle is 41.8 degrees.",
       "check": "On entering larger n the ray bent toward normal; total internal reflection is possible only from glass toward air."
@@ -2971,12 +2971,12 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
       {
         "question": "Does monochromatic-light frequency change at a stationary boundary?",
         "hint": "Fields on both sides must share one time phase at the boundary.",
-        "answer": "Frequency remains fixed; phase speed and wavelength lambda = v_ph/f change."
+        "answer": "Frequency remains fixed; phase speed and wavelength $\\lambda=v_{\\mathrm{ph}}/f$ change."
       },
       {
-        "question": "What is phase speed in a medium of n = 1.60 for c = 3.00e8 m/s?",
-        "hint": "Use v_ph = c/n.",
-        "answer": "v_ph = 1.875e8 m/s."
+        "question": "What is phase speed in a medium of $n = 1.60$ for $c = 3.00 \\times 10^{8}\\,\\mathrm{m/s}$?",
+        "hint": "Use $v_{\\mathrm{ph}} = c/n$.",
+        "answer": "$v_{\\mathrm{ph}} = 1.875 \\times 10^{8}\\,\\mathrm{m/s}$."
       }
     ]
   },
@@ -2985,38 +2985,38 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "question": "How does mirror or lens curvature connect object position to image position, orientation, and scale?",
     "overview": [
       "A spherical mirror redirects rays by reflection from different local normals. A thin lens approximates two refractions by one direction change at its principal plane. A converging system brings a parallel bundle to a real focus, while a diverging system makes a bundle appear to originate from a virtual focus.",
-      "Under a consistent sign convention, a paraxial thin lens obeys 1/f = 1/d_o + 1/d_i, with transverse magnification M = h_i/h_o = -d_i/d_o. Positive d_i commonly denotes a real image on the opposite side and negative d_i a virtual one. Ray diagrams check signs and give geometric meaning to calculation."
+      "Under a consistent sign convention, a paraxial thin lens obeys $1/f = 1/d_{\\mathrm{o}} + 1/d_{\\mathrm{i}}$, with transverse magnification $M = h_{\\mathrm{i}}/h_{\\mathrm{o}} = -d_{\\mathrm{i}}/d_{\\mathrm{o}}$. Positive $d_i$ commonly denotes a real image on the opposite side and negative $d_i$ a virtual one. Ray diagrams check signs and give geometric meaning to calculation."
     ],
     "conceptExplanations": [
       "In the paraxial approximation, a spherical mirror focuses near R/2; rays far from the axis create spherical aberration.",
       "Positive power of a converging lens and negative power of a diverging lens depend on surrounding medium and surfaces; geometry alone does not guarantee the sign in every medium.",
       "Three useful rays—parallel, focal, and through the thin-lens optical center—locate an image in the approximate diagram.",
       "The thin-lens equation requires axial distances and one sign convention; mixing signed distances with unsigned magnitudes creates false answers.",
-      "The minus in M = -d_i/d_o records inversion for ordinary positive d_o and d_i, while |M| is the size ratio."
+      "The minus in $M = -d_{\\mathrm{i}}/d_{\\mathrm{o}}$ records inversion for ordinary positive $d_o$ and $d_i$, while $|M|$ is the size ratio."
     ],
     "boundary": "The thin paraxial model requires lens thickness and aperture small relative to characteristic distances, near-axis rays, and weak aberrations; a wide-angle or thick system needs transfer matrices or surface ray tracing.",
     "example": {
       "title": "Image from a converging lens",
-      "problem": "A thin converging lens has f = +0.10 m. An object is at d_o = +0.30 m. Find d_i and magnification under the stated convention.",
+      "problem": "A thin converging lens has $f = +0.10\\,\\mathrm{m}$. An object is at $d_{\\mathrm{o}} = +0.30\\,\\mathrm{m}$. Find $d_i$ and magnification under the stated convention.",
       "steps": [
-        "1/d_i = 1/f - 1/d_o = 10 - 3.333 = 6.667 1/m.",
-        "d_i = +0.150 m, so the image is real and lies beyond the lens.",
-        "M = -d_i/d_o = -0.150/0.30 = -0.50."
+        "$1/d_{\\mathrm{i}} = 1/f - 1/d_{\\mathrm{o}} = 10 - 3.333 = 6.667 1/m$.",
+        "$d_{\\mathrm{i}} = +0.150\\,\\mathrm{m}$, so the image is real and lies beyond the lens.",
+        "$M = -d_{\\mathrm{i}}/d_{\\mathrm{o}} = -0.150/0.30 = -0.50$."
       ],
-      "answer": "d_i = +0.150 m and M = -0.50: the image is real, inverted, and half-size.",
+      "answer": "$d_{\\mathrm{i}} = +0.150\\,\\mathrm{m}$ and $M = -0.50$: the image is real, inverted, and half-size.",
       "check": "An object beyond 2f should form a reduced image between f and 2f, matching the calculation."
     },
     "pitfall": "A focus is not a point traversed by every ray; in an ideal system it receives a paraxial bundle parallel to the corresponding axis.",
     "practice": [
       {
         "question": "What image does a converging lens form for an object inside focal distance?",
-        "hint": "The equation gives d_i < 0.",
+        "hint": "The equation gives $d_i<0$.",
         "answer": "The image is virtual, upright, and usually enlarged; outgoing diverging rays meet only when extended backward."
       },
       {
-        "question": "For f = +20 cm and d_o = +60 cm, find d_i.",
-        "hint": "Use 1/d_i = 1/f - 1/d_o.",
-        "answer": "1/d_i = 1/20 - 1/60 = 1/30 cm^-1, so d_i = +30 cm."
+        "question": "For $f = +20\\,\\mathrm{cm}$ and $d_{\\mathrm{o}} = +60\\,\\mathrm{cm}$, find $d_i$.",
+        "hint": "Use $1/d_{\\mathrm{i}} = 1/f - 1/d_{\\mathrm{o}}$.",
+        "answer": "$1/d_{\\mathrm{i}} = 1/20 - 1/60 = 1/30\\,\\mathrm{cm}^-1$, so $d_{\\mathrm{i}} = +30\\,\\mathrm{cm}$."
       }
     ]
   },
@@ -3030,21 +3030,21 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "conceptExplanations": [
       "The optics creates an irradiance distribution on a photosensitive surface, while brain or electronics interprets it; the retina is not a screen containing completed perception.",
       "Accommodation changes distance focus; myopia commonly needs a diverging correction and hyperopia a converging correction for the relevant viewing range.",
-      "F-number N = f/D connects focal length and entrance-pupil diameter; stopping down reduces light and geometrical blur, but too small D broadens diffraction.",
+      "F-number $N = f/D$ connects focal length and entrance-pupil diameter; stopping down reduces light and geometrical blur, but too small D broadens diffraction.",
       "Angular magnification compares angles subtended with and without an instrument, not merely linear size of an intermediate image.",
       "Spherical and chromatic aberration, coma, and astigmatism depend on field and spectrum; combining surfaces and materials reduces them but not with one adjustment for all conditions."
     ],
     "boundary": "The thin-lens instrument scheme is a paraxial monochromatic approximation; real image quality needs a point-spread function including diffraction, aberrations, pixel size, motion, and signal processing.",
     "example": {
       "title": "Refocusing a camera from infinity",
-      "problem": "A thin objective has f = 50.0 mm. How far behind it should a sensor be for an object at 2.00 m, and how much farther is that than infinity focus?",
+      "problem": "A thin objective has $f = 50.0\\,\\mathrm{mm}$. How far behind it should a sensor be for an object at 2.00 m, and how much farther is that than infinity focus?",
       "steps": [
-        "In metres, 1/d_i = 1/0.0500 - 1/2.00 = 19.5 1/m.",
-        "d_i = 0.05128 m = 51.28 mm.",
-        "At infinity, d_i = f = 50.00 mm, so the sensor moves 1.28 mm farther away."
+        "In metres, $1/d_{\\mathrm{i}} = 1/0.0500 - 1/2.00 = 19.5 1/m$.",
+        "$d_{\\mathrm{i}} = 0.05128\\,\\mathrm{m} = 51.28\\,\\mathrm{mm}$.",
+        "At infinity, $d_{\\mathrm{i}} = f = 50.00\\,\\mathrm{mm}$, so the sensor moves 1.28 mm farther away."
       ],
-      "answer": "d_i = 51.28 mm, a 1.28 mm shift from infinity focus.",
-      "check": "A nearer object requires greater image distance, consistent with d_i > f."
+      "answer": "$d_{\\mathrm{i}} = 51.28\\,\\mathrm{mm}$, a 1.28 mm shift from infinity focus.",
+      "check": "A nearer object requires greater image distance, consistent with $d_i>f$."
     },
     "pitfall": "Stopping down does not improve sharpness without limit: after reducing geometrical aberration, diffraction dominates and the signal becomes weaker.",
     "practice": [
@@ -3054,9 +3054,9 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
         "answer": "The eyepiece enlarges angles, but the finite objective already removed excessively high spatial frequencies; empty magnification cannot restore detail."
       },
       {
-        "question": "An ideal astronomical telescope has f_objective = 800 mm and f_eyepiece = 20 mm. Find angular-magnification magnitude.",
-        "hint": "For normal adjustment, |M_theta| = f_objective/f_eyepiece.",
-        "answer": "|M_theta| = 40."
+        "question": "An ideal astronomical telescope has $f_{\\mathrm{objective}} = 800\\,\\mathrm{mm}$ and $f_{\\mathrm{eyepiece}} = 20\\,\\mathrm{mm}$. Find angular-magnification magnitude.",
+        "hint": "For normal adjustment, $|M_\\theta|=f_{\\mathrm{objective}}/f_{\\mathrm{eyepiece}}$.",
+        "answer": "$|M_{\\theta}| = 40$."
       }
     ]
   },
@@ -3064,27 +3064,27 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "11.5",
     "question": "How do finite coherence and aperture produce interference fringes, diffraction spots, and a practical resolution limit?",
     "overview": [
-      "Interference requires a stable phase difference over observation. In a double slit, indistinguishable coherent paths add by amplitude and far-field maxima obey d sin(theta_m) = m lambda. A broad source or spectrum averages different phases and reduces fringe visibility.",
-      "Every finite aperture diffracts: a smaller transverse dimension produces a wider angular distribution. A many-slit grating gives narrow principal maxima, while a circular aperture gives an Airy pattern. The Rayleigh value theta approximately 1.22 lambda/D is a useful convention for distinguishing two equal points, not an absolute ban for every estimation method."
+      "Interference requires a stable phase difference over observation. In a double slit, indistinguishable coherent paths add by amplitude and far-field maxima obey $d \\sin(\\theta_{\\mathrm{m}}) = m \\lambda$. A broad source or spectrum averages different phases and reduces fringe visibility.",
+      "Every finite aperture diffracts: a smaller transverse dimension produces a wider angular distribution. A many-slit grating gives narrow principal maxima, while a circular aperture gives an Airy pattern. The Rayleigh value $\\theta\\approx1.22\\lambda/D$ is a useful convention for distinguishing two equal points, not an absolute ban for every estimation method."
     ],
     "conceptExplanations": [
       "Temporal coherence limits allowed path difference through spectral width, while spatial coherence measures phase consistency across wavefront positions.",
-      "Double-slit fringe locations follow path difference d sin(theta), while finite width of each slit multiplies fringes by a diffraction envelope.",
+      "Double-slit fringe locations follow path difference d $\\sin\\theta$, while finite width of each slit multiplies fringes by a diffraction envelope.",
       "One slit gives a broad structure and many grating slits reinforce phase-matched directions; spectral resolving power grows with illuminated groove count and order.",
-      "Reducing aperture increases angular width approximately as lambda/D even if a geometrical ray picture predicts a finer point.",
+      "Reducing aperture increases angular width approximately as $\\lambda/D$ even if a geometrical ray picture predicts a finer point.",
       "Under Rayleigh, one Airy maximum coincides with the other's first minimum; noise, contrast, prior model, and processing change practical distinguishability."
     ],
-    "boundary": "The formula d sin(theta_m) = m lambda requires monochromatic coherent slits and a far field or focal plane; 1.22 lambda/D applies to a uniformly illuminated circular aperture and a chosen resolution criterion.",
+    "boundary": "The formula $d \\sin(\\theta_{\\mathrm{m}}) = m \\lambda$ requires monochromatic coherent slits and a far field or focal plane; 1.22 $\\lambda/D$ applies to a uniformly illuminated circular aperture and a chosen resolution criterion.",
     "example": {
       "title": "Double-slit fringe spacing",
-      "problem": "Two narrow slits are separated by d = 0.250 mm, wavelength is 500 nm, and a screen is L = 2.00 m away. Find adjacent-maxima spacing at small angles.",
+      "problem": "Two narrow slits are separated by $d = 0.250\\,\\mathrm{mm}$, wavelength is 500 nm, and a screen is $L = 2.00\\,\\mathrm{m}$ away. Find adjacent-maxima spacing at small angles.",
       "steps": [
-        "At small angle, y_m approximately L sin(theta_m), so y_m approximately m lambda L/d.",
-        "Spacing is Delta y = lambda L/d.",
-        "Delta y = 500e-9 x 2.00/(0.250e-3) = 4.00e-3 m."
+        "At small angle, $y_m\\approx L\\sin\\theta_m$, so y_m approximately $m\\lambda L/d$.",
+        "Spacing is $\\Delta y = \\lambda L/d$.",
+        "$\\Delta y = 500 \\times 10^{-9} \\times 2.00/(0.250 \\times 10^{-3}) = 4.00 \\times 10^{-3}\\,\\mathrm{m}$."
       ],
       "answer": "Adjacent maxima are about 4.00 mm apart.",
-      "check": "Larger d compresses fringes, while larger lambda or L expands them, as the formula predicts."
+      "check": "Larger d compresses fringes, while larger $\\lambda$ or L expands them, as the formula predicts."
     },
     "pitfall": "Diffraction is not only bending at a geometrical edge: the whole complex wavefront across a finite aperture contributes to the far pattern.",
     "practice": [
@@ -3094,9 +3094,9 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
         "answer": "Their relative phase changes rapidly and randomly, so the cross-interference term averages nearly to zero."
       },
       {
-        "question": "Estimate Rayleigh angle for D = 0.050 m and lambda = 550 nm.",
-        "hint": "Use theta = 1.22 lambda/D.",
-        "answer": "theta is approximately 1.34e-5 rad, or about 2.8 arcseconds."
+        "question": "Estimate Rayleigh angle for $D = 0.050\\,\\mathrm{m}$ and $\\lambda = 550\\,\\mathrm{nm}$.",
+        "hint": "Use $\\theta = 1.22 \\lambda/D$.",
+        "answer": "$\\theta \\approx 1.34 \\times 10^{-5}\\,\\mathrm{rad}$, or about 2.8 arcseconds."
       }
     ]
   },
@@ -3104,24 +3104,24 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "topicId": "11.6",
     "question": "How do oscillation direction, spectrum, and Doppler shift let us control light and infer matter composition and motion?",
     "overview": [
-      "Polarization describes orientation of transverse electric field. An ideal linear polarizer selects one component, and an analyzer at angle theta transmits I = I0 cos^2(theta) for already linearly polarized input. Phase delay between orthogonal components creates elliptical and circular polarization.",
+      "Polarization describes orientation of transverse electric field. An ideal linear polarizer selects one component, and an analyzer at angle $\\theta$ transmits $I = I_{0} \\cos^2(\\theta)$ for already linearly polarized input. Phase delay between orthogonal components creates elliptical and circular polarization.",
       "Color perception follows light spectrum, cone response, and visual processing, so distinct spectra can look identical. Atomic and molecular levels create characteristic absorption and emission lines. Their pattern indicates composition and conditions, while relative line shift reveals radial motion under an appropriate Doppler model."
     ],
     "conceptExplanations": [
-      "Unpolarized light has randomly varying transverse-field direction, linear polarization fixes an axis, and circular polarization needs equal orthogonal components separated by phase pi/2.",
+      "Unpolarized light has randomly varying transverse-field direction, linear polarization fixes an axis, and circular polarization needs equal orthogonal components separated by phase $\\pi/2$.",
       "Malus's law applies to an ideal analyzer and linearly polarized input; a first polarizer transmits half the mean intensity of ideal unpolarized light.",
       "Additive mixing of light differs from subtractive pigment mixing, and metamerism shows that one perceived color may come from different spectra.",
       "Continuous, line, and band spectra reflect source and light-matter interaction; line width also carries information about temperature, collisions, and motion.",
       "Matching laboratory wavelengths to observed ones identifies elements and molecules, while systematic redshift or blueshift estimates line-of-sight motion."
     ],
-    "boundary": "Malus's law requires ideal linear polarizers and a known input state; Delta lambda/lambda = v_r/c requires |v_r| much less than c and line-of-sight motion, while strong fields, pressure, and cosmological expansion can shift or broaden lines differently.",
+    "boundary": "Malus's law requires ideal linear polarizers and a known input state; $\\Delta \\lambda/\\lambda = v_{\\mathrm{r}}/c$ requires |v_r| much less than c and line-of-sight motion, while strong fields, pressure, and cosmological expansion can shift or broaden lines differently.",
     "example": {
       "title": "Intensity after an analyzer",
       "problem": "A linearly polarized beam of intensity 100 W/m^2 reaches an ideal analyzer whose axis is 60 degrees from the polarization direction. Find output intensity.",
       "steps": [
-        "For linearly polarized input, use I = I0 cos^2(theta).",
-        "cos(60 degrees) = 0.5, so cos^2 = 0.25.",
-        "I = 100 x 0.25 = 25 W/m^2."
+        "For linearly polarized input, use $I = I_{0} \\cos^2(\\theta)$.",
+        "$\\cos(60^{\\circ}) = 0.5$, so $\\cos^2(60^{\\circ}) = 0.25$.",
+        "$I = 100 \\times 0.25 = 25\\,\\mathrm{W/m^2}$."
       ],
       "answer": "The analyzer transmits 25 W/m^2.",
       "check": "At 0 degrees all ideal input passes and at 90 degrees none passes; this result lies between."
@@ -3130,13 +3130,13 @@ export const lessonDetails: Record<string, TopicLessonDetail> = {
     "practice": [
       {
         "question": "Why do crossed ideal polarizers transmit almost no linearly polarized light?",
-        "hint": "Set theta = 90 degrees in Malus's law.",
-        "answer": "Electric-field projection on the second axis is zero, so ideal intensity cos^2(90 degrees) is zero."
+        "hint": "Set $\\theta = 90^{\\circ}$ in Malus's law.",
+        "answer": "Electric-field projection on the second axis is zero, so ideal intensity $\\cos^2(90^{\\circ})$ is zero."
       },
       {
-        "question": "A 600.0 nm line is observed at 600.2 nm. Estimate small radial speed using c = 3.00e8 m/s.",
-        "hint": "For a small shift, v_r/c is approximately Delta lambda/lambda.",
-        "answer": "v_r is approximately 3.00e8 x 0.2/600 = 1.00e5 m/s; redshift denotes recession under this convention."
+        "question": "A 600.0 nm line is observed at 600.2 nm. Estimate small radial speed using $c = 3.00 \\times 10^{8}\\,\\mathrm{m/s}$.",
+        "hint": "For a small shift, $v_r/c$ is approximately $\\Delta\\lambda/\\lambda$.",
+        "answer": "v_r is approximately $3.00 \\times 10^{8} \\times 0.2/600 = 1.00 \\times 10^{5}\\,\\mathrm{m/s}$; redshift denotes recession under this convention."
       }
     ]
   },
