@@ -212,7 +212,7 @@ if (!(await mobile.locator('.mobile-sidebar-trigger').evaluate((element) => elem
 await mobile.locator('.mobile-sidebar-trigger').click();
 await mobile.locator('.sidebar-search').click();
 await mobile.locator('.search-dialog__input input').waitFor();
-if (!(await mobile.locator('.search-dialog__input input').evaluate((element) => element === document.activeElement))) throw new Error('Поиск не получил фокус после открытия из мобильного оглавления');
+await mobile.waitForFunction(() => document.activeElement?.matches('.search-dialog__input input'));
 await mobile.keyboard.press('Escape');
 if (!(await mobile.locator('.mobile-sidebar-trigger').evaluate((element) => element === document.activeElement))) throw new Error('Поиск не вернул фокус на кнопку мобильного оглавления');
 await mobile.locator('.mobile-menu-button').click();
